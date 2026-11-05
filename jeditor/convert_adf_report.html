@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Jira HTML to ADF Migration Executive Dashboard</title>
+<style>
+  :root {
+    --primary: #0f172a;
+    --primary-light: #1e293b;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --success: #059669;
+    --success-bg: #ecfdf5;
+    --warning: #d97706;
+    --warning-bg: #fffbeb;
+    --danger: #dc2626;
+    --danger-bg: #fef2f2;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+    --text-muted: #64748b;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: var(--bg); margin: 0; padding: 24px; color: var(--primary); line-height: 1.5; }
+  .container { max-width: 1400px; margin: 0 auto; }
+
+  /* Executive Top Header */
+  .header-card { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #ffffff; border-radius: 12px; padding: 28px 32px; margin-bottom: 24px; box-shadow: 0 4px 16px rgba(15,23,42,0.12); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  .header-left .pill-label { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; background: rgba(255,255,255,0.12); padding: 4px 10px; border-radius: 12px; margin-bottom: 8px; color: #93c5fd; }
+  .header-left h1 { margin: 0; font-size: 26px; font-weight: 800; letter-spacing: -0.5px; display: flex; align-items: center; gap: 12px; }
+  .header-left .subtitle { color: #cbd5e1; font-size: 14px; margin-top: 8px; }
+  .header-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; font-size: 13.5px; font-weight: 600; border-radius: 6px; text-decoration: none; cursor: pointer; transition: all 0.15s; border: 1px solid transparent; }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: var(--accent-hover); }
+  .btn-secondary { background: #fff; color: #334155; border-color: #cbd5e1; }
+  .btn-secondary:hover { background: #f8fafc; border-color: #94a3b8; }
+  .btn-sm { padding: 5px 10px; font-size: 12px; border-radius: 5px; }
+  .btn-header { background: rgba(255,255,255,0.15); color: #fff; border-color: rgba(255,255,255,0.25); }
+  .btn-header:hover { background: rgba(255,255,255,0.25); }
+
+  /* KPI Metrics Grid */
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .kpi-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.03); position: relative; overflow: hidden; }
+  .kpi-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--border); }
+  .kpi-card.accent::before { background: var(--accent); }
+  .kpi-card.success::before { background: var(--success); }
+  .kpi-card.danger::before { background: var(--danger); }
+  .kpi-card.warning::before { background: var(--warning); }
+  .kpi-title { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center; }
+  .kpi-val { font-size: 26px; font-weight: 800; color: var(--primary); font-variant-numeric: tabular-nums; }
+  .kpi-val.success { color: var(--success); }
+  .kpi-val.danger { color: var(--danger); }
+  .kpi-sub { font-size: 12.5px; color: var(--text-muted); margin-top: 6px; font-weight: 500; }
+  .progress-bar { height: 5px; background: #f1f5f9; border-radius: 3px; overflow: hidden; margin-top: 8px; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, #10b981, #059669); border-radius: 3px; }
+
+  /* Segmented Tab Controls */
+  .tabs-nav { display: flex; gap: 6px; border-bottom: 2px solid var(--border); margin-bottom: 20px; }
+  .tab-btn { background: none; border: none; padding: 12px 20px; font-size: 14.5px; font-weight: 600; color: var(--text-muted); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; display: flex; align-items: center; gap: 8px; transition: all 0.15s; }
+  .tab-btn:hover { color: var(--primary); }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 700; }
+  .tab-badge { background: #f1f5f9; color: #475569; font-size: 11.5px; font-weight: 700; padding: 2px 8px; border-radius: 12px; }
+  .tab-btn.active .tab-badge { background: #dbeafe; color: #1e40af; }
+  .tab-badge.alert { background: #fee2e2; color: #991b1b; }
+
+  /* Toolbar */
+  .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; background: var(--card); padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border); }
+  .filter-group { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .search-input { padding: 8px 14px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13.5px; width: 280px; outline: none; transition: all 0.15s; }
+  .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.12); }
+  .select-box { padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13.5px; background: #fff; color: var(--primary); outline: none; }
+  .pill { border: 1px solid #cbd5e1; background: #fff; color: #475569; padding: 5px 12px; border-radius: 20px; font-size: 12.5px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+  .pill:hover { background: #f8fafc; border-color: #94a3b8; }
+  .pill.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  /* Table Style */
+  .table-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.03); }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th { background: #f8fafc; padding: 11px 14px; text-align: left; font-weight: 700; color: #334155; border-bottom: 2px solid var(--border); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; position: sticky; top: 0; z-index: 2; }
+  td { padding: 11px 14px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; }
+  tr:hover td { background: #f8fafc; }
+
+  /* Links & Badges */
+  .pkey-link { font-family: ui-monospace, monospace; font-weight: 700; color: var(--accent); text-decoration: none; padding: 3px 8px; background: #eff6ff; border-radius: 6px; }
+  .pkey-link:hover { background: #dbeafe; text-decoration: underline; }
+  .issue-link { font-family: ui-monospace, monospace; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .issue-link:hover { text-decoration: underline; }
+  .sub-link a { color: #94a3b8; text-decoration: none; font-size: 11px; margin-left: 4px; }
+  .sub-link a:hover { color: var(--accent); text-decoration: underline; }
+  .code-fld { font-family: ui-monospace, monospace; font-size: 12px; background: #f1f5f9; padding: 2px 6px; border-radius: 4px; border: 1px solid #e2e8f0; color: #334155; }
+  .badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; font-size: 11px; border-radius: 12px; font-weight: 700; text-transform: uppercase; }
+  .badge-success { background: #d1fae5; color: #065f46; }
+  .badge-danger { background: #fee2e2; color: #991b1b; }
+  .badge-warning { background: #fef3c7; color: #92400e; }
+  .badge-neutral { background: #f1f5f9; color: #475569; }
+  .badge-att-new { background: #e0f2fe; color: #0369a1; }
+  .badge-att-reu { background: #f3e8ff; color: #6b21a8; }
+  .err-callout { background: #fff1f2; border: 1px solid #fecdd3; color: #9f1239; padding: 6px 10px; border-radius: 6px; font-size: 12px; font-family: ui-monospace, monospace; word-break: break-all; max-width: 520px; }
+
+  /* Pagination Bar */
+  .pagination-bar { display: flex; justify-content: space-between; align-items: center; padding: 12px 18px; background: #f8fafc; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-muted); }
+  .page-nav { display: flex; gap: 6px; align-items: center; }
+  .page-btn { padding: 5px 12px; border: 1px solid #cbd5e1; background: #fff; border-radius: 5px; font-size: 12.5px; font-weight: 600; color: #334155; cursor: pointer; }
+  .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .page-btn:not(:disabled):hover { background: #f1f5f9; border-color: #94a3b8; }
+
+  /* Alert Banner */
+  .triage-banner { background: #fef2f2; border: 1px solid #fecdd3; border-radius: 8px; padding: 16px 20px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .triage-banner h3 { margin: 0 0 4px 0; color: #991b1b; font-size: 15px; font-weight: 700; }
+  .triage-banner p { margin: 0; color: #b91c1c; font-size: 13.5px; }
+
+  /* Toast Notification */
+  #toast { position: fixed; bottom: 24px; right: 24px; background: #0f172a; color: #fff; padding: 12px 20px; border-radius: 8px; font-size: 13.5px; font-weight: 600; box-shadow: 0 10px 25px rgba(0,0,0,0.2); opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; transform: translateY(10px); z-index: 100; }
+  #toast.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .header-actions, .toolbar, .tabs-nav, .pagination-bar, .btn { display: none !important; }
+    .header-card { background: none; color: #000; border-bottom: 2px solid #000; padding: 0 0 16px 0; }
+    .tab-content { display: block !important; margin-bottom: 40px; }
+  }
+</style>
+<script>
+const ISSUES_DATA = [{"k": "TEST-1", "p": "DUMMY_TEST8", "f": "Description", "s": "Success", "e": "", "r": "DUMMY_TEST8_report.html"}];
+const SOURCE_URL = "https://dev-jira.osci.kr";
+const JIRA_URL = "https://rootseyo.atlassian.net";
+
+let currentIssueStatus = "all";
+let currentIssueProj = "";
+let currentIssueSearch = "";
+let issuePage = 1;
+const PAGE_SIZE = 50;
+
+function switchTab(tabId) {
+  document.querySelectorAll(".tab-content").forEach(el => el.style.display = "none");
+  document.querySelectorAll(".tab-btn").forEach(el => el.classList.remove("active"));
+  document.getElementById(tabId).style.display = "block";
+  document.getElementById("btn-" + tabId).classList.add("active");
+  if (tabId === "tab-issues") {
+    renderIssues();
+  }
+}
+
+function filterProjects(status) {
+  const query = document.getElementById("proj-search").value.toLowerCase();
+  const rows = document.querySelectorAll("#projects-table tbody tr");
+  let visible = 0;
+
+  if (status !== undefined) {
+    document.querySelectorAll("#proj-pills .pill").forEach(p => p.classList.remove("active"));
+    document.getElementById("proj-pill-" + status).classList.add("active");
+    window._currentProjStatus = status;
+  }
+  const activeStatus = window._currentProjStatus || "all";
+
+  rows.forEach(r => {
+    const rowStatus = r.getAttribute("data-status");
+    const text = r.innerText.toLowerCase();
+    const matchStatus = (activeStatus === "all" || rowStatus === activeStatus);
+    const matchQuery = text.includes(query);
+
+    if (matchStatus && matchQuery) {
+      r.style.display = "";
+      visible++;
+    } else {
+      r.style.display = "none";
+    }
+  });
+  document.getElementById("visible-proj-count").innerText = visible;
+}
+
+function setIssueStatus(status) {
+  currentIssueStatus = status;
+  document.querySelectorAll("#issue-pills .pill").forEach(p => p.classList.remove("active"));
+  document.getElementById("pill-status-" + status).classList.add("active");
+  issuePage = 1;
+  renderIssues();
+}
+
+function onIssueSearch() {
+  currentIssueSearch = document.getElementById("issue-search").value.toLowerCase();
+  issuePage = 1;
+  renderIssues();
+}
+
+function onIssueProjChange() {
+  currentIssueProj = document.getElementById("issue-proj-select").value;
+  issuePage = 1;
+  renderIssues();
+}
+
+function renderIssues() {
+  const filtered = ISSUES_DATA.filter(item => {
+    if (currentIssueStatus !== "all" && item.s.toLowerCase() !== currentIssueStatus.toLowerCase()) return false;
+    if (currentIssueProj && item.p !== currentIssueProj) return false;
+    if (currentIssueSearch) {
+      const text = (item.k + " " + item.p + " " + item.f + " " + item.e).toLowerCase();
+      if (!text.includes(currentIssueSearch)) return false;
+    }
+    return true;
+  });
+
+  const totalFiltered = filtered.length;
+  const totalPages = Math.max(1, Math.ceil(totalFiltered / PAGE_SIZE));
+  if (issuePage > totalPages) issuePage = totalPages;
+
+  const startIdx = (issuePage - 1) * PAGE_SIZE;
+  const endIdx = Math.min(startIdx + PAGE_SIZE, totalFiltered);
+  const pageItems = filtered.slice(startIdx, endIdx);
+
+  const tbody = document.getElementById("issues-tbody");
+  if (pageItems.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 40px; color: #64748b;">일치하는 이슈가 없습니다.</td></tr>';
+  } else {
+    tbody.innerHTML = pageItems.map(item => {
+      const originLink = SOURCE_URL ? `${SOURCE_URL}/browse/${item.k}` : "#";
+      const cloudLink = JIRA_URL ? `${JIRA_URL}/browse/${item.k}` : "#";
+      let statusBadge = '';
+      if (item.s === "Success") statusBadge = '<span class="badge badge-success">SUCCESS</span>';
+      else if (item.s === "Skipped") statusBadge = '<span class="badge badge-neutral">SKIPPED</span>';
+      else statusBadge = '<span class="badge badge-danger">FAILED</span>';
+
+      let detailHtml = '<span style="color:#059669; font-weight:600;">✓ ADF 변환 완료</span>';
+      if (item.s === "Failed") {
+        detailHtml = `<div class="err-callout">${item.e}</div>`;
+      } else if (item.s === "Skipped") {
+        detailHtml = '<span style="color:#64748b;">↷ 기 전환 완료 또는 제외</span>';
+      }
+
+      return `<tr>
+        <td>
+          <a class="issue-link" href="${cloudLink}" target="_blank">${item.k}</a>
+          <span class="sub-link">(<a href="${originLink}" target="_blank">DC ↗</a>)</span>
+        </td>
+        <td><span class="badge badge-neutral">${item.p}</span></td>
+        <td><code class="code-fld">${item.f}</code></td>
+        <td style="text-align: center;">${statusBadge}</td>
+        <td>${detailHtml}</td>
+        <td style="text-align: center;"><a class="btn btn-secondary btn-sm" href="${item.r}#${item.k}" target="_blank">개별 보기 ↗</a></td>
+      </tr>`;
+    }).join("");
+  }
+
+  document.getElementById("issues-start").innerText = totalFiltered === 0 ? 0 : startIdx + 1;
+  document.getElementById("issues-end").innerText = endIdx;
+  document.getElementById("issues-total").innerText = totalFiltered;
+  document.getElementById("issues-page-info").innerText = `${issuePage} / ${totalPages}`;
+  document.getElementById("btn-prev-page").disabled = (issuePage <= 1);
+  document.getElementById("btn-next-page").disabled = (issuePage >= totalPages);
+}
+
+function changeIssuePage(delta) {
+  issuePage += delta;
+  renderIssues();
+}
+
+function showToast(msg) {
+  const toast = document.getElementById("toast");
+  toast.innerText = msg;
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 2500);
+}
+
+function copyText(str, msg) {
+  navigator.clipboard.writeText(str).then(() => showToast(msg || "클립보드에 복사되었습니다!"));
+}
+
+const SUMMARY_RAW = `[Jira HTML to ADF Migration Summary]\n- 환경: SANDBOX\n- 실행 모드: [DRY-RUN]\n- 총 대상 프로젝트: 1개\n- 총 스캔 이슈 건: 1건\n- 변환 성공: 1건 (100.0%)\n- 변환 실패: 0건\n- 변환 스킵: 0건\n- 첨부파일: 신규 0건 / 재사용 0건\n- 총 소요 시간: 1s`;
+const FAILED_KEYS_RAW = "";
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderIssues();
+});
+</script>
+</head>
+<body>
+<div class="container">
+
+  <!-- Executive Header -->
+  <div class="header-card">
+    <div class="header-left">
+      <div class="pill-label">ATLASSIAN MIGRATION SUITE • EXECUTIVE REPORT</div>
+      <h1>🚀 Jira JEditor ➔ Cloud ADF Migration Report</h1>
+      <div class="subtitle">환경: <strong>SANDBOX</strong> | 실행 모드: <strong>[DRY-RUN]</strong> | 대상: <strong>1개 프로젝트 • 1건 이슈</strong> | 소요 시간: <strong>1s</strong></div>
+    </div>
+    <div class="header-actions">
+      <button class="btn btn-header btn-sm" onclick="copyText(SUMMARY_RAW, '📋 요약 텍스트가 복사되었습니다!')">📋 요약 복사</button>
+      <button class="btn btn-header btn-sm" onclick="window.print()">🖨️ 인쇄 / PDF</button>
+    </div>
+  </div>
+
+  <!-- Executive KPI Metrics Grid -->
+  <div class="kpi-grid">
+    <div class="kpi-card accent">
+      <div class="kpi-title">대상 프로젝트 (Projects)</div>
+      <div class="kpi-val">1</div>
+      <div class="kpi-sub">JEditor 데이터 발견 프로젝트</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-title">총 대상 이슈 (Total Issues)</div>
+      <div class="kpi-val">1</div>
+      <div class="kpi-sub">검사 및 마이그레이션 대상 건수</div>
+    </div>
+    <div class="kpi-card success">
+      <div class="kpi-title">
+        <span>성공 전환 (Success)</span>
+        <span class="badge badge-success">100.0%</span>
+      </div>
+      <div class="kpi-val success">1</div>
+      <div class="progress-bar"><div class="progress-fill" style="width: 100.0%;"></div></div>
+      <div class="kpi-sub" style="margin-top: 8px;">Jira Cloud 정상 반영 완료</div>
+    </div>
+    <div class="kpi-card success">
+      <div class="kpi-title">
+        <span>오류 / 조치 필요 (Attention)</span>
+        <span class="badge badge-success">0.0%</span>
+      </div>
+      <div class="kpi-val success">0</div>
+      <div class="kpi-sub">전체 오류 없음 (Zero Errors)</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-title">스킵 (Skipped)</div>
+      <div class="kpi-val">0</div>
+      <div class="kpi-sub">기전환 완료 또는 코멘트 필터</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-title">첨부파일 마이그레이션</div>
+      <div class="kpi-val" style="font-size: 21px;">0 <span style="font-size: 13px; color: #64748b; font-weight: normal;">신규 / 0 재사용</span></div>
+      <div class="kpi-sub">Media API 자동 업로드 및 매핑</div>
+    </div>
+  </div>
+
+  <!-- Segmented Tabs Navigation -->
+  <div class="tabs-nav">
+    <button id="btn-tab-projects" class="tab-btn active" onclick="switchTab('tab-projects')">
+      📊 프로젝트별 현황 (Projects Overview)
+      <span class="tab-badge">1</span>
+    </button>
+    <button id="btn-tab-issues" class="tab-btn" onclick="switchTab('tab-issues')">
+      📋 전체 이슈 리스트 (Consolidated Issues Explorer)
+      <span class="tab-badge">1</span>
+    </button>
+    <button id="btn-tab-failures" class="tab-btn" onclick="switchTab('tab-failures')">
+      ⚠️ 오류 집중 분석 (Failure Triage)
+      <span class="tab-badge ">0</span>
+    </button>
+  </div>
+
+  <!-- Tab 1: Project Overview -->
+  <div id="tab-projects" class="tab-content">
+    <div class="toolbar">
+      <div class="filter-group" id="proj-pills">
+        <button id="proj-pill-all" class="pill active" onclick="filterProjects('all')">전체 (1)</button>
+        <button id="proj-pill-success" class="pill" onclick="filterProjects('success')">성공 완료</button>
+        <button id="proj-pill-error" class="pill" onclick="filterProjects('error')">오류 발생</button>
+      </div>
+      <div>
+        <input type="text" id="proj-search" class="search-input" placeholder="🔍 프로젝트 키, 이름 또는 상태 검색..." onkeyup="filterProjects()"/>
+      </div>
+    </div>
+
+    <div class="table-card">
+      <table id="projects-table">
+        <thead>
+          <tr>
+            <th style="width: 120px;">프로젝트 키</th>
+            <th>프로젝트 이름</th>
+            <th style="text-align: right; width: 95px;">전체 이슈</th>
+            <th style="text-align: right; width: 95px;">성공</th>
+            <th style="text-align: right; width: 95px;">실패</th>
+            <th style="text-align: right; width: 85px;">스킵</th>
+            <th style="width: 160px;">첨부파일</th>
+            <th style="text-align: center; width: 140px;">진행 상태</th>
+            <th style="text-align: right; width: 90px;">소요 시간</th>
+            <th style="text-align: center; width: 130px;">개별 리포트</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        <tr data-status="success" data-pkey="DUMMY_TEST8">
+            <td><a class="pkey-link" href="DUMMY_TEST8_report.html" target="_blank">DUMMY_TEST8</a></td>
+            <td><strong>Test Project</strong></td>
+            <td style="text-align: right; font-variant-numeric: tabular-nums;">1</td>
+            <td style="text-align: right; color: #059669; font-weight: 700; font-variant-numeric: tabular-nums;">1</td>
+            <td style="text-align: right; color: #94a3b8; font-weight: 700; font-variant-numeric: tabular-nums;">0</td>
+            <td style="text-align: right; color: #64748b; font-variant-numeric: tabular-nums;">0</td>
+            <td><span style="color:#94a3b8;">-</span></td>
+            <td style="text-align: center;"><span class="badge badge-success">● ALL SUCCESS</span></td>
+            <td style="text-align: right; color: #64748b; font-size: 13px;">0.6s</td>
+            <td style="text-align: center;"><a class="btn btn-secondary btn-sm" href="DUMMY_TEST8_report.html" target="_blank">리포트 열기 ↗</a></td>
+        </tr>
+        
+        </tbody>
+      </table>
+      <div class="pagination-bar">
+        <div>표시 중인 프로젝트: <strong id="visible-proj-count">1</strong> / 1개</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab 2: Consolidated Issues Explorer -->
+  <div id="tab-issues" class="tab-content" style="display: none;">
+    <div class="toolbar">
+      <div class="filter-group" id="issue-pills">
+        <button id="pill-status-all" class="pill active" onclick="setIssueStatus('all')">전체 ALL (1)</button>
+        <button id="pill-status-Success" class="pill" onclick="setIssueStatus('Success')">성공 SUCCESS (1)</button>
+        <button id="pill-status-Failed" class="pill" onclick="setIssueStatus('Failed')">실패 FAILED (0)</button>
+        <button id="pill-status-Skipped" class="pill" onclick="setIssueStatus('Skipped')">스킵 SKIPPED (0)</button>
+      </div>
+      <div class="filter-group">
+        <select id="issue-proj-select" class="select-box" onchange="onIssueProjChange()">
+          <option value="">전체 프로젝트 (1)</option>
+          <option value="DUMMY_TEST8">DUMMY_TEST8</option>
+        </select>
+        <input type="text" id="issue-search" class="search-input" placeholder="🔍 이슈 키, 프로젝트, 필드명 검색..." onkeyup="onIssueSearch()"/>
+      </div>
+    </div>
+
+    <div class="table-card">
+      <table id="issues-table">
+        <thead>
+          <tr>
+            <th style="width: 150px;">이슈 키 (Issue Key)</th>
+            <th style="width: 100px;">프로젝트</th>
+            <th style="width: 180px;">필드 (Target Field)</th>
+            <th style="text-align: center; width: 110px;">상태</th>
+            <th>처리 결과 / 오류 상세</th>
+            <th style="text-align: center; width: 120px;">개별 리포트</th>
+          </tr>
+        </thead>
+        <tbody id="issues-tbody">
+          <!-- Rendered dynamically by JavaScript -->
+        </tbody>
+      </table>
+      <div class="pagination-bar">
+        <div>
+          표시 중: <strong id="issues-start">1</strong> - <strong id="issues-end">50</strong> / 총 <strong id="issues-total">1</strong>건
+        </div>
+        <div class="page-nav">
+          <button id="btn-prev-page" class="page-btn" onclick="changeIssuePage(-1)">‹ 이전 (Prev)</button>
+          <span style="font-weight: 700; color: var(--primary);" id="issues-page-info">1 / 1</span>
+          <button id="btn-next-page" class="page-btn" onclick="changeIssuePage(1)">다음 (Next) ›</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab 3: Failure Triage -->
+  <div id="tab-failures" class="tab-content" style="display: none;">
+    <div style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 8px; padding: 24px; text-align: center; color: #065f46; font-size: 16px; font-weight: 700;">🎉 모든 이슈가 오류 없이 100% 정상 마이그레이션되었습니다! (Zero Failures)</div>
+
+    
+  </div>
+
+</div>
+
+<div id="toast">복사 완료</div>
+</body>
+</html>

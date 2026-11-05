@@ -1,0 +1,594 @@
+{
+  "failed_attachments": [
+    {
+      "id": 1,
+      "timestamp": "2026-09-23 20:49:10.890016891",
+      "level": "ERROR",
+      "project": "CQIM",
+      "stage": "attachment-export",
+      "attachment_id": "5061477",
+      "file_name": "dlt_CCU2_CCUDltLog_786_20260909-220609.dlt.gz.data.zip",
+      "extension": "zip",
+      "issue_key": "CQIM-18724",
+      "timeout_ms": "622,906",
+      "timeout_sec": 622.9,
+      "code": "JCMA 401",
+      "reason_snippet": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the follow...",
+      "full_reason": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 622,906 milliseconds ago. The last packet sent successfully to the server was 622,906 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.)."
+    },
+    {
+      "id": 2,
+      "timestamp": "2026-09-23 20:49:10.890016983",
+      "level": "ERROR",
+      "project": "CQIM",
+      "stage": "attachment-export",
+      "attachment_id": "5061476",
+      "file_name": "dlt_CCU2_CCUDltLog_785_20260909-220033.dlt.gz.data.zip",
+      "extension": "zip",
+      "issue_key": "CQIM-18724",
+      "timeout_ms": "622,907",
+      "timeout_sec": 622.9,
+      "code": "JCMA 401",
+      "reason_snippet": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the follow...",
+      "full_reason": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 622,907 milliseconds ago. The last packet sent successfully to the server was 622,907 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.)."
+    },
+    {
+      "id": 3,
+      "timestamp": "2026-09-23 23:00:08.143479224",
+      "level": "ERROR",
+      "project": "CQIM",
+      "stage": "attachment-export",
+      "attachment_id": "4460482",
+      "file_name": "WIN_20260618_11_58_36_Pro.mp4",
+      "extension": "mp4",
+      "issue_key": "CQIM-14116",
+      "timeout_ms": "613,037",
+      "timeout_sec": 613.0,
+      "code": "JCMA 401",
+      "reason_snippet": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the follow...",
+      "full_reason": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 613,037 milliseconds ago. The last packet sent successfully to the server was 613,043 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.)."
+    },
+    {
+      "id": 4,
+      "timestamp": "2026-09-24 09:09:36.711855178",
+      "level": "ERROR",
+      "project": "ECSC",
+      "stage": "attachment-export",
+      "attachment_id": "4628183",
+      "file_name": "image-2023-03-09-16-06-09-884.png",
+      "extension": "png",
+      "issue_key": "ECSC-3773",
+      "timeout_ms": "808,132",
+      "timeout_sec": 808.1,
+      "code": "JCMA 401",
+      "reason_snippet": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the follow...",
+      "full_reason": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 808,132 milliseconds ago. The last packet sent successfully to the server was 808,132 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.)."
+    },
+    {
+      "id": 5,
+      "timestamp": "2026-09-24 01:52:13.717622345",
+      "level": "ERROR",
+      "project": "GENESISP",
+      "stage": "attachment-export",
+      "attachment_id": "4114322",
+      "file_name": "DLTLog_2763_20260425-145139.dlt.gz",
+      "extension": "gz",
+      "issue_key": "GENESISP-12159",
+      "timeout_ms": "839,440",
+      "timeout_sec": 839.4,
+      "code": "JCMA 401",
+      "reason_snippet": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the follow...",
+      "full_reason": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 839,440 milliseconds ago. The last packet sent successfully to the server was 839,469 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.)."
+    },
+    {
+      "id": 6,
+      "timestamp": "2026-09-24 03:49:10.924093751",
+      "level": "ERROR",
+      "project": "JGVSTAR25",
+      "stage": "attachment-export",
+      "attachment_id": "4676348",
+      "file_name": "JGVSTAR25-16901_Container_1.png",
+      "extension": "png",
+      "issue_key": "JGVSTAR25-16901",
+      "timeout_ms": "656,447",
+      "timeout_sec": 656.4,
+      "code": "JCMA 401",
+      "reason_snippet": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the follow...",
+      "full_reason": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 656,447 milliseconds ago. The last packet sent successfully to the server was 656,447 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.)."
+    },
+    {
+      "id": 7,
+      "timestamp": "2026-09-24 03:49:10.925346771",
+      "level": "ERROR",
+      "project": "JGVSTAR25",
+      "stage": "attachment-export",
+      "attachment_id": "4676365",
+      "file_name": "JGVSTAR25-16903_Container.json",
+      "extension": "json",
+      "issue_key": "JGVSTAR25-16903",
+      "timeout_ms": "765,907",
+      "timeout_sec": 765.9,
+      "code": "JCMA 401",
+      "reason_snippet": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the follow...",
+      "full_reason": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 765,907 milliseconds ago. The last packet sent successfully to the server was 765,907 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.)."
+    },
+    {
+      "id": 8,
+      "timestamp": "2026-09-24 03:49:10.924231689",
+      "level": "ERROR",
+      "project": "JGVSTAR25",
+      "stage": "attachment-export",
+      "attachment_id": "4676349",
+      "file_name": "JGVSTAR25-16901_Container.json",
+      "extension": "json",
+      "issue_key": "JGVSTAR25-16901",
+      "timeout_ms": "656,404",
+      "timeout_sec": 656.4,
+      "code": "JCMA 401",
+      "reason_snippet": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the follow...",
+      "full_reason": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 656,404 milliseconds ago. The last packet sent successfully to the server was 656,404 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.)."
+    },
+    {
+      "id": 9,
+      "timestamp": "2026-09-24 11:49:11.934569016",
+      "level": "ERROR",
+      "project": "RPSPEC",
+      "stage": "attachment-export",
+      "attachment_id": "1204113",
+      "file_name": "image-2022-03-28-09-33-15-336.png",
+      "extension": "png",
+      "issue_key": "RPSPEC-192",
+      "timeout_ms": "1,067,064",
+      "timeout_sec": 1067.1,
+      "code": "JCMA 401",
+      "reason_snippet": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the follow...",
+      "full_reason": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 1,067,064 milliseconds ago. The last packet sent successfully to the server was 1,067,064 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.)."
+    },
+    {
+      "id": 10,
+      "timestamp": "2026-09-24 04:49:11.394997093",
+      "level": "ERROR",
+      "project": "SPATEST",
+      "stage": "attachment-export",
+      "attachment_id": "1061403",
+      "file_name": "iOS 공유자 정렬.jpg",
+      "extension": "jpg",
+      "issue_key": "SPATEST-3945",
+      "timeout_ms": "655,211",
+      "timeout_sec": 655.2,
+      "code": "JCMA 401",
+      "reason_snippet": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the follow...",
+      "full_reason": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 655,211 milliseconds ago. The last packet sent successfully to the server was 655,211 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.)."
+    }
+  ],
+  "missing_attachments": [
+    {
+      "timestamp": "2026-09-23 18:29:25.226090857",
+      "level": "WARNING",
+      "project": "CAQW",
+      "stage": "attachment-export",
+      "count": 63,
+      "code": "JCMA 402",
+      "recommendation": "Run the Instance Health check and fix all errors before migrating."
+    },
+    {
+      "timestamp": "2026-09-24 03:53:27.287355230",
+      "level": "WARNING",
+      "project": "CQIM",
+      "stage": "attachment-export",
+      "count": 54,
+      "code": "JCMA 402",
+      "recommendation": "Run the Instance Health check and fix all errors before migrating."
+    },
+    {
+      "timestamp": "2026-09-24 03:37:44.476704661",
+      "level": "WARNING",
+      "project": "GENESISP",
+      "stage": "attachment-export",
+      "count": 22,
+      "code": "JCMA 402",
+      "recommendation": "Run the Instance Health check and fix all errors before migrating."
+    },
+    {
+      "timestamp": "2026-09-24 05:01:18.320550127",
+      "level": "WARNING",
+      "project": "SPATEST",
+      "stage": "attachment-export",
+      "count": 3,
+      "code": "JCMA 402",
+      "recommendation": "Run the Instance Health check and fix all errors before migrating."
+    }
+  ],
+  "project_stats": {
+    "CAQW": {
+      "project": "CAQW",
+      "export_errors": 0,
+      "missing_count": 63,
+      "total_issues": 63,
+      "first_ts": "2026-09-23 18:29:25.226090857",
+      "last_ts": "2026-09-23 18:29:25.226090857",
+      "files": []
+    },
+    "CQIM": {
+      "project": "CQIM",
+      "export_errors": 3,
+      "missing_count": 54,
+      "total_issues": 57,
+      "first_ts": "2026-09-23 20:49:10.890016891",
+      "last_ts": "2026-09-24 03:53:27.287355230",
+      "files": [
+        {
+          "id": 1,
+          "timestamp": "2026-09-23 20:49:10.890016891",
+          "level": "ERROR",
+          "project": "CQIM",
+          "stage": "attachment-export",
+          "attachment_id": "5061477",
+          "file_name": "dlt_CCU2_CCUDltLog_786_20260909-220609.dlt.gz.data.zip",
+          "extension": "zip",
+          "issue_key": "CQIM-18724",
+          "timeout_ms": "622,906",
+          "timeout_sec": 622.9,
+          "code": "JCMA 401",
+          "reason_snippet": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the follow...",
+          "full_reason": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 622,906 milliseconds ago. The last packet sent successfully to the server was 622,906 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.)."
+        },
+        {
+          "id": 2,
+          "timestamp": "2026-09-23 20:49:10.890016983",
+          "level": "ERROR",
+          "project": "CQIM",
+          "stage": "attachment-export",
+          "attachment_id": "5061476",
+          "file_name": "dlt_CCU2_CCUDltLog_785_20260909-220033.dlt.gz.data.zip",
+          "extension": "zip",
+          "issue_key": "CQIM-18724",
+          "timeout_ms": "622,907",
+          "timeout_sec": 622.9,
+          "code": "JCMA 401",
+          "reason_snippet": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the follow...",
+          "full_reason": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 622,907 milliseconds ago. The last packet sent successfully to the server was 622,907 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.)."
+        },
+        {
+          "id": 3,
+          "timestamp": "2026-09-23 23:00:08.143479224",
+          "level": "ERROR",
+          "project": "CQIM",
+          "stage": "attachment-export",
+          "attachment_id": "4460482",
+          "file_name": "WIN_20260618_11_58_36_Pro.mp4",
+          "extension": "mp4",
+          "issue_key": "CQIM-14116",
+          "timeout_ms": "613,037",
+          "timeout_sec": 613.0,
+          "code": "JCMA 401",
+          "reason_snippet": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the follow...",
+          "full_reason": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 613,037 milliseconds ago. The last packet sent successfully to the server was 613,043 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.)."
+        }
+      ]
+    },
+    "ECSC": {
+      "project": "ECSC",
+      "export_errors": 1,
+      "missing_count": 0,
+      "total_issues": 1,
+      "first_ts": "2026-09-24 09:09:36.711855178",
+      "last_ts": "2026-09-24 09:09:36.711855178",
+      "files": [
+        {
+          "id": 4,
+          "timestamp": "2026-09-24 09:09:36.711855178",
+          "level": "ERROR",
+          "project": "ECSC",
+          "stage": "attachment-export",
+          "attachment_id": "4628183",
+          "file_name": "image-2023-03-09-16-06-09-884.png",
+          "extension": "png",
+          "issue_key": "ECSC-3773",
+          "timeout_ms": "808,132",
+          "timeout_sec": 808.1,
+          "code": "JCMA 401",
+          "reason_snippet": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the follow...",
+          "full_reason": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 808,132 milliseconds ago. The last packet sent successfully to the server was 808,132 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.)."
+        }
+      ]
+    },
+    "GENESISP": {
+      "project": "GENESISP",
+      "export_errors": 1,
+      "missing_count": 22,
+      "total_issues": 23,
+      "first_ts": "2026-09-24 01:52:13.717622345",
+      "last_ts": "2026-09-24 03:37:44.476704661",
+      "files": [
+        {
+          "id": 5,
+          "timestamp": "2026-09-24 01:52:13.717622345",
+          "level": "ERROR",
+          "project": "GENESISP",
+          "stage": "attachment-export",
+          "attachment_id": "4114322",
+          "file_name": "DLTLog_2763_20260425-145139.dlt.gz",
+          "extension": "gz",
+          "issue_key": "GENESISP-12159",
+          "timeout_ms": "839,440",
+          "timeout_sec": 839.4,
+          "code": "JCMA 401",
+          "reason_snippet": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the follow...",
+          "full_reason": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 839,440 milliseconds ago. The last packet sent successfully to the server was 839,469 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.)."
+        }
+      ]
+    },
+    "JGVSTAR25": {
+      "project": "JGVSTAR25",
+      "export_errors": 3,
+      "missing_count": 0,
+      "total_issues": 3,
+      "first_ts": "2026-09-24 03:49:10.924093751",
+      "last_ts": "2026-09-24 03:49:10.925346771",
+      "files": [
+        {
+          "id": 6,
+          "timestamp": "2026-09-24 03:49:10.924093751",
+          "level": "ERROR",
+          "project": "JGVSTAR25",
+          "stage": "attachment-export",
+          "attachment_id": "4676348",
+          "file_name": "JGVSTAR25-16901_Container_1.png",
+          "extension": "png",
+          "issue_key": "JGVSTAR25-16901",
+          "timeout_ms": "656,447",
+          "timeout_sec": 656.4,
+          "code": "JCMA 401",
+          "reason_snippet": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the follow...",
+          "full_reason": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 656,447 milliseconds ago. The last packet sent successfully to the server was 656,447 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.)."
+        },
+        {
+          "id": 7,
+          "timestamp": "2026-09-24 03:49:10.925346771",
+          "level": "ERROR",
+          "project": "JGVSTAR25",
+          "stage": "attachment-export",
+          "attachment_id": "4676365",
+          "file_name": "JGVSTAR25-16903_Container.json",
+          "extension": "json",
+          "issue_key": "JGVSTAR25-16903",
+          "timeout_ms": "765,907",
+          "timeout_sec": 765.9,
+          "code": "JCMA 401",
+          "reason_snippet": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the follow...",
+          "full_reason": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 765,907 milliseconds ago. The last packet sent successfully to the server was 765,907 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.)."
+        },
+        {
+          "id": 8,
+          "timestamp": "2026-09-24 03:49:10.924231689",
+          "level": "ERROR",
+          "project": "JGVSTAR25",
+          "stage": "attachment-export",
+          "attachment_id": "4676349",
+          "file_name": "JGVSTAR25-16901_Container.json",
+          "extension": "json",
+          "issue_key": "JGVSTAR25-16901",
+          "timeout_ms": "656,404",
+          "timeout_sec": 656.4,
+          "code": "JCMA 401",
+          "reason_snippet": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the follow...",
+          "full_reason": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 656,404 milliseconds ago. The last packet sent successfully to the server was 656,404 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.)."
+        }
+      ]
+    },
+    "RPSPEC": {
+      "project": "RPSPEC",
+      "export_errors": 1,
+      "missing_count": 0,
+      "total_issues": 1,
+      "first_ts": "2026-09-24 11:49:11.934569016",
+      "last_ts": "2026-09-24 11:49:11.934569016",
+      "files": [
+        {
+          "id": 9,
+          "timestamp": "2026-09-24 11:49:11.934569016",
+          "level": "ERROR",
+          "project": "RPSPEC",
+          "stage": "attachment-export",
+          "attachment_id": "1204113",
+          "file_name": "image-2022-03-28-09-33-15-336.png",
+          "extension": "png",
+          "issue_key": "RPSPEC-192",
+          "timeout_ms": "1,067,064",
+          "timeout_sec": 1067.1,
+          "code": "JCMA 401",
+          "reason_snippet": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the follow...",
+          "full_reason": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 1,067,064 milliseconds ago. The last packet sent successfully to the server was 1,067,064 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.)."
+        }
+      ]
+    },
+    "SPATEST": {
+      "project": "SPATEST",
+      "export_errors": 1,
+      "missing_count": 3,
+      "total_issues": 4,
+      "first_ts": "2026-09-24 04:49:11.394997093",
+      "last_ts": "2026-09-24 05:01:18.320550127",
+      "files": [
+        {
+          "id": 10,
+          "timestamp": "2026-09-24 04:49:11.394997093",
+          "level": "ERROR",
+          "project": "SPATEST",
+          "stage": "attachment-export",
+          "attachment_id": "1061403",
+          "file_name": "iOS 공유자 정렬.jpg",
+          "extension": "jpg",
+          "issue_key": "SPATEST-3945",
+          "timeout_ms": "655,211",
+          "timeout_sec": 655.2,
+          "code": "JCMA 401",
+          "reason_snippet": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the follow...",
+          "full_reason": "com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 655,211 milliseconds ago. The last packet sent successfully to the server was 655,211 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.)."
+        }
+      ]
+    }
+  },
+  "summary_data": [
+    {
+      "type": "Boards",
+      "project": "-",
+      "num_mig": "0",
+      "success": "0",
+      "partial_loss": "-",
+      "not_mig": "0"
+    },
+    {
+      "type": "Custom fields",
+      "project": "-",
+      "num_mig": "0",
+      "success": "0",
+      "partial_loss": "-",
+      "not_mig": "0"
+    },
+    {
+      "type": "Notification schemes",
+      "project": "-",
+      "num_mig": "0",
+      "success": "0",
+      "partial_loss": "-",
+      "not_mig": "0"
+    },
+    {
+      "type": "Permission schemes",
+      "project": "-",
+      "num_mig": "0",
+      "success": "0",
+      "partial_loss": "-",
+      "not_mig": "0"
+    },
+    {
+      "type": "Roles",
+      "project": "-",
+      "num_mig": "0",
+      "success": "0",
+      "partial_loss": "-",
+      "not_mig": "0"
+    },
+    {
+      "type": "Workflows",
+      "project": "-",
+      "num_mig": "0",
+      "success": "0",
+      "partial_loss": "0",
+      "not_mig": "0"
+    },
+    {
+      "type": "Filters",
+      "project": "-",
+      "num_mig": "0",
+      "success": "0",
+      "partial_loss": "-",
+      "not_mig": "0"
+    },
+    {
+      "type": "Advanced Roadmaps plans",
+      "project": "-",
+      "num_mig": "0",
+      "success": "0",
+      "partial_loss": "-",
+      "not_mig": "0"
+    },
+    {
+      "type": "Dashboards",
+      "project": "-",
+      "num_mig": "0",
+      "success": "0",
+      "partial_loss": "0",
+      "not_mig": "0"
+    },
+    {
+      "type": "Gadgets",
+      "project": "-",
+      "num_mig": "0",
+      "success": "0",
+      "partial_loss": "-",
+      "not_mig": "0"
+    },
+    {
+      "type": "Jira automations",
+      "project": "-",
+      "num_mig": "0",
+      "success": "0",
+      "partial_loss": "-",
+      "not_mig": "0"
+    },
+    {
+      "type": "Users",
+      "project": "-",
+      "num_mig": "0",
+      "success": "0",
+      "partial_loss": "-",
+      "not_mig": "0"
+    },
+    {
+      "type": "Groups",
+      "project": "-",
+      "num_mig": "0",
+      "success": "0",
+      "partial_loss": "-",
+      "not_mig": "0"
+    },
+    {
+      "type": "Object Schemas",
+      "project": "-",
+      "num_mig": "0",
+      "success": "0",
+      "partial_loss": "-",
+      "not_mig": "0"
+    },
+    {
+      "type": "Object Entities",
+      "project": "-",
+      "num_mig": "0",
+      "success": "0",
+      "partial_loss": "-",
+      "not_mig": "0"
+    },
+    {
+      "type": "Asset References",
+      "project": "-",
+      "num_mig": "0",
+      "success": "0",
+      "partial_loss": "-",
+      "not_mig": "0"
+    },
+    {
+      "type": "Asset Statuses",
+      "project": "-",
+      "num_mig": "0",
+      "success": "0",
+      "partial_loss": "-",
+      "not_mig": "0"
+    },
+    {
+      "type": "Asset Attachments",
+      "project": "-",
+      "num_mig": "0",
+      "success": "0",
+      "partial_loss": "-",
+      "not_mig": "0"
+    }
+  ],
+  "raw_logs": {
+    "CAQW": "2026-09-23 18:29:25.226090857 WARNING CAQW attachment-export [null] Found 63 missing attachments. [JCMA 402] Run the Instance Health check and fix all errors before migrating.\n",
+    "CQIM": "2026-09-23 20:49:10.890016891 ERROR CQIM attachment-export [mri:mig:jira:fileAttachment:5061477] We couldn't export Attachment 'dlt_CCU2_CCUDltLog_786_20260909-220609.dlt.gz.data.zip' (on Issue CQIM-18724). Reason: com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 622,906 milliseconds ago. The last packet sent successfully to the server was 622,906 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.). [JCMA 401]\n2026-09-23 20:49:10.890016983 ERROR CQIM attachment-export [mri:mig:jira:fileAttachment:5061476] We couldn't export Attachment 'dlt_CCU2_CCUDltLog_785_20260909-220033.dlt.gz.data.zip' (on Issue CQIM-18724). Reason: com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 622,907 milliseconds ago. The last packet sent successfully to the server was 622,907 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.). [JCMA 401]\n2026-09-23 23:00:08.143479224 ERROR CQIM attachment-export [mri:mig:jira:fileAttachment:4460482] We couldn't export Attachment 'WIN_20260618_11_58_36_Pro.mp4' (on Issue CQIM-14116). Reason: com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 613,037 milliseconds ago. The last packet sent successfully to the server was 613,043 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.). [JCMA 401]\n2026-09-24 03:53:27.287355230 WARNING CQIM attachment-export [null] Found 54 missing attachments. [JCMA 402] Run the Instance Health check and fix all errors before migrating.\n",
+    "ECSC": "2026-09-24 09:09:36.711855178 ERROR ECSC attachment-export [mri:mig:jira:fileAttachment:4628183] We couldn't export Attachment 'image-2023-03-09-16-06-09-884.png' (on Issue ECSC-3773). Reason: com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 808,132 milliseconds ago. The last packet sent successfully to the server was 808,132 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.). [JCMA 401]\n",
+    "GENESISP": "2026-09-24 01:52:13.717622345 ERROR GENESISP attachment-export [mri:mig:jira:fileAttachment:4114322] We couldn't export Attachment 'DLTLog_2763_20260425-145139.dlt.gz' (on Issue GENESISP-12159). Reason: com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 839,440 milliseconds ago. The last packet sent successfully to the server was 839,469 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.). [JCMA 401]\n2026-09-24 03:37:44.476704661 WARNING GENESISP attachment-export [null] Found 22 missing attachments. [JCMA 402] Run the Instance Health check and fix all errors before migrating.\n",
+    "JGVSTAR25": "2026-09-24 03:49:10.924093751 ERROR JGVSTAR25 attachment-export [mri:mig:jira:fileAttachment:4676348] We couldn't export Attachment 'JGVSTAR25-16901_Container_1.png' (on Issue JGVSTAR25-16901). Reason: com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 656,447 milliseconds ago. The last packet sent successfully to the server was 656,447 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.). [JCMA 401]\n2026-09-24 03:49:10.925346771 ERROR JGVSTAR25 attachment-export [mri:mig:jira:fileAttachment:4676365] We couldn't export Attachment 'JGVSTAR25-16903_Container.json' (on Issue JGVSTAR25-16903). Reason: com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 765,907 milliseconds ago. The last packet sent successfully to the server was 765,907 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.). [JCMA 401]\n2026-09-24 03:49:10.924231689 ERROR JGVSTAR25 attachment-export [mri:mig:jira:fileAttachment:4676349] We couldn't export Attachment 'JGVSTAR25-16901_Container.json' (on Issue JGVSTAR25-16901). Reason: com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 656,404 milliseconds ago. The last packet sent successfully to the server was 656,404 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.). [JCMA 401]\n",
+    "RPSPEC": "2026-09-24 11:49:11.934569016 ERROR RPSPEC attachment-export [mri:mig:jira:fileAttachment:1204113] We couldn't export Attachment 'image-2022-03-28-09-33-15-336.png' (on Issue RPSPEC-192). Reason: com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 1,067,064 milliseconds ago. The last packet sent successfully to the server was 1,067,064 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.). [JCMA 401]\n",
+    "SPATEST": "2026-09-24 04:49:11.394997093 ERROR SPATEST attachment-export [mri:mig:jira:fileAttachment:1061403] We couldn't export Attachment 'iOS 공유자 정렬.jpg' (on Issue SPATEST-3945). Reason: com.atlassian.jira.exception.DataAccessException: org.ofbiz.core.entity.GenericDataSourceException: SQL Exception while executing the following:SELECT pkey, issuenum, PROJECT, REPORTER, ASSIGNEE, CREATOR, issuetype, SUMMARY, DESCRIPTION, ENVIRONMENT, PRIORITY, RESOLUTION, issuestatus, CREATED, UPDATED, DUEDATE, RESOLUTIONDATE, VOTES, WATCHES, TIMEORIGINALESTIMATE, TIMEESTIMATE, TIMESPENT, WORKFLOW_ID, SECURITY, FIXFOR, COMPONENT, ARCHIVED, ARCHIVEDBY, ARCHIVEDDATE FROM jiraissue WHERE ID=? (The last packet successfully received from the server was 655,211 milliseconds ago. The last packet sent successfully to the server was 655,211 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.). [JCMA 401]\n2026-09-24 05:01:18.320550127 WARNING SPATEST attachment-export [null] Found 3 missing attachments. [JCMA 402] Run the Instance Health check and fix all errors before migrating.\n"
+  },
+  "total_failed_export": 10,
+  "total_missing": 142,
+  "total_problem_attachments": 152,
+  "migration_name": "26Wave2-JIRA-T1-1",
+  "plan_id": "85e18200b33684534d0404013cb4f736accb8c24",
+  "report_date": "2026-09-24 23:24:09"
+}

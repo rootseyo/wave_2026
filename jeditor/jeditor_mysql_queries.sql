@@ -1,0 +1,768 @@
+WITH target_projects AS (
+    SELECT 'AA' AS pkey UNION ALL
+    SELECT 'AAOSDEV' AS pkey UNION ALL
+    SELECT 'AAOSFPT' AS pkey UNION ALL
+    SELECT 'AAOSFRWDEV' AS pkey UNION ALL
+    SELECT 'ACCSSDK' AS pkey UNION ALL
+    SELECT 'ACTIONITEM' AS pkey UNION ALL
+    SELECT 'ADEPRKHKL' AS pkey UNION ALL
+    SELECT 'ADVERHKL' AS pkey UNION ALL
+    SELECT 'ADVERMBS' AS pkey UNION ALL
+    SELECT 'AHRF' AS pkey UNION ALL
+    SELECT 'AHSISSUE' AS pkey UNION ALL
+    SELECT 'AHSTR' AS pkey UNION ALL
+    SELECT 'AHTC' AS pkey UNION ALL
+    SELECT 'AHTD' AS pkey UNION ALL
+    SELECT 'AHTF' AS pkey UNION ALL
+    SELECT 'AHTS' AS pkey UNION ALL
+    SELECT 'AIINTWS' AS pkey UNION ALL
+    SELECT 'AMZAA' AS pkey UNION ALL
+    SELECT 'APCCSMO' AS pkey UNION ALL
+    SELECT 'APITOOL' AS pkey UNION ALL
+    SELECT 'APP' AS pkey UNION ALL
+    SELECT 'APPTRACK' AS pkey UNION ALL
+    SELECT 'ASG' AS pkey UNION ALL
+    SELECT 'ATCIS' AS pkey UNION ALL
+    SELECT 'ATCU' AS pkey UNION ALL
+    SELECT 'AUTH' AS pkey UNION ALL
+    SELECT 'AUTOFRT' AS pkey UNION ALL
+    SELECT 'AVNT' AS pkey UNION ALL
+    SELECT 'AVNTIB' AS pkey UNION ALL
+    SELECT 'AWSCCS' AS pkey UNION ALL
+    SELECT 'B2BDATABIZ' AS pkey UNION ALL
+    SELECT 'BBDEV' AS pkey UNION ALL
+    SELECT 'BDC' AS pkey UNION ALL
+    SELECT 'BDCATE' AS pkey UNION ALL
+    SELECT 'BDCAY' AS pkey UNION ALL
+    SELECT 'BDCP' AS pkey UNION ALL
+    SELECT 'BDCPDW' AS pkey UNION ALL
+    SELECT 'BDCQE' AS pkey UNION ALL
+    SELECT 'BDCSWCO' AS pkey UNION ALL
+    SELECT 'BDCUT' AS pkey UNION ALL
+    SELECT 'BICIM' AS pkey UNION ALL
+    SELECT 'BLTNCAM3' AS pkey UNION ALL
+    SELECT 'BPCMWTC07' AS pkey UNION ALL
+    SELECT 'BROADCAST' AS pkey UNION ALL
+    SELECT 'BSS' AS pkey UNION ALL
+    SELECT 'BYOD' AS pkey UNION ALL
+    SELECT 'C2DEV' AS pkey UNION ALL
+    SELECT 'C3DSROOM' AS pkey UNION ALL
+    SELECT 'C5TRACK' AS pkey UNION ALL
+    SELECT 'CAAIM' AS pkey UNION ALL
+    SELECT 'CALENDAR' AS pkey UNION ALL
+    SELECT 'CAOI' AS pkey UNION ALL
+    SELECT 'CAP' AS pkey UNION ALL
+    SELECT 'CAPDEV' AS pkey UNION ALL
+    SELECT 'CAQA' AS pkey UNION ALL
+    SELECT 'CAQM' AS pkey UNION ALL
+    SELECT 'CAQW' AS pkey UNION ALL
+    SELECT 'CARMGR' AS pkey UNION ALL
+    SELECT 'CBDCD' AS pkey UNION ALL
+    SELECT 'CCAI' AS pkey UNION ALL
+    SELECT 'CCAM' AS pkey UNION ALL
+    SELECT 'CCDEV' AS pkey UNION ALL
+    SELECT 'CCIC27' AS pkey UNION ALL
+    SELECT 'CCIC27TRAC' AS pkey UNION ALL
+    SELECT 'CCICBT' AS pkey UNION ALL
+    SELECT 'CCICISSUE' AS pkey UNION ALL
+    SELECT 'CCICPROJ' AS pkey UNION ALL
+    SELECT 'CCICTRACK' AS pkey UNION ALL
+    SELECT 'CCITC' AS pkey UNION ALL
+    SELECT 'CCNCBTRACK' AS pkey UNION ALL
+    SELECT 'CCNCCCS' AS pkey UNION ALL
+    SELECT 'CCNCMDEV' AS pkey UNION ALL
+    SELECT 'CCNCMREL' AS pkey UNION ALL
+    SELECT 'CCNCTRACK' AS pkey UNION ALL
+    SELECT 'CCOS' AS pkey UNION ALL
+    SELECT 'CCOSIVIS' AS pkey UNION ALL
+    SELECT 'CCRC' AS pkey UNION ALL
+    SELECT 'CCS1T' AS pkey UNION ALL
+    SELECT 'CCS1TICT' AS pkey UNION ALL
+    SELECT 'CCSACTDEV' AS pkey UNION ALL
+    SELECT 'CCSAPPRVW' AS pkey UNION ALL
+    SELECT 'CCSAUTH' AS pkey UNION ALL
+    SELECT 'CCSAUTHSPT' AS pkey UNION ALL
+    SELECT 'CCSBIZOPS' AS pkey UNION ALL
+    SELECT 'CCSCONFIG' AS pkey UNION ALL
+    SELECT 'CCSDEV' AS pkey UNION ALL
+    SELECT 'CCSDEVHAE' AS pkey UNION ALL
+    SELECT 'CCSDP' AS pkey UNION ALL
+    SELECT 'CCSGATEWAY' AS pkey UNION ALL
+    SELECT 'CCSGCM' AS pkey UNION ALL
+    SELECT 'CCSGOP' AS pkey UNION ALL
+    SELECT 'CCSHSC' AS pkey UNION ALL
+    SELECT 'CCSICTIF' AS pkey UNION ALL
+    SELECT 'CCSIM' AS pkey UNION ALL
+    SELECT 'CCSINFRA' AS pkey UNION ALL
+    SELECT 'CCSISSUE' AS pkey UNION ALL
+    SELECT 'CCSLMS' AS pkey UNION ALL
+    SELECT 'CCSLOC' AS pkey UNION ALL
+    SELECT 'CCSMD' AS pkey UNION ALL
+    SELECT 'CCSMO' AS pkey UNION ALL
+    SELECT 'CCSO11Y' AS pkey UNION ALL
+    SELECT 'CCSOPDEV' AS pkey UNION ALL
+    SELECT 'CCSOPS' AS pkey UNION ALL
+    SELECT 'CCSOPSPART' AS pkey UNION ALL
+    SELECT 'CCSPJTMNG' AS pkey UNION ALL
+    SELECT 'CCSPORTAL' AS pkey UNION ALL
+    SELECT 'CCSPRJMGT' AS pkey UNION ALL
+    SELECT 'CCSQA' AS pkey UNION ALL
+    SELECT 'CCSRTM' AS pkey UNION ALL
+    SELECT 'CCSSERVER' AS pkey UNION ALL
+    SELECT 'CCSSREWG' AS pkey UNION ALL
+    SELECT 'CCSSUPPORT' AS pkey UNION ALL
+    SELECT 'CCSVCRM' AS pkey UNION ALL
+    SELECT 'CCSVLOPS' AS pkey UNION ALL
+    SELECT 'CCSVOC' AS pkey UNION ALL
+    SELECT 'CCSVOCCV' AS pkey UNION ALL
+    SELECT 'CCU1S' AS pkey UNION ALL
+    SELECT 'CCU1SCRUMA' AS pkey UNION ALL
+    SELECT 'CCU2IT' AS pkey UNION ALL
+    SELECT 'CCU2S' AS pkey UNION ALL
+    SELECT 'CCU2SCRUMA' AS pkey UNION ALL
+    SELECT 'CCU2SEC' AS pkey UNION ALL
+    SELECT 'CCU2W' AS pkey UNION ALL
+    SELECT 'CCUDEV' AS pkey UNION ALL
+    SELECT 'CCUIM' AS pkey UNION ALL
+    SELECT 'CCUSPECMGR' AS pkey UNION ALL
+    SELECT 'CCUTRACK' AS pkey UNION ALL
+    SELECT 'CD' AS pkey UNION ALL
+    SELECT 'CDMS' AS pkey UNION ALL
+    SELECT 'CDR' AS pkey UNION ALL
+    SELECT 'CDSLK' AS pkey UNION ALL
+    SELECT 'CDU5TRACK' AS pkey UNION ALL
+    SELECT 'CFDEV' AS pkey UNION ALL
+    SELECT 'CGMX' AS pkey UNION ALL
+    SELECT 'CHCCNC' AS pkey UNION ALL
+    SELECT 'CHCL' AS pkey UNION ALL
+    SELECT 'CHCLCONTI' AS pkey UNION ALL
+    SELECT 'CHCLMOB' AS pkey UNION ALL
+    SELECT 'CHCON' AS pkey UNION ALL
+    SELECT 'CHCOP' AS pkey UNION ALL
+    SELECT 'CHDN' AS pkey UNION ALL
+    SELECT 'CHGEN1' AS pkey UNION ALL
+    SELECT 'CHN1TRACK' AS pkey UNION ALL
+    SELECT 'CHNINFOQC' AS pkey UNION ALL
+    SELECT 'CHNP' AS pkey UNION ALL
+    SELECT 'CHNUPDATE' AS pkey UNION ALL
+    SELECT 'CHOME' AS pkey UNION ALL
+    SELECT 'CHTC' AS pkey UNION ALL
+    SELECT 'CICD' AS pkey UNION ALL
+    SELECT 'CILSWDEV' AS pkey UNION ALL
+    SELECT 'CINEMODEV' AS pkey UNION ALL
+    SELECT 'CINEMOOPS' AS pkey UNION ALL
+    SELECT 'CKYBD' AS pkey UNION ALL
+    SELECT 'CLMDENSO' AS pkey UNION ALL
+    SELECT 'CLMMOBIS' AS pkey UNION ALL
+    SELECT 'CLU12TRACK' AS pkey UNION ALL
+    SELECT 'CLU4TRACK' AS pkey UNION ALL
+    SELECT 'CLU8TRACK' AS pkey UNION ALL
+    SELECT 'CLUCCIC27' AS pkey UNION ALL
+    SELECT 'CLUCONTI' AS pkey UNION ALL
+    SELECT 'CLUDNKR' AS pkey UNION ALL
+    SELECT 'CLUFUEL' AS pkey UNION ALL
+    SELECT 'CLULGE' AS pkey UNION ALL
+    SELECT 'CLULTRACK' AS pkey UNION ALL
+    SELECT 'CLUPMDEV' AS pkey UNION ALL
+    SELECT 'CLUPMREL' AS pkey UNION ALL
+    SELECT 'CLUPPS' AS pkey UNION ALL
+    SELECT 'CLUPPSW' AS pkey UNION ALL
+    SELECT 'CLUREVIEW' AS pkey UNION ALL
+    SELECT 'CLUSTRACK' AS pkey UNION ALL
+    SELECT 'CLUTYW' AS pkey UNION ALL
+    SELECT 'CLUVEK' AS pkey UNION ALL
+    SELECT 'CLUWTRACK' AS pkey UNION ALL
+    SELECT 'CM' AS pkey UNION ALL
+    SELECT 'CMFA' AS pkey UNION ALL
+    SELECT 'CMUB' AS pkey UNION ALL
+    SELECT 'CNC' AS pkey UNION ALL
+    SELECT 'CNCLOUD' AS pkey UNION ALL
+    SELECT 'COAA' AS pkey UNION ALL
+    SELECT 'COAG' AS pkey UNION ALL
+    SELECT 'COGL' AS pkey UNION ALL
+    SELECT 'CONNAPP' AS pkey UNION ALL
+    SELECT 'CONNECTCID' AS pkey UNION ALL
+    SELECT 'CONNECTGUI' AS pkey UNION ALL
+    SELECT 'CONNECTISS' AS pkey UNION ALL
+    SELECT 'CONNECTUX' AS pkey UNION ALL
+    SELECT 'CONNLIGHT' AS pkey UNION ALL
+    SELECT 'CONTASK' AS pkey UNION ALL
+    SELECT 'COPOP' AS pkey UNION ALL
+    SELECT 'COSVR' AS pkey UNION ALL
+    SELECT 'CPHAE' AS pkey UNION ALL
+    SELECT 'CPISSUES' AS pkey UNION ALL
+    SELECT 'CPLINKDATA' AS pkey UNION ALL
+    SELECT 'CPQM' AS pkey UNION ALL
+    SELECT 'CPQTP2' AS pkey UNION ALL
+    SELECT 'CPROF' AS pkey UNION ALL
+    SELECT 'CPX2' AS pkey UNION ALL
+    SELECT 'CQIM' AS pkey UNION ALL
+    SELECT 'CQIW' AS pkey UNION ALL
+    SELECT 'CSAP' AS pkey UNION ALL
+    SELECT 'CSAS' AS pkey UNION ALL
+    SELECT 'CSMCONTI' AS pkey UNION ALL
+    SELECT 'CSMDNKR' AS pkey UNION ALL
+    SELECT 'CSMLGE' AS pkey UNION ALL
+    SELECT 'CSMTRACK' AS pkey UNION ALL
+    SELECT 'CSPROJ' AS pkey UNION ALL
+    SELECT 'CSTF' AS pkey UNION ALL
+    SELECT 'CSTRACK' AS pkey UNION ALL
+    SELECT 'CSUI' AS pkey UNION ALL
+    SELECT 'CTA' AS pkey UNION ALL
+    SELECT 'CTC' AS pkey UNION ALL
+    SELECT 'CUDENSO' AS pkey UNION ALL
+    SELECT 'CUS' AS pkey UNION ALL
+    SELECT 'CUTYW' AS pkey UNION ALL
+    SELECT 'CUVISTEON' AS pkey UNION ALL
+    SELECT 'CVCON' AS pkey UNION ALL
+    SELECT 'CVIP' AS pkey UNION ALL
+    SELECT 'CWMDNKR' AS pkey UNION ALL
+    SELECT 'CWMLGE' AS pkey UNION ALL
+    SELECT 'CWMMOBIS' AS pkey UNION ALL
+    SELECT 'CWSURE' AS pkey UNION ALL
+    SELECT 'CXP' AS pkey UNION ALL
+    SELECT 'D2VTRACK' AS pkey UNION ALL
+    SELECT 'DASHTEST' AS pkey UNION ALL
+    SELECT 'DBP' AS pkey UNION ALL
+    SELECT 'DCTRACK' AS pkey UNION ALL
+    SELECT 'DCUCONT' AS pkey UNION ALL
+    SELECT 'DCUCTRACK' AS pkey UNION ALL
+    SELECT 'DCVOC' AS pkey UNION ALL
+    SELECT 'DEVCCCP' AS pkey UNION ALL
+    SELECT 'DGA' AS pkey UNION ALL
+    SELECT 'DIGITAL2' AS pkey UNION ALL
+    SELECT 'DISP' AS pkey UNION ALL
+    SELECT 'DISPTHEME' AS pkey UNION ALL
+    SELECT 'DKC2G' AS pkey UNION ALL
+    SELECT 'DKCOWORK' AS pkey UNION ALL
+    SELECT 'DKSW' AS pkey UNION ALL
+    SELECT 'DKTSCR' AS pkey UNION ALL
+    SELECT 'DLESSP' AS pkey UNION ALL
+    SELECT 'DOC' AS pkey UNION ALL
+    SELECT 'DPTHEME' AS pkey UNION ALL
+    SELECT 'DVS' AS pkey UNION ALL
+    SELECT 'ECDPART' AS pkey UNION ALL
+    SELECT 'ECDPARTL' AS pkey UNION ALL
+    SELECT 'ECSC' AS pkey UNION ALL
+    SELECT 'ECSP' AS pkey UNION ALL
+    SELECT 'ECSPDEVOPS' AS pkey UNION ALL
+    SELECT 'ECSPHP' AS pkey UNION ALL
+    SELECT 'EGMAPISSUE' AS pkey UNION ALL
+    SELECT 'EGWW' AS pkey UNION ALL
+    SELECT 'ELECBODY' AS pkey UNION ALL
+    SELECT 'ELECCONV' AS pkey UNION ALL
+    SELECT 'ELECCWS' AS pkey UNION ALL
+    SELECT 'ELECSW' AS pkey UNION ALL
+    SELECT 'ELENET' AS pkey UNION ALL
+    SELECT 'EPG' AS pkey UNION ALL
+    SELECT 'ESTRACK' AS pkey UNION ALL
+    SELECT 'ESTRACK20' AS pkey UNION ALL
+    SELECT 'ETD' AS pkey UNION ALL
+    SELECT 'EUCERENCE' AS pkey UNION ALL
+    SELECT 'EVS2' AS pkey UNION ALL
+    SELECT 'EXNCP' AS pkey UNION ALL
+    SELECT 'EXNCP12YT' AS pkey UNION ALL
+    SELECT 'F2DSEARCH' AS pkey UNION ALL
+    SELECT 'FCS2' AS pkey UNION ALL
+    SELECT 'FDSEFS' AS pkey UNION ALL
+    SELECT 'FISQA' AS pkey UNION ALL
+    SELECT 'FORTY2DOT' AS pkey UNION ALL
+    SELECT 'FPM' AS pkey UNION ALL
+    SELECT 'FREQ' AS pkey UNION ALL
+    SELECT 'FRONTEND' AS pkey UNION ALL
+    SELECT 'GASOPSISSU' AS pkey UNION ALL
+    SELECT 'GBSC' AS pkey UNION ALL
+    SELECT 'GCI' AS pkey UNION ALL
+    SELECT 'GENESISP' AS pkey UNION ALL
+    SELECT 'GISTIS' AS pkey UNION ALL
+    SELECT 'GLOBALCM' AS pkey UNION ALL
+    SELECT 'GNUP' AS pkey UNION ALL
+    SELECT 'GOA' AS pkey UNION ALL
+    SELECT 'GOAGSPA' AS pkey UNION ALL
+    SELECT 'GPSS' AS pkey UNION ALL
+    SELECT 'GRAPHICS' AS pkey UNION ALL
+    SELECT 'GSPA' AS pkey UNION ALL
+    SELECT 'GSPAISSUE' AS pkey UNION ALL
+    SELECT 'HATCI' AS pkey UNION ALL
+    SELECT 'HATCIEVP' AS pkey UNION ALL
+    SELECT 'HCLOUDB2B' AS pkey UNION ALL
+    SELECT 'HCLOUDCCSS' AS pkey UNION ALL
+    SELECT 'HCLOUDSR' AS pkey UNION ALL
+    SELECT 'HETD' AS pkey UNION ALL
+    SELECT 'HETDA' AS pkey UNION ALL
+    SELECT 'HHSDEV' AS pkey UNION ALL
+    SELECT 'HISW' AS pkey UNION ALL
+    SELECT 'HIT' AS pkey UNION ALL
+    SELECT 'HKMCCSMS' AS pkey UNION ALL
+    SELECT 'HLOS' AS pkey UNION ALL
+    SELECT 'HMAD' AS pkey UNION ALL
+    SELECT 'HMCHUDC' AS pkey UNION ALL
+    SELECT 'HMCHUDM' AS pkey UNION ALL
+    SELECT 'HMCP' AS pkey UNION ALL
+    SELECT 'HMCRPDEV' AS pkey UNION ALL
+    SELECT 'HMECR' AS pkey UNION ALL
+    SELECT 'HMERU' AS pkey UNION ALL
+    SELECT 'HMETC' AS pkey UNION ALL
+    SELECT 'HMETCESDB' AS pkey UNION ALL
+    SELECT 'HMETCVRM' AS pkey UNION ALL
+    SELECT 'HMGCPDEVOP' AS pkey UNION ALL
+    SELECT 'HMGCPTS' AS pkey UNION ALL
+    SELECT 'HMGCPV' AS pkey UNION ALL
+    SELECT 'HMGOP' AS pkey UNION ALL
+    SELECT 'HMGOPSPT' AS pkey UNION ALL
+    SELECT 'HMIECCOS' AS pkey UNION ALL
+    SELECT 'HMIM' AS pkey UNION ALL
+    SELECT 'HMJRU' AS pkey UNION ALL
+    SELECT 'HMJSTC' AS pkey UNION ALL
+    SELECT 'HMJVOC' AS pkey UNION ALL
+    SELECT 'HTC22MAP2' AS pkey UNION ALL
+    SELECT 'HTC23MAP2' AS pkey UNION ALL
+    SELECT 'HTCG' AS pkey UNION ALL
+    SELECT 'HTCH' AS pkey UNION ALL
+    SELECT 'HTCK' AS pkey UNION ALL
+    SELECT 'HTCWTC' AS pkey UNION ALL
+    SELECT 'HTMS' AS pkey UNION ALL
+    SELECT 'IBD20' AS pkey UNION ALL
+    SELECT 'IBD2M' AS pkey UNION ALL
+    SELECT 'IBDIM' AS pkey UNION ALL
+    SELECT 'IBDPLAN' AS pkey UNION ALL
+    SELECT 'IBSCOWORK' AS pkey UNION ALL
+    SELECT 'ICC' AS pkey UNION ALL
+    SELECT 'ICCLTRACK' AS pkey UNION ALL
+    SELECT 'ICCSSDK' AS pkey UNION ALL
+    SELECT 'ICCTRACK' AS pkey UNION ALL
+    SELECT 'ICPVOC' AS pkey UNION ALL
+    SELECT 'ICU' AS pkey UNION ALL
+    SELECT 'IDCCS' AS pkey UNION ALL
+    SELECT 'IDS' AS pkey UNION ALL
+    SELECT 'IHAP' AS pkey UNION ALL
+    SELECT 'IMIM' AS pkey UNION ALL
+    SELECT 'INCL' AS pkey UNION ALL
+    SELECT 'INDCCS' AS pkey UNION ALL
+    SELECT 'INFOADE' AS pkey UNION ALL
+    SELECT 'INFOAGD' AS pkey UNION ALL
+    SELECT 'INFOCCS' AS pkey UNION ALL
+    SELECT 'INFOCFT' AS pkey UNION ALL
+    SELECT 'INFOCONTEN' AS pkey UNION ALL
+    SELECT 'INFODEVBD' AS pkey UNION ALL
+    SELECT 'INFODEVIM' AS pkey UNION ALL
+    SELECT 'INFODEVSPT' AS pkey UNION ALL
+    SELECT 'INFOFONT' AS pkey UNION ALL
+    SELECT 'INFOGLOBAL' AS pkey UNION ALL
+    SELECT 'INFOGUI' AS pkey UNION ALL
+    SELECT 'INFOHMIE' AS pkey UNION ALL
+    SELECT 'INFOPLAN' AS pkey UNION ALL
+    SELECT 'INFOPM' AS pkey UNION ALL
+    SELECT 'INFOSIGHT' AS pkey UNION ALL
+    SELECT 'INFOSOA' AS pkey UNION ALL
+    SELECT 'INFOSWCAR' AS pkey UNION ALL
+    SELECT 'INFOSWDEV' AS pkey UNION ALL
+    SELECT 'INFOSWREQ' AS pkey UNION ALL
+    SELECT 'INFOTODO' AS pkey UNION ALL
+    SELECT 'INFOUPDATE' AS pkey UNION ALL
+    SELECT 'INFOWEEKLY' AS pkey UNION ALL
+    SELECT 'INFOXEV' AS pkey UNION ALL
+    SELECT 'INMM' AS pkey UNION ALL
+    SELECT 'IPAYVOC' AS pkey UNION ALL
+    SELECT 'IPSU' AS pkey UNION ALL
+    SELECT 'ISCMAUMOVI' AS pkey UNION ALL
+    SELECT 'ISCMMOBIS' AS pkey UNION ALL
+    SELECT 'ISCMVEONEE' AS pkey UNION ALL
+    SELECT 'ITMS' AS pkey UNION ALL
+    SELECT 'IVIDATA' AS pkey UNION ALL
+    SELECT 'JAD' AS pkey UNION ALL
+    SELECT 'JGVSTAR25' AS pkey UNION ALL
+    SELECT 'JPCCS' AS pkey UNION ALL
+    SELECT 'KAKCSA' AS pkey UNION ALL
+    SELECT 'KAPSA' AS pkey UNION ALL
+    SELECT 'KASA' AS pkey UNION ALL
+    SELECT 'KATSA' AS pkey UNION ALL
+    SELECT 'KBESA' AS pkey UNION ALL
+    SELECT 'KCASA' AS pkey UNION ALL
+    SELECT 'KCZSA' AS pkey UNION ALL
+    SELECT 'KDSA' AS pkey UNION ALL
+    SELECT 'KESSA' AS pkey UNION ALL
+    SELECT 'KFRSA' AS pkey UNION ALL
+    SELECT 'KGSA' AS pkey UNION ALL
+    SELECT 'KHUSA' AS pkey UNION ALL
+    SELECT 'KIESA' AS pkey UNION ALL
+    SELECT 'KISA' AS pkey UNION ALL
+    SELECT 'KITSA' AS pkey UNION ALL
+    SELECT 'KMCP' AS pkey UNION ALL
+    SELECT 'KMESA' AS pkey UNION ALL
+    SELECT 'KMSA' AS pkey UNION ALL
+    SELECT 'KMYSP' AS pkey UNION ALL
+    SELECT 'KNLSA' AS pkey UNION ALL
+    SELECT 'KNSA' AS pkey UNION ALL
+    SELECT 'KNZSA' AS pkey UNION ALL
+    SELECT 'KOA' AS pkey UNION ALL
+    SELECT 'KPLSA' AS pkey UNION ALL
+    SELECT 'KRNMS' AS pkey UNION ALL
+    SELECT 'KRUSA' AS pkey UNION ALL
+    SELECT 'KSESA' AS pkey UNION ALL
+    SELECT 'KSKSA' AS pkey UNION ALL
+    SELECT 'KSSA' AS pkey UNION ALL
+    SELECT 'KTSA' AS pkey UNION ALL
+    SELECT 'KUSA' AS pkey UNION ALL
+    SELECT 'LAMP' AS pkey UNION ALL
+    SELECT 'LMS2' AS pkey UNION ALL
+    SELECT 'LOGTOOL' AS pkey UNION ALL
+    SELECT 'LOKI' AS pkey UNION ALL
+    SELECT 'LOKML' AS pkey UNION ALL
+    SELECT 'LOTA' AS pkey UNION ALL
+    SELECT 'LSC' AS pkey UNION ALL
+    SELECT 'MAQA' AS pkey UNION ALL
+    SELECT 'MESSAGE' AS pkey UNION ALL
+    SELECT 'MLANGUAGE' AS pkey UNION ALL
+    SELECT 'MLBMEXT' AS pkey UNION ALL
+    SELECT 'MOBCR' AS pkey UNION ALL
+    SELECT 'MOBILE' AS pkey UNION ALL
+    SELECT 'MON12DNKR' AS pkey UNION ALL
+    SELECT 'MON12TRACK' AS pkey UNION ALL
+    SELECT 'MQTT' AS pkey UNION ALL
+    SELECT 'NARM' AS pkey UNION ALL
+    SELECT 'NATRAFFIC' AS pkey UNION ALL
+    SELECT 'NAVIECUREQ' AS pkey UNION ALL
+    SELECT 'NAVIF' AS pkey UNION ALL
+    SELECT 'NAVIPIM' AS pkey UNION ALL
+    SELECT 'NAVISYSTEM' AS pkey UNION ALL
+    SELECT 'NAVWITHECU' AS pkey UNION ALL
+    SELECT 'NCCP' AS pkey UNION ALL
+    SELECT 'NCCSSDK' AS pkey UNION ALL
+    SELECT 'NCSP' AS pkey UNION ALL
+    SELECT 'NE1AWJIMS' AS pkey UNION ALL
+    SELECT 'NIDSDEV' AS pkey UNION ALL
+    SELECT 'OMTRACK' AS pkey UNION ALL
+    SELECT 'OPENDATA' AS pkey UNION ALL
+    SELECT 'ORBIT' AS pkey UNION ALL
+    SELECT 'OSP' AS pkey UNION ALL
+    SELECT 'OTAGEN1' AS pkey UNION ALL
+    SELECT 'OTAGEN2' AS pkey UNION ALL
+    SELECT 'OTAGEN2M' AS pkey UNION ALL
+    SELECT 'OTAMANAGE' AS pkey UNION ALL
+    SELECT 'OTARELEASE' AS pkey UNION ALL
+    SELECT 'OTAREQ' AS pkey UNION ALL
+    SELECT 'OTAREQOM' AS pkey UNION ALL
+    SELECT 'OTATEST' AS pkey UNION ALL
+    SELECT 'P2TRACK' AS pkey UNION ALL
+    SELECT 'P5TRACK' AS pkey UNION ALL
+    SELECT 'P6TRACK' AS pkey UNION ALL
+    SELECT 'PBVISSUE' AS pkey UNION ALL
+    SELECT 'PBVIVIPROJ' AS pkey UNION ALL
+    SELECT 'PBVTRACK' AS pkey UNION ALL
+    SELECT 'PDC' AS pkey UNION ALL
+    SELECT 'PDCCOWORK' AS pkey UNION ALL
+    SELECT 'PDCICU' AS pkey UNION ALL
+    SELECT 'PDCX' AS pkey UNION ALL
+    SELECT 'PDWIBUSCR' AS pkey UNION ALL
+    SELECT 'PFSW' AS pkey UNION ALL
+    SELECT 'PGM' AS pkey UNION ALL
+    SELECT 'PLS2' AS pkey UNION ALL
+    SELECT 'PNCSVR' AS pkey UNION ALL
+    SELECT 'POIPPROJ' AS pkey UNION ALL
+    SELECT 'POITRCK' AS pkey UNION ALL
+    SELECT 'PRCT' AS pkey UNION ALL
+    SELECT 'PSG' AS pkey UNION ALL
+    SELECT 'PSMSCM' AS pkey UNION ALL
+    SELECT 'PSP3RD' AS pkey UNION ALL
+    SELECT 'PSUI' AS pkey UNION ALL
+    SELECT 'PTGPSD' AS pkey UNION ALL
+    SELECT 'PU' AS pkey UNION ALL
+    SELECT 'PUBCLOUD' AS pkey UNION ALL
+    SELECT 'PUH' AS pkey UNION ALL
+    SELECT 'QTAA' AS pkey UNION ALL
+    SELECT 'QTRTU' AS pkey UNION ALL
+    SELECT 'RAMPPJ' AS pkey UNION ALL
+    SELECT 'RCMJIRA' AS pkey UNION ALL
+    SELECT 'RETS2' AS pkey UNION ALL
+    SELECT 'RGC' AS pkey UNION ALL
+    SELECT 'ROAS' AS pkey UNION ALL
+    SELECT 'RPSERVICE' AS pkey UNION ALL
+    SELECT 'RPSPEC' AS pkey UNION ALL
+    SELECT 'S4TRACK' AS pkey UNION ALL
+    SELECT 'S5LTRACK' AS pkey UNION ALL
+    SELECT 'S5MTRACK' AS pkey UNION ALL
+    SELECT 'S5WLTRACK' AS pkey UNION ALL
+    SELECT 'S5WMTRACK' AS pkey UNION ALL
+    SELECT 'SASBHMC' AS pkey UNION ALL
+    SELECT 'SASGMC' AS pkey UNION ALL
+    SELECT 'SASHAC' AS pkey UNION ALL
+    SELECT 'SASHATCI' AS pkey UNION ALL
+    SELECT 'SASHMB' AS pkey UNION ALL
+    SELECT 'SASHMC' AS pkey UNION ALL
+    SELECT 'SASHMCA' AS pkey UNION ALL
+    SELECT 'SASHMGC' AS pkey UNION ALL
+    SELECT 'SASHMGMA' AS pkey UNION ALL
+    SELECT 'SASHMGT' AS pkey UNION ALL
+    SELECT 'SASHMI' AS pkey UNION ALL
+    SELECT 'SASHMID' AS pkey UNION ALL
+    SELECT 'SASHMJ' AS pkey UNION ALL
+    SELECT 'SASHMM' AS pkey UNION ALL
+    SELECT 'SASHMMA' AS pkey UNION ALL
+    SELECT 'SASHMMC' AS pkey UNION ALL
+    SELECT 'SASHMMI' AS pkey UNION ALL
+    SELECT 'SASHMMR' AS pkey UNION ALL
+    SELECT 'SASHMNA' AS pkey UNION ALL
+    SELECT 'SASHMPH' AS pkey UNION ALL
+    SELECT 'SASHMT' AS pkey UNION ALL
+    SELECT 'SASHT' AS pkey UNION ALL
+    SELECT 'SASHTBC' AS pkey UNION ALL
+    SELECT 'SASHTWO' AS pkey UNION ALL
+    SELECT 'SASHYMEX' AS pkey UNION ALL
+    SELECT 'SBCMR' AS pkey UNION ALL
+    SELECT 'SBTC' AS pkey UNION ALL
+    SELECT 'SCID' AS pkey UNION ALL
+    SELECT 'SDM' AS pkey UNION ALL
+    SELECT 'SFCDEV' AS pkey UNION ALL
+    SELECT 'SFCPTL2025' AS pkey UNION ALL
+    SELECT 'SGU0707' AS pkey UNION ALL
+    SELECT 'SISSUE' AS pkey UNION ALL
+    SELECT 'SITA' AS pkey UNION ALL
+    SELECT 'SITB' AS pkey UNION ALL
+    SELECT 'SITH' AS pkey UNION ALL
+    SELECT 'SITI' AS pkey UNION ALL
+    SELECT 'SITM' AS pkey UNION ALL
+    SELECT 'SMTHTC' AS pkey UNION ALL
+    SELECT 'SOA' AS pkey UNION ALL
+    SELECT 'SPADEV' AS pkey UNION ALL
+    SELECT 'SPAIDEA' AS pkey UNION ALL
+    SELECT 'SPAQA' AS pkey UNION ALL
+    SELECT 'SPATEST' AS pkey UNION ALL
+    SELECT 'SPCR' AS pkey UNION ALL
+    SELECT 'SPEED' AS pkey UNION ALL
+    SELECT 'SPLIT' AS pkey UNION ALL
+    SELECT 'SPWWDW' AS pkey UNION ALL
+    SELECT 'SRTR' AS pkey UNION ALL
+    SELECT 'STR3AMING' AS pkey UNION ALL
+    SELECT 'SUAI' AS pkey UNION ALL
+    SELECT 'SUMS' AS pkey UNION ALL
+    SELECT 'SUMSDATA' AS pkey UNION ALL
+    SELECT 'SUMSKPI' AS pkey UNION ALL
+    SELECT 'SUMSMBR' AS pkey UNION ALL
+    SELECT 'SUMSYS' AS pkey UNION ALL
+    SELECT 'SUPPORT' AS pkey UNION ALL
+    SELECT 'SVCHUB' AS pkey UNION ALL
+    SELECT 'SVCHUBADM' AS pkey UNION ALL
+    SELECT 'SVRTRACK' AS pkey UNION ALL
+    SELECT 'SWARCH' AS pkey UNION ALL
+    SELECT 'SWCM' AS pkey UNION ALL
+    SELECT 'SWQAM' AS pkey UNION ALL
+    SELECT 'SWUP' AS pkey UNION ALL
+    SELECT 'SWUPDATE' AS pkey UNION ALL
+    SELECT 'TA' AS pkey UNION ALL
+    SELECT 'TCYIENT' AS pkey UNION ALL
+    SELECT 'TDCR' AS pkey UNION ALL
+    SELECT 'TESTENV' AS pkey UNION ALL
+    SELECT 'TFS2' AS pkey UNION ALL
+    SELECT 'THERMAL' AS pkey UNION ALL
+    SELECT 'THYB' AS pkey UNION ALL
+    SELECT 'THYDASSETS' AS pkey UNION ALL
+    SELECT 'THYDBUDGET' AS pkey UNION ALL
+    SELECT 'THYDSUP' AS pkey UNION ALL
+    SELECT 'THYECLU' AS pkey UNION ALL
+    SELECT 'THYIASSETS' AS pkey UNION ALL
+    SELECT 'THYIAT' AS pkey UNION ALL
+    SELECT 'THYIBUDGET' AS pkey UNION ALL
+    SELECT 'THYICLUTC' AS pkey UNION ALL
+    SELECT 'TMF' AS pkey UNION ALL
+    SELECT 'TMO' AS pkey UNION ALL
+    SELECT 'TMOBASE' AS pkey UNION ALL
+    SELECT 'TMOBIS' AS pkey UNION ALL
+    SELECT 'TNKCSW9' AS pkey UNION ALL
+    SELECT 'TPMSIN' AS pkey UNION ALL
+    SELECT 'TPMSSW' AS pkey UNION ALL
+    SELECT 'TS' AS pkey UNION ALL
+    SELECT 'TSCR' AS pkey UNION ALL
+    SELECT 'TSW' AS pkey UNION ALL
+    SELECT 'UIP' AS pkey UNION ALL
+    SELECT 'UMTCCU' AS pkey UNION ALL
+    SELECT 'UPDATEPM' AS pkey UNION ALL
+    SELECT 'UPDATETASK' AS pkey UNION ALL
+    SELECT 'UTMS' AS pkey UNION ALL
+    SELECT 'UXML' AS pkey UNION ALL
+    SELECT 'UXTASK' AS pkey UNION ALL
+    SELECT 'UXTOOL' AS pkey UNION ALL
+    SELECT 'VALT' AS pkey UNION ALL
+    SELECT 'VAMS' AS pkey UNION ALL
+    SELECT 'VAPI' AS pkey UNION ALL
+    SELECT 'VCRM' AS pkey UNION ALL
+    SELECT 'VISSCI' AS pkey UNION ALL
+    SELECT 'VMS' AS pkey UNION ALL
+    SELECT 'VNS' AS pkey UNION ALL
+    SELECT 'VOCTEST' AS pkey UNION ALL
+    SELECT 'VPCACT' AS pkey UNION ALL
+    SELECT 'VPCAPUKE' AS pkey UNION ALL
+    SELECT 'VPCRB' AS pkey UNION ALL
+    SELECT 'VPTRACK' AS pkey UNION ALL
+    SELECT 'VRISSUE' AS pkey UNION ALL
+    SELECT 'VRM' AS pkey UNION ALL
+    SELECT 'WAC' AS pkey UNION ALL
+    SELECT 'WIN' AS pkey UNION ALL
+    SELECT 'WPC' AS pkey UNION ALL
+    SELECT 'WTS2' AS pkey UNION ALL
+    SELECT 'SDT' AS pkey UNION ALL
+    SELECT 'ROA' AS pkey UNION ALL
+    SELECT 'SRMS' AS pkey UNION ALL
+    SELECT 'MEAC' AS pkey UNION ALL
+    SELECT 'ESEDEV' AS pkey UNION ALL
+    SELECT 'ESE' AS pkey UNION ALL
+    SELECT 'SUREDKEY' AS pkey UNION ALL
+    SELECT 'THWF' AS pkey UNION ALL
+    SELECT 'HKMCUEV' AS pkey UNION ALL
+    SELECT 'CCSTECHCM' AS pkey UNION ALL
+    SELECT 'HAECCSPSVC' AS pkey
+)
+-- 1. Description (본문)
+SELECT
+    p.pkey AS project_key,
+    p.pname AS project_name,
+    CONCAT(p.pkey, '-', i.issuenum) AS issue_key,
+    ist.pname AS issue_status,
+    'description' AS field_id,
+    'Description' AS field_name,
+    CASE
+        WHEN i.description LIKE '%jeditor_file_provider%' THEN 'Attachment'
+        ELSE 'Renderer/Text'
+    END AS detection_type,
+    i.description AS content,
+    '' AS migration_status
+FROM target_projects tp
+JOIN project p ON p.pkey = tp.pkey
+JOIN jiraissue i ON i.project = p.id
+LEFT JOIN issuestatus ist ON ist.id = i.issuestatus
+WHERE (i.archived IS NULL OR i.archived <> 'Y')
+  AND i.description IS NOT NULL
+  AND (i.description LIKE '%<%' OR i.description LIKE '%jeditor%')
+  AND (
+      i.description LIKE '%</%'
+      OR i.description LIKE '%<br%'
+      OR i.description LIKE '%<p%'
+      OR i.description LIKE '%<div%'
+      OR i.description LIKE '%<span%'
+      OR i.description LIKE '%<table%'
+      OR i.description LIKE '%<ul%'
+      OR i.description LIKE '%<ol%'
+      OR i.description LIKE '%<a %'
+      OR i.description LIKE '%<img%'
+      OR i.description LIKE '%<h1%'
+      OR i.description LIKE '%<h2%'
+      OR i.description LIKE '%<h3%'
+      OR i.description LIKE '%jeditor%'
+  )
+
+UNION ALL
+
+-- 2. Environment (환경)
+SELECT
+    p.pkey AS project_key,
+    p.pname AS project_name,
+    CONCAT(p.pkey, '-', i.issuenum) AS issue_key,
+    ist.pname AS issue_status,
+    'environment' AS field_id,
+    'Environment' AS field_name,
+    CASE
+        WHEN i.environment LIKE '%jeditor_file_provider%' THEN 'Attachment'
+        ELSE 'Renderer/Text'
+    END AS detection_type,
+    i.environment AS content,
+    '' AS migration_status
+FROM target_projects tp
+JOIN project p ON p.pkey = tp.pkey
+JOIN jiraissue i ON i.project = p.id
+LEFT JOIN issuestatus ist ON ist.id = i.issuestatus
+WHERE (i.archived IS NULL OR i.archived <> 'Y')
+  AND i.environment IS NOT NULL
+  AND (i.environment LIKE '%<%' OR i.environment LIKE '%jeditor%')
+  AND (
+      i.environment LIKE '%</%'
+      OR i.environment LIKE '%<br%'
+      OR i.environment LIKE '%<p%'
+      OR i.environment LIKE '%<div%'
+      OR i.environment LIKE '%<span%'
+      OR i.environment LIKE '%<table%'
+      OR i.environment LIKE '%<ul%'
+      OR i.environment LIKE '%<ol%'
+      OR i.environment LIKE '%<a %'
+      OR i.environment LIKE '%<img%'
+      OR i.environment LIKE '%<h1%'
+      OR i.environment LIKE '%<h2%'
+      OR i.environment LIKE '%<h3%'
+      OR i.environment LIKE '%jeditor%'
+  )
+
+UNION ALL
+
+-- 3. Custom Fields (커스텀 필드 - 댓글 제외)
+SELECT
+    p.pkey AS project_key,
+    p.pname AS project_name,
+    CONCAT(p.pkey, '-', i.issuenum) AS issue_key,
+    ist.pname AS issue_status,
+    CONCAT('customfield_', cf.id) AS field_id,
+    cf.cfname AS field_name,
+    CASE
+        WHEN cfv.textvalue IS NOT NULL THEN
+            CASE WHEN cfv.textvalue LIKE '%jeditor_file_provider%' THEN 'Attachment' ELSE 'Renderer/Text' END
+        ELSE
+            CASE WHEN cfv.stringvalue LIKE '%jeditor_file_provider%' THEN 'Attachment' ELSE 'Renderer/Text' END
+    END AS detection_type,
+    COALESCE(cfv.textvalue, cfv.stringvalue) AS content,
+    '' AS migration_status
+FROM target_projects tp
+JOIN project p ON p.pkey = tp.pkey
+JOIN jiraissue i ON i.project = p.id
+JOIN customfieldvalue cfv ON cfv.issue = i.id
+JOIN customfield cf ON cf.id = cfv.customfield
+LEFT JOIN issuestatus ist ON ist.id = i.issuestatus
+WHERE (i.archived IS NULL OR i.archived <> 'Y')
+  AND (
+      (
+          cfv.textvalue IS NOT NULL
+          AND (cfv.textvalue LIKE '%<%' OR cfv.textvalue LIKE '%jeditor%')
+          AND (
+              cfv.textvalue LIKE '%</%'
+              OR cfv.textvalue LIKE '%<br%'
+              OR cfv.textvalue LIKE '%<p%'
+              OR cfv.textvalue LIKE '%<div%'
+              OR cfv.textvalue LIKE '%<span%'
+              OR cfv.textvalue LIKE '%<table%'
+              OR cfv.textvalue LIKE '%<ul%'
+              OR cfv.textvalue LIKE '%<ol%'
+              OR cfv.textvalue LIKE '%<a %'
+              OR cfv.textvalue LIKE '%<img%'
+              OR cfv.textvalue LIKE '%<b%'
+              OR cfv.textvalue LIKE '%<font%'
+              OR cfv.textvalue LIKE '%<h1%'
+              OR cfv.textvalue LIKE '%<h2%'
+              OR cfv.textvalue LIKE '%<h3%'
+              OR cfv.textvalue LIKE '%jeditor%'
+          )
+      )
+      OR
+      (
+          cfv.textvalue IS NULL
+          AND cfv.stringvalue IS NOT NULL
+          AND (cfv.stringvalue LIKE '%<%' OR cfv.stringvalue LIKE '%jeditor%')
+          AND (
+              cfv.stringvalue LIKE '%</%'
+              OR cfv.stringvalue LIKE '%<br%'
+              OR cfv.stringvalue LIKE '%<p%'
+              OR cfv.stringvalue LIKE '%<div%'
+              OR cfv.stringvalue LIKE '%<span%'
+              OR cfv.stringvalue LIKE '%<table%'
+              OR cfv.stringvalue LIKE '%<ul%'
+              OR cfv.stringvalue LIKE '%<ol%'
+              OR cfv.stringvalue LIKE '%<a %'
+              OR cfv.stringvalue LIKE '%<img%'
+              OR cfv.stringvalue LIKE '%<b%'
+              OR cfv.stringvalue LIKE '%<font%'
+              OR cfv.stringvalue LIKE '%<h1%'
+              OR cfv.stringvalue LIKE '%<h2%'
+              OR cfv.stringvalue LIKE '%<h3%'
+              OR cfv.stringvalue LIKE '%jeditor%'
+          )
+      )
+  )
+
+-- ORDER BY project_key, issue_key;
+-- (DB 부하 및 임시 테이블 디스크 Filesort 방지를 위해 주석 처리됨. query_runner가 스트리밍으로 즉시 방출)

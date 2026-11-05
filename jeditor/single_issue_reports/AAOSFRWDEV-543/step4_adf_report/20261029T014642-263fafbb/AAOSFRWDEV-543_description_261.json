@@ -1,0 +1,351 @@
+{
+  "issue": "CFMT-3",
+  "source_issue": "AAOSFRWDEV-543",
+  "source_field": "description",
+  "field": "description",
+  "source_file": "/Users/sean/work/hmc_wave/jeditor/single_issue_reports/AAOSFRWDEV-543/step2_data_AAOSFRWDEV-543.html",
+  "offset": 261,
+  "cloud_url": "https://rootseyo.atlassian.net",
+  "issue_url": "https://rootseyo.atlassian.net/browse/CFMT-3",
+  "field_name": "설명",
+  "source_field_name": "Description",
+  "field_schema": {
+    "type": "string",
+    "system": "description"
+  },
+  "content_source": "data.html",
+  "write_accepted": false,
+  "source_content": "h2. Changed spec<br>\nh4. Provisioning tables to reference<br>\n|*Parameter*|*Description*|*Default Value*|*note*|<br>\n|MQTT.connect.interval|MQTT Connect retry interval|3|Unit: seconds|<br>\n|MQTT.connect.retryReasonCode|MQTT Connect retry condition reason code|136,137,159| |<br>\n<br>\n!https://jira.hmg-corp.io/plugins/servlet/jeditor_file_provider?imgId=ckupload2024080513616439590255126838&fileName=pastedImage_8_5_2024__18_24_18_86.png|width=365,height=24!",
+  "original_fields": {
+    "description": {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "|hi|hello|"
+            },
+            {
+              "type": "hardBreak"
+            },
+            {
+              "type": "text",
+              "text": "|--|-----|"
+            },
+            {
+              "type": "hardBreak"
+            },
+            {
+              "type": "text",
+              "text": "|dd|bb|"
+            }
+          ],
+          "attrs": {
+            "localId": "3abf1306ef90"
+          }
+        }
+      ]
+    }
+  },
+  "fields": {
+    "description": {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "heading",
+          "content": [
+            {
+              "type": "text",
+              "text": "Changed spec"
+            }
+          ],
+          "attrs": {
+            "level": 2
+          }
+        },
+        {
+          "type": "paragraph",
+          "content": []
+        },
+        {
+          "type": "heading",
+          "content": [
+            {
+              "type": "text",
+              "text": "Provisioning tables to reference"
+            }
+          ],
+          "attrs": {
+            "level": 4
+          }
+        },
+        {
+          "type": "paragraph",
+          "content": []
+        },
+        {
+          "type": "table",
+          "content": [
+            {
+              "type": "tableRow",
+              "content": [
+                {
+                  "type": "tableHeader",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Parameter",
+                          "marks": [
+                            {
+                              "type": "strong"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "tableHeader",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Description",
+                          "marks": [
+                            {
+                              "type": "strong"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "tableHeader",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Default Value",
+                          "marks": [
+                            {
+                              "type": "strong"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "tableHeader",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "note",
+                          "marks": [
+                            {
+                              "type": "strong"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": []
+        },
+        {
+          "type": "table",
+          "content": [
+            {
+              "type": "tableRow",
+              "content": [
+                {
+                  "type": "tableCell",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "MQTT.connect.interval"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "tableCell",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "MQTT Connect retry interval"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "tableCell",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "3"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "tableCell",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Unit: seconds"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": []
+        },
+        {
+          "type": "table",
+          "content": [
+            {
+              "type": "tableRow",
+              "content": [
+                {
+                  "type": "tableCell",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "MQTT.connect.retryReasonCode"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "tableCell",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "MQTT Connect retry condition reason code"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "tableCell",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "136,137,159"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "tableCell",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": []
+        },
+        {
+          "type": "paragraph",
+          "content": []
+        },
+        {
+          "type": "paragraph",
+          "content": []
+        },
+        {
+          "type": "paragraph",
+          "content": []
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[Attachment migration preview: pastedImage_8_5_2024__18_24_18_86.png]"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "attachments": [
+    {
+      "action": "planned",
+      "filename": "pastedImage_8_5_2024__18_24_18_86.png",
+      "image": true,
+      "source": "https://jira.hmg-corp.io/plugins/servlet/jeditor_file_provider?imgId=ckupload2024080513616439590255126838&fileName=pastedImage_8_5_2024__18_24_18_86.png"
+    }
+  ],
+  "warnings": [],
+  "status": "PREVIEW",
+  "dry_run": true,
+  "changed": true
+}

@@ -1,0 +1,48 @@
+<ac:structured-macro ac:name="info" ac:schema-version="1">
+  <ac:parameter ac:name="title">마이그레이션 공식 시작/종료 시간 및 소요시간(Duration) DB 조회 방법 (Atlassian KB)</ac:parameter>
+  <ac:rich-text-body>
+    <p>아틀라시안 공식 가이드(<a href="https://support.atlassian.com/atlassian-cloud/kb/determine-your-jcma-migration-duration/">Determine your JCMA migration duration</a>)에 따라, 온프레미스 Jira 데이터베이스의 JCMA 전용 테이블(<code>AO_6FF49D_PLAN_ENTITY</code>)을 조회하면 <strong>공식 시작 시간(start_date)과 종료 시간(finish_date), 총 소요시간(분 단위)</strong>을 초 단위까지 정확히 조회할 수 있습니다.</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="code" ac:schema-version="1">
+  <ac:parameter ac:name="language">sql</ac:parameter>
+  <ac:parameter ac:name="title">MySQL 기준 마이그레이션 시작/종료/소요시간 조회 쿼리</ac:parameter>
+  <ac:plain-text-body><![CDATA[SELECT 
+    pe.PLAN_NAME AS plan_name,
+    FROM_UNIXTIME(pe.CREATED_TIMESTAMP/1000) AS start_date,
+    FROM_UNIXTIME(me.UPDATED_TIMESTAMP/1000) AS finish_date,
+    ROUND((me.UPDATED_TIMESTAMP - pe.CREATED_TIMESTAMP)/1000/60, 2) AS duration_minutes
+FROM AO_6FF49D_PLAN_ENTITY pe
+JOIN AO_6FF49D_MIGRATION_ENTITY me ON (pe.ID = me.PLAN_ID)
+WHERE pe.PLAN_NAME = '26Wave2-JIRA-T1-1';]]></ac:plain-text-body>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="code" ac:schema-version="1">
+  <ac:parameter ac:name="language">groovy</ac:parameter>
+  <ac:parameter ac:name="title">Jira ScriptRunner 콘솔에서 바로 실행하는 Groovy 스크립트</ac:parameter>
+  <ac:plain-text-body><![CDATA[import com.atlassian.jira.component.ComponentAccessor
+import org.ofbiz.core.entity.ConnectionFactory
+import org.ofbiz.core.entity.DelegatorInterface
+import groovy.sql.Sql
+import java.sql.Connection
+
+def delegator = (DelegatorInterface) ComponentAccessor.getComponent(DelegatorInterface)
+Connection conn = ConnectionFactory.getConnection(delegator.getGroupHelperName("default"))
+Sql sql = new Sql(conn)
+
+def query = """
+SELECT pe.PLAN_NAME AS plan_name,
+       FROM_UNIXTIME(pe.CREATED_TIMESTAMP/1000) AS start_date,
+       FROM_UNIXTIME(me.UPDATED_TIMESTAMP/1000) AS finish_date,
+       ROUND((me.UPDATED_TIMESTAMP - pe.CREATED_TIMESTAMP)/1000/60, 2) AS duration_minutes
+FROM AO_6FF49D_PLAN_ENTITY pe
+JOIN AO_6FF49D_MIGRATION_ENTITY me ON (pe.ID = me.PLAN_ID)
+WHERE pe.PLAN_NAME = '26Wave2-JIRA-T1-1'
+"""
+def result = []
+sql.eachRow(query) { row ->
+    result << [plan: row.plan_name, start: row.start_date?.toString(), finish: row.finish_date?.toString(), duration_min: row.duration_minutes]
+}
+return result;]]></ac:plain-text-body>
+</ac:structured-macro>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTML → Jira Wiki 텍스트 변환</title>
+<style>
+  :root{color-scheme:light;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#172b4d;background:#f4f5f7}
+  body{margin:0;padding:28px 18px}main{max-width:1200px;margin:auto}h1{font-size:1.55rem;margin:0 0 8px}p{color:#44546f;margin:0 0 20px;line-height:1.6}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel{background:white;border:1px solid #dcdfe4;border-radius:12px;padding:16px;box-shadow:0 2px 8px #091e420d}
+  .head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}label{font-weight:700}textarea{width:100%;height:390px;resize:vertical;box-sizing:border-box;border:1px solid #8590a2;border-radius:7px;padding:12px;font:13px/1.5 ui-monospace,monospace;white-space:pre;overflow:auto}
+  textarea:focus{outline:2px solid #579dff;border-color:transparent}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:0;border-radius:6px;background:#0c66e4;color:white;font-weight:650;padding:9px 14px;cursor:pointer}.secondary{background:#e9f2ff;color:#0c4dba}.status{min-height:1.5em;margin-top:10px;font-size:.9rem;color:#216e4e}.warning{color:#974f0c;white-space:pre-line;margin-top:10px;font-size:.9rem}.hint{font-size:.88rem;color:#626f86;margin-top:12px}button:focus-visible{outline:3px solid #85b8ff;outline-offset:2px}@media(max-width:760px){.grid{grid-template-columns:1fr}textarea{height:240px}}
+</style>
+</head>
+<body><main>
+<h1>HTML → Jira Wiki 텍스트 변환</h1>
+<p>HTML을 붙여넣고 변환한 다음, 결과를 복사해 Jira 커스텀 필드 기본값에 붙여넣으세요. 결과는 <code>h1.</code> 같은 Jira Wiki 텍스트입니다.</p>
+<div class="grid">
+  <section class="panel"><div class="head"><label for="source">HTML 입력</label><button class="btn secondary" id="clear" type="button">지우기</button></div><textarea id="source" spellcheck="false" placeholder="&lt;h1&gt;제목&lt;/h1&gt;"></textarea><div class="hint">HTML 소스 코드를 붙여넣으세요.</div></section>
+  <section class="panel"><div class="head"><label for="result">Jira Wiki 텍스트</label><div class="actions"><button class="btn secondary" id="convert" type="button">변환</button><button class="btn" id="copy" type="button">결과 복사</button></div></div><textarea id="result" readonly spellcheck="false" placeholder="변환된 텍스트가 여기에 표시됩니다."></textarea><div class="status" id="status" role="status" aria-live="polite"></div><div class="warning" id="warnings" role="status"></div><div class="hint">기본값에 서식이 표시되려면 필드의 Wiki Style Renderer 설정을 확인하세요. 이미지 참조는 대상 Jira에서 접근 가능해야 합니다.</div></section>
+</div>
+</main>
+<script>
+'use strict';
+function htmlToWiki(source) {
+  const doc = new DOMParser().parseFromString(source.replace(/<\/br\s*>/gi, '<br>'), 'text/html');
+  const warnings = new Set();
+  doc.querySelectorAll('script,style,iframe,object,embed').forEach(node => node.remove());
+  if ([...doc.querySelectorAll('[style]')].some(node => /(?:^|;)\s*(?:background(?:-color)?|font-size|text-align|border(?:-[\w-]+)?|width|height)\s*:/i.test(node.getAttribute('style')))) warnings.add('배경색, 글꼴 크기, 정렬, 테두리 등의 CSS는 Jira Wiki 텍스트에 모두 보존되지 않습니다.');
+  const children = node => Array.from(node.childNodes);
+  function inline(node, inCell = false) {
+    if (node.nodeType === Node.TEXT_NODE) return inCell ? node.nodeValue.replace(/[\s\u00a0]+/g, ' ').replace(/\|/g, '&#124;') : node.nodeValue.replace(/\u00a0/g, ' ');
+    if (node.nodeType !== Node.ELEMENT_NODE) return '';
+    const tag = node.tagName.toLowerCase();
+    if (tag === 'br') return '\\\\\n';
+    if (tag === 'img') {
+      const src = node.getAttribute('src');
+      if (!src) { warnings.add('이미지의 src가 없어 제외했습니다.'); return ''; }
+      if (src.startsWith('data:')) warnings.add('인라인 이미지는 대상 Jira에서 사용할 수 있는 이미지 참조로 바꿔야 합니다.');
+      const options = ['width','height'].filter(k => node.getAttribute(k)).map(k => `${k}=${node.getAttribute(k)}`).join(',');
+      return `!${src}${options ? '|' + options : ''}!`;
+    }
+    let text = children(node).map(child => inline(child, inCell)).join('');
+    if (tag === 'a' && node.getAttribute('href')) return `[${text || node.getAttribute('href')}|${node.getAttribute('href')}]`;
+    const markers = {b:'*',strong:'*',i:'_',em:'_',u:'+',s:'-',strike:'-',del:'-',code:'{{'};
+    if (markers[tag] && text.trim()) text = markers[tag] + text + (tag === 'code' ? '}}' : markers[tag]);
+    const color = (node.getAttribute('style') || '').match(/(?:^|;)\s*color\s*:\s*([^;]+)/i);
+    if (color && text.trim()) text = `{color:${color[1].trim()}}${text}{color}`;
+    if (inCell && ['p','div','li','blockquote','tr'].includes(tag)) text += '\\\\';
+    return text;
+  }
+  function tableRows(table) {
+    const grid = [];
+    if (table.querySelector('table')) warnings.add('중첩 표는 셀 안의 텍스트로 펼쳤습니다.');
+    const span = (cell, key) => {
+      const value = cell.getAttribute(key) || '1';
+      return /^\d+$/.test(value) && Number(value) > 0 ? Math.min(Number(value), 100) : 1;
+    };
+    const rows = [...table.querySelectorAll('tr')].filter(row => row.closest('table') === table);
+    rows.forEach((row, r) => {
+      grid[r] ||= [];
+      let col = 0;
+      for (const cell of [...row.children].filter(c => ['td','th'].includes(c.tagName.toLowerCase()))) {
+        const width = span(cell, 'colspan'), height = span(cell, 'rowspan');
+        while (Array.from({length:width}, (_, i) => grid[r][col+i]).some(v => v !== undefined)) col++;
+        if (width > 1 || height > 1) warnings.add('병합 셀은 내용을 왼쪽 위에 두고 나머지를 빈 셀로 펼쳤습니다. 병합 모양은 보존되지 않습니다.');
+        const text = inline(cell, true).trim().replace(/(?:\\\\\s*)+$/g, '').replace(/\\\\\s*\\\\/g, '\\\\').replace(/[\r\n]+/g, ' ');
+        for (let dr=0; dr<height && r+dr<rows.length; dr++) {
+          grid[r+dr] ||= [];
+          for (let dc=0; dc<width; dc++) grid[r+dr][col+dc] = {text:dr===0 && dc===0 ? text : '', header:cell.tagName.toLowerCase()==='th'};
+        }
+        col += width;
+      }
+    });
+    const width = Math.max(0, ...grid.map(row => row.length));
+    return grid.map(row => {
+      const separator = row.length && row.every(cell => cell && cell.header) ? '||' : '|';
+      return separator + Array.from({length:width}, (_, i) => row[i]?.text || ' ').join(separator) + separator;
+    });
+  }
+  function blocks(nodes, prefix = '') {
+    const out = [];
+    let pending = '';
+    const flush = () => { if (pending.trim()) out.push(pending.trim()); pending = ''; };
+    const blockTags = new Set(['ul','ol','table','h1','h2','h3','h4','h5','h6','pre','p','blockquote','hr','html','body','div','section','article']);
+    for (const node of nodes) {
+      if (node.nodeType === Node.TEXT_NODE) { pending += node.nodeValue; continue; }
+      if (node.nodeType !== Node.ELEMENT_NODE) continue;
+      const tag = node.tagName.toLowerCase();
+      if (!blockTags.has(tag)) { pending += inline(node); continue; }
+      flush();
+      if (tag === 'ul' || tag === 'ol') {
+        const marker = tag === 'ul' ? '*' : '#';
+        for (const li of Array.from(node.children).filter(c => c.tagName.toLowerCase() === 'li')) {
+          const own = children(li).filter(c => !(c.nodeType === Node.ELEMENT_NODE && ['ul','ol'].includes(c.tagName.toLowerCase())));
+          out.push(prefix + marker + ' ' + own.map(child => inline(child)).join('').trim());
+          for (const nested of Array.from(li.children).filter(c => ['ul','ol'].includes(c.tagName.toLowerCase()))) out.push(...blocks([nested], prefix + marker));
+        }
+      } else if (tag === 'table') {
+        out.push(...tableRows(node));
+      } else if (/^h[1-6]$/.test(tag)) out.push(`${tag}. ${inline(node).trim()}`);
+      else if (tag === 'pre') out.push(`{code}\n${node.textContent.replace(/^\n|\n$/g, '')}\n{code}`);
+      else if (tag === 'p' || tag === 'blockquote') { const value = inline(node).trim(); if (value) out.push((tag === 'blockquote' ? 'bq. ' : '') + value); }
+      else if (tag === 'hr') out.push('----');
+      else if (['html','body','div','section','article'].includes(tag)) out.push(...blocks(children(node), prefix));
+      else { const value = inline(node).trim(); if (value) out.push(value); }
+    }
+    flush();
+    return out;
+  }
+  const parts = blocks(children(doc.body));
+  const group = part => part.startsWith('|') ? 'table' : /^[*#]+\s/.test(part) ? 'list' : '';
+  return {text: parts.map((part, i) => (i ? (group(part) && group(part) === group(parts[i-1]) ? '\n' : '\n\n') : '') + part).join('').trim(), warnings: [...warnings]};
+}
+const source = document.getElementById('source'), result = document.getElementById('result');
+const status = document.getElementById('status'), warnings = document.getElementById('warnings');
+function convert() { const converted = htmlToWiki(source.value); result.value = converted.text; warnings.textContent = converted.warnings.join('\n'); status.textContent = converted.text ? '변환 완료' : '변환할 HTML을 입력하세요.'; }
+document.getElementById('convert').addEventListener('click', convert);
+source.addEventListener('input', convert);
+document.getElementById('clear').addEventListener('click', () => { source.value = ''; result.value = ''; status.textContent = ''; warnings.textContent = ''; source.focus(); });
+document.getElementById('copy').addEventListener('click', async () => {
+  if (!result.value) { status.textContent = '먼저 변환할 HTML을 입력하세요.'; return; }
+  try { await navigator.clipboard.writeText(result.value); status.textContent = '복사했습니다.'; }
+  catch (_) { result.focus(); result.select(); try { status.textContent = document.execCommand('copy') ? '복사했습니다.' : '결과를 선택한 뒤 직접 복사하세요.'; } catch (_) { status.textContent = '결과를 선택한 뒤 직접 복사하세요.'; } }
+});
+</script>
+</body></html>

@@ -1,0 +1,57 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+*/.venv/
+
+# Playwright & browser automation data
+.playwright/
+*/.playwright/
+test-results/
+*/test-results/
+
+# Testing & Cache
+.pytest_cache/
+*/.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs & temp files
+*.log
+*/*.log
+log.txt
+*log.txt
+*.bak
+*/*.bak
+*.swp
+*.tmp
+
+# Secrets & Environment variables
+.env
+*.env
+/env
+JSE/env
+/auth.py
+
+# Personal files & bookmarks
+/bookmarks*
+
+# Large archives & binaries
+*.zip
+*.tar.gz
+*.tgz
+
+# OS & Editor generated files
+.DS_Store
+*/.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.antigravitycli/
+.antigravitycli

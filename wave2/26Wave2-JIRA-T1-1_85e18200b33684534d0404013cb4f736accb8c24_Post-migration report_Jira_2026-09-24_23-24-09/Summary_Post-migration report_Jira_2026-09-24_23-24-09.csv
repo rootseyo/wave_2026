@@ -1,0 +1,19 @@
+Type,Project,Number in migration,Successfully migrated,Partial data loss,Not migrated
+Boards,,0,0,-,0
+Custom fields,,0,0,-,0
+Notification schemes,,0,0,-,0
+Permission schemes,,0,0,-,0
+Roles,,0,0,-,0
+Workflows,,0,0,0,0
+Filters,,0,0,-,0
+Advanced Roadmaps plans,,0,0,-,0
+Dashboards,,0,0,0,0
+Gadgets,,0,0,-,0
+Jira automations,,0,0,-,0
+Users,,0,0,-,0
+Groups,,0,0,-,0
+Object Schemas,,0,0,-,0
+Object Entities,,0,0,-,0
+Asset References,,0,0,-,0
+Asset Statuses,,0,0,-,0
+Asset Attachments,,0,0,-,0

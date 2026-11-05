@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jira Component Watcher 스캔 대시보드 (STG)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-hover: #334155;
+            --border-color: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-blue-bg: rgba(59, 130, 246, 0.15);
+            --accent-green: #10b981;
+            --accent-green-bg: rgba(16, 185, 129, 0.15);
+            --accent-purple: #8b5cf6;
+            --accent-purple-bg: rgba(139, 92, 246, 0.15);
+            --accent-amber: #f59e0b;
+            --accent-amber-bg: rgba(245, 158, 11, 0.15);
+            --accent-pink: #ec4899;
+            --accent-pink-bg: rgba(236, 72, 153, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            padding: 2rem;
+            min-height: 100vh;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header-title h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .env-badge {
+            font-size: 0.85rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            background: var(--accent-blue-bg);
+            color: var(--accent-blue);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            font-weight: 600;
+        }
+
+        .header-meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* Stat Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-blue);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+        }
+
+        .stat-card.blue::before { background: var(--accent-blue); }
+        .stat-card.green::before { background: var(--accent-green); }
+        .stat-card.purple::before { background: var(--accent-purple); }
+        .stat-card.amber::before { background: var(--accent-amber); }
+        .stat-card.pink::before { background: var(--accent-pink); }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-sub {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Progress Bar in Stat */
+        .progress-bar-bg {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            margin-top: 0.75rem;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+
+        /* Controls / Filter Bar */
+        .controls-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .controls-top {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .search-wrapper {
+            position: relative;
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .search-wrapper svg {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            fill: var(--text-secondary);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.75rem;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-blue);
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .filter-btn:hover {
+            background-color: var(--bg-card-hover);
+            color: var(--text-primary);
+        }
+
+        .filter-btn.active {
+            background-color: var(--accent-blue);
+            color: #ffffff;
+            border-color: var(--accent-blue);
+        }
+
+        .sort-select {
+            padding: 0.5rem 1rem;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            outline: none;
+            cursor: pointer;
+        }
+
+        /* Projects View */
+        .projects-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .project-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            transition: border-color 0.2s ease;
+        }
+
+        .project-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .project-card-header {
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(255, 255, 255, 0.02);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .project-key-badge {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .tag-pill {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 0.25rem;
+            font-weight: 600;
+        }
+
+        .tag-configured {
+            background-color: var(--accent-green-bg);
+            color: var(--accent-green);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .tag-empty {
+            background-color: rgba(148, 163, 184, 0.1);
+            color: var(--text-secondary);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .project-summary-badges {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .badge-count {
+            font-size: 0.8rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 0.375rem;
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .badge-count strong {
+            color: var(--text-primary);
+        }
+
+        .chevron {
+            width: 20px;
+            height: 20px;
+            fill: var(--text-secondary);
+            transition: transform 0.2s ease;
+        }
+
+        .project-card.expanded .chevron {
+            transform: rotate(180deg);
+        }
+
+        /* Component Details Table */
+        .project-details {
+            display: none;
+            padding: 0 1.25rem 1.25rem 1.25rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .project-card.expanded .project-details {
+            display: block;
+        }
+
+        .comp-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .comp-table th {
+            text-align: left;
+            padding: 0.6rem 0.75rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 500;
+        }
+
+        .comp-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            vertical-align: top;
+        }
+
+        .comp-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comp-name {
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+
+        .chip-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+        }
+
+        .user-chip {
+            background: var(--accent-purple-bg);
+            color: #c4b5fd;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            font-size: 0.78rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 0.25rem;
+        }
+
+        .group-chip {
+            background: var(--accent-amber-bg);
+            color: #fde68a;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            font-size: 0.78rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 0.25rem;
+        }
+
+        .no-data {
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.8rem;
+        }
+
+        /* Empty state */
+        .empty-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--bg-card);
+            border-radius: 0.75rem;
+            border: 1px dashed var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        /* Top Charts section */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+        }
+
+        .chart-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .bar-item {
+            margin-bottom: 0.75rem;
+        }
+
+        .bar-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .bar-track {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-title">
+                <h1>
+                    <span>📊 Component Watcher 대시보드</span>
+                    <span class="env-badge">STG 환경</span>
+                </h1>
+            </div>
+            <div class="header-meta">
+                <div class="meta-item">
+                    <span>🕒 생성 시각:</span>
+                    <strong>2026-10-14 10:38:32</strong>
+                </div>
+            </div>
+        </header>
+
+        <!-- Stat Cards -->
+        <div class="stats-grid" id="statCards">
+            <!-- Rendered by JS -->
+        </div>
+
+        <!-- Charts Grid -->
+        <div class="charts-grid" id="chartsGrid">
+            <!-- Rendered by JS -->
+        </div>
+
+        <!-- Controls / Search & Filters -->
+        <div class="controls-card">
+            <div class="controls-top">
+                <div class="search-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    <input type="text" id="searchInput" class="search-input" placeholder="프로젝트 키, 컴포넌트명, 사용자 이메일, 그룹명 검색...">
+                </div>
+                <div class="filter-group" id="filterButtons">
+                    <button class="filter-btn active" data-filter="all">전체 프로젝트</button>
+                    <button class="filter-btn" data-filter="configured">설정 존재만</button>
+                    <button class="filter-btn" data-filter="users">사용자 와쳐 있음</button>
+                    <button class="filter-btn" data-filter="groups">그룹 와쳐 있음</button>
+                    <button class="filter-btn" data-filter="empty">설정 없음</button>
+                </div>
+                <select id="sortSelect" class="sort-select">
+                    <option value="key-asc">프로젝트 키 (오름차순)</option>
+                    <option value="key-desc">프로젝트 키 (내림차순)</option>
+                    <option value="comp-desc">컴포넌트 설정수 (높은순)</option>
+                    <option value="watchers-desc">와쳐 사용자수 (높은순)</option>
+                    <option value="groups-desc">와쳐 그룹수 (높은순)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Projects Header -->
+        <div class="projects-header">
+            <span id="resultsCount">결과 불러오는 중...</span>
+            <button class="filter-btn" id="toggleExpandBtn">모두 펼치기 / 접기</button>
+        </div>
+
+        <!-- Projects List -->
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Rendered by JS -->
+        </div>
+    </div>
+
+    <script>
+        const rawData = [{"key": "BAT", "components": [], "failed": true}];
+        
+        // Data Calculations
+        let allProjects = rawData || [];
+        let currentFilter = 'all';
+        let currentSearch = '';
+        let currentSort = 'key-asc';
+        let allExpanded = false;
+
+        function initStats() {
+            const totalProjects = allProjects.length;
+            const configuredProjects = allProjects.filter(p => p.components && p.components.length > 0);
+            const emptyProjectsCount = totalProjects - configuredProjects.length;
+            
+            let totalComponents = 0;
+            let totalWatcherUsers = 0;
+            let totalWatcherGroups = 0;
+            const uniqueUsers = new Set();
+            const uniqueGroups = new Set();
+            const projectWatcherCounts = [];
+
+            configuredProjects.forEach(p => {
+                let projUsers = 0;
+                let projGroups = 0;
+                p.components.forEach(c => {
+                    totalComponents++;
+                    const uCnt = c.source_watchers || c.watchers || 0;
+                    const gCnt = c.source_groups || c.groups || 0;
+                    totalWatcherUsers += uCnt;
+                    totalWatcherGroups += gCnt;
+                    projUsers += uCnt;
+                    projGroups += gCnt;
+
+                    (c.source_emails || c.watcher_emails || []).forEach(u => uniqueUsers.add(u));
+                    (c.source_group_names || c.group_names || []).forEach(g => uniqueGroups.add(g));
+                });
+                projectWatcherCounts.push({
+                    key: p.key,
+                    comps: p.components.length,
+                    users: projUsers,
+                    groups: projGroups,
+                    totalWatchers: projUsers + projGroups
+                });
+            });
+
+            const configPct = totalProjects > 0 ? ((configuredProjects.length / totalProjects) * 100).toFixed(1) : 0;
+
+            // Render Stat Cards
+            const statCardsEl = document.getElementById('statCards');
+            statCardsEl.innerHTML = `
+                <div class="stat-card blue">
+                    <div class="stat-header">
+                        <span>총 대상 프로젝트</span>
+                        <span>📁</span>
+                    </div>
+                    <div class="stat-value">${totalProjects}</div>
+                    <div class="stat-sub">스캔 대상 전체 프로젝트</div>
+                </div>
+                <div class="stat-card green">
+                    <div class="stat-header">
+                        <span>설정 보유 프로젝트</span>
+                        <span>⚙️</span>
+                    </div>
+                    <div class="stat-value">${configuredProjects.length} <span style="font-size:1.1rem; font-weight:400; color:var(--accent-green);">(${configPct}%)</span></div>
+                    <div class="stat-sub">설정 없음: ${emptyProjectsCount}개 프로젝트</div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: ${configPct}%; background: var(--accent-green);"></div>
+                    </div>
+                </div>
+                <div class="stat-card purple">
+                    <div class="stat-header">
+                        <span>컴포넌트 설정 총합</span>
+                        <span>🧩</span>
+                    </div>
+                    <div class="stat-value">${totalComponents}</div>
+                    <div class="stat-sub">등록된 전체 Component 규칙</div>
+                </div>
+                <div class="stat-card amber">
+                    <div class="stat-header">
+                        <span>와쳐 지정 사용자</span>
+                        <span>👤</span>
+                    </div>
+                    <div class="stat-value">${uniqueUsers.size} <span style="font-size:1.1rem; font-weight:400; color:var(--text-secondary);">(누적 ${totalWatcherUsers}명)</span></div>
+                    <div class="stat-sub">중복 제외 유니크 사용자 이메일 수</div>
+                </div>
+                <div class="stat-card pink">
+                    <div class="stat-header">
+                        <span>와쳐 지정 그룹</span>
+                        <span>👥</span>
+                    </div>
+                    <div class="stat-value">${uniqueGroups.size} <span style="font-size:1.1rem; font-weight:400; color:var(--text-secondary);">(누적 ${totalWatcherGroups}개)</span></div>
+                    <div class="stat-sub">중복 제외 유니크 와쳐 그룹 수</div>
+                </div>
+            `;
+
+            // Render Charts
+            renderCharts(projectWatcherCounts, configuredProjects.length, emptyProjectsCount, uniqueUsers.size, uniqueGroups.size);
+        }
+
+        function renderCharts(projectWatcherCounts, configuredCount, emptyCount, userCount, groupCount) {
+            const chartsGrid = document.getElementById('chartsGrid');
+            
+            // Top 5 Projects by Total Watcher Settings
+            const topProjects = [...projectWatcherCounts].sort((a, b) => b.totalWatchers - a.totalWatchers || b.comps - a.comps).slice(0, 5);
+            const maxWatchers = topProjects.length > 0 ? Math.max(...topProjects.map(p => p.totalWatchers), 1) : 1;
+
+            let topHtml = topProjects.map(p => {
+                const pct = ((p.totalWatchers / maxWatchers) * 100).toFixed(0);
+                return `
+                    <div class="bar-item">
+                        <div class="bar-info">
+                            <strong>${p.key}</strong>
+                            <span>컴포넌트 ${p.comps}개 | 와쳐 ${p.users}명, 그룹 ${p.groups}개</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: ${pct}%;"></div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            if (topProjects.length === 0) {
+                topHtml = '<div class="no-data">와쳐 설정이 등록된 프로젝트가 없습니다.</div>';
+            }
+
+            chartsGrid.innerHTML = `
+                <div class="chart-card">
+                    <h3>🔥 와쳐 설정이 가장 많은 프로젝트 TOP 5</h3>
+                    <div>${topHtml}</div>
+                </div>
+                <div class="chart-card">
+                    <h3>💡 와쳐 유형별 점유 비율</h3>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem; align-items: center; justify-content: space-around;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent-purple);">${userCount}</div>
+                            <div style="font-size: 0.85rem; color: var(--text-secondary);">유니크 사용자</div>
+                        </div>
+                        <div style="font-size: 1.5rem; color: var(--border-color);">/</div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent-amber);">${groupCount}</div>
+                            <div style="font-size: 0.85rem; color: var(--text-secondary);">유니크 그룹</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar-bg" style="height: 12px; margin-top: 1.25rem;">
+                        <div style="display: flex; height: 100%;">
+                            <div style="width: ${ (userCount + groupCount > 0) ? (userCount / (userCount + groupCount) * 100) : 50 }%; background: var(--accent-purple);"></div>
+                            <div style="width: ${ (userCount + groupCount > 0) ? (groupCount / (userCount + groupCount) * 100) : 50 }%; background: var(--accent-amber);"></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function filterAndRender() {
+            const searchLower = currentSearch.toLowerCase().trim();
+
+            let filtered = allProjects.filter(p => {
+                const comps = p.components || [];
+                const hasConfig = comps.length > 0;
+                
+                let hasUserWatchers = false;
+                let hasGroupWatchers = false;
+
+                comps.forEach(c => {
+                    if ((c.source_watchers || c.watchers || 0) > 0) hasUserWatchers = true;
+                    if ((c.source_groups || c.groups || 0) > 0) hasGroupWatchers = true;
+                });
+
+                // Category Filter
+                if (currentFilter === 'configured' && !hasConfig) return false;
+                if (currentFilter === 'users' && !hasUserWatchers) return false;
+                if (currentFilter === 'groups' && !hasGroupWatchers) return false;
+                if (currentFilter === 'empty' && hasConfig) return false;
+
+                // Search Query Filter
+                if (searchLower) {
+                    const keyMatch = p.key.toLowerCase().includes(searchLower);
+                    const compMatch = comps.some(c => {
+                        const nameMatch = c.name && c.name.toLowerCase().includes(searchLower);
+                        const userMatch = (c.source_emails || c.watcher_emails || []).some(u => u.toLowerCase().includes(searchLower));
+                        const groupMatch = (c.source_group_names || c.group_names || []).some(g => g.toLowerCase().includes(searchLower));
+                        return nameMatch || userMatch || groupMatch;
+                    });
+                    return keyMatch || compMatch;
+                }
+
+                return true;
+            });
+
+            // Sorting
+            filtered.sort((a, b) => {
+                const compsA = a.components || [];
+                const compsB = b.components || [];
+                
+                const watchersA = compsA.reduce((sum, c) => sum + (c.source_watchers || c.watchers || 0), 0);
+                const watchersB = compsB.reduce((sum, c) => sum + (c.source_watchers || c.watchers || 0), 0);
+
+                const groupsA = compsA.reduce((sum, c) => sum + (c.source_groups || c.groups || 0), 0);
+                const groupsB = compsB.reduce((sum, c) => sum + (c.source_groups || c.groups || 0), 0);
+
+                if (currentSort === 'key-asc') return a.key.localeCompare(b.key);
+                if (currentSort === 'key-desc') return b.key.localeCompare(a.key);
+                if (currentSort === 'comp-desc') return compsB.length - compsA.length || a.key.localeCompare(b.key);
+                if (currentSort === 'watchers-desc') return watchersB - watchersA || a.key.localeCompare(b.key);
+                if (currentSort === 'groups-desc') return groupsB - groupsA || a.key.localeCompare(b.key);
+                return 0;
+            });
+
+            document.getElementById('resultsCount').innerText = `총 ${filtered.length}개 프로젝트 표시 중 (전체 ${allProjects.length}개 중)`;
+
+            renderProjectsList(filtered);
+        }
+
+        function renderProjectsList(projects) {
+            const grid = document.getElementById('projectsGrid');
+            if (projects.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-results">
+                        <h3>🔍 검색 결과가 없습니다</h3>
+                        <p style="margin-top:0.5rem;">검색어나 필터 조건을 변경해 보세요.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = projects.map(p => {
+                const comps = p.components || [];
+                const hasConfig = comps.length > 0;
+                
+                let totalUserCount = 0;
+                let totalGroupCount = 0;
+
+                comps.forEach(c => {
+                    totalUserCount += (c.source_watchers || c.watchers || 0);
+                    totalGroupCount += (c.source_groups || c.groups || 0);
+                });
+
+                const statusTag = hasConfig 
+                    ? `<span class="tag-pill tag-configured">설정 존재 (${comps.length}개)</span>`
+                    : `<span class="tag-pill tag-empty">설정 없음</span>`;
+
+                const compRows = comps.map(c => {
+                    const uList = (c.source_emails || c.watcher_emails || []);
+                    const gList = (c.source_group_names || c.group_names || []);
+
+                    const uChips = uList.length > 0 
+                        ? uList.map(u => `<span class="user-chip">${u}</span>`).join('')
+                        : '<span class="no-data">없음</span>';
+
+                    const gChips = gList.length > 0 
+                        ? gList.map(g => `<span class="group-chip">${g}</span>`).join('')
+                        : '<span class="no-data">없음</span>';
+
+                    return `
+                        <tr>
+                            <td class="comp-name">${c.name}</td>
+                            <td><div class="chip-list">${uChips}</div></td>
+                            <td><div class="chip-list">${gChips}</div></td>
+                        </tr>
+                    `;
+                }).join('');
+
+                const detailsContent = hasConfig ? `
+                    <table class="comp-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 25%;">컴포넌트 명</th>
+                                <th style="width: 45%;">와쳐 지정 사용자 (이메일)</th>
+                                <th style="width: 30%;">와쳐 지정 그룹</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${compRows}
+                        </tbody>
+                    </table>
+                ` : `<div style="padding-top: 1rem;" class="no-data">이 프로젝트에는 등록된 Component Watcher 설정이 없습니다.</div>`;
+
+                const isExpanded = allExpanded || (hasConfig && projects.length <= 10);
+
+                return `
+                    <div class="project-card ${isExpanded ? 'expanded' : ''}" data-key="${p.key}">
+                        <div class="project-card-header" onclick="toggleProjectExpand(this)">
+                            <div class="project-key-badge">
+                                <span>${p.key}</span>
+                                ${statusTag}
+                            </div>
+                            <div class="project-summary-badges">
+                                ${hasConfig ? `
+                                    <span class="badge-count">사용자: <strong>${totalUserCount}명</strong></span>
+                                    <span class="badge-count">그룹: <strong>${totalGroupCount}개</strong></span>
+                                ` : ''}
+                                <svg class="chevron" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            ${detailsContent}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function toggleProjectExpand(headerEl) {
+            const card = headerEl.parentElement;
+            card.classList.toggle('expanded');
+        }
+
+        // Event Listeners
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            currentSearch = e.target.value;
+            filterAndRender();
+        });
+
+        document.getElementById('sortSelect').addEventListener('change', (e) => {
+            currentSort = e.target.value;
+            filterAndRender();
+        });
+
+        document.getElementById('filterButtons').addEventListener('click', (e) => {
+            if (e.target.tagName === 'BUTTON') {
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
+                currentFilter = e.target.getAttribute('data-filter');
+                filterAndRender();
+            }
+        });
+
+        document.getElementById('toggleExpandBtn').addEventListener('click', () => {
+            allExpanded = !allExpanded;
+            document.querySelectorAll('.project-card').forEach(card => {
+                if (allExpanded) card.classList.add('expanded');
+                else card.classList.remove('expanded');
+            });
+        });
+
+        // Initialization
+        window.addEventListener('DOMContentLoaded', () => {
+            initStats();
+            filterAndRender();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jira Data Analytics & Executive Dashboard</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --accent-primary: #6366f1;
+            --accent-secondary: #a855f7;
+            --accent-success: #10b981;
+            --accent-warning: #f59e0b;
+            --accent-info: #06b6d4;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .header-title h1 {
+            font-size: 1.875rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
+        }
+
+        .header-title p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        .meta-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            padding: 0.35rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            backdrop-filter: blur(8px);
+        }
+        .badge span {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* KPI Cards Grid */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .kpi-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-primary);
+        }
+
+        .kpi-card.purple::before { background: var(--accent-secondary); }
+        .kpi-card.emerald::before { background: var(--accent-success); }
+        .kpi-card.amber::before { background: var(--accent-warning); }
+
+        .kpi-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-value {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.03em;
+        }
+
+        .kpi-subtext {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Charts Section */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chart-header {
+            margin-bottom: 1.25rem;
+        }
+
+        .chart-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .chart-subtitle {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .chart-container {
+            position: relative;
+            flex-grow: 1;
+            min-height: 300px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Recommendations & Banner */
+        .insight-banner {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.15) 100%);
+            border: 1px solid rgba(129, 140, 248, 0.3);
+            border-radius: 1rem;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .insight-icon {
+            font-size: 1.75rem;
+            background: rgba(99, 102, 241, 0.2);
+            padding: 0.6rem;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .insight-text h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #a5b4fc;
+        }
+
+        .insight-text p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* Table Section */
+        .table-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            overflow: hidden;
+        }
+
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .search-box {
+            position: relative;
+            min-width: 250px;
+        }
+
+        .search-box input {
+            width: 100%;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--card-border);
+            padding: 0.6rem 1rem 0.6rem 2.25rem;
+            border-radius: 0.5rem;
+            color: var(--text-main);
+            font-size: 0.875rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--accent-primary);
+        }
+
+        .search-box::before {
+            content: '🔍';
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.875rem;
+        }
+
+        th {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 0.875rem 1rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--text-main);
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .project-badge {
+            font-weight: 700;
+            color: #818cf8;
+            font-family: monospace;
+            font-size: 0.95rem;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            max-width: 120px;
+            background: rgba(255, 255, 255, 0.1);
+            height: 6px;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 4px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #6366f1, #a855f7);
+            border-radius: 3px;
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.08);
+            margin: 2px;
+        }
+        .pill.attach { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+        .pill.text { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+
+        @media (max-width: 768px) {
+            .charts-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-title">
+                <h1>JIRA Data & JEditor Analysis Dashboard</h1>
+                <p>Data Migration Executive Summary & Issue Distribution Analysis</p>
+            </div>
+            <div class="meta-badges">
+                <div class="badge">Analyzed File: <span id="meta-filename">data.html</span></div>
+                <div class="badge">Size: <span id="meta-filesize">0 MB</span></div>
+                <div class="badge">Execution Time: <span id="meta-time">0s</span></div>
+            </div>
+        </header>
+
+        <!-- KPI Grid -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-title">총 프로젝트 수 (Distinct)</div>
+                <div class="kpi-value" id="kpi-projects">0</div>
+                <div class="kpi-subtext">조회 대상 전체 Jira 프로젝트</div>
+            </div>
+            <div class="kpi-card purple">
+                <div class="kpi-title">전체 이슈 수 (Distinct)</div>
+                <div class="kpi-value" id="kpi-issues">0</div>
+                <div class="kpi-subtext">Unique Issue Key 기준 개수</div>
+            </div>
+            <div class="kpi-card emerald">
+                <div class="kpi-title">전체 레코드(행) 수</div>
+                <div class="kpi-value" id="kpi-rows">0</div>
+                <div class="kpi-subtext">추출된 Field & Comment 데이터 건수</div>
+            </div>
+            <div class="kpi-card amber">
+                <div class="kpi-title">첨부파일(Attachment) 감지 건수</div>
+                <div class="kpi-value" id="kpi-attachments">0</div>
+                <div class="kpi-subtext">마이그레이션 우선 점검 대상</div>
+            </div>
+        </div>
+
+        <!-- Actionable Insights Banner -->
+        <div class="insight-banner">
+            <div class="insight-icon">💡</div>
+            <div class="insight-text">
+                <h3>의사결정 핵심 인사이트</h3>
+                <p id="insight-summary">데이터 분석 중...</p>
+            </div>
+        </div>
+
+        <!-- Charts Grid -->
+        <div class="charts-grid">
+            <!-- Pie Chart: Top Projects -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div class="chart-title">프로젝트별 이슈 점유율 (Pie Chart)</div>
+                    <div class="chart-subtitle">가장 많은 이슈를 보유한 상위 프로젝트 비율</div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="projectPieChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Bar Chart: Top 10 Projects -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div class="chart-title">상위 10개 프로젝트 이슈 건수 (Top 10 Projects)</div>
+                    <div class="chart-subtitle">이슈 수 기준 Ranking</div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="projectBarChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Donut Chart: Detection Types -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div class="chart-title">감지 유형별 이슈 비율 (Detection Types)</div>
+                    <div class="chart-subtitle">Renderer/Text vs Attachment 비중</div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="detectionDonutChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Bar Chart: Field Types -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div class="chart-title">필드(Field Name)별 발생 건수</div>
+                    <div class="chart-subtitle">Description, Comment, Custom Field 비중</div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="fieldBarChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table Card -->
+        <div class="table-card">
+            <div class="table-header">
+                <div>
+                    <div class="chart-title">프로젝트별 세부 데이터 현황</div>
+                    <div class="chart-subtitle">전체 프로젝트 검색 및 이슈/필드 세부 내역</div>
+                </div>
+                <div class="search-box">
+                    <input type="text" id="tableSearch" placeholder="프로젝트 키 검색..." onkeyup="filterTable()">
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <table id="projectTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>프로젝트 키</th>
+                            <th>이슈 수 (Unique)</th>
+                            <th>점유율</th>
+                            <th>총 레코드 수</th>
+                            <th>필드 구성</th>
+                            <th>감지 유형 (Detection)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- Dynamic Rows -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Data & Logic -->
+    <script>
+        const DASHBOARD_DATA = {"summary": {"fileName": "step2_data_AAOSFRWDEV-543.html", "fileSize": "1.21 KB", "elapsedSec": 0.0, "totalProjects": 1, "totalIssues": 1, "totalRows": 2}, "projects": [{"key": "AAOSFRWDEV", "issue_count": 1, "row_count": 2, "fields": {"Description": 1, "사양서 내용": 1}, "detections": {"Attachment": 1, "Renderer/Text": 1}, "statuses": {"Resolved": 1}, "issue_types": {}}], "globalFields": {"Description": 1, "사양서 내용": 1}, "globalDetections": {"Attachment": 1, "Renderer/Text": 1}, "globalIssueTypes": {}};
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSummary();
+            renderCharts();
+            renderTable();
+        });
+
+        function renderSummary() {
+            const s = DASHBOARD_DATA.summary;
+            document.getElementById('meta-filename').textContent = s.fileName;
+            document.getElementById('meta-filesize').textContent = s.fileSize;
+            document.getElementById('meta-time').textContent = s.elapsedSec + 's';
+
+            document.getElementById('kpi-projects').textContent = s.totalProjects.toLocaleString();
+            document.getElementById('kpi-issues').textContent = s.totalIssues.toLocaleString();
+            document.getElementById('kpi-rows').textContent = s.totalRows.toLocaleString();
+
+            const attachCount = DASHBOARD_DATA.globalDetections['Attachment'] || 0;
+            document.getElementById('kpi-attachments').textContent = attachCount.toLocaleString();
+
+            // Insight Banner Text
+            const topProj = DASHBOARD_DATA.projects[0];
+            if (topProj) {
+                const topPct = ((topProj.issue_count / s.totalIssues) * 100).toFixed(1);
+                document.getElementById('insight-summary').innerHTML = 
+                    `가장 많은 이슈를 보유한 프로젝트는 <strong>${topProj.key}</strong> (<strong>${topProj.issue_count.toLocaleString()}개</strong>, 전체의 <strong>${topPct}%</strong>) 입니다. ` +
+                    `첨부파일(Attachment)이 포함된 이슈는 총 <strong>${attachCount.toLocaleString()}건</strong>으로, 마이그레이션 시 최우선 검수 작업이 필요합니다.`;
+            }
+        }
+
+        function renderCharts() {
+            const projects = DASHBOARD_DATA.projects;
+            const totalIssues = DASHBOARD_DATA.summary.totalIssues;
+
+            // Palette
+            const colors = [
+                '#6366f1', '#a855f7', '#ec4899', '#3b82f6', '#10b981', 
+                '#f59e0b', '#06b6d4', '#84cc16', '#f97316', '#64748b'
+            ];
+
+            // 1. Pie Chart Data (Top 7 + Others)
+            let pieLabels = [];
+            let pieData = [];
+            let otherCount = 0;
+
+            projects.forEach((p, idx) => {
+                if (idx < 7) {
+                    pieLabels.push(p.key);
+                    pieData.push(p.issue_count);
+                } else {
+                    otherCount += p.issue_count;
+                }
+            });
+
+            if (otherCount > 0) {
+                pieLabels.push('기타 (' + (projects.length - 7) + '개)');
+                pieData.push(otherCount);
+            }
+
+            new Chart(document.getElementById('projectPieChart'), {
+                type: 'pie',
+                data: {
+                    labels: pieLabels,
+                    datasets: [{
+                        data: pieData,
+                        backgroundColor: colors,
+                        borderWidth: 2,
+                        borderColor: '#1e293b'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#94a3b8', font: { family: 'Inter' } } }
+                    }
+                }
+            });
+
+            // 2. Bar Chart Data (Top 10)
+            const top10 = projects.slice(0, 10);
+            new Chart(document.getElementById('projectBarChart'), {
+                type: 'bar',
+                data: {
+                    labels: top10.map(p => p.key),
+                    datasets: [{
+                        label: '이슈 수',
+                        data: top10.map(p => p.issue_count),
+                        backgroundColor: '#818cf8',
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { ticks: { color: '#94a3b8' }, grid: { display: false } },
+                        y: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+
+            // 3. Donut Chart (Detection Types)
+            const detections = DASHBOARD_DATA.globalDetections;
+            const detLabels = Object.keys(detections);
+            const detData = Object.values(detections);
+            new Chart(document.getElementById('detectionDonutChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: detLabels,
+                    datasets: [{
+                        data: detData,
+                        backgroundColor: ['#34d399', '#fbbf24', '#f87171', '#60a5fa'],
+                        borderWidth: 2,
+                        borderColor: '#1e293b'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#94a3b8' } }
+                    }
+                }
+            });
+
+            // 4. Field Names Bar Chart
+            const fields = DASHBOARD_DATA.globalFields;
+            new Chart(document.getElementById('fieldBarChart'), {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(fields),
+                    datasets: [{
+                        label: '이슈 수',
+                        data: Object.values(fields),
+                        backgroundColor: '#c084fc',
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                        y: { ticks: { color: '#94a3b8' }, grid: { display: false } }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+
+            const totalIssues = DASHBOARD_DATA.summary.totalIssues;
+
+            DASHBOARD_DATA.projects.forEach((p, idx) => {
+                const pct = totalIssues > 0 ? ((p.issue_count / totalIssues) * 100).toFixed(1) : '0.0';
+                
+                // Field pill render
+                let fieldPills = Object.entries(p.fields).map(([fname, cnt]) => 
+                    `<span class="pill">${fname}: ${cnt}</span>`
+                ).join('');
+
+                // Detection pill render
+                let detPills = Object.entries(p.detections).map(([dname, cnt]) => {
+                    const cls = dname.includes('Attachment') ? 'attach' : 'text';
+                    return `<span class="pill ${cls}">${dname}: ${cnt}</span>`;
+                }).join('');
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td style="color: #64748b; font-weight: 600;">${idx + 1}</td>
+                    <td class="project-badge">${p.key}</td>
+                    <td style="font-weight: 700; font-size: 1rem;">${p.issue_count.toLocaleString()} 개</td>
+                    <td>
+                        <div>${pct}%</div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: ${pct}%"></div>
+                        </div>
+                    </td>
+                    <td>${p.row_count.toLocaleString()} 건</td>
+                    <td>${fieldPills || '-'}</td>
+                    <td>${detPills || '-'}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function filterTable() {
+            const query = document.getElementById('tableSearch').value.toLowerCase();
+            const rows = document.querySelectorAll('#tableBody tr');
+            rows.forEach(row => {
+                const projKey = row.children[1].textContent.toLowerCase();
+                if (projKey.includes(query)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

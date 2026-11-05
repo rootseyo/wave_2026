@@ -1,0 +1,2 @@
+{"issue": "AAOSFRWDEV-543", "source_issue": "AAOSFRWDEV-543", "field": "customfield_10020", "source_field": "customfield_10020", "field_name": "사양서 내용", "status": "FAILED", "reason": "Missing Cloud field mapping for customfield_10020; supply --field-map or explicitly choose --allow-same-field-ids"}
+{"issue": "AAOSFRWDEV-543", "source_issue": "AAOSFRWDEV-543", "field": "description", "source_field": "description", "field_name": "Description", "status": "FAILED", "reason": "Jira GET failed: HTTP 404"}

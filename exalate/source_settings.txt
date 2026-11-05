@@ -1,0 +1,2781 @@
+
+
+none
+
+
+안건
+
+
+
+방화벽 오픈 검토
+
+
+
+Jira Cloud / Sandbox ↔︎ 
+
+https://ade-jira.hmckmc.co.kr/
+
+
+
+
+
+Jira Cloud / Sandbox ↔︎ 
+
+https://jira.mobis.co.kr
+
+
+
+
+
+
+
+Exalate 분석 및 설정을 위한 OSC 인력 프로젝트 접근 권한 부여 (이곡지, 은서진, 박재국, 김세연)
+
+
+
+대상: 
+
+https://ade-jira.hmckmc.co.kr
+
+ / 
+
+https://jira.mobis.co.kr
+
+
+
+
+
+사유: Exalate 연계 구조상 송/수신 양방향 설정 및 권한 필수
+
+
+
+
+
+검토 의견
+
+
+
+Exalate Connection은 양방향 설정이 필요합니다.
+
+
+
+현재 Jira Cloud는 
+https://jira.hyundai-autoever.eu
+와 Exalate Connection이 12개 설정되어 있습니다.
+
+
+
+WAVE 2 대상인 Jira Data Center에는 
+https://ade-jira.hmckmc.co.kr/
+ 및 
+https://jira.mobis.co.kr
+과의 Exalate Connection이 설정되어 있습니다.
+
+
+
+마이그레이션 사전 분석 및 수행을 위해 Jira Cloud ↔︎ Data Center 간 방화벽 오픈 및 프로젝트 접근 권한이 필요합니다.
+
+
+
+
+
+To Do
+
+
+
+양방향 설정 값 확인 (Outgoing, Incoming)
+
+
+
+장기간 sync 안되고 있는 설정 값 확인
+
+
+
+
+
+동기화 스크립트내 커스텀필드 값, 사용자 아이디 마이그레이션 스크립트 작성
+
+
+
+Jira Cloud Sandbox ↔︎ ade, mobis Exalate 설정
+
+
+
+마이그레이션 스크립트 적용
+
+
+
+
+
+
+
+Jira Cloud 현황
+
+
+
+총 12개 Connection
+
+
+
+
+https://jira.hyundai-autoever.eu/
+ 
+
+
+
+
+
+Jira Data Center - WAVE 2 대상 
+
+대상 프로젝트 32개
+
+
+wide
+
+4000
+
+true
+
+HMCP
+GENESISP
+FREQ
+TEST
+ATCU
+MOBCR
+PDC
+PDCX
+PTGPSD
+SPLIT
+TMF
+D2VTRACK
+PROTO
+PSG
+SISSUE
+CCSISSUE
+CALENDAR
+CHNP
+CHNUPDATE
+AP
+CAQM
+CPQM
+NE1AWJIMS
+ESTRACK20
+EXNCP
+KMCP
+CCOS
+HMERU
+SWUPDATE
+HMJRU
+SRTR
+CHNINFOQC
+
+
+Entity under sync
+
+
+
+
+
+
+Destination URL
+
+
+
+
+Entity under sync 개수
+
+
+
+
+
+
+
+https://ade-jira.hmckmc.co.kr/
+
+
+
+
+
+
+12,255
+
+
+
+
+
+
+
+
+https://jira.mobis.co.kr
+
+
+
+
+
+
+34,751
+
+
+
+
+
+
+WAVE 2 대상 Exalate 목록
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONNECTION_NAME
+
+
+
+
+Last Update
+
+
+
+대상 프로젝트
+
+
+
+Entity under sync
+
+
+
+Host Name
+
+
+
+
+Destination URL
+
+
+
+
+
+1
+
+
+[HMG-ADE] CPMS SYNC
+
+
+
+Outgoing
+
+7 hours ago
+
+
+
+HMCP
+
+
+
+208
+
+
+
+
+
+https://jira.hmg-corp.io/
+
+
+
+
+
+
+
+https://ade-jira.hmckmc.co.kr/
+
+
+
+
+
+
+2
+
+
+[HMG-ADE] CPMS_IVI SYNC
+
+
+
+Outgoing
+
+> 1h
+
+
+
+GENESISP
+
+
+
+8,790
+
+
+
+
+
+https://jira.hmg-corp.io/
+
+
+
+
+
+
+
+https://ade-jira.hmckmc.co.kr/
+
+
+
+
+
+
+3
+
+
+[HMG-ADE] FREQ SYNC
+
+
+
+Outgoing
+
+> 5 months ago
+
+
+
+FREQ
+
+
+
+423
+
+
+
+
+
+
+
+
+https://ade-jira.hmckmc.co.kr/
+
+
+
+
+
+
+4
+
+
+[HMG-ADE] NE1a SYNC
+
+
+
+Outgoing
+
+> 1h
+
+
+
+TEST
+
+
+
+1,059
+
+
+
+
+
+
+
+
+https://ade-jira.hmckmc.co.kr/
+
+
+
+
+
+
+5
+
+
+[HMG-ADE] REQ_ELEC SYNC
+
+
+
+Outgoing
+
+> 9h
+
+
+
+ATCU, MOBCR, PDC, PDCX, PTGPSD, SPLIT, TMF
+
+
+
+1,684
+
+
+
+
+
+https://jira.hmg-corp.io/
+
+
+
+
+
+
+
+https://ade-jira.hmckmc.co.kr/
+
+
+
+
+
+
+6
+
+
+[HMG-ADE] REQ_IVI SYNC
+
+
+
+error
+
+
+
+D2VTRACK
+
+
+
+91
+
+
+
+
+
+https://jira.hmg-corp.io
+
+
+
+
+
+
+
+https://ade-jira.hmckmc.co.kr/
+
+
+
+
+
+
+7
+
+
+[MOBIS-HMG] BCU SYNC
+
+
+
+no trigger
+
+
+
+PROTO, PSG, SISSUE, SPLIT, TEST
+
+
+
+0
+
+
+
+
+
+https://jira.hmg-corp.io
+
+
+
+
+
+
+
+https://jira.mobis.co.kr
+
+
+
+
+
+
+8
+
+
+[MOBIS-HMG] CCS SYNC
+
+
+
+Incoming
+
+> 1 day
+
+
+
+CCSISSUE, SPLIT, TEST
+
+
+
+170
+
+
+
+
+
+https://jira.hmg-corp.io/
+
+
+
+
+
+
+
+https://jira.mobis.co.kr
+
+
+
+
+
+
+9
+
+
+[MOBIS-HMG] CHNP_CHNUPDATE SYNC
+
+
+
+> 15 hours ago
+
+
+
+CALENDAR, CHNP, CHNUPDATE
+
+
+
+295
+
+
+
+
+
+https://jira.hmg-corp.io/
+
+
+
+
+
+
+
+https://jira.mobis.co.kr
+
+
+
+
+
+
+10
+
+
+[MOBIS-HMG] CONNECT SYNC
+
+
+
+> 10 minutes ago
+
+
+
+AP, CAQM, CPQM, SPLIT
+
+
+
+16,654
+
+
+
+
+
+https://jira.hmg-corp.io/
+
+
+
+
+
+
+
+https://jira.mobis.co.kr
+
+
+
+
+
+
+11
+
+
+[MOBIS-HMG] EPB SYNC
+
+
+
+> 15 hours ago
+
+
+
+NE1AWJIMS
+
+
+
+57
+
+
+
+
+
+https://jira.hmg-corp.io/
+
+
+
+
+
+
+
+https://jira.mobis.co.kr
+
+
+
+
+
+
+12
+
+
+[MOBIS-HMG] ESTRACK20 SYNC
+
+
+
+> 1 minute ago
+
+
+
+ESTRACK20
+
+
+
+5,007
+
+
+
+
+
+https://jira.hmg-corp.io/
+
+
+
+
+
+
+
+https://jira.mobis.co.kr
+
+
+
+
+
+
+13
+
+
+[MOBIS-HMG] EXNCP SYNC-NEW
+
+
+
+> 1 minute ago
+
+
+
+EXNCP, SPLIT
+
+
+
+4,673
+
+
+
+
+
+https://jira.hmg-corp.io
+
+
+
+
+
+
+
+https://jira.mobis.co.kr
+
+
+
+
+
+
+14
+
+
+[MOBIS-HMG] HMCP/KMCP/GENESISP SYNC-NEW
+
+
+
+> 4 days ago
+
+
+
+GENESISP, HMCP, KMCP
+
+
+
+3,242
+
+
+
+
+
+https://jira.hmg-corp.io
+
+
+
+
+
+
+
+https://jira.mobis.co.kr
+
+
+
+
+
+
+15
+
+
+[MOBIS-HMG] HMERU/HMETC SYNC_NEW
+
+
+
+> 16 hours ago
+
+
+
+CCOS, CHNP, HMERU, SWUPDATE
+
+
+
+157
+
+
+
+
+
+https://jira.hmg-corp.io
+
+
+
+
+
+
+
+https://jira.mobis.co.kr
+
+
+
+
+
+
+16
+
+
+[MOBIS-HMG] HMJRU SYNC
+
+
+
+> 6 days ago
+
+
+
+CALENDAR, HMJRU
+
+
+
+125
+
+
+
+
+
+https://jira.hmg-corp.io/
+
+
+
+
+
+
+
+https://jira.mobis.co.kr
+
+
+
+
+
+
+17
+
+
+[MOBIS-HMG] PBV-VR SYNC
+
+
+
+> 18 hours ago
+
+
+
+TEST
+
+
+
+752
+
+
+
+
+
+https://jira.hmg-corp.io/
+
+
+
+
+
+
+
+https://jira.mobis.co.kr
+
+
+
+
+
+
+18
+
+
+[MOBIS-HMG] PBVIVI SYNC
+
+
+
+> 2 months ago
+
+
+
+KMCP
+
+
+
+460
+
+
+
+
+
+https://jira.hmg-corp.io
+
+
+
+
+
+
+
+https://jira.mobis.co.kr
+
+
+
+
+
+
+19
+
+
+[MOBIS-HMG] SRTR SYNC
+
+
+
+> 5 days ago
+
+
+
+SRTR
+
+
+
+5
+
+
+
+
+
+https://jira.hmg-corp.io/
+
+
+
+
+
+
+
+https://jira.mobis.co.kr
+
+
+
+
+
+
+20
+
+
+[MOBIS-HMG] SWUPDATE/CHNP SYNC-NEW
+
+
+
+> 13 hours ago
+
+
+
+CHNP, SWUPDATE
+
+
+
+1,746
+
+
+
+
+
+https://jira.hmg-corp.io
+
+
+
+
+
+
+
+https://jira.mobis.co.kr
+
+
+
+
+
+
+21
+
+
+[MOBIS-HMG] ccNC_CHN SYNC-NEW
+
+
+
+> 17 hours ago
+
+
+
+CHNINFOQC
+
+
+
+1,408
+
+
+
+
+
+https://jira.hmg-corp.io
+
+
+
+
+
+
+
+https://jira.mobis.co.kr
+
+
+
+
+
+
+
+
+HMG Exalate
+
+
+
+
+
+
+
+
+
+
+
+
+
+Connection Name
+
+
+
+
+
+Outgoing sync
+
+
+
+
+
+Triggers
+
+
+
+
+
+1
+
+
+[HMG-ADE] REQ_IVI SYNC
+
+
+
+
+true
+
+replica.key              = issue.key
+replica.type             = issue.type
+replica.summary          = issue.summary
+replica.description      = issue.description
+replica.assignee         = issue.assignee
+replica.reporter         = issue.reporter
+replica.creator          = issue.creator
+replica.watchers         = issue.watchers
+replica.created          = issue.created
+replica.labels           = issue.labels
+replica.comments         = issue.comments
+replica.resolution       = issue.resolution
+replica.status           = issue.status
+replica.parentId         = issue.parentId
+replica.priority         = issue.priority
+replica.due              = issue.due
+replica.resolutionDate   = issue.resolutionDate
+replica.project          = issue.project
+replica.projectKey       = issue.projectKey
+replica.issueLinks       = issue.issueLinks
+replica.components       = issue.components
+replica.fixVersions      = issue.fixVersions
+replica.affectedVersions = issue.affectedVersions
+replica.securityLevel    = issue.securityLevel
+replica.attachments      = issue.attachments.findAll { attachment -> 
+    attachment.mimetype.startsWith("image/")
+}
+
+replica.customFields."epicName"       = issue.customFields."10004"
+replica.customFields."epicColor"      = issue.customFields."10005"
+replica.customFields."epicLink"       = issue.customFields."10002"
+
+replica.customFields."issueStage"        = issue.customFields."38200"
+replica.customFields."coWorker"          = issue.customFields."11626"
+replica.customFields."deploymentDueDate" = issue.customFields."21316"
+replica.customFields."fixSwVersion"      = issue.customFields."34517"
+replica.customFields."vehicleCode"       = issue.customFields."35900"
+replica.customFields."hmcAssignee"       = issue.customFields."39402"
+replica.customFields."vehicleAssignee"   = issue.customFields."39401"
+replica.customFields."syncSirs"          = issue.customFields."39001"
+
+// replica.customFields.""       = issue.customFields.""
+
+
+
+
+project in (CCIC27TRAC, CCIC27TRAC, CCICTRACK, CCNCBTRACK, CCNCTRACK, 
+CCRCTRACK
+, CSTRACK, CONNLIGHT, D2VTRACK, DCUCTRACK, DCTRACK, POIPTRACK, PBVTRACK, P5TRACK, P6TRACK, S4TRACK, S5LTRACK, S5MTRACK, S5WLTRACK, S5WMTRACK) and issuetype = Task and SIRS연동여부 = YES
+
+
+
+
+2
+
+
+[HMG-ADE] CPMS SYNC
+
+
+
+
+true
+
+replica.key              = issue.key
+
+if(issue.projectKey == "ADEPRK" && issue.type == "문제점_CPMS") {
+    replica.type = "문제점"
+}
+else {
+    replica.type = issue.type
+}
+//replica.type             = issue.type
+replica.summary          = issue.summary
+replica.description      = issue.description
+replica.assignee         = issue.assignee
+replica.reporter         = issue.reporter
+replica.creator          = issue.creator
+replica.watchers         = issue.watchers
+replica.created          = issue.created
+replica.labels           = issue.labels
+replica.comments         = issue.comments
+replica.resolution       = issue.resolution
+replica.status           = issue.status
+replica.parentId         = issue.parentId
+replica.priority         = issue.priority
+replica.due              = issue.due
+replica.resolutionDate   = issue.resolutionDate
+replica.project          = issue.project
+replica.projectKey       = issue.projectKey
+replica.issueLinks       = issue.issueLinks
+replica.components       = issue.components
+replica.fixVersions      = issue.fixVersions
+replica.affectedVersions = issue.affectedVersions
+replica.securityLevel    = issue.securityLevel
+replica.attachments      = issue.attachments.findAll { attachment -> 
+    attachment.mimetype.startsWith("image/")
+}
+
+replica.customFields."epicName"       = issue.customFields."10004"
+replica.customFields."epicColor"      = issue.customFields."10005"
+replica.customFields."epicLink"       = issue.customFields."10002"
+
+replica.customFields."issueStage"         = issue.customFields."32303"
+replica.customFields."car"                = issue.customFields."19956"
+replica.customFields."region"             = issue.customFields."13040"
+replica.customFields."controller"         = issue.customFields."32711"
+replica.customFields."reportSource"       = issue.customFields."32304"
+replica.customFields."swVersion"          = issue.customFields."32701"
+replica.customFields."fixSwVersion"       = issue.customFields."34517"
+replica.customFields."hwVersion"          = issue.customFields."32702"
+replica.customFields."fixHwVersion"       = issue.customFields."34518"
+replica.customFields."controllerProblem"  = issue.customFields."32708"
+replica.customFields."cyberSecurity"      = issue.customFields."34507"
+replica.customFields."issueDate"          = issue.customFields."20642"
+replica.customFields."fixTargetDate"      = issue.customFields."34508"
+replica.customFields."verificationDate"   = issue.customFields."34509"
+replica.customFields."cause"              = issue.customFields."34510"
+replica.customFields."causeType"          = issue.customFields."34511"
+replica.customFields."impactScope"        = issue.customFields."34512"
+replica.customFields."solution"           = issue.customFields."13510"
+replica.customFields."verifier"           = issue.customFields."34515"
+replica.customFields."verificationReview" = issue.customFields."34516"
+replica.customFields."coWorker"           = issue.customFields."11626"
+replica.customFields."indexSource"        = issue.customFields."34501"
+replica.customFields."detailedSource"     = issue.customFields."34500"
+replica.customFields."troubleshooter"     = issue.customFields."34502"
+replica.customFields."vehicleCode"        = issue.customFields."35900"
+replica.customFields."responsibleOrganization"        = issue.customFields."34503"
+replica.customFields."cooperativeControllerInfluence" = issue.customFields."34513"
+replica.customFields."cooperativeController"          = issue.customFields."34514"
+
+// QIMSINFO
+replica.customFields."quailtyGrade"       = issue.customFields."42102"
+replica.customFields."impactScope"        = issue.customFields."34512"
+replica.customFields."hmcAssignee"        = issue.customFields."36100"
+replica.customFields."cooperativeCompany" = issue.customFields."12107"
+// replica.customFields.""  = issue.customFields.""
+
+replica.customFields."adeJiraSync" = issue.customFields."49129"
+
+
+
+
+project in (PLBM, PARKINGLBM, MLBMEXT, ROA, BICIM, ROAS, DK, PDCCOWORK, UIP, PSMSCM, BPCMWTC07, ECDPS, ECDPART, ECDPARTL, ELECCCU, ELECPMS, IBUMOBASE, WAC, ATCU, PTGPSD, ELECBODY, ELECPOWER, ELECCONV, ELECSW, BDC, DITPMSRX, CCU2S, SPW, RCMJIRA, ISCMMOBIS, ISCMAUMOVI, ISCMVEONEE, WPC) and issuetype = 문제점
+
+
+project in (ISCMMOBIS, ISCMAUMOVI, ISCMVEONEE) and issuetype = 설계변경
+
+
+project = ADEPRK AND issuetype = "문제점_CPMS" AND "ADE-Jira 연동" = O
+
+
+
+
+3
+
+
+[HMG-ADE] CPMS_IVI SYNC
+
+
+
+
+true
+
+replica.key              = issue.key
+replica.type             = issue.type
+replica.summary          = issue.summary
+replica.description      = issue.description
+replica.assignee         = issue.assignee
+replica.reporter         = issue.reporter
+replica.creator          = issue.creator
+replica.watchers         = issue.watchers
+replica.created          = issue.created
+replica.labels           = issue.labels
+replica.comments         = issue.comments
+replica.resolution       = issue.resolution
+replica.status           = issue.status
+replica.parentId         = issue.parentId
+replica.priority         = issue.priority
+replica.due              = issue.due
+replica.resolutionDate   = issue.resolutionDate
+replica.project          = issue.project
+replica.projectKey       = issue.projectKey
+replica.issueLinks       = issue.issueLinks
+replica.components       = issue.components
+replica.fixVersions      = issue.fixVersions
+replica.affectedVersions = issue.affectedVersions
+replica.securityLevel    = issue.securityLevel
+replica.attachments      = issue.attachments.findAll { attachment -> 
+    attachment?.mimetype?.startsWith("image/")
+}
+
+replica.customFields."epicName"  = issue.customFields."10004"
+replica.customFields."epicColor" = issue.customFields."10005"
+replica.customFields."epicLink"  = issue.customFields."10002"
+
+replica.customFields."issueStage"        = issue.customFields."15812"
+// replica.customFields."car"            = issue.customFields."19857"
+replica.customFields."region"            = issue.customFields."19578"
+replica.customFields."controller"        = issue.customFields."34004"
+replica.customFields."cause"             = issue.customFields."19574"
+replica.customFields."planedFixDate"     = issue.customFields."19573"
+replica.customFields."fixDate"           = issue.customFields."19575"
+replica.customFields."assignee"          = issue.customFields."36100"
+replica.customFields."vehicleCode"       = issue.customFields."35900"
+replica.customFields."controllerProblem" = issue.customFields."32708"
+replica.customFields."coWorker"          = issue.customFields."11626"
+
+
+
+
+project in (GENESISP, HMCP, KMCP) and issuetype = Bug and created > "2025-06-23" and cf[38210] != O
+
+
+
+
+4
+
+
+[HMG-ADE] FREQ SYNC
+
+
+
+
+true
+
+replica.key            = issue.key
+replica.type           = issue.type
+replica.typeName       = issue.typeName
+replica.assignee       = issue.assignee
+replica.reporter       = issue.reporter
+replica.summary        = issue.summary
+replica.description    = issue.description
+replica.labels         = issue.labels
+replica.comments       = issue.comments
+replica.resolution     = issue.resolution
+replica.status         = issue.status
+replica.parentId       = issue.parentId
+replica.priority       = issue.priority
+replica.attachments    = issue.attachments
+replica.project        = issue.project
+replica.projectKey     = issue.projectKey
+replica.issueLinks     = issue.issueLinks
+replica.components     = issue.components
+replica.changeHistory  = issue.changeHistory
+replica.watchers       = issue.watchers
+replica.creator        = issue.creator
+
+replica.customFields."epicName"          = issue.customFields."10004"
+replica.customFields."epicColor"         = issue.customFields."10005"
+replica.customFields."epicLink"          = issue.customFields."10002"
+replica.customFields."proposalDivision"  = issue.customFields."24028"
+replica.customFields."receptionDate"     = issue.customFields."13256"
+replica.customFields."processingResults" = issue.customFields."24027"
+replica.customFields."completionDate"    = issue.customFields."11249"
+replica.customFields."coWorker"          = issue.customFields."11626"
+
+// FTRM
+replica.customFields."targetVehicle"     = issue.customFields."13177"
+replica.customFields."deployment"        = issue.customFields."31508"
+replica.customFields."targetStart"       = issue.customFields."12103"
+replica.customFields."targetEnd"         = issue.customFields."12104"
+replica.customFields."productOwner"      = issue.customFields."13549"
+replica.customFields."pm"                = issue.customFields."15852"
+replica.customFields."developerPl"       = issue.customFields."12863"
+
+
+
+
+project = FREQ and issuetype in (Epic, Feature, Change)
+
+
+
+
+5
+
+
+[HMG-ADE] NE1a SYNC
+
+
+
+
+true
+
+replica.key              = issue.key
+replica.type             = issue.type
+replica.summary          = issue.summary
+replica.description      = issue.description
+replica.assignee         = issue.assignee
+replica.reporter         = issue.reporter
+replica.creator          = issue.creator
+replica.watchers         = issue.watchers
+replica.created          = issue.created
+replica.labels           = issue.labels
+replica.comments         = issue.comments
+replica.resolution       = issue.resolution
+replica.status           = issue.status
+replica.parentId         = issue.parentId
+replica.priority         = issue.priority
+replica.due              = issue.due
+replica.resolutionDate   = issue.resolutionDate
+replica.project          = issue.project
+replica.projectKey       = issue.projectKey
+replica.issueLinks       = issue.issueLinks
+replica.components       = issue.components
+replica.fixVersions      = issue.fixVersions
+replica.affectedVersions = issue.affectedVersions
+replica.securityLevel    = issue.securityLevel
+replica.attachments      = issue.attachments.findAll { attachment -> 
+    attachment.mimetype.startsWith("image/")
+}
+
+replica.customFields."epicName"       = issue.customFields."10004"
+replica.customFields."epicColor"      = issue.customFields."10005"
+replica.customFields."epicLink"       = issue.customFields."10002"
+
+replica.customFields."issueStage"         = issue.customFields."32303"
+replica.customFields."car"                = issue.customFields."19956"
+replica.customFields."region"             = issue.customFields."13040"
+replica.customFields."controller"         = issue.customFields."32711"
+replica.customFields."reportSource"       = issue.customFields."32304"
+replica.customFields."swVersion"          = issue.customFields."32701"
+replica.customFields."fixSwVersion"       = issue.customFields."34517"
+replica.customFields."hwVersion"          = issue.customFields."32702"
+replica.customFields."fixHwVersion"       = issue.customFields."34518"
+replica.customFields."controllerProblem"  = issue.customFields."32708"
+replica.customFields."cyberSecurity"      = issue.customFields."34507"
+replica.customFields."issueDate"          = issue.customFields."20642"
+replica.customFields."fixTargetDate"      = issue.customFields."34508"
+replica.customFields."verificationDate"   = issue.customFields."34509"
+replica.customFields."cause"              = issue.customFields."34510"
+replica.customFields."causeType"          = issue.customFields."34511"
+replica.customFields."impactScope"        = issue.customFields."34512"
+replica.customFields."solution"           = issue.customFields."13510"
+replica.customFields."verifier"           = issue.customFields."34515"
+replica.customFields."verificationReview" = issue.customFields."34516"
+replica.customFields."coWorker"           = issue.customFields."11626"
+replica.customFields."indexSource"        = issue.customFields."34501"
+replica.customFields."detailedSource"     = issue.customFields."34500"
+replica.customFields."troubleshooter"     = issue.customFields."34502"
+replica.customFields."vehicleCode"        = issue.customFields."35900"
+replica.customFields."responsibleOrganization"        = issue.customFields."34503"
+replica.customFields."cooperativeControllerInfluence" = issue.customFields."34513"
+replica.customFields."cooperativeController"          = issue.customFields."34514"
+
+replica.customFields."designComponent"    = issue.customFields."39026"
+replica.customFields."testingEnvironment" = issue.customFields."38915"
+replica.customFields."testObjectId"       = issue.customFields."39027"
+replica.customFields."testObjectIdHmc"    = issue.customFields."39028"
+replica.customFields."fwVersionIssue"     = issue.customFields."38916"
+replica.customFields."topPriority"        = issue.customFields."43700"
+replica.customFields."reqID"              = issue.customFields."39030"
+replica.customFields."testID"             = issue.customFields."39031"
+replica.customFields."publicRoadBlocker"  = issue.customFields."42106"
+// replica.customFields.""  = issue.customFields.""
+
+
+
+
+
+project = NE1AWJIMS AND issuetype in(Epic, 문제점)
+
+
+
+
+
+6
+
+
+[HMG-ADE] REQ_ELEC SYNC
+
+
+
+
+true
+
+replica.key              = issue.key
+replica.type             = issue.type
+replica.summary          = issue.summary
+replica.description      = issue.description
+replica.assignee         = issue.assignee
+replica.reporter         = issue.reporter
+replica.creator          = issue.creator
+replica.watchers         = issue.watchers
+replica.created          = issue.created
+replica.labels           = issue.labels
+replica.comments         = issue.comments
+replica.resolution       = issue.resolution
+replica.status           = issue.status
+replica.parentId         = issue.parentId
+replica.priority         = issue.priority
+replica.due              = issue.due
+replica.resolutionDate   = issue.resolutionDate
+replica.project          = issue.project
+replica.projectKey       = issue.projectKey
+replica.issueLinks       = issue.issueLinks
+replica.components       = issue.components
+replica.fixVersions      = issue.fixVersions
+replica.affectedVersions = issue.affectedVersions
+replica.securityLevel    = issue.securityLevel
+replica.attachments      = issue.attachments.findAll { attachment -> 
+    attachment.mimetype.startsWith("image/")
+}
+
+replica.customFields."epicName"       = issue.customFields."10004"
+replica.customFields."epicColor"      = issue.customFields."10005"
+replica.customFields."epicLink"       = issue.customFields."10002"
+
+// Default
+replica.customFields."vehicleCode"                    = issue.customFields."35900"
+replica.customFields."controller"                     = issue.customFields."32711"
+replica.customFields."controllerProblem"              = issue.customFields."32708"
+replica.customFields."cooperativeControllerInfluence" = issue.customFields."34513"
+replica.customFields."cooperativeController"          = issue.customFields."34514"
+replica.customFields."cyberSecurity"                  = issue.customFields."34507"
+replica.customFields."causeType"                      = issue.customFields."34511"
+replica.customFields."swVersion"                      = issue.customFields."32701"
+replica.customFields."hwVersion"                      = issue.customFields."32702"
+replica.customFields."fixSwVersion"                   = issue.customFields."34517"
+replica.customFields."fixHwVersion"                   = issue.customFields."34518"
+replica.customFields."fixTargetDate"                  = issue.customFields."34508"
+
+replica.customFields."coWorker"                       = issue.customFields."11626"
+replica.customFields."sprintRegistration"             = issue.customFields."46969"
+
+switch(issue.projectKey) {
+    case "ATCU":
+        replica.customFields."vehicleConditioning" = issue.customFields."30525"
+        replica.customFields."ptType"              = issue.customFields."30521"
+        replica.customFields."specStatus"          = issue.customFields."35126"
+        replica.customFields."specVersion"         = issue.customFields."14495"
+        replica.customFields."reviewStatus"        = issue.customFields."36702"
+        replica.customFields."multiAssignee"       = issue.customFields."15221"
+        replica.customFields."specDescription"     = issue.customFields."35143"
+        break
+    case "PDC":
+    case "PDCX":
+    case "TMF":
+    case "MOBCR":
+        replica.customFields."watcherGroup"        = issue.customFields."12304"
+        replica.customFields."car"                 = issue.customFields."11712"
+        replica.customFields."reportGroup"         = issue.customFields."12943"
+        replica.customFields."platformVersion"     = issue.customFields."12928"
+        replica.customFields."checkedSystemSpec"   = issue.customFields."15418"
+        replica.customFields."checkedHwIo"         = issue.customFields."15419"
+        replica.customFields."checkedCanDb"        = issue.customFields."15420"
+        replica.customFields."checkedLinDb"        = issue.customFields."15421"
+        replica.customFields."checkedDiagSpec"     = issue.customFields."15422"
+        replica.customFields."checkedEol"          = issue.customFields."15423"
+        replica.customFields."checkedOwnersManual" = issue.customFields."15424"
+        replica.customFields."checkedRegulations"  = issue.customFields."15425"
+        replica.customFields."checkedIso26262"     = issue.customFields."15426"
+        replica.customFields."startDate"           = issue.customFields."11209"
+        replica.customFields."endDate"             = issue.customFields."10101"
+        replica.customFields."changeType"          = issue.customFields."12951"
+        replica.customFields."changedPart"         = issue.customFields."12950"
+        replica.customFields."deployCriteria"      = issue.customFields."12953"
+        replica.customFields."deployNote"          = issue.customFields."12954"
+        break
+    case "PTGPSD":
+        replica.customFields."testAssignee"        = issue.customFields."19730"
+        replica.customFields."spindlePartner"      = issue.customFields."19013"
+        replica.customFields."controllerPartner"   = issue.customFields."19014"
+        replica.customFields."carElec"             = issue.customFields."15316"
+        replica.customFields."projectTypeElec"     = issue.customFields."15319"
+        replica.customFields."devPhaseElec"        = issue.customFields."15318"
+        replica.customFields."partsElec"           = issue.customFields."15317"
+        replica.customFields."assignGroup"         = issue.customFields."15320"
+        replica.customFields."problemGradeElec"    = issue.customFields."15321"
+        replica.customFields."vehicleSpecVersion"  = issue.customFields."19015"
+        replica.customFields."diagSpecVersion"     = issue.customFields."19016"
+        replica.customFields."swVersionElec"       = issue.customFields."13714"
+        replica.customFields."improvedVersion"     = issue.customFields."12442"
+        replica.customFields."improvedDate"        = issue.customFields."12443"
+        
+        replica.customFields."elecArchtecture"     = issue.customFields."20405"
+        replica.customFields."applySpecVersion"    = issue.customFields."27315"
+        break
+    case "SPLIT":
+        replica.orginalEstimate                    = issue.orginalEstimate
+        replica.remainingEstimate                  = issue.remainingEstimate
+        replica.customFields."car"                 = issue.customFields."19956"
+        replica.customFields."background"          = issue.customFields."15842"
+        replica.customFields."previousVersion"     = issue.customFields."31300"
+        replica.customFields."totalTcCount"        = issue.customFields."20411"
+        replica.customFields."evaluatedTcCount"    = issue.customFields."20412"
+        replica.customFields."automatedTcCount"    = issue.customFields."35206"
+        replica.customFields."tcAutomationRate"    = issue.customFields."25608"
+        replica.customFields."passedTcCount"       = issue.customFields."20413"
+        replica.customFields."applyOrderSeat"      = issue.customFields."36132"
+        break
+}
+
+// replica.customFields.""       = issue.customFields.""
+
+
+
+
+
+project = ATCU AND issuetype = 사양 [HMG-ADE] REQ_ELEC SYNC 
+
+project = TMF AND issuetype = Issue AND "스프린트 등록 이슈" = O [HMG-ADE] REQ_ELEC SYNC 
+
+project = SPLIT AND issuetype in ("사양배포") [HMG-ADE] REQ_ELEC SYNC 
+
+project = MOBCR AND issuetype = PDCex1_Issue AND "스프린트 등록 이슈" = O [HMG-ADE] REQ_ELEC SYNC 
+
+project = PDCX AND issuetype in (PDC2_Issue, PDCex2_Issue) AND "스프린트 등록 이슈" = O [HMG-ADE] REQ_ELEC SYNC
+
+project = PTGPSD AND issuetype in (버그, "사양 개발") [HMG-ADE] REQ_ELEC SYNC 
+
+project = PDC AND issuetype in (PDC1_Issue, PDC2_Issue) AND "스프린트 등록 이슈" = O
+
+
+
+
+
+ADE Exalate
+
+
+
+
+
+
+
+
+
+
+
+
+
+Connection Name
+
+
+
+
+
+Outgoing sync
+
+
+
+
+
+Incoming sync
+
+
+
+
+
+1
+
+
+[HMG-ADE] REQ_IVI SYNC
+
+
+
+
+
+true
+
+if (issue.projectKey in ["INFOCR"]) {
+    replica.key            = issue.key
+    replica.type           = issue.type
+    replica.summary        = issue.summary
+}
+
+
+
+
+
+true
+
+def issueStageMap = [
+    "Proto": "PROTO, P0",
+    "M/Car": "M/CAR",
+    "P1"   : "P1 (LP1, AP1, SP1 등)",
+    "P2"   : "P2 (LP2, AP2, SP2 등)",
+    "M"    : "M (선행양산 등)",
+    "SOP"  : "SOP (양산, OTA 등)"
+]
+
+def controllerMap = [  // 제어기 명칭
+    "CCIC27TRAC": "CCIC (ccIC)",
+    "CCICTRACK" : "CCIC (ccIC)",
+    "CCNCBTRACK": "HU",
+    "CCNCTRACK" : "HU",
+    "CSTRACK"   : "HU",
+    "CONNLIGHT" : "HU",
+    "D2VTRACK"  : "HU",
+    "DCUCTRACK" : "DCU",
+    "DCTRACK"   : "DCU",
+    "POIPTRACK" : "P-OIP",
+    "PBVTRACK"  : "HU",
+    "P5TRACK"   : "HU",
+    "P6TRACK"   : "HU",
+    "S4TRACK"   : "HU",
+    "S5LTRACK"  : "HU",
+    "S5MTRACK"  : "HU",
+    "S5WLTRACK" : "HU",
+    "S5WMTRACK" : "HU",
+    "CCRCTRACK" : "CCRC (ccRC)"
+]
+
+// Functions
+def removeTime = { def replicaDateTime ->
+    if (replicaDateTime) {
+        def dateTime = new Date(replicaDateTime.getTime())
+        def onlyDate = new Date(dateTime.year, dateTime.month, dateTime.date)
+        onlyDate.time
+    }
+}
+
+def multipleUsers = { def users ->
+    if (users) {
+        users?.collect {
+            nodeHelper.getUserByEmail(it.email)
+        }.findAll()
+    }
+}
+
+def replaceNonBreakingSpace = { def text ->
+    text?.replace(/\u00A0/, " ")
+}
+
+// Start Synchronization
+if (firstSync) {
+    issue.projectKey  = "INFOCR"
+    issue.typeName    = nodeHelper.getIssueType("Task", issue.projectKey)?.name
+}
+
+// Common
+issue.summary      = replica.summary
+issue.description  = replica.description
+issue.labels       = replica.labels
+issue.status       = replica.status
+issue.priority     = nodeHelper.getPriority(replica.priority?.name, issue)
+issue.attachments  = attachmentHelper.mergeAttachments(issue, replica)
+issue.attachments.unique { x, y -> x.filename <=> y.filename ?:x.filesize <=> y.filesize }
+issue.comments     = commentHelper.mergeComments(issue, replica,
+                    { comment ->
+                        comment.body =
+                            "[" + comment.author?.displayName + 
+                            "| mailto:" + comment.author?.email + "]" +
+                            " commented: \n" +
+                            "{quote}\n" +
+                            comment.body + "\n" +
+                            "{quote}\n"
+                    })
+
+def defaultUser = nodeHelper.getUserByEmail("exalate@admin.com")
+issue.reporter = nodeHelper.getUserByEmail(replica.reporter?.email) ?: defaultUser
+issue.assignee = nodeHelper.getUserByEmail(replica.customFields."hmcAssignee"?.value?.email) ?: defaultUser  // HMC 담당자
+
+// Fields
+def vehicleCodeParent = replica.customFields."vehicleCode"?.value?.parent?.value     // Vehicle Code
+def vehicleCodeChild = replica.customFields."vehicleCode"?.value?.child?.value
+def vehicleCodeName = nodeHelper.getOption(issue, 19616L, replaceNonBreakingSpace(vehicleCodeParent))
+def vehicleCodeId = vehicleCodeName?.childOptions?.find{ it.value == replaceNonBreakingSpace(vehicleCodeChild) }
+if (vehicleCodeName != null && (vehicleCodeChild == null || vehicleCodeId != null))  {
+    issue.customFields."19616"?.value = nodeHelper.getCascadingSelect(
+        vehicleCodeName,
+        vehicleCodeId
+    )
+} else if (vehicleCodeParent == null) {
+    issue.customFields."19616"?.value = null
+}
+
+def issueStageValue = replica.customFields."issueStage".value?.value 
+issue.customFields."16924".value = issueStageMap[issueStageValue] ?: issueStageValue
+
+def controllerValue = controllerMap[replica.projectKey]
+if (controllerValue) {
+    def controllerName = nodeHelper.getOption(issue, 17731L, controllerValue)
+    issue.customFields."17731".value = nodeHelper.getCascadingSelect(
+        controllerName,
+        controllerName.childOptions.first()
+    )
+}
+
+def vehicleAssignee = replica.customFields."vehicleAssignee"?.value?.collect {     // 차종 담당자
+    nodeHelper.getUserByEmail(it.email)
+}.findAll()
+issue.customFields."10432".value = vehicleAssignee ?: defaultUser
+
+issue.customFields."16923".value = "개발/설계팀 자체 제기"                                       // Report Source
+issue.customFields."16925".value = removeTime(replica.created)                                 // Issue Date
+issue.customFields."17732".value = "X"                                                         // 제어기 문제 여부
+issue.customFields."16931".value = removeTime(replica.customFields."deploymentDueDate".value)  // Fix Target Date
+issue.customFields."17729".value = replica.customFields."fixSwVersion".value                   // Fix SW Version
+issue.customFields."22022".value = replica.customFields."syncSirs".value                       // SIRS연동여부
+
+// unExalate
+if (!firstSync && issue.customFields."22022"?.value != "YES") {
+    syncHelper.unExalateAfterProcessing()
+}
+
+
+
+
+
+2
+
+
+[HMG-ADE] CPMS SYNC
+
+
+
+
+true
+
+if (issue.projectKey in ["CPMS", "SIRS", "QIMS"]) {
+    replica.key            = issue.key
+    replica.type           = issue.type
+    replica.summary        = issue.summary
+}
+
+
+
+
+
+true
+
+def projectMap = [
+    "ISCMMOBIS"  : "SIRS",
+    "ISCMAUMOVI" : "SIRS",
+    "ISCMVEONEE" : "SIRS",
+    "QIMSINFO"   : "QIMS"
+]
+
+def issueTypeMap = [
+    "설계변경"    : "S/W 배포계획"
+]
+
+def priorityMap = [
+    "Highest" : "Critical",
+    "High"    : "Critical",
+    "Medium"  : "Major",
+    "Low"     : "Trivial",
+    "Lowest"  : "Trivial"
+]
+
+def statusMap = [:]
+
+def cooperativeMap = [
+    "ISCMMOBIS"  : "현대모비스",
+    "ISCMAUMOVI" : "AUMOVIO",
+    "ISCMVEONEE" : "VEONEER"
+]
+
+// Functions
+def removeTime = { def replicaDateTime -> if (replicaDateTime) {
+        def dateTime = new Date(replicaDateTime.getTime())
+        def onlyDate = new Date(dateTime.year, dateTime.month, dateTime.date)
+        onlyDate.time
+    }}
+
+def replaceNonBreakingSpace = { def text -> text?.replace(/\u00A0/, " ") }
+
+// Start Synchronization
+if (firstSync) {
+    def issueTypeName = issueTypeMap[replica.type?.name] ?: "문제점"
+
+    if (issueTypeName.equalsIgnoreCase("문제점")) {
+        projectMap["ISCMMOBIS"]  = "CPMS"
+        projectMap["ISCMAUMOVI"] = "CPMS"
+        projectMap["ISCMVEONEE"] = "CPMS"
+    }
+    
+    issue.projectKey = nodeHelper.getProject(projectMap[replica.projectKey])?.key ?: "CPMS"
+    issue.typeName = nodeHelper.getIssueType(issueTypeName, issue.projectKey)?.name
+ }
+ 
+issue.summary      = replica.summary
+issue.description  = replica.description
+issue.labels       = replica.labels
+issue.issueLinks   = replica.issueLinks
+issue.attachments  = attachmentHelper.mergeAttachments(issue, replica)
+issue.attachments.unique { x, y -> x.filename <=> y.filename ?:x.filesize <=> y.filesize }
+issue.comments     = commentHelper.mergeComments(issue, replica,
+                    { comment ->
+                        comment.body =
+                            "[" + comment.author?.displayName + 
+                            "| mailto:" + comment.author?.email + "]" +
+                            " commented: \n" +
+                            "{quote}\n" +
+                            comment.body + "\n" +
+                            "{quote}\n"
+                    })
+
+def defaultUser = nodeHelper.getUserByEmail("exalate@admin.com")
+issue.reporter  = nodeHelper.getUserByEmail(replica.reporter?.email) ?: defaultUser
+if (replica.assignee) {
+    issue.assignee  = nodeHelper.getUserByEmail(replica.assignee?.email) ?: defaultUser
+}
+
+def coWorker = replica.customFields."coWorker"?.value?.collect {
+    nodeHelper.getUserByEmail(it.email)
+}.findAll()
+issue.customFields."10432".value = coWorker
+
+def troubleshooter = replica.customFields."troubleshooter"?.value?.collect {
+    nodeHelper.getUserByEmail(it.email)
+}.findAll()
+issue.customFields."14609".value = troubleshooter
+
+def verifier = replica.customFields."verifier"?.value
+issue.customFields."16932".value = nodeHelper.getUserByEmail(verifier?.email) ?: defaultUser
+
+if (replica.projectKey?.toUpperCase() in ["ADEPRK"]) {
+    priorityMap["High"] = "Major"
+    priorityMap["Medium"] = "Minor"
+    priorityMap["Low"] = "Minor"
+    priorityMap["Minor"] = "Trivial"
+}
+
+def priorityName = priorityMap[replica.priority?.name] ?: replica.priority?.name
+issue.priority = nodeHelper.getPriority(priorityName, issue)
+
+def issueStatusName = issue.status?.name
+def replicaStatusName = replica.status?.name
+if (replica.projectKey?.toUpperCase() in ["ISCMMOBIS", "ISCMAUMOVI", "ISCMVEONEE"]) {
+    statusMap["IN PROGRESS"] = "In Analysis"
+    statusMap["NEED INFORMATION"] = issueStatusName?.equalsIgnoreCase("In Development") ? "In Development" : "In Analysis"
+    statusMap["TESTING"] = "In Reporter Verification"
+    statusMap["CLOSED"] = issueStatusName?.equalsIgnoreCase("Ready for Approval") ? "Ready for Approval" : 
+                          issueStatusName?.equalsIgnoreCase("Deployed") ? "Deployed" : 
+                          "In Integration Testing"
+    statusMap["REOPENED"] = issueStatusName?.equalsIgnoreCase("In Maintenance") ? "In Maintenance" : "Reopen"
+} else if (!issueStatusName?.equalsIgnoreCase("Deployed") && !issueStatusName?.equalsIgnoreCase("Ready for approval") && !issueStatusName?.equalsIgnoreCase("Normal Operation")) {
+    statusMap["DONE"] = "In Integration Testing"
+}
+
+if (!issueStatusName?.equalsIgnoreCase("Deployed") && !issueStatusName?.equalsIgnoreCase("Ready for approval") && !issueStatusName?.equalsIgnoreCase("Normal Operation")) {
+    issue.setStatus(statusMap[replicaStatusName?.toUpperCase()] ?: replicaStatusName)
+}
+
+def controllerName = ""
+def controller = replica.customFields."controller"?.value
+if (controller?.parent) {
+    controllerName = nodeHelper.getOption(issue, 17731L, controller.parent.value)
+} 
+
+if (replica.projectKey?.toUpperCase() in ["ISCMMOBIS", "ISCMAUMOVI", "ISCMVEONEE"]) {
+    // controllerName = nodeHelper.getOption(issue, 17731L, "ISCM")
+    issue.customFields."16927".value = [nodeHelper.getLabel(cooperativeMap[replica.projectKey])]
+}
+
+if (controllerName) {
+    issue.customFields."17731".value = nodeHelper.getCascadingSelect(
+        controllerName,
+        controllerName.childOptions.first()
+    )
+}
+
+def vehicleCodeParent = replica.customFields."vehicleCode"?.value?.parent?.value     // Vehicle Code
+def vehicleCodeChild = replica.customFields."vehicleCode"?.value?.child?.value
+def vehicleCodeName = nodeHelper.getOption(issue, 19616L, replaceNonBreakingSpace(vehicleCodeParent))
+def vehicleCodeId = vehicleCodeName?.childOptions?.find{ it.value == replaceNonBreakingSpace(vehicleCodeChild) }
+if (vehicleCodeName != null && (vehicleCodeChild == null || vehicleCodeId != null))  {
+    issue.customFields."19616"?.value = nodeHelper.getCascadingSelect(
+        vehicleCodeName,
+        vehicleCodeId
+    )
+} else if (vehicleCodeParent == null) {
+    issue.customFields."19616"?.value = null
+}
+
+issue.customFields."17726".value = replica.customFields."region".value
+issue.customFields."16924".value = replica.customFields."issueStage".value
+issue.customFields."12991".value = replica.customFields."car".value
+issue.customFields."17721".value = replica.customFields."swVersion".value
+issue.customFields."17729".value = replica.customFields."fixSwVersion".value
+issue.customFields."17722".value = replica.customFields."hwVersion".value
+issue.customFields."17730".value = replica.customFields."fixHwVersion".value
+issue.customFields."17732".value = replica.customFields."controllerProblem".value
+issue.customFields."17860".value = replica.customFields."cyberSecurity".value
+issue.customFields."13812".value = replica.customFields."cause".value
+issue.customFields."16928".value = replica.customFields."causeType".value
+issue.customFields."16929".value = replica.customFields."impactScope".value
+issue.customFields."16930".value = replica.customFields."solution".value
+issue.customFields."16933".value = replica.customFields."verificationReview".value
+issue.customFields."19448".value = replica.customFields."indexSource".value
+issue.customFields."17727".value = replica.customFields."cooperativeControllerInfluence".value
+issue.customFields."17728".value = replica.customFields."cooperativeController".value
+issue.customFields."16931".value = removeTime(replica.customFields."fixTargetDate".value)
+issue.customFields."16925".value = removeTime(replica.customFields."issueDate".value)
+issue.customFields."16935".value = removeTime(replica.customFields."verificationDate".value)
+
+switch(issue?.projectKey) {
+    case "QIMS":
+        // issue.assignee = replica.customFields."hmcAssignee".value
+        issue.customFields."16923".value = "품질부문"
+        issue.customFields."19424".value = replica.customFields."quailtyGrade".value
+        issue.customFields."16929".value = replica.customFields."impactScope".value
+        issue.customFields."19431".value = replica.customFields."cooperativeCompany".value
+        break
+
+    default:
+        issue.customFields."16923".value = replica.customFields."reportSource".value
+        issue.customFields."16941".value = replica.customFields."responsibleOrganization".value
+        issue.customFields."17733".value = replica.customFields."detailedSource".value
+}
+
+if (replica.projectKey?.toUpperCase() in ["ADEPRK"]) {
+    issue.customFields."35303".value = replica.customFields."adeJiraSync"?.value          // Exalate Sync
+
+//    if (!firstSync && issue.customFields."35303".value != "O") {
+//        syncHelper.unExalateAfterProcessing()
+//    }
+}
+
+
+
+
+
+3
+
+
+[HMG-ADE] CPMS_IVI SYNC
+
+
+
+
+true
+
+if (issue.projectKey in ["CPMS"]) {
+    replica.key            = issue.key
+    replica.type           = issue.type
+    replica.summary        = issue.summary
+}
+
+
+
+
+
+true
+
+def statusMap = [
+    "IN PROGRESS"     : "In Development",
+    "NEED INFORMATION": "In Analysis",
+    "REOPENED"        : "Reopen",
+    "RESOLVED"        : "In Reporter Verification",
+    "FIXED"           : "In Reporter Verification",
+    "CLOSED"          : "In Integration Testing",
+    "문제아님"         : "Normal Operation"
+]
+
+def stageMap = [
+    "Proto": "PROTO, P0",
+    "M/Car": "M/CAR",
+    "P1"   : "P1 (LP1, SP1 등)",
+    "P2"   : "P2 (LP2, SP2 등)",
+    "M"    : "M (선행양산 등)",
+    "SOP"  : "SOP (양산, OTA 등)"
+]
+
+def regionMap = [
+    "All Region (전지역)"    : "ALL",
+    "Korea (한국)"           : "한국",
+    "China (중국)"           : "중국",
+    "Australia (호주)"       : "호주",
+    "USA/CANADA (미국/캐나다)": "미국",
+    "Mexico (멕시코)"        : "멕시코",
+    "Brazil (브라질)"        : "브라질",
+    "Europe (유럽)"          : "유럽",
+    "Russia (러시아)"        : "러시아",
+    "India (인도)"           : "인도",
+    "Mideast (중동)"         : "중동",
+    "General (일반)"         : "일반",
+    "Others (기타 지역)"     : "일반",
+    "Southeast Asia (동남아)": "일반",
+    "New Zealand(뉴질랜드)"  : "일반"
+]
+
+// Functions
+def removeTime = { def replicaDateTime ->
+    if (replicaDateTime) {
+        def dateTime = new Date(replicaDateTime.getTime())
+        def onlyDate = new Date(dateTime.year, dateTime.month, dateTime.date)
+        onlyDate.time
+    }
+}
+
+def replaceNonBreakingSpace = { def text ->
+    text?.replace(/\u00A0/, " ")
+}
+
+def list2singleText = { def items ->
+    def selected = []
+    def totalLength = 0
+
+    for (item in items) {
+        def newTotal = totalLength + item.name.length() + 1
+
+        if (newTotal <= 255) {
+            selected.add(item.name)
+            totalLength = newTotal
+        } else {
+            break
+        }
+    }
+
+    selected.join(",")
+}
+
+// Start Synchronization
+if (firstSync) {
+    issue.projectKey  = "CPMS"
+    issue.typeName    = nodeHelper.getIssueType(replica.type?.name, issue.projectKey)?.name ?: "문제점"
+}
+
+issue.summary = replica.summary.replaceFirst(/^(\[.*\])(.*)/) {_, prop, text ->
+    text.trim()
+}
+
+issue.description  = replica.description
+issue.labels       = replica.labels
+issue.priority     = nodeHelper.getPriority(replica.priority?.name, issue)
+issue.attachments  = attachmentHelper.mergeAttachments(issue, replica)
+issue.attachments.unique { x, y -> x.filename <=> y.filename ?:x.filesize <=> y.filesize }
+issue.comments     = commentHelper.mergeComments(issue, replica,
+                    { comment ->
+                        comment.body =
+                            "[" + comment.author?.displayName + 
+                            "| mailto:" + comment.author?.email + "]" +
+                            " commented: \n" +
+                            "{quote}\n" +
+                            comment.body + "\n" +
+                            "{quote}\n"
+                    })
+
+def defaultUser = nodeHelper.getUserByEmail("exalate@admin.com")
+issue.reporter  = nodeHelper.getUserByEmail(replica.reporter?.email) ?: defaultUser
+def hmgAssignee = replica.customFields."assignee"?.value
+if (hmgAssignee) {
+    issue.assignee  = nodeHelper.getUserByEmail(hmgAssignee?.email) ?: defaultUser
+}
+
+def coWorker = replica.customFields."coWorker"?.value?.collect {
+    nodeHelper.getUserByEmail(it.email)
+}.findAll()
+issue.customFields."10432".value = coWorker
+
+def issueStatusName = issue.status?.name
+def replicaStatusName = replica.status?.name
+if (issueStatusName?.equalsIgnoreCase("Ready for approval")) {
+    statusMap["CLOSED"] = "Ready for approval"
+} else if (issueStatusName?.equalsIgnoreCase("Deployed")) {
+    statusMap["CLOSED"] = "Deployed"
+} else if (issueStatusName?.equalsIgnoreCase("Normal Operation")) {
+    statusMap["CLOSED"] = "Normal Operation"
+}
+issue.setStatus(statusMap[replicaStatusName?.toUpperCase()] ?: replicaStatusName)
+
+def controller = replica.customFields."controller"?.value
+if (controller) {
+    def controllerName = nodeHelper.getOption(issue, 17731L, controller.value)
+
+    if (controllerName) {
+        issue.customFields."17731".value = nodeHelper.getCascadingSelect(
+            controllerName,
+            controllerName.childOptions?.first()
+        )
+    }
+}
+
+def region = replica.customFields."region"?.value
+if (region) {
+    issue.customFields."17726".value = region?.collect {
+        regionMap[it.value]
+    } ?: []
+
+    if ("USA/CANADA (미국/캐나다)" in region.value) {
+        issue.customFields."17726".value.add("캐나다")
+    }
+}
+
+def vehicleCodeParent = replica.customFields."vehicleCode"?.value?.parent?.value     // Vehicle Code
+def vehicleCodeChild = replica.customFields."vehicleCode"?.value?.child?.value
+def vehicleCodeName = nodeHelper.getOption(issue, 19616L, replaceNonBreakingSpace(vehicleCodeParent))
+def vehicleCodeId = vehicleCodeName?.childOptions?.find{ it.value == replaceNonBreakingSpace(vehicleCodeChild) }
+if (vehicleCodeName != null && (vehicleCodeChild == null || vehicleCodeId != null))  {
+    issue.customFields."19616"?.value = nodeHelper.getCascadingSelect(
+        vehicleCodeName, 
+        vehicleCodeId
+    )
+} else if (vehicleCodeParent == null) {
+    issue.customFields."19616"?.value = null
+}
+
+issue.customFields."17721".value = list2singleText(replica.affectedVersions)
+issue.customFields."17729".value = list2singleText(replica.fixVersions)
+issue.customFields."13812".value = replica.customFields."cause".value
+issue.customFields."17732".value = replica.customFields."controllerProblem".value
+issue.customFields."16923".value = "연구소 평가팀" // Report Source
+issue.customFields."16931".value = removeTime(replica.customFields."planedFixDate".value)
+issue.customFields."16925".value = removeTime(replica.created)
+issue.customFields."16935".value = removeTime(replica.customFields."fixDate".value)
+issue.customFields."16924".value = stageMap[replica.customFields."issueStage".value?.value]
+
+
+
+
+
+4
+
+
+[HMG-ADE] FREQ SYNC
+
+
+
+
+true
+
+if (issue.projectKey in ["FREQ", "FV"]) {
+    replica.key            = issue.key
+    replica.type           = issue.type
+    replica.summary        = issue.summary
+}
+
+
+
+
+
+true
+
+def statusMap = [
+    "점검" : "점검중",
+    "Drop" : "Dropped"
+]
+
+if (firstSync) {
+    def projectMap = [
+        "FREQ": "FREQ",
+        "SYNCADE": "FV"
+    ]
+    issue.projectKey = nodeHelper.getProject(projectMap[replica.projectKey])?.key ?: replica.projectKey
+
+    switch (replica.projectKey) {
+        case "FTRM":
+            if (replica.typeName.equalsIgnoreCase("Task")) {
+                issue.typeName = nodeHelper.getIssueType("Initiative", issue.projectKey)?.name
+            } else if (replica.typeName.equalsIgnoreCase("Sub-task")) {
+                issue.typeName = nodeHelper.getIssueType("Epic", issue.projectKey)?.name
+                
+                def random = new Random()
+                def randomNumber = random.nextInt(14) + 1
+                issue.customFields."10104".value = "ghx-label-" + randomNumber       // 큰틀 색상
+            }
+            break
+        default:
+            if (replica.parentId) {
+                issue.typeName = "Sub-task"
+                def localParent = nodeHelper.getLocalIssueFromRemoteId(replica.parentId.toLong())
+                
+                if(localParent){
+                    issue.parentId = localParent.id
+                } else {
+                    throw new com.exalate.api.exception.IssueTrackerException("Subtask cannot be created: parent issue with remote id " + replica.parentId + " was not found. Please make sure the parent issue is synchronized before resolving this error" )
+                }
+            } else {
+                issue.typeName    = nodeHelper.getIssueType(replica.type?.name, issue.projectKey)?.name ?: "Task"
+            }
+    }
+} else if (replica?.projectKey !in ["FREQ", "FTRM"]) {
+    syncHelper.unExalateAfterProcessing()
+}
+
+// Project Common
+issue.summary      = replica.summary
+issue.description  = replica.description
+issue.attachments  = attachmentHelper.mergeAttachments(issue, replica)
+issue.attachments.unique { x, y -> x.filename <=> y.filename ?:x.filesize <=> y.filesize }
+issue.labels       = replica.labels
+issue.issueLinks   = replica.issueLinks
+issue.priority     = nodeHelper.getPriority(replica.priority?.name, issue)
+issue.reporter     = nodeHelper.getUserByEmail(replica.reporter?.email)                  // Reporter
+issue.assignee     = nodeHelper.getUserByEmail(replica.assignee?.email)                  // Assingee
+issue.creator      = nodeHelper.getUserByEmail(replica.creator?.email)                   // Creator
+issue.watchers     = replica.watchers.collect {                                          // Watcher
+    nodeHelper.getUserByEmail(it.email)
+}
+def coWorkers = replica.customFields."coWorker".value                                // Co-Worker
+if (coWorkers) {
+    issue.customFields."10432".value  = coWorkers?.collect {
+        nodeHelper.getUserByEmail(it.email)
+    } ?: []
+}
+
+if (replica.resolution == null) {                                                   // Resolution
+    issue.resolution = null
+} else {
+    issue.resolution = nodeHelper.getResolution(replica.resolution?.name)
+}
+
+// issue.comments = commentHelper.mergeComments(issue, replica) {
+//     it.executor = nodeHelper.getUserByEmail(it.author?.email)
+// }
+
+def defaultUser = nodeHelper.getUserByEmail("admin@admin.com")
+issue.changeHistory = replica.changeHistory
+issue.changeHistory.each {
+    it.author = nodeHelper.getUserByEmail(it.author?.email) ?: defaultUser
+}
+
+def remoteStatusName = replica.status.name
+issue.setStatus(statusMap[remoteStatusName] ?: remoteStatusName)
+
+// Project Branch
+if (replica.projectKey.equalsIgnoreCase("FTRM")) {
+    issue.customFields."19425".value = replica.customFields."proposalDivision"?.value   // 제안 부문
+    issue.customFields."19442".value = replica.customFields."targetVehicle"?.value      // 목표 차종
+    issue.customFields."19443".value = replica.customFields."deployment"?.value         // 전개 기준
+    issue.customFields."10109".value = replica.customFields."targetStart"?.value        // Target start
+    issue.customFields."10110".value = replica.customFields."targetEnd"?.value          // Target end
+
+    if (issue.typeName.equalsIgnoreCase("Epic")) {
+        issue.customFields."10103".value = replica.summary                              // 큰틀 이름
+
+        if (replica.parentId) {
+            def localParent = nodeHelper.getLocalIssueFromRemoteId(replica.parentId.toLong())
+
+            if(localParent){
+                issue.customFields."15282".value = localParent.key                      // Parent Link
+            } else {
+                throw new com.exalate.api.exception.IssueTrackerException("Subtask cannot be created: parent issue with remote id " + replica.parentId + " was not found. Please make sure the parent issue is synchronized before resolving this error" )
+            }
+        }
+    }
+
+    issue.labels.each {
+        def component = nodeHelper.getComponent(it.label, nodeHelper.getProject(issue.projectKey))
+        issue.components += component
+    }
+
+    def pmUser = replica.customFields."pm".value                                          // 담당PM
+    if (pmUser) {
+        issue.customFields."19445".value  = pmUser?.collect {
+            nodeHelper.getUserByEmail(it.email)
+        } ?: []
+    }
+
+    def productOwner = replica.customFields."productOwner".value                          // Product Owner
+    if (productOwner) {
+        issue.customFields."19444".value = nodeHelper.getUserByEmail(productOwner.email) ?: defaultUser   
+    }
+
+    def developerPl = replica.customFields."developerPl".value                            // Developer PL
+    if (developerPl) {
+        issue.customFields."19447".value = nodeHelper.getUserByEmail(developerPl.email) ?: defaultUser       
+    }
+} else {
+    issue.customFields."10103".value = replica.customFields."epicName"?.value            // 큰틀 이름
+    issue.customFields."10104".value = replica.customFields."epicColor"?.value           // 큰틀 색상
+    issue.customFields."19425".value = replica.customFields."proposalDivision"?.value    // 제안 부문
+    issue.customFields."10476".value = replica.customFields."receptionDate"?.value       // 접수일
+    issue.customFields."19426".value = replica.customFields."processingResults"?.value   // 처리 결과
+    issue.customFields."11191".value = replica.customFields."completionDate"?.value      // 완료일
+
+    def epicLink = replica.customFields."epicLink"?.value                                // 큰틀 연결
+    if (epicLink) {
+        def getEpic = syncHelper.getLocalIssueKeyFromRemoteId(epicLink.id.toLong(), "issue")
+        issue.customFields."10101".value = getEpic?.urn
+    } else {
+        issue.customFields."10101".value = null
+    }
+}
+
+
+
+
+
+5
+
+
+[HMG-ADE] NE1a SYNC
+
+
+
+
+true
+
+if (issue.projectKey in ["NE1AWSRS"]) {
+    replica.key            = issue.key
+    replica.type           = issue.type
+    replica.summary        = issue.summary
+}
+
+
+
+
+
+true
+
+def priorityMap = [
+    "Highest": "Critical",
+    "High"   : "Critical",
+    "Medium" : "Major",
+    "Low"    : "Trivial",
+    "Lowest" : "Trivial"
+]
+
+def stageMap = [
+    "Proto": "PROTO 와이어카",
+    "M/Car": "M/CAR",
+    "P1"   : "P1 (LP1, SP1 등)",
+    "P2"   : "P2 (LP2, SP2 등)",
+    "M"    : "M (선행양산 등)",
+    "SOP"  : "SOP (양산, OTA 등)"
+]
+
+def statusMap = [
+    "DONE"                      : "In Integration Testing"
+    // "READY FOR APPROVAL REVIEW" : "Ready For Approval",
+    // "SW DELIVERED"              : "Ready For Approval",
+    // "READY FOR WAYMO VALIDATION": "Ready For Approval"
+]
+
+// Functions
+def replaceNonBreakingSpace = { def text -> text?.replace(/\u00A0/, " ") }
+
+if (firstSync) {
+    issue.projectKey  = "NE1AWSRS"
+    issue.typeName    = nodeHelper.getIssueType(replica.type?.name, issue.projectKey)?.name ?: "문제점"
+}
+
+issue.summary      = replica.summary
+issue.description  = replica.description
+issue.labels       = replica.labels
+issue.issueLinks   = replica.issueLinks
+issue.attachments  = attachmentHelper.mergeAttachments(issue, replica)
+issue.attachments.unique { x, y -> x.filename <=> y.filename ?:x.filesize <=> y.filesize }
+issue.comments = commentHelper.mergeComments(issue, replica,
+                { comment ->
+                    comment.body =
+                        "[" + comment.author?.displayName + 
+                        "| mailto:" + comment.author?.email + "]" +
+                        " commented: \n" +
+                        "{quote}\n" +
+                        comment.body + "\n" +
+                        "{quote}\n"
+                })
+
+def defaultUser = nodeHelper.getUserByEmail("exalate@admin.com")
+issue.reporter  = nodeHelper.getUserByEmail(replica.reporter?.email) ?: defaultUser
+if (replica.assignee) {
+    issue.assignee  = nodeHelper.getUserByEmail(replica.assignee?.email) ?: defaultUser
+}
+
+def coWorkers = replica.customFields."coWorker".value
+if (coWorkers) {
+    issue.customFields."10432".value  = coWorkers?.collect {
+        nodeHelper.getUserByEmail(it.email)
+    } ?: []
+}
+
+def troubleshooter = replica.customFields."troubleshooter".value
+if (troubleshooter) {
+    issue.customFields."14609".value  = troubleshooter?.collect {
+        nodeHelper.getUserByEmail(it.email)
+    } ?: []
+}
+
+def priorityName = priorityMap[replica.priority?.name] ?: replica.priority?.name
+issue.priority = nodeHelper.getPriority(priorityName, issue)
+
+if (!issue.status?.name?.equalsIgnoreCase("Deployed")) {
+    def statusName = replica.status.name
+    issue.setStatus(statusMap[statusName?.toUpperCase()] ?: statusName)
+}
+
+def controller = replica.customFields."controller"?.value
+if (controller?.parent) {
+    def controllerName = nodeHelper.getOption(issue, 17731L, controller.parent.value)
+    issue.customFields."17731".value = nodeHelper.getCascadingSelect(
+        controllerName,
+        controllerName.childOptions.first()
+    )
+}
+
+def vehicleCodeParent = replica.customFields."vehicleCode"?.value?.parent?.value     // Vehicle Code
+def vehicleCodeChild = replica.customFields."vehicleCode"?.value?.child?.value
+def vehicleCodeName = nodeHelper.getOption(issue, 19616L, replaceNonBreakingSpace(vehicleCodeParent))
+if (vehicleCodeName != null && (vehicleCodeChild == null))  {
+    issue.customFields."19616"?.value = nodeHelper.getCascadingSelect(
+        vehicleCodeName,
+        null
+    )
+} else if (vehicleCodeParent == null) {
+    issue.customFields."19616"?.value = null
+}
+
+issue.customFields."10103".value = replica.customFields."epicName"?.value            // 큰틀 이름
+issue.customFields."10104".value = replica.customFields."epicColor"?.value           // 큰틀 색상
+
+def epicLink = replica.customFields."epicLink"?.value                                // 큰틀 연결
+if (epicLink) {
+    def getEpic = syncHelper.getLocalIssueKeyFromRemoteId(epicLink.id.toLong(), "issue")
+    issue.customFields."10101".value = getEpic?.urn
+} else {
+    issue.customFields."10101".value = null
+}
+
+issue.customFields."16924".value = stageMap[replica.customFields."issueStage".value?.value] ?: replica.customFields."issueStage".value?.value
+
+issue.customFields."17726".value = replica.customFields."region".value
+issue.customFields."12991".value = replica.customFields."car".value
+issue.customFields."16923".value = replica.customFields."reportSource".value
+issue.customFields."17721".value = replica.customFields."swVersion".value
+issue.customFields."17729".value = replica.customFields."fixSwVersion".value
+issue.customFields."17722".value = replica.customFields."hwVersion".value
+issue.customFields."17730".value = replica.customFields."fixHwVersion".value
+issue.customFields."17732".value = replica.customFields."controllerProblem".value
+issue.customFields."17860".value = replica.customFields."cyberSecurity".value
+issue.customFields."16925".value = replica.customFields."issueDate".value
+issue.customFields."16931".value = replica.customFields."fixTargetDate".value
+issue.customFields."16935".value = replica.customFields."verificationDate".value
+issue.customFields."13812".value = replica.customFields."cause".value
+issue.customFields."16928".value = replica.customFields."causeType".value
+issue.customFields."16929".value = replica.customFields."impactScope".value
+issue.customFields."16930".value = replica.customFields."solution".value
+issue.customFields."16932".value = replica.customFields."verifier".value
+issue.customFields."16933".value = replica.customFields."verificationReview".value
+issue.customFields."19448".value = replica.customFields."indexSource".value
+issue.customFields."17733".value = replica.customFields."detailedSource".value
+issue.customFields."16941".value = replica.customFields."responsibleOrganization".value
+issue.customFields."17727".value = replica.customFields."cooperativeControllerInfluence".value
+issue.customFields."17728".value = replica.customFields."cooperativeController".value
+
+issue.customFields."28844".value = replica.customFields."designComponent".value
+issue.customFields."28845".value = replica.customFields."testingEnvironment".value
+issue.customFields."28846".value = replica.customFields."testObjectId".value
+issue.customFields."28847".value = replica.customFields."testObjectIdHmc".value
+issue.customFields."28848".value = replica.customFields."fwVersionIssue".value
+issue.customFields."28849".value = replica.customFields."topPriority".value
+issue.customFields."21109".value = replica.customFields."reqID".value
+issue.customFields."21110".value = replica.customFields."testID".value
+issue.customFields."28851".value = replica.customFields."publicRoadBlocker".value
+
+
+
+
+
+6
+
+
+[HMG-ADE] REQ_ELEC SYNC
+
+
+
+
+true
+
+if (issue.projectKey in ["ZATCU", "ZPDC", "ZPDCEX", "ZPDCX", "ZPTGPSD", "ZTMF", "ZSPLIT"]) {
+    replica.key            = issue.key
+    replica.type           = issue.type
+    replica.summary        = issue.summary
+}
+
+
+
+
+
+true
+
+def projectMap = [
+    "ATCU"  : "ZATCU",
+    "PDC"   : "ZPDC",
+    "MOBCR" : "ZPDCEX",
+    "PDCX"  : "ZPDCX",
+    "PTGPSD": "ZPTGPSD",
+    "TMF"   : "ZTMF",
+    "SPLIT" : "ZSPLIT"
+]
+
+def issueTypeMap = [
+    "PDC1_Issue"  : "PDC1 Issue",
+    "PDC2_Issue"  : "PDC2 Issue",
+    "PDCex1_Issue": "PDC1 Issue",
+    "PDCex2_Issue": "PDCex2 Issue",
+    "사양 개발"    : "사양",
+    "사양배포"     : "사양 배포",
+    "버그"        : "Bug"
+]
+
+// Functions
+def list2Label = { def listValue ->
+    listValue.collect { nodeHelper.getLabel(it.value.replaceAll(/\s/, "")) }
+}
+
+def removeTime = { def replicaDateTime ->
+    if (replicaDateTime) {
+        def dateTime = new Date(replicaDateTime.getTime())
+        def onlyDate = new Date(dateTime.year, dateTime.month, dateTime.date)
+        onlyDate.time
+    }
+}
+
+def replaceNonBreakingSpace = { def text ->
+    text?.replace(/\u00A0/, " ")
+}
+
+// Start Synchronization
+if (firstSync) {
+    issue.projectKey = nodeHelper.getProject(projectMap[replica.projectKey])?.key ?: replica.projectKey
+
+    if (issue.projectKey.equalsIgnoreCase("ZPDC")) {
+        issueTypeMap["PDC2_Issue"] = "PDC1 Issue"
+    }
+    
+    def issueTypeName = issueTypeMap[replica.type?.name] ?: replica.type?.name
+    issue.typeName = nodeHelper.getIssueType(issueTypeName, issue.projectKey)?.name
+}
+
+issue.summary      = replica.summary
+issue.description  = replica.description
+issue.labels       = replica.labels
+issue.status       = replica.status
+issue.priority     = nodeHelper.getPriority(replica.priority?.name, issue)
+issue.attachments  = attachmentHelper.mergeAttachments(issue, replica)
+issue.attachments.unique { x, y -> x.filename <=> y.filename ?:x.filesize <=> y.filesize }
+issue.comments     = commentHelper.mergeComments(issue, replica,
+                    { comment ->
+                        comment.body =
+                            "[" + comment.author?.displayName + 
+                            "| mailto:" + comment.author?.email + "]" +
+                            " commented: \n" +
+                            "{quote}\n" +
+                            comment.body + "\n" +
+                            "{quote}\n"
+                    })
+
+def defaultUser = nodeHelper.getUserByEmail("exalate@admin.com")
+issue.reporter  = nodeHelper.getUserByEmail(replica.reporter?.email) ?: defaultUser
+if (replica.assignee) {
+    issue.assignee  = nodeHelper.getUserByEmail(replica.assignee?.email) ?: defaultUser
+}
+issue.components = replica.components.collect { component ->
+    def remoteComponentLeadEmail = component.lead?.email
+    def localComponentLeadName = nodeHelper.getUserByEmail(remoteComponentLeadEmail)?.key
+    nodeHelper.createComponent(
+        issue, 
+        component.name, 
+        component.description,
+        localComponentLeadName ?: null,
+        component.assigneeType?.name() ?: "UNASSIGNED"
+        )
+}
+
+def vehicleCodeParent = replica.customFields."vehicleCode"?.value?.parent?.value     // Vehicle Code
+def vehicleCodeChild = replica.customFields."vehicleCode"?.value?.child?.value
+def vehicleCodeName = nodeHelper.getOption(issue, 19616L, replaceNonBreakingSpace(vehicleCodeParent))
+def vehicleCodeId = vehicleCodeName?.childOptions?.find{ it.value == replaceNonBreakingSpace(vehicleCodeChild) }
+if (vehicleCodeName != null && (vehicleCodeChild == null || vehicleCodeId != null))  {
+    issue.customFields."19616"?.value = nodeHelper.getCascadingSelect(
+        vehicleCodeName,
+        vehicleCodeId
+    )
+} else if (vehicleCodeParent == null) {
+    issue.customFields."19616"?.value = null
+}
+
+def controllerName = ""
+def controller = replica.customFields."controller"?.value
+if (controller?.parent) {
+    controllerName = nodeHelper.getOption(issue, 17731L, controller.parent.value)
+} 
+
+if (controllerName) {
+    issue.customFields."17731".value = nodeHelper.getCascadingSelect(
+        controllerName,
+        controllerName.childOptions.first()
+    )
+}
+
+// def statusMap = [
+//     "대책서 검토중" : "대책서 검토 중",
+//     "실차 평가중" : "실차 평가 중"
+// ]
+// def remoteStatusName = replica?.status?.name
+// issue.setStatus(statusMap[remoteStatusName] ?: remoteStatusName)
+
+issue.customFields."17727".value = replica.customFields."cooperativeControllerInfluence"?.value   // 협조제어기 영향성
+issue.customFields."17728".value = replica.customFields."cooperativeController"?.value            // 협조제어기
+issue.customFields."17860".value = replica.customFields."cyberSecurity"?.value                    // 사이버보안
+issue.customFields."16928".value = replica.customFields."causeType"?.value                        // Cause Type
+issue.customFields."17721".value = replica.customFields."swVersion"?.value                        // Issue SW Version
+issue.customFields."17729".value = replica.customFields."fixSwVersion"?.value                     // Fix SW Version
+issue.customFields."17722".value = replica.customFields."hwVersion"?.value                        // Issue HW Version
+issue.customFields."17730".value = replica.customFields."fixHwVersion"?.value                     // Fix HW Version
+issue.customFields."16931".value = removeTime(replica.customFields."fixTargetDate"?.value)        // Fix Target Date
+issue.customFields."17732".value = replica.customFields."controllerProblem"?.value                // 제어기 문제 여부
+issue.customFields."10432".value = replica.customFields."coWorker"?.value?.collect {              // Co-Worker
+    nodeHelper.getUserByEmail(it.email)
+}.findAll()
+
+switch(issue?.projectKey) {
+    case "ZATCU":
+        issue.customFields."20947".value = list2Label(replica.customFields."vehicleConditioning"?.value)  // 차종_공조
+        issue.customFields."20942".value = list2Label(replica.customFields."ptType"?.value)               // PT 타입
+        issue.customFields."20945".value = list2Label(replica.customFields."reviewStatus"?.value)         // 차종Review 상태
+        issue.customFields."16275".value = replica.customFields."specVersion"?.value                      // 사양서 버전
+        issue.customFields."20946".value = replica.customFields."specDescription"?.value                  // 사양 상세 내용
+        
+        def multiAssignee = replica.customFields."multiAssignee"?.value?.collect {                         // Multi Assignee
+            nodeHelper.getUserByEmail(it.email)
+        }.findAll()
+        issue.customFields."10657".value = multiAssignee
+
+        def specStatus = replica.customFields."specStatus"?.value 
+        if (specStatus) {
+            issue.customFields."20943".value = specStatus?.first().value                                  // 사양 현재상태
+        }
+        break
+
+    case "ZPDC":
+    case "ZPDCX":
+    case "ZTMF":
+    case "ZPDCEX":
+        def watcherGroup = replica.customFields."watcherGroup"?.value?.collect { it.name?.asString }        // Watcher Group
+        if (watcherGroup?.any { it != null }) {
+            def gm = com.atlassian.jira.component.ComponentAccessor.groupManager
+            def groups = watcherGroup.collect { g ->
+                gm.getGroup(g)
+            }.findAll()
+        
+            issue.customFields."10433".value = groups
+        } else {
+            issue.customFields."10433".value = []
+        }
+
+        issue.due                        = replica.due
+        issue.customFields."10615".value = replica.customFields."car"?.value ?: []                  // 차종
+        issue.customFields."16273".value = replica.customFields."reportGroup"?.value                // 제기 부문
+        issue.customFields."20960".value = replica.customFields."platformVersion"?.value            // 플랫폼 버전
+        issue.customFields."20948".value = replica.customFields."checkedSystemSpec"?.value?.value   // 시스템 사양서 변경 여부
+        issue.customFields."20949".value = replica.customFields."checkedHwIo"?.value?.value         // H/W 입출력 변경 여부
+        issue.customFields."20950".value = replica.customFields."checkedCanDb"?.value?.value        // CAN DB 변경 여부
+        issue.customFields."20951".value = replica.customFields."checkedLinDb"?.value?.value        // LIN DB 변경 여부
+        issue.customFields."20952".value = replica.customFields."checkedDiagSpec"?.value?.value     // 진단 사양 변경 여부
+        issue.customFields."20953".value = replica.customFields."checkedEol"?.value?.value          // EOL 변경 여부
+        issue.customFields."20954".value = replica.customFields."checkedOwnersManual"?.value?.value // 오너스 매뉴얼 변경 여부
+        issue.customFields."20955".value = replica.customFields."checkedRegulations"?.value?.value  // 법규 관련 여부
+        issue.customFields."20956".value = replica.customFields."checkedIso26262"?.value?.value     // 기능안전(ISO26262) 영향 여부
+        issue.customFields."10428".value = removeTime(replica.customFields."startDate"?.value)      // Start Date
+        issue.customFields."10429".value = removeTime(replica.customFields."endDate"?.value)        // End Date
+        
+        def sourceCTParent = replica.customFields."changeType"?.value?.parent?.value                // 변경 유형
+        def sourceCTChild = replica.customFields."changeType"?.value?.child?.value
+        def changeTypeLv1 = nodeHelper.getOption (issue, 15225L, replaceNonBreakingSpace(sourceCTParent))
+        def changeTypeLv2 = changeTypeLv1?.childOptions?.find{ it.value == replaceNonBreakingSpace(sourceCTChild) }
+        if (changeTypeLv1 != null && (sourceCTChild == null || changeTypeLv2 != null)) {
+            issue.customFields."15225"?.value = nodeHelper.getCascadingSelect(changeTypeLv1, changeTypeLv2)
+        } else if (sourceCTParent == null) {
+            issue.customFields."15225"?.value = null
+        }
+
+        issue.customFields."20957".value = replica.customFields."changedPart"?.value                // 동시 변경 부품
+        issue.customFields."20958".value = replica.customFields."deployCriteria"?.value?.value      // 수평 전개 기준
+        issue.customFields."20959".value = replica.customFields."deployNote"?.value                 // 수평 전개 내용
+        issue.customFields."33300".value = replica.customFields."sprintRegistration"?.value         // 스프린트 등록 이슈
+
+        if (!firstSync && issue.customFields."33300".value != "O") {
+           syncHelper.unExalateAfterProcessing()
+        }
+        break
+
+    case "ZPTGPSD":
+        if (issue.typeName.equalsIgnoreCase("Bug")) {
+            def testAssignee = replica.customFields."testAssignee"?.value?.collect {                              // 시험팀 담당자
+                nodeHelper.getUserByEmail(it.email)
+            }.findAll()
+            issue.customFields."21019".value = testAssignee
+
+            issue.due                        = replica.due
+            issue.customFields."21020".value = list2Label(replica.customFields."spindlePartner"?.value)           // 스핀들_협력사
+            issue.customFields."21021".value = list2Label(replica.customFields."controllerPartner"?.value)        // 제어기_협력사
+            issue.customFields."21022".value = list2Label(replica.customFields."carElec"?.value)                  // 차종_전자
+            issue.customFields."21023".value = list2Label(replica.customFields."projectTypeElec"?.value)          // 프로젝트유형_전자
+            issue.customFields."21025".value = list2Label(replica.customFields."devPhaseElec"?.value)             // 개발단계_전자
+            issue.customFields."21026".value = list2Label(replica.customFields."partsElec"?.value)                // 부품명_전자
+            issue.customFields."21027".value = list2Label(replica.customFields."assignGroup"?.value)              // 조치부문_전자
+            issue.customFields."21028".value = list2Label(replica.customFields."problemGradeElec"?.value)         // 문제등급_전자
+            issue.customFields."21029".value = replica.customFields."vehicleSpecVersion"?.value                   // 통합차종사양서 버전
+            issue.customFields."21030".value = replica.customFields."diagSpecVersion"?.value                      // 진단사양서 버전
+            issue.customFields."15496".value = replica.customFields."swVersionElec"?.value                        // SW 버전
+            issue.customFields."16934".value = replica.customFields."improvedVersion"?.value                      // 개선 버전
+            issue.customFields."21031".value = replica.customFields."improvedDate"?.value                         // 개선 적용 시점
+        } else if (issue.typeName.equalsIgnoreCase("사양")) {
+            issue.customFields."21032".value = list2Label(replica.customFields."elecArchtecture"?.value)          // 전자아키텍처(개폐제어기)
+            issue.customFields."21033".value = replica.customFields."applySpecVersion"?.value                     // 적용 사양서 및 버전
+        }
+        break
+        
+    case "ZSPLIT":
+        issue.due                        = replica.due
+        issue.customFields."10615".value = replica.customFields."car"?.value ?: []         // 차종
+        issue.customFields."15213".value = replica.customFields."background"?.value        // 배경               
+        issue.customFields."21041".value = replica.customFields."previousVersion"?.value   // 이전 버전
+        issue.customFields."21042".value = replica.customFields."totalTcCount"?.value      // 전체 TC 개수
+        issue.customFields."21043".value = replica.customFields."evaluatedTcCount"?.value  // 평가한 TC 개수
+        issue.customFields."21044".value = replica.customFields."automatedTcCount"?.value  // 자동화 TC 개수
+        issue.customFields."21045".value = replica.customFields."tcAutomationRate"?.value  // TC 자동화율(%)
+        issue.customFields."21046".value = replica.customFields."passedTcCount"?.value     // PASS TC 개수
+        issue.customFields."30202".value = replica.customFields."applyOrderSeat"?.value    // 적용차수_시트
+        break
+}
+
+
+
+
+
+

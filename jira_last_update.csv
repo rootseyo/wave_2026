@@ -1,0 +1,1647 @@
+﻿url,project_key,last_update,last_issue_key,total_issues,status
+https://jira.hmg-corp.io/projects/AIRSPEECH/summary,AIRSPEECH,2026-06-21T01:51:35.000+0900,AIRSPEECH-1,917,Success
+https://jira.hmg-corp.io/projects/AIRSOP/summary,AIRSOP,2026-06-20T21:34:18.000+0900,AIRSOP-11,269,Success
+https://jira.hmg-corp.io/projects/CPOCHT/summary,CPOCHT,2026-06-20T21:08:24.000+0900,CPOCHT-75,71,Success
+https://jira.hmg-corp.io/projects/METIS/summary,METIS,2022-01-04T08:49:57.000+0900,METIS-2,1,Success
+https://jira.hmg-corp.io/projects/AVFOUNDRY/summary,AVFOUNDRY,2026-06-19T16:36:22.000+0900,AVFOUNDRY-8,23,Success
+https://jira.hmg-corp.io/projects/AHTC/summary,AHTC,2026-06-21T05:05:30.000+0900,AHTC-3,844,Success
+https://jira.hmg-corp.io/projects/STD5XC/summary,STD5XC,2026-06-21T05:02:40.000+0900,STD5XC-72,22,Success
+https://jira.hmg-corp.io/projects/TSDENG/summary,TSDENG,2026-06-20T13:54:11.000+0900,TSDENG-55,219,Success
+https://jira.hmg-corp.io/projects/CBC/summary,CBC,2026-06-20T23:14:36.000+0900,CBC-20,402,Success
+https://jira.hmg-corp.io/projects/CBCVOC/summary,CBCVOC,2026-08-06T20:34:13.000+0900,CBCVOC-598,571,Success
+https://jira.hmg-corp.io/projects/CCSD/summary,CCSD,2024-06-18T14:45:35.000+0900,CCSD-23,11,Success
+https://jira.hmg-corp.io/projects/LOKI/summary,LOKI,2026-08-26T14:44:43.000+0900,LOKI-384,372,Success
+https://jira.hmg-corp.io/projects/LOTA/summary,LOTA,2026-09-16T17:00:51.000+0900,LOTA-377,386,Success
+https://jira.hmg-corp.io/projects/ORBIT/summary,ORBIT,2026-09-16T17:38:41.000+0900,ORBIT-1904,1705,Success
+https://jira.hmg-corp.io/projects/OSP/summary,OSP,2026-08-21T18:56:53.000+0900,OSP-59,159,Success
+https://jira.hmg-corp.io/projects/OTAREQ/summary,OTAREQ,2026-09-16T15:49:13.000+0900,OTAREQ-3441,3253,Success
+https://jira.hmg-corp.io/projects/OTAREQOM/summary,OTAREQOM,2026-09-16T17:24:35.000+0900,OTAREQOM-418,409,Success
+https://jira.hmg-corp.io/projects/OTASD/summary,OTASD,,,0,No Issues
+https://jira.hmg-corp.io/projects/OTASR/summary,OTASR,,,0,No Issues
+https://jira.hmg-corp.io/projects/YKG1/summary,YKG1,2026-06-21T05:07:10.000+0900,YKG1-10,90,Success
+https://jira.hmg-corp.io/projects/DSDC/summary,DSDC,2026-06-20T20:24:21.000+0900,DSDC-7,27,Success
+https://jira.hmg-corp.io/projects/IATD/summary,IATD,2023-03-29T06:18:17.000+0900,IATD-4,2,Success
+https://jira.hmg-corp.io/projects/IATDP/summary,IATDP,2023-03-08T00:27:42.000+0900,IATDP-5,6,Success
+https://jira.hmg-corp.io/projects/HIBR/summary,HIBR,2022-03-29T01:12:50.000+0900,HIBR-6,6,Success
+https://jira.hmg-corp.io/projects/TSC02/summary,TSC02,,,0,No Issues
+https://jira.hmg-corp.io/projects/TSG01/summary,TSG01,2026-06-20T23:06:05.000+0900,TSG01-14,136,Success
+https://jira.hmg-corp.io/projects/RS/summary,RS,2026-09-14T21:46:08.000+0900,RS-1,178,Success
+https://jira.hmg-corp.io/projects/MSP/summary,MSP,2026-06-21T04:52:19.000+0900,MSP-2,1405,Success
+https://jira.hmg-corp.io/projects/CCI/summary,CCI,2026-07-07T18:36:07.000+0900,CCI-31,345,Success
+https://jira.hmg-corp.io/projects/ICTPLAY/summary,ICTPLAY,2026-07-07T16:59:56.000+0900,ICTPLAY-146,212,Success
+https://jira.hmg-corp.io/projects/ADAPT/summary,ADAPT,2025-04-24T08:35:05.000+0900,ADAPT-33,27,Success
+https://jira.hmg-corp.io/projects/DXDEV/summary,DXDEV,,,0,No Issues
+https://jira.hmg-corp.io/projects/HAEALPTEST/summary,HAEALPTEST,2026-09-10T16:38:17.000+0900,HAEALPTEST-79,74,Success
+https://jira.hmg-corp.io/projects/MVDMS/summary,MVDMS,2026-06-20T18:20:51.000+0900,MVDMS-62,139,Success
+https://jira.hmg-corp.io/projects/RNDVDMS/summary,RNDVDMS,2025-02-27T09:14:54.000+0900,RNDVDMS-16,15,Success
+https://jira.hmg-corp.io/projects/CLPMS/summary,CLPMS,2026-06-20T19:07:48.000+0900,CLPMS-2,12,Success
+https://jira.hmg-corp.io/projects/EEM01/summary,EEM01,2026-06-20T19:10:13.000+0900,EEM01-1,69,Success
+https://jira.hmg-corp.io/projects/EFADI/summary,EFADI,2023-02-15T01:24:21.000+0900,EFADI-5,6,Success
+https://jira.hmg-corp.io/projects/NIDSDEV/summary,NIDSDEV,2026-09-15T17:14:19.000+0900,NIDSDEV-764,755,Success
+https://jira.hmg-corp.io/projects/PSYS/summary,PSYS,2025-03-25T20:16:53.000+0900,PSYS-55,55,Success
+https://jira.hmg-corp.io/projects/PWRSWDEV/summary,PWRSWDEV,2026-06-20T13:52:17.000+0900,PWRSWDEV-1,17,Success
+https://jira.hmg-corp.io/projects/SDVPA/summary,SDVPA,2025-03-09T21:08:07.000+0900,SDVPA-16,51,Success
+https://jira.hmg-corp.io/projects/TEGL/summary,TEGL,2026-06-21T00:01:18.000+0900,TEGL-1,4,Success
+https://jira.hmg-corp.io/projects/TJIASG/summary,TJIASG,2026-06-20T07:42:26.000+0900,TJIASG-1,16,Success
+https://jira.hmg-corp.io/projects/MOEBIZ/summary,MOEBIZ,2025-08-30T02:02:02.000+0900,MOEBIZ-1,33,Success
+https://jira.hmg-corp.io/projects/AIRSCOM/summary,AIRSCOM,2022-06-27T09:58:48.000+0900,AIRSCOM-6,5,Success
+https://jira.hmg-corp.io/projects/DSIP/summary,DSIP,2026-06-20T15:30:08.000+0900,DSIP-13,240,Success
+https://jira.hmg-corp.io/projects/DCTM/summary,DCTM,2026-06-15T10:33:54.000+0900,DCTM-267,4,Success
+https://jira.hmg-corp.io/projects/EVBAAS/summary,EVBAAS,,,0,No Issues
+https://jira.hmg-corp.io/projects/FPS100/summary,FPS100,2026-06-20T23:40:17.000+0900,FPS100-1,63,Success
+https://jira.hmg-corp.io/projects/FPS200/summary,FPS200,2022-12-23T08:00:12.000+0900,FPS200-5,4,Success
+https://jira.hmg-corp.io/projects/FPSEJT/summary,FPSEJT,2026-06-20T23:39:49.000+0900,FPSEJT-1,17,Success
+https://jira.hmg-corp.io/projects/FPSFBV/summary,FPSFBV,2026-06-20T23:40:01.000+0900,FPSFBV-2,19,Success
+https://jira.hmg-corp.io/projects/FPSFDV/summary,FPSFDV,2026-06-20T23:39:59.000+0900,FPSFDV-1,30,Success
+https://jira.hmg-corp.io/projects/FPSFP/summary,FPSFP,2026-06-20T23:42:01.000+0900,FPSFP-1,32,Success
+https://jira.hmg-corp.io/projects/FPSFRB/summary,FPSFRB,2026-06-20T23:39:48.000+0900,FPSFRB-9,35,Success
+https://jira.hmg-corp.io/projects/FPSFSV/summary,FPSFSV,2026-06-20T23:40:02.000+0900,FPSFSV-1,14,Success
+https://jira.hmg-corp.io/projects/FPSHS/summary,FPSHS,2026-06-20T23:39:41.000+0900,FPSHS-1,43,Success
+https://jira.hmg-corp.io/projects/FPSIDS/summary,FPSIDS,2026-06-20T23:40:03.000+0900,FPSIDS-2,15,Success
+https://jira.hmg-corp.io/projects/FPSNTP/summary,FPSNTP,2026-06-20T23:39:42.000+0900,FPSNTP-2,14,Success
+https://jira.hmg-corp.io/projects/FPSPMG/summary,FPSPMG,2026-06-20T23:39:44.000+0900,FPSPMG-2,33,Success
+https://jira.hmg-corp.io/projects/FCFSVM/summary,FCFSVM,2026-06-20T08:29:02.000+0900,FCFSVM-4,132,Success
+https://jira.hmg-corp.io/projects/FCCF/summary,FCCF,2024-05-20T14:45:46.000+0900,FCCF-1,3,Success
+https://jira.hmg-corp.io/projects/SWSB/summary,SWSB,,,0,No Issues
+https://jira.hmg-corp.io/projects/DUX/summary,DUX,2026-07-07T17:41:19.000+0900,DUX-82,186,Success
+https://jira.hmg-corp.io/projects/GCSP/summary,GCSP,2026-06-21T04:32:54.000+0900,GCSP-493,3435,Success
+https://jira.hmg-corp.io/projects/GOMBIZ/summary,GOMBIZ,2021-12-22T04:13:34.000+0900,GOMP-16,12,Success
+https://jira.hmg-corp.io/projects/ANAL2ECO/summary,ANAL2ECO,2026-06-21T05:17:00.000+0900,ANAL2ECO-1,23,Success
+https://jira.hmg-corp.io/projects/CIFMETRIC/summary,CIFMETRIC,,,0,No Issues
+https://jira.hmg-corp.io/projects/CONNECTSPR/summary,CONNECTSPR,2026-06-20T05:50:41.000+0900,CONNECTSPR-1,177,Success
+https://jira.hmg-corp.io/projects/DAREQ/summary,DAREQ,,,0,No Issues
+https://jira.hmg-corp.io/projects/EDITH/summary,EDITH,2022-10-24T01:23:42.000+0900,EDITH-603,1246,Success
+https://jira.hmg-corp.io/projects/EDITHPOC/summary,EDITHPOC,2026-06-21T05:10:39.000+0900,EDITHPOC-22,489,Success
+https://jira.hmg-corp.io/projects/EDSF/summary,EDSF,2026-06-20T20:33:22.000+0900,EDSF-54,58,Success
+https://jira.hmg-corp.io/projects/ET/summary,ET,2026-03-25T11:36:06.000+0900,ET-391,113,Success
+https://jira.hmg-corp.io/projects/FDIDEV/summary,FDIDEV,2026-08-22T03:04:07.000+0900,FDIDEV-128,610,Success
+https://jira.hmg-corp.io/projects/FDIFE/summary,FDIFE,2026-01-06T17:54:16.000+0900,FDIFE-32,32,Success
+https://jira.hmg-corp.io/projects/FINSIGHT/summary,FINSIGHT,2026-08-30T00:00:55.000+0900,FINSIGHT-17,481,Success
+https://jira.hmg-corp.io/projects/FIS/summary,FIS,2026-09-12T00:32:17.000+0900,FIS-805,835,Success
+https://jira.hmg-corp.io/projects/FISDEV/summary,FISDEV,2025-04-03T10:47:05.000+0900,FISDEV-57,56,Success
+https://jira.hmg-corp.io/projects/FRF/summary,FRF,2026-08-22T02:27:50.000+0900,FRF-20,108,Success
+https://jira.hmg-corp.io/projects/FSTM/summary,FSTM,2026-06-20T02:13:30.000+0900,FSTM-1,56,Success
+https://jira.hmg-corp.io/projects/FTRM/summary,FTRM,2025-07-10T11:36:44.000+0900,FTRM-139,150,Success
+https://jira.hmg-corp.io/projects/HCHARGE/summary,HCHARGE,2026-06-21T05:16:27.000+0900,HCHARGE-49,53,Success
+https://jira.hmg-corp.io/projects/MYHD/summary,MYHD,2026-06-21T03:50:09.000+0900,MYHD-6,279,Success
+https://jira.hmg-corp.io/projects/STONE/summary,STONE,2026-06-19T22:50:02.000+0900,STONE-41,43,Success
+https://jira.hmg-corp.io/projects/SWUP/summary,SWUP,2026-09-16T17:39:56.000+0900,SWUP-1040,961,Success
+https://jira.hmg-corp.io/projects/TSC03/summary,TSC03,2026-06-21T00:43:22.000+0900,TSC03-78,60,Success
+https://jira.hmg-corp.io/projects/FEAT/summary,FEAT,2026-09-15T12:11:59.000+0900,FEAT-4,209,Success
+https://jira.hmg-corp.io/projects/FREQ/summary,FREQ,2026-08-29T01:03:37.000+0900,FREQ-198,422,Success
+https://jira.hmg-corp.io/projects/HADR/summary,HADR,2026-06-20T02:52:05.000+0900,HADR-7,117,Success
+https://jira.hmg-corp.io/projects/HMCSA/summary,HMCSA,2026-07-15T03:02:56.000+0900,HMCSA-2,8,Success
+https://jira.hmg-corp.io/projects/HATCIEVP/summary,HATCIEVP,2026-06-20T05:19:39.000+0900,HATCIEVP-7,208,Success
+https://jira.hmg-corp.io/projects/HYPERAI/summary,HYPERAI,2026-06-20T22:21:13.000+0900,HYPERAI-5,41,Success
+https://jira.hmg-corp.io/projects/CCSPDEV/summary,CCSPDEV,2026-07-07T18:08:15.000+0900,CCSPDEV-561,718,Success
+https://jira.hmg-corp.io/projects/DEVPRJ22/summary,DEVPRJ22,2026-07-07T18:02:46.000+0900,DEVPRJ22-87,700,Success
+https://jira.hmg-corp.io/projects/HMGPRF/summary,HMGPRF,2026-07-07T17:06:22.000+0900,HMGPRF-224,360,Success
+https://jira.hmg-corp.io/projects/HMCAIWKSP/summary,HMCAIWKSP,,,0,No Issues
+https://jira.hmg-corp.io/projects/VPMTEST/summary,VPMTEST,2025-01-07T15:18:24.000+0900,VPMTEST-145,56,Success
+https://jira.hmg-corp.io/projects/BSIM/summary,BSIM,2026-08-19T17:37:28.000+0900,BSIM-110,97,Success
+https://jira.hmg-corp.io/projects/EVPT2/summary,EVPT2,2026-06-20T21:16:42.000+0900,EVPT2-3,19,Success
+https://jira.hmg-corp.io/projects/ACTIVITY/summary,ACTIVITY,2026-06-25T00:21:39.000+0900,ACTIVITY-7,27,Success
+https://jira.hmg-corp.io/projects/EM/summary,EM,2026-09-16T17:06:13.000+0900,EM-649,635,Success
+https://jira.hmg-corp.io/projects/MLV/summary,MLV,2026-04-16T13:27:41.000+0900,MLV-5,8,Success
+https://jira.hmg-corp.io/projects/CILST01/summary,CILST01,2026-07-10T16:32:59.000+0900,CILST01-122,30,Success
+https://jira.hmg-corp.io/projects/MESSMANDO/summary,MESSMANDO,2026-09-08T15:48:23.000+0900,MESSMANDO-336,326,Success
+https://jira.hmg-corp.io/projects/MESSZF/summary,MESSZF,2026-09-05T00:39:37.000+0900,MESSZF-35,90,Success
+https://jira.hmg-corp.io/projects/ACS/summary,ACS,2026-06-21T03:17:02.000+0900,ACS-39,22,Success
+https://jira.hmg-corp.io/projects/CLUFUEL/summary,CLUFUEL,2026-09-15T12:25:05.000+0900,CLUFUEL-498,455,Success
+https://jira.hmg-corp.io/projects/EXHAUST/summary,EXHAUST,2026-09-15T00:12:56.000+0900,EXHAUST-9,96,Success
+https://jira.hmg-corp.io/projects/SBW01/summary,SBW01,,,0,No Issues
+https://jira.hmg-corp.io/projects/AHJA/summary,AHJA,2025-01-10T19:02:48.000+0900,AHJA-13,11,Success
+https://jira.hmg-corp.io/projects/HMIEVTD/summary,HMIEVTD,2026-09-12T00:32:17.000+0900,HMIEVTD-63,302,Success
+https://jira.hmg-corp.io/projects/AXEVPE2028/summary,AXEVPE2028,2026-09-11T15:51:13.000+0900,AXEVPE2028-18,15,Success
+https://jira.hmg-corp.io/projects/DSPDEV/summary,DSPDEV,2026-07-07T17:41:21.000+0900,DSPDEV-36,108,Success
+https://jira.hmg-corp.io/projects/TCI/summary,TCI,2026-06-21T00:12:31.000+0900,TCI-1,27,Success
+https://jira.hmg-corp.io/projects/TPE/summary,TPE,2026-06-21T00:09:26.000+0900,TPE-5,214,Success
+https://jira.hmg-corp.io/projects/FODSSA/summary,FODSSA,2026-09-16T17:37:04.000+0900,FODSSA-760,738,Success
+https://jira.hmg-corp.io/projects/XDDT/summary,XDDT,,,0,No Issues
+https://jira.hmg-corp.io/projects/CDIMWIA/summary,CDIMWIA,2025-03-13T10:43:08.000+0900,CDIMWIA-2,2,Success
+https://jira.hmg-corp.io/projects/CDIMZF/summary,CDIMZF,2024-12-18T13:19:48.000+0900,CDIMZF-1,1,Success
+https://jira.hmg-corp.io/projects/LENSAI/summary,LENSAI,,,0,No Issues
+https://jira.hmg-corp.io/projects/CPQTP2/summary,CPQTP2,2026-09-02T09:02:43.000+0900,CPQTP2-529,713,Success
+https://jira.hmg-corp.io/projects/PTGBCTEST/summary,PTGBCTEST,2023-06-30T04:58:06.000+0900,PTGBCTEST-87,43,Success
+https://jira.hmg-corp.io/projects/CONF2025/summary,CONF2025,,,0,No Issues
+https://jira.hmg-corp.io/projects/SDVCT/summary,SDVCT,2026-09-16T09:58:07.000+0900,SDVCT-448,429,Success
+https://jira.hmg-corp.io/projects/SEMIPRJ/summary,SEMIPRJ,2024-11-07T09:57:10.000+0900,SEMIPRJ-188,6,Success
+https://jira.hmg-corp.io/projects/SOCSWTEST/summary,SOCSWTEST,2024-08-01T11:28:49.000+0900,SOCSWTEST-3,9,Success
+https://jira.hmg-corp.io/projects/NETWORKCO/summary,NETWORKCO,,,0,No Issues
+https://jira.hmg-corp.io/projects/VC1DSP/summary,VC1DSP,,,0,No Issues
+https://jira.hmg-corp.io/projects/SWPERF/summary,SWPERF,2026-09-10T00:46:27.000+0900,SWPERF-57,97,Success
+https://jira.hmg-corp.io/projects/SUBSBIZ/summary,SUBSBIZ,2026-06-21T00:16:30.000+0900,SUBSBIZ-5,267,Success
+https://jira.hmg-corp.io/projects/SUBSCRIPT/summary,SUBSCRIPT,,,0,No Issues
+https://jira.hmg-corp.io/projects/SUBSDEVOPS/summary,SUBSDEVOPS,2026-06-20T22:49:31.000+0900,SUBSDEVOPS-19,42,Success
+https://jira.hmg-corp.io/projects/TEAMMAAS/summary,TEAMMAAS,2026-06-21T04:44:23.000+0900,TEAMMAAS-78,535,Success
+https://jira.hmg-corp.io/projects/TSC01/summary,TSC01,2026-06-21T00:44:48.000+0900,TSC01-15,181,Success
+https://jira.hmg-corp.io/projects/MOCEANPJT/summary,MOCEANPJT,2026-06-21T04:35:21.000+0900,MOCEANPJT-1,242,Success
+https://jira.hmg-corp.io/projects/B2BB2GCSPD/summary,B2BB2GCSPD,2026-06-21T01:39:42.000+0900,B2BB2GCSPD-114,9537,Success
+https://jira.hmg-corp.io/projects/BAASPOC/summary,BAASPOC,2026-06-21T01:52:52.000+0900,BAASPOC-123,1311,Success
+https://jira.hmg-corp.io/projects/FMS/summary,FMS,2026-06-21T02:12:06.000+0900,FMS-34,132,Success
+https://jira.hmg-corp.io/projects/MAASJPN/summary,MAASJPN,2026-06-21T03:58:17.000+0900,MAASJPN-384,619,Success
+https://jira.hmg-corp.io/projects/PBVIT/summary,PBVIT,2026-07-07T15:19:25.000+0900,PBVIT-560,544,Success
+https://jira.hmg-corp.io/projects/SUBSCRIBEP/summary,SUBSCRIBEP,2026-06-21T04:34:17.000+0900,SUBSCRIBEP-514,6269,Success
+https://jira.hmg-corp.io/projects/CCIC24UX/summary,CCIC24UX,2026-08-11T11:39:55.000+0900,CCIC24UX-1072,1154,Success
+https://jira.hmg-corp.io/projects/CONNECTISS/summary,CONNECTISS,2026-09-12T00:02:16.000+0900,CONNECTISS-302,397,Success
+https://jira.hmg-corp.io/projects/FEATPLAN/summary,FEATPLAN,2025-12-12T13:48:35.000+0900,FEATPLAN-85,81,Success
+https://jira.hmg-corp.io/projects/HUXEX/summary,HUXEX,2026-04-30T10:59:13.000+0900,HUXEX-45,39,Success
+https://jira.hmg-corp.io/projects/HUXTD/summary,HUXTD,2026-04-29T12:55:27.000+0900,HUXTD-374,147,Success
+https://jira.hmg-corp.io/projects/MLOO/summary,MLOO,2025-01-08T16:19:39.000+0900,MLOO-1,1,Success
+https://jira.hmg-corp.io/projects/UXBMDB/summary,UXBMDB,2026-04-20T15:58:20.000+0900,UXBMDB-25,25,Success
+https://jira.hmg-corp.io/projects/UXML/summary,UXML,2026-09-15T00:03:26.000+0900,UXML-529,366,Success
+https://jira.hmg-corp.io/projects/JGVSTAR25/summary,JGVSTAR25,2026-09-16T17:17:59.000+0900,JGVSTAR25-17442,13508,Success
+https://jira.hmg-corp.io/projects/PREISCM2/summary,PREISCM2,,,0,No Issues
+https://jira.hmg-corp.io/projects/XP2VSTAR/summary,XP2VSTAR,2026-08-22T02:55:09.000+0900,XP2VSTAR-478,468,Success
+https://jira.hmg-corp.io/projects/CLULTRACK/summary,CLULTRACK,2026-09-11T15:39:36.000+0900,CLULTRACK-445,439,Success
+https://jira.hmg-corp.io/projects/ECSC/summary,ECSC,2026-09-16T16:52:26.000+0900,ECSC-5417,5120,Success
+https://jira.hmg-corp.io/projects/NE1AWJIMS/summary,NE1AWJIMS,2026-09-16T17:31:21.000+0900,NE1AWJIMS-1164,1081,Success
+https://jira.hmg-corp.io/projects/QIMSINFO/summary,QIMSINFO,,,0,No Issues
+https://jira.hmg-corp.io/projects/VIMS/summary,VIMS,2026-08-27T13:25:46.000+0900,VIMS-58,57,Success
+https://jira.hmg-corp.io/projects/CCU2S/summary,CCU2S,2026-09-16T17:17:09.000+0900,CCU2S-15957,15605,Success
+https://jira.hmg-corp.io/projects/ESENXP/summary,ESENXP,2026-09-08T00:23:06.000+0900,ESENXP-74,111,Success
+https://jira.hmg-corp.io/projects/PDHWP/summary,PDHWP,2025-02-07T17:31:40.000+0900,PDHWP-47,4,Success
+https://jira.hmg-corp.io/projects/VSTEAM/summary,VSTEAM,2026-06-19T18:09:21.000+0900,VSTEAM-26,31,Success
+https://jira.hmg-corp.io/projects/EVAL/summary,EVAL,,,0,No Issues
+https://jira.hmg-corp.io/projects/IVNLOG/summary,IVNLOG,2026-06-20T19:55:56.000+0900,IVNLOG-2,16,Success
+https://jira.hmg-corp.io/projects/EEARCH/summary,EEARCH,2026-06-20T16:10:19.000+0900,EEARCH-8,43,Success
+https://jira.hmg-corp.io/projects/CTPA1/summary,CTPA1,,,0,No Issues
+https://jira.hmg-corp.io/projects/ARCH/summary,ARCH,2020-06-10T05:24:57.000+0900,ARCH-14,6,Success
+https://jira.hmg-corp.io/projects/ADCFR/summary,ADCFR,2026-09-14T16:29:30.000+0900,ADCFR-8,9,Success
+https://jira.hmg-corp.io/projects/CLUOTA/summary,CLUOTA,2026-06-21T00:24:29.000+0900,CLUOTA-1,69,Success
+https://jira.hmg-corp.io/projects/VDA/summary,VDA,2025-03-18T09:51:37.000+0900,VDA-15,17,Success
+https://jira.hmg-corp.io/projects/DETSM/summary,DETSM,2026-06-20T21:40:51.000+0900,DETSM-218,348,Success
+https://jira.hmg-corp.io/projects/MODEL22/summary,MODEL22,,,0,No Issues
+https://jira.hmg-corp.io/projects/VDMSDAV/summary,VDMSDAV,2026-06-20T21:49:44.000+0900,VDMSDAV-4,18,Success
+https://jira.hmg-corp.io/projects/ACCOUNTDEV/summary,ACCOUNTDEV,2026-07-07T18:38:53.000+0900,ACCOUNTDEV-1876,3446,Success
+https://jira.hmg-corp.io/projects/CCSPROFILE/summary,CCSPROFILE,2026-07-07T18:07:57.000+0900,CCSPROFILE-34,364,Success
+https://jira.hmg-corp.io/projects/HMGACCOUNT/summary,HMGACCOUNT,2026-07-07T17:25:19.000+0900,HMGACCOUNT-78,7011,Success
+https://jira.hmg-corp.io/projects/KEUVOC/summary,KEUVOC,2026-07-07T15:56:52.000+0900,KEUVOC-14,1713,Success
+https://jira.hmg-corp.io/projects/ACHT/summary,ACHT,2026-06-21T00:20:29.000+0900,ACHT-95,617,Success
+https://jira.hmg-corp.io/projects/ACHTQA/summary,ACHTQA,,,0,No Issues
+https://jira.hmg-corp.io/projects/CCIAPP/summary,CCIAPP,2026-08-12T13:54:24.000+0900,CCIAPP-12592,13473,Success
+https://jira.hmg-corp.io/projects/CCIPRJ/summary,CCIPRJ,2026-08-03T13:48:34.000+0900,CCIPRJ-1102,2151,Success
+https://jira.hmg-corp.io/projects/HEUVOC/summary,HEUVOC,2026-07-07T17:27:27.000+0900,HEUVOC-5,455,Success
+https://jira.hmg-corp.io/projects/HTS/summary,HTS,2026-06-21T01:58:13.000+0900,HTS-89,196,Success
+https://jira.hmg-corp.io/projects/ICTQMSCHE/summary,ICTQMSCHE,2026-09-11T08:26:32.000+0900,ICTQMSCHE-19286,18130,Success
+https://jira.hmg-corp.io/projects/KCCIVOC/summary,KCCIVOC,2026-07-07T15:58:52.000+0900,KCCIVOC-36,4004,Success
+https://jira.hmg-corp.io/projects/MYH/summary,MYH,2026-06-21T02:50:57.000+0900,MYH-866,686,Success
+https://jira.hmg-corp.io/projects/PBV01/summary,PBV01,2026-06-21T00:32:22.000+0900,PBV01-30,112,Success
+https://jira.hmg-corp.io/projects/PBVSVC/summary,PBVSVC,2026-06-21T00:55:21.000+0900,PBVSVC-60,308,Success
+https://jira.hmg-corp.io/projects/SQA/summary,SQA,2026-07-07T15:15:39.000+0900,SQA-74,166,Success
+https://jira.hmg-corp.io/projects/TQAC/summary,TQAC,2026-06-21T00:13:37.000+0900,TQAC-1,75,Success
+https://jira.hmg-corp.io/projects/CFDMODEL9/summary,CFDMODEL9,2026-09-11T08:17:14.000+0900,CFDMODEL9-231,1,Success
+https://jira.hmg-corp.io/projects/CFDWORK9/summary,CFDWORK9,2026-08-06T13:09:21.000+0900,CFDWORK9-15,9,Success
+https://jira.hmg-corp.io/projects/AREVAL/summary,AREVAL,2026-06-20T21:44:36.000+0900,AREVAL-1,20,Success
+https://jira.hmg-corp.io/projects/ARVEX/summary,ARVEX,2026-06-20T22:23:57.000+0900,ARVEX-12,24,Success
+https://jira.hmg-corp.io/projects/SMEX/summary,SMEX,2026-06-20T22:17:36.000+0900,SMEX-11,28,Success
+https://jira.hmg-corp.io/projects/WEXP/summary,WEXP,2026-06-20T22:24:18.000+0900,WEXP-16,43,Success
+https://jira.hmg-corp.io/projects/ARBLDC/summary,ARBLDC,2026-06-20T22:31:43.000+0900,ARBLDC-2,13,Success
+https://jira.hmg-corp.io/projects/AREMBC/summary,AREMBC,2022-05-13T01:52:39.000+0900,AREMBC-10,12,Success
+https://jira.hmg-corp.io/projects/ELMO/summary,ELMO,2022-05-25T02:27:48.000+0900,ELMO-4,4,Success
+https://jira.hmg-corp.io/projects/EMGCOM/summary,EMGCOM,2022-07-13T07:06:14.000+0900,EMGCOM-7,7,Success
+https://jira.hmg-corp.io/projects/HRFTS/summary,HRFTS,2026-06-20T22:12:20.000+0900,HRFTS-10,54,Success
+https://jira.hmg-corp.io/projects/RUCAS/summary,RUCAS,2022-06-16T04:48:19.000+0900,RUCAS-10,9,Success
+https://jira.hmg-corp.io/projects/ACR/summary,ACR,2025-06-11T14:21:42.000+0900,ACR-3,3,Success
+https://jira.hmg-corp.io/projects/ARAMEXC/summary,ARAMEXC,2026-06-20T20:58:04.000+0900,ARAMEXC-23,31,Success
+https://jira.hmg-corp.io/projects/ARAVEXC/summary,ARAVEXC,2022-06-16T01:50:36.000+0900,ARAVEXC-4,10,Success
+https://jira.hmg-corp.io/projects/ARBMECHSIM/summary,ARBMECHSIM,2026-06-20T21:09:55.000+0900,ARBMECHSIM-2,4,Success
+https://jira.hmg-corp.io/projects/ARQUADMINI/summary,ARQUADMINI,2022-08-10T06:05:16.000+0900,ARQUADMINI-5,5,Success
+https://jira.hmg-corp.io/projects/ARRMEXC/summary,ARRMEXC,2022-09-29T23:50:35.000+0900,ARRMEXC-7,7,Success
+https://jira.hmg-corp.io/projects/ARWLR/summary,ARWLR,2022-07-29T06:29:51.000+0900,ARWLR-2,2,Success
+https://jira.hmg-corp.io/projects/SASADRDC/summary,SASADRDC,2026-09-15T18:14:25.000+0900,SASADRDC-825,628,Success
+https://jira.hmg-corp.io/projects/SASCOMOC/summary,SASCOMOC,2026-09-15T18:14:20.000+0900,SASCOMOC-282,102,Success
+https://jira.hmg-corp.io/projects/SASHMCTC/summary,SASHMCTC,2026-09-15T18:14:04.000+0900,SASHMCTC-351,261,Success
+https://jira.hmg-corp.io/projects/SASHTBR/summary,SASHTBR,2026-08-28T12:35:50.000+0900,SASHTBR-1299,102,Success
+https://jira.hmg-corp.io/projects/SASLN/summary,SASLN,2023-08-23T06:13:20.000+0900,SASLN-2,2,Success
+https://jira.hmg-corp.io/projects/HVISION/summary,HVISION,2026-06-20T10:36:40.000+0900,HVISION-16,232,Success
+https://jira.hmg-corp.io/projects/ADCFM/summary,ADCFM,2026-06-20T21:17:53.000+0900,ADCFM-1,45,Success
+https://jira.hmg-corp.io/projects/ESCS/summary,ESCS,,,0,No Issues
+https://jira.hmg-corp.io/projects/HKMCCSMS/summary,HKMCCSMS,2025-08-22T12:41:45.000+0900,HKMCCSMS-75,85,Success
+https://jira.hmg-corp.io/projects/SWQAM/summary,SWQAM,2026-08-25T13:08:56.000+0900,SWQAM-4466,673,Success
+https://jira.hmg-corp.io/projects/VLSD/summary,VLSD,,,0,No Issues
+https://jira.hmg-corp.io/projects/FSWM/summary,FSWM,2023-11-22T07:50:56.000+0900,FSWM-1,1,Success
+https://jira.hmg-corp.io/projects/FUSARVMGMT/summary,FUSARVMGMT,2024-03-11T04:24:21.000+0900,FUSARVMGMT-28,26,Success
+https://jira.hmg-corp.io/projects/CUDPI/summary,CUDPI,2026-06-11T11:07:46.000+0900,CUDPI-210,154,Success
+https://jira.hmg-corp.io/projects/OFTSM/summary,OFTSM,2026-09-16T15:22:27.000+0900,OFTSM-397,370,Success
+https://jira.hmg-corp.io/projects/QIADB/summary,QIADB,2026-06-01T16:29:23.000+0900,QIADB-37,43,Success
+https://jira.hmg-corp.io/projects/REGDEMO/summary,REGDEMO,2026-08-14T12:59:59.000+0900,REGDEMO-66,54,Success
+https://jira.hmg-corp.io/projects/CUDPIP/summary,CUDPIP,2025-12-11T13:15:13.000+0900,CUDPIP-205,101,Success
+https://jira.hmg-corp.io/projects/DAP/summary,DAP,2022-05-18T00:11:48.000+0900,DAP-95,105,Success
+https://jira.hmg-corp.io/projects/SCDAP/summary,SCDAP,2026-07-07T15:16:35.000+0900,SCDAP-15,1229,Success
+https://jira.hmg-corp.io/projects/THIHKMC/summary,THIHKMC,2025-09-04T15:10:33.000+0900,THIHKMC-241,204,Success
+https://jira.hmg-corp.io/projects/THIHKMC2/summary,THIHKMC2,,,0,No Issues
+https://jira.hmg-corp.io/projects/AUTOFRT/summary,AUTOFRT,2026-05-27T12:41:46.000+0900,AUTOFRT-811,714,Success
+https://jira.hmg-corp.io/projects/CONTASK/summary,CONTASK,2026-09-16T17:10:25.000+0900,CONTASK-3683,3078,Success
+https://jira.hmg-corp.io/projects/EGMAPISSUE/summary,EGMAPISSUE,2026-09-01T16:28:25.000+0900,EGMAPISSUE-22,53,Success
+https://jira.hmg-corp.io/projects/F2DSEARCH/summary,F2DSEARCH,2025-12-23T16:37:35.000+0900,F2DSEARCH-43,43,Success
+https://jira.hmg-corp.io/projects/GISPA/summary,GISPA,,,0,No Issues
+https://jira.hmg-corp.io/projects/GISTIS/summary,GISTIS,2026-09-16T17:35:22.000+0900,GISTIS-25354,23673,Success
+https://jira.hmg-corp.io/projects/GNO/summary,GNO,2026-06-19T15:20:51.000+0900,GNO-2,3,Success
+https://jira.hmg-corp.io/projects/GNUP/summary,GNUP,2026-09-16T16:06:34.000+0900,GNUP-2209,2115,Success
+https://jira.hmg-corp.io/projects/HLOS/summary,HLOS,2026-09-15T20:22:40.000+0900,HLOS-771,772,Success
+https://jira.hmg-corp.io/projects/HMCRPDEV/summary,HMCRPDEV,2026-09-14T13:54:52.000+0900,HMCRPDEV-836,774,Success
+https://jira.hmg-corp.io/projects/HMJRU/summary,HMJRU,2026-09-16T15:46:51.000+0900,HMJRU-1990,1864,Success
+https://jira.hmg-corp.io/projects/HMJSTC/summary,HMJSTC,2025-07-10T19:16:55.000+0900,HMJSTC-325,525,Success
+https://jira.hmg-corp.io/projects/HMJUTC/summary,HMJUTC,,,0,No Issues
+https://jira.hmg-corp.io/projects/HMJVOC/summary,HMJVOC,2026-08-24T15:09:09.000+0900,HMJVOC-43,39,Success
+https://jira.hmg-corp.io/projects/KRUP/summary,KRUP,2026-06-21T03:24:45.000+0900,KRUP-24,618,Success
+https://jira.hmg-corp.io/projects/NAEVAL/summary,NAEVAL,2026-05-22T17:44:43.000+0900,NAEVAL-2,1,Success
+https://jira.hmg-corp.io/projects/NATRAFFIC/summary,NATRAFFIC,2026-06-21T01:05:33.000+0900,NATRAFFIC-10,190,Success
+https://jira.hmg-corp.io/projects/NAUMS/summary,NAUMS,2021-09-02T11:51:44.000+0900,NAUMS-52,69,Success
+https://jira.hmg-corp.io/projects/NAVIBD/summary,NAVIBD,2026-09-16T14:43:09.000+0900,NAVIBD-54,57,Success
+https://jira.hmg-corp.io/projects/NAVIECUREQ/summary,NAVIECUREQ,2026-08-28T13:33:06.000+0900,NAVIECUREQ-39,35,Success
+https://jira.hmg-corp.io/projects/NAVIF/summary,NAVIF,2026-09-16T08:27:12.000+0900,NAVIF-2701,3691,Success
+https://jira.hmg-corp.io/projects/NAVIIBD/summary,NAVIIBD,2022-07-22T15:51:53.000+0900,NAVIIBD-1,1,Success
+https://jira.hmg-corp.io/projects/NAVIPIM/summary,NAVIPIM,2026-09-16T17:03:22.000+0900,NAVIPIM-287,216,Success
+https://jira.hmg-corp.io/projects/NAVISYSTEM/summary,NAVISYSTEM,2026-09-02T13:17:12.000+0900,NAVISYSTEM-1486,1481,Success
+https://jira.hmg-corp.io/projects/NAVIVOC/summary,NAVIVOC,2026-06-20T20:57:03.000+0900,NAVIVOC-669,546,Success
+https://jira.hmg-corp.io/projects/NAVMAP/summary,NAVMAP,2026-06-02T18:17:22.000+0900,NAVMAP-40,81,Success
+https://jira.hmg-corp.io/projects/NAVSEARCH/summary,NAVSEARCH,,,0,No Issues
+https://jira.hmg-corp.io/projects/NAVWITHECU/summary,NAVWITHECU,2026-09-09T16:59:11.000+0900,NAVWITHECU-24,15,Success
+https://jira.hmg-corp.io/projects/NMTRACK/summary,NMTRACK,2026-04-28T18:58:39.000+0900,NMTRACK-3,5,Success
+https://jira.hmg-corp.io/projects/NSDK/summary,NSDK,2026-05-11T21:06:40.000+0900,NSDK-140,139,Success
+https://jira.hmg-corp.io/projects/NSWDV/summary,NSWDV,2026-06-20T15:26:43.000+0900,NSWDV-5,54,Success
+https://jira.hmg-corp.io/projects/NTC/summary,NTC,2026-07-28T11:30:07.000+0900,NTC-3,5,Success
+https://jira.hmg-corp.io/projects/OMTRACK/summary,OMTRACK,2026-09-16T11:19:14.000+0900,OMTRACK-163,157,Success
+https://jira.hmg-corp.io/projects/POITRCK/summary,POITRCK,2026-08-28T09:24:07.000+0900,POITRCK-12,12,Success
+https://jira.hmg-corp.io/projects/PUBCLOUD/summary,PUBCLOUD,2026-09-16T13:50:42.000+0900,PUBCLOUD-1334,1325,Success
+https://jira.hmg-corp.io/projects/RPSERVICE/summary,RPSERVICE,2026-09-14T10:46:11.000+0900,RPSERVICE-447,427,Success
+https://jira.hmg-corp.io/projects/RPSPEC/summary,RPSPEC,2026-07-09T12:44:04.000+0900,RPSPEC-1857,1307,Success
+https://jira.hmg-corp.io/projects/SDKTASK/summary,SDKTASK,2026-06-19T14:13:07.000+0900,SDKTASK-71,65,Success
+https://jira.hmg-corp.io/projects/SERVERMAP/summary,SERVERMAP,2026-06-20T11:42:32.000+0900,SERVERMAP-2,12,Success
+https://jira.hmg-corp.io/projects/T4NS/summary,T4NS,2025-01-21T11:30:29.000+0900,T4NS-68,73,Success
+https://jira.hmg-corp.io/projects/VOC/summary,VOC,2026-06-21T05:02:33.000+0900,VOC-8,148,Success
+https://jira.hmg-corp.io/projects/B2BDATABIZ/summary,B2BDATABIZ,2026-09-16T12:20:36.000+0900,B2BDATABIZ-266,160,Success
+https://jira.hmg-corp.io/projects/BSSC/summary,BSSC,2026-06-20T21:29:35.000+0900,BSSC-8,27,Success
+https://jira.hmg-corp.io/projects/DBP/summary,DBP,2026-06-21T00:04:02.000+0900,DBP-54,137,Success
+https://jira.hmg-corp.io/projects/DBV/summary,DBV,2026-06-20T08:30:05.000+0900,DBV-15,482,Success
+https://jira.hmg-corp.io/projects/DGA/summary,DGA,2026-08-22T01:52:56.000+0900,DGA-28,49,Success
+https://jira.hmg-corp.io/projects/GOMP/summary,GOMP,2021-12-22T04:13:34.000+0900,GOMP-16,12,Success
+https://jira.hmg-corp.io/projects/DP/summary,DP,2026-06-20T22:50:57.000+0900,DP-4,100,Success
+https://jira.hmg-corp.io/projects/CCSPWGWORK/summary,CCSPWGWORK,2026-07-07T18:07:14.000+0900,CCSPWGWORK-129,622,Success
+https://jira.hmg-corp.io/projects/HMICDP/summary,HMICDP,2026-06-20T21:59:11.000+0900,HMICDP-30,33,Success
+https://jira.hmg-corp.io/projects/HMIICDB/summary,HMIICDB,2022-09-22T23:28:27.000+0900,HMIICDB-7,13,Success
+https://jira.hmg-corp.io/projects/CDODP/summary,CDODP,2026-06-21T04:50:20.000+0900,CDODP-8,530,Success
+https://jira.hmg-corp.io/projects/MDAP/summary,MDAP,2026-07-07T15:41:18.000+0900,MDAP-55,431,Success
+https://jira.hmg-corp.io/projects/CMPOC/summary,CMPOC,2024-06-06T02:33:04.000+0900,CMPOC-51,50,Success
+https://jira.hmg-corp.io/projects/DOC/summary,DOC,2026-06-22T14:14:37.000+0900,DOC-1,1005,Success
+https://jira.hmg-corp.io/projects/VDSPP/summary,VDSPP,2026-07-07T15:14:54.000+0900,VDSPP-9,261,Success
+https://jira.hmg-corp.io/projects/DSPL/summary,DSPL,2026-07-07T17:41:20.000+0900,DSPL-86,275,Success
+https://jira.hmg-corp.io/projects/SEOULMIL/summary,SEOULMIL,2026-06-20T23:05:48.000+0900,SEOULMIL-14,15,Success
+https://jira.hmg-corp.io/projects/YESIDRIVE/summary,YESIDRIVE,2026-07-07T15:14:31.000+0900,YESIDRIVE-69,205,Success
+https://jira.hmg-corp.io/projects/JIRASYNC/summary,JIRASYNC,2024-05-22T13:29:12.000+0900,JIRASYNC-1,4,Success
+https://jira.hmg-corp.io/projects/RNDITSEC/summary,RNDITSEC,,,0,No Issues
+https://jira.hmg-corp.io/projects/THKEJ01/summary,THKEJ01,2022-11-22T05:15:11.000+0900,THKEJ01-13,9,Success
+https://jira.hmg-corp.io/projects/AMPAPP/summary,AMPAPP,,,0,No Issues
+https://jira.hmg-corp.io/projects/CARPAY/summary,CARPAY,2026-06-20T15:40:51.000+0900,CARPAY-10,11,Success
+https://jira.hmg-corp.io/projects/GLOBALCCS/summary,GLOBALCCS,2026-06-20T15:40:57.000+0900,GLOBALCCS-9,27,Success
+https://jira.hmg-corp.io/projects/ICPVOC/summary,ICPVOC,2026-09-16T15:27:45.000+0900,ICPVOC-1066,998,Success
+https://jira.hmg-corp.io/projects/DELIVERY/summary,DELIVERY,2026-06-20T22:51:17.000+0900,DELIVERY-2,494,Success
+https://jira.hmg-corp.io/projects/RBPLT/summary,RBPLT,2026-06-20T22:56:41.000+0900,RBPLT-4,197,Success
+https://jira.hmg-corp.io/projects/RBT2/summary,RBT2,,,0,No Issues
+https://jira.hmg-corp.io/projects/RSWR/summary,RSWR,2024-10-18T10:07:43.000+0900,RSWR-3,6,Success
+https://jira.hmg-corp.io/projects/RTLBDWG/summary,RTLBDWG,2023-03-22T05:57:12.000+0900,RTLBDWG-17,10,Success
+https://jira.hmg-corp.io/projects/EAI/summary,EAI,2026-06-20T23:07:13.000+0900,EAI-2,939,Success
+https://jira.hmg-corp.io/projects/PATROL/summary,PATROL,2026-08-29T00:27:48.000+0900,PATROL-498,499,Success
+https://jira.hmg-corp.io/projects/TAI/summary,TAI,2026-06-20T10:55:40.000+0900,TAI-2,96,Success
+https://jira.hmg-corp.io/projects/GUIDE/summary,GUIDE,2026-08-29T00:48:27.000+0900,GUIDE-1231,1255,Success
+https://jira.hmg-corp.io/projects/RISWTEAM/summary,RISWTEAM,2026-09-10T00:22:14.000+0900,RISWTEAM-4726,5042,Success
+https://jira.hmg-corp.io/projects/RIT/summary,RIT,2022-03-30T10:41:43.000+0900,RIT-5,3,Success
+https://jira.hmg-corp.io/projects/ROBOT/summary,ROBOT,2022-07-27T05:46:16.000+0900,ROBOT-5,5,Success
+https://jira.hmg-corp.io/projects/RPT/summary,RPT,,,0,No Issues
+https://jira.hmg-corp.io/projects/RVAI/summary,RVAI,2026-08-22T00:20:22.000+0900,RVAI-430,381,Success
+https://jira.hmg-corp.io/projects/KHSIDEA/summary,KHSIDEA,2025-10-21T09:14:45.000+0900,KHSIDEA-7,7,Success
+https://jira.hmg-corp.io/projects/MRPBAEM/summary,MRPBAEM,2026-06-20T22:44:30.000+0900,MRPBAEM-15,98,Success
+https://jira.hmg-corp.io/projects/MRTEAM/summary,MRTEAM,2026-09-15T00:12:31.000+0900,MRTEAM-134,508,Success
+https://jira.hmg-corp.io/projects/MRTNAVI/summary,MRTNAVI,2026-06-19T16:35:19.000+0900,MRTNAVI-63,421,Success
+https://jira.hmg-corp.io/projects/FISQA/summary,FISQA,2026-09-08T00:20:36.000+0900,FISQA-276,392,Success
+https://jira.hmg-corp.io/projects/SPATC/summary,SPATC,2024-12-02T17:08:59.000+0900,SPATC-8535,13194,Success
+https://jira.hmg-corp.io/projects/EXECMGMT/summary,EXECMGMT,2025-05-27T13:12:04.000+0900,EXECMGMT-11,3,Success
+https://jira.hmg-corp.io/projects/FUTURETECH/summary,FUTURETECH,2025-05-12T13:13:46.000+0900,FUTURETECH-1,6,Success
+https://jira.hmg-corp.io/projects/TEFEX/summary,TEFEX,2026-06-20T23:21:57.000+0900,TEFEX-3,89,Success
+https://jira.hmg-corp.io/projects/TAASPEC/summary,TAASPEC,2026-06-20T14:06:00.000+0900,TAASPEC-166,107,Success
+https://jira.hmg-corp.io/projects/AVPMST2/summary,AVPMST2,2025-04-16T09:19:48.000+0900,AVPMST2-2,2,Success
+https://jira.hmg-corp.io/projects/ELECBODY/summary,ELECBODY,2026-07-04T00:23:04.000+0900,ELECBODY-479,316,Success
+https://jira.hmg-corp.io/projects/NE2EO/summary,NE2EO,2026-01-27T11:14:06.000+0900,NE2EO-2,2,Success
+https://jira.hmg-corp.io/projects/BMS48V/summary,BMS48V,2026-06-20T20:15:11.000+0900,BMS48V-2,24,Success
+https://jira.hmg-corp.io/projects/BMSRSCV/summary,BMSRSCV,,,0,No Issues
+https://jira.hmg-corp.io/projects/BMSRSCVEVA/summary,BMSRSCVEVA,2026-06-20T00:57:56.000+0900,BMSRSCVEVA-308,930,Success
+https://jira.hmg-corp.io/projects/BMSRSHEV/summary,BMSRSHEV,2026-06-29T13:29:52.000+0900,BMSRSHEV-2110,1614,Success
+https://jira.hmg-corp.io/projects/BMSRSPHEV/summary,BMSRSPHEV,2025-11-24T14:46:10.000+0900,BMSRSPHEV-212,865,Success
+https://jira.hmg-corp.io/projects/BMSRSSBM/summary,BMSRSSBM,2025-08-29T10:22:54.000+0900,BMSRSSBM-32,708,Success
+https://jira.hmg-corp.io/projects/BMSSWUM/summary,BMSSWUM,2026-09-16T09:03:20.000+0900,BMSSWUM-59,67,Success
+https://jira.hmg-corp.io/projects/EUCM/summary,EUCM,2022-06-10T01:54:59.000+0900,EUCM-7,7,Success
+https://jira.hmg-corp.io/projects/HKMCTHLDEU/summary,HKMCTHLDEU,2026-09-14T10:16:17.000+0900,HKMCTHLDEU-242,1,Success
+https://jira.hmg-corp.io/projects/RCTGENERAL/summary,RCTGENERAL,2025-09-23T07:12:56.000+0900,RCTGENERAL-1,1,Success
+https://jira.hmg-corp.io/projects/CCMSDOM/summary,CCMSDOM,,,0,No Issues
+https://jira.hmg-corp.io/projects/EUREGDB/summary,EUREGDB,,,0,No Issues
+https://jira.hmg-corp.io/projects/LAWAME/summary,LAWAME,2025-10-02T09:26:02.000+0900,LAWAME-1,1,Success
+https://jira.hmg-corp.io/projects/SOC/summary,SOC,2026-09-12T00:28:30.000+0900,SOC-126,130,Success
+https://jira.hmg-corp.io/projects/SOC2/summary,SOC2,2025-10-01T15:55:47.000+0900,SOC2-6,1,Success
+https://jira.hmg-corp.io/projects/THLPDOM/summary,THLPDOM,2026-04-20T16:02:48.000+0900,THLPDOM-313,8,Success
+https://jira.hmg-corp.io/projects/PBVRCT/summary,PBVRCT,2026-03-23T11:13:29.000+0900,PBVRCT-3,1,Success
+https://jira.hmg-corp.io/projects/HDV/summary,HDV,2026-06-20T20:24:48.000+0900,HDV-15,29,Success
+https://jira.hmg-corp.io/projects/CVPROJECT/summary,CVPROJECT,2022-07-18T23:43:20.000+0900,CVPROJECT-12,2,Success
+https://jira.hmg-corp.io/projects/BVST/summary,BVST,2023-03-20T10:12:19.000+0900,BVST-39,26,Success
+https://jira.hmg-corp.io/projects/CPV/summary,CPV,2026-06-21T00:33:50.000+0900,CPV-26,20,Success
+https://jira.hmg-corp.io/projects/CYEV2/summary,CYEV2,,,0,No Issues
+https://jira.hmg-corp.io/projects/QVFCVCU/summary,QVFCVCU,,,0,No Issues
+https://jira.hmg-corp.io/projects/CVDEV/summary,CVDEV,2024-05-28T18:29:42.000+0900,CVDEV-1115,173,Success
+https://jira.hmg-corp.io/projects/AGU1/summary,AGU1,2026-08-29T00:48:52.000+0900,AGU1-869,832,Success
+https://jira.hmg-corp.io/projects/CBDCD/summary,CBDCD,2026-09-16T16:49:53.000+0900,CBDCD-1510,1444,Success
+https://jira.hmg-corp.io/projects/CLUSWPDEV/summary,CLUSWPDEV,2026-09-11T10:03:03.000+0900,CLUSWPDEV-9,557,Success
+https://jira.hmg-corp.io/projects/CVBDC/summary,CVBDC,2026-09-16T12:16:27.000+0900,CVBDC-45,38,Success
+https://jira.hmg-corp.io/projects/CVCCUGEN1/summary,CVCCUGEN1,2026-09-09T11:02:33.000+0900,CVCCUGEN1-62,57,Success
+https://jira.hmg-corp.io/projects/CVCCUGEN2/summary,CVCCUGEN2,2026-09-16T16:33:33.000+0900,CVCCUGEN2-253,253,Success
+https://jira.hmg-corp.io/projects/CVCCUISSUE/summary,CVCCUISSUE,2026-09-05T00:08:17.000+0900,CVCCUISSUE-59,106,Success
+https://jira.hmg-corp.io/projects/CVDEV1/summary,CVDEV1,,,0,No Issues
+https://jira.hmg-corp.io/projects/CVECD/summary,CVECD,2026-06-21T01:19:53.000+0900,CVECD-2,11,Success
+https://jira.hmg-corp.io/projects/CVEEBSPART/summary,CVEEBSPART,2026-06-20T12:37:17.000+0900,CVEEBSPART-7,34,Success
+https://jira.hmg-corp.io/projects/HRCCUPROJ/summary,HRCCUPROJ,2024-05-13T10:04:56.000+0900,HRCCUPROJ-7,13,Success
+https://jira.hmg-corp.io/projects/IBUD/summary,IBUD,2026-09-16T08:26:57.000+0900,IBUD-500,475,Success
+https://jira.hmg-corp.io/projects/SWPDEV/summary,SWPDEV,2026-06-20T19:59:06.000+0900,SWPDEV-14,42,Success
+https://jira.hmg-corp.io/projects/FZ7PROJETC/summary,FZ7PROJETC,2025-08-27T16:20:34.000+0900,FZ7PROJETC-2,2,Success
+https://jira.hmg-corp.io/projects/HDTTECHRND/summary,HDTTECHRND,2025-08-13T14:49:23.000+0900,HDTTECHRND-41,31,Success
+https://jira.hmg-corp.io/projects/QVCYBERSEC/summary,QVCYBERSEC,2026-09-03T00:29:24.000+0900,QVCYBERSEC-5,17,Success
+https://jira.hmg-corp.io/projects/QVDRVTN6X4/summary,QVDRVTN6X4,2025-08-27T16:08:34.000+0900,QVDRVTN6X4-1,2,Success
+https://jira.hmg-corp.io/projects/QVEURO7DEV/summary,QVEURO7DEV,2025-09-02T14:19:39.000+0900,QVEURO7DEV-8,8,Success
+https://jira.hmg-corp.io/projects/QVPROJFCEV/summary,QVPROJFCEV,2025-08-27T16:22:50.000+0900,QVPROJFCEV-1,1,Success
+https://jira.hmg-corp.io/projects/QVPROJTETC/summary,QVPROJTETC,2025-08-27T16:11:18.000+0900,QVPROJTETC-3,5,Success
+https://jira.hmg-corp.io/projects/QVQUAISSUE/summary,QVQUAISSUE,2025-11-03T18:35:49.000+0900,QVQUAISSUE-9,8,Success
+https://jira.hmg-corp.io/projects/QZ25PE2ND/summary,QZ25PE2ND,2026-09-12T00:29:34.000+0900,QZ25PE2ND-42,34,Success
+https://jira.hmg-corp.io/projects/QZAUXBRK/summary,QZAUXBRK,2026-06-19T13:17:26.000+0900,QZAUXBRK-10,23,Success
+https://jira.hmg-corp.io/projects/QZBRKFLD/summary,QZBRKFLD,2025-09-11T15:52:29.000+0900,QZBRKFLD-27,14,Success
+https://jira.hmg-corp.io/projects/QZEUGSR/summary,QZEUGSR,2026-09-03T00:35:59.000+0900,QZEUGSR-51,11,Success
+https://jira.hmg-corp.io/projects/QZEURO7DEV/summary,QZEURO7DEV,2025-10-31T13:23:01.000+0900,QZEURO7DEV-4,4,Success
+https://jira.hmg-corp.io/projects/QZEURO7ICE/summary,QZEURO7ICE,,,0,No Issues
+https://jira.hmg-corp.io/projects/QZPROJTETC/summary,QZPROJTETC,2025-07-28T10:34:56.000+0900,QZPROJTETC-1,1,Success
+https://jira.hmg-corp.io/projects/QZQUAISSUE/summary,QZQUAISSUE,2025-07-16T16:41:32.000+0900,QZQUAISSUE-1,1,Success
+https://jira.hmg-corp.io/projects/QZUSTRT25/summary,QZUSTRT25,2026-09-07T13:23:37.000+0900,QZUSTRT25-30,34,Success
+https://jira.hmg-corp.io/projects/QZUSTRT27/summary,QZUSTRT27,2025-09-02T13:03:18.000+0900,QZUSTRT27-11,10,Success
+https://jira.hmg-corp.io/projects/BECED/summary,BECED,2025-10-14T13:19:30.000+0900,BECED-6,4,Success
+https://jira.hmg-corp.io/projects/CCSCMCA/summary,CCSCMCA,2026-09-12T00:14:27.000+0900,CCSCMCA-1169,1547,Success
+https://jira.hmg-corp.io/projects/CCSCV/summary,CCSCV,2026-09-16T17:24:43.000+0900,CCSCV-371,314,Success
+https://jira.hmg-corp.io/projects/CCSEUNA/summary,CCSEUNA,2025-08-28T10:32:42.000+0900,CCSEUNA-26,25,Success
+https://jira.hmg-corp.io/projects/CSEVVCU/summary,CSEVVCU,,,0,No Issues
+https://jira.hmg-corp.io/projects/CVCSMS/summary,CVCSMS,2025-08-29T12:35:10.000+0900,CVCSMS-247,9,Success
+https://jira.hmg-corp.io/projects/CVEC/summary,CVEC,2026-06-20T09:35:32.000+0900,CVEC-1,416,Success
+https://jira.hmg-corp.io/projects/CVECD0/summary,CVECD0,2026-06-21T01:44:01.000+0900,CVECD0-13,157,Success
+https://jira.hmg-corp.io/projects/CVOT/summary,CVOT,2026-09-11T10:46:10.000+0900,CVOT-157,147,Success
+https://jira.hmg-corp.io/projects/CVSSED/summary,CVSSED,2024-11-19T14:15:37.000+0900,CVSSED-2199,1517,Success
+https://jira.hmg-corp.io/projects/CVTED/summary,CVTED,2026-06-19T20:47:36.000+0900,CVTED-34,72,Success
+https://jira.hmg-corp.io/projects/CVTT/summary,CVTT,2026-06-20T05:37:54.000+0900,CVTT-1,11,Success
+https://jira.hmg-corp.io/projects/CYEV/summary,CYEV,2026-06-21T04:29:45.000+0900,CYEV-1,8,Success
+https://jira.hmg-corp.io/projects/CYEV3/summary,CYEV3,2021-02-10T07:41:07.000+0900,CYEV3-1,10,Success
+https://jira.hmg-corp.io/projects/CYEVPEVCU/summary,CYEVPEVCU,,,0,No Issues
+https://jira.hmg-corp.io/projects/CYFCVCU/summary,CYFCVCU,,,0,No Issues
+https://jira.hmg-corp.io/projects/ECVP/summary,ECVP,2026-06-20T23:58:20.000+0900,ECVP-5,1651,Success
+https://jira.hmg-corp.io/projects/EUEVVCU/summary,EUEVVCU,2026-06-21T05:02:50.000+0900,EUEVVCU-1,21,Success
+https://jira.hmg-corp.io/projects/EUEVVCU2/summary,EUEVVCU2,2026-06-21T03:55:00.000+0900,EUEVVCU2-1,9,Success
+https://jira.hmg-corp.io/projects/GYEVVCU/summary,GYEVVCU,,,0,No Issues
+https://jira.hmg-corp.io/projects/HZ2VCU/summary,HZ2VCU,2026-06-21T02:19:08.000+0900,HZ2VCU-2,105,Success
+https://jira.hmg-corp.io/projects/METADEV/summary,METADEV,2026-06-21T00:05:52.000+0900,METADEV-9,181,Success
+https://jira.hmg-corp.io/projects/PYFCVCUPE/summary,PYFCVCUPE,,,0,No Issues
+https://jira.hmg-corp.io/projects/QZFCVCU2/summary,QZFCVCU2,,,0,No Issues
+https://jira.hmg-corp.io/projects/RTEVVCU/summary,RTEVVCU,2026-06-21T05:08:38.000+0900,RTEVVCU-1,35,Success
+https://jira.hmg-corp.io/projects/VCUCYBER/summary,VCUCYBER,2026-06-20T11:43:27.000+0900,VCUCYBER-2,42,Success
+https://jira.hmg-corp.io/projects/VCUOIL/summary,VCUOIL,,,0,No Issues
+https://jira.hmg-corp.io/projects/VCUPMVM/summary,VCUPMVM,2026-07-14T00:14:28.000+0900,VCUPMVM-36,340,Success
+https://jira.hmg-corp.io/projects/VDFCVCU/summary,VDFCVCU,2026-06-21T05:08:50.000+0900,VDFCVCU-2,19,Success
+https://jira.hmg-corp.io/projects/AGCPKD/summary,AGCPKD,2026-08-24T14:22:25.000+0900,AGCPKD-45,22,Success
+https://jira.hmg-corp.io/projects/CVPSWG/summary,CVPSWG,2026-04-30T10:21:42.000+0900,CVPSWG-25,22,Success
+https://jira.hmg-corp.io/projects/B01EU000/summary,B01EU000,,,0,No Issues
+https://jira.hmg-corp.io/projects/B02CSICE0/summary,B02CSICE0,,,0,No Issues
+https://jira.hmg-corp.io/projects/B03CSEVI0/summary,B03CSEVI0,,,0,No Issues
+https://jira.hmg-corp.io/projects/B04GYICE0/summary,B04GYICE0,,,0,No Issues
+https://jira.hmg-corp.io/projects/B05GYEVI0/summary,B05GYEVI0,,,0,No Issues
+https://jira.hmg-corp.io/projects/B06CYICE0/summary,B06CYICE0,,,0,No Issues
+https://jira.hmg-corp.io/projects/B07CYEVI0/summary,B07CYEVI0,,,0,No Issues
+https://jira.hmg-corp.io/projects/B08PYICE0/summary,B08PYICE0,,,0,No Issues
+https://jira.hmg-corp.io/projects/B09PYEVI0/summary,B09PYEVI0,,,0,No Issues
+https://jira.hmg-corp.io/projects/B10DOUBLE/summary,B10DOUBLE,,,0,No Issues
+https://jira.hmg-corp.io/projects/B11GZ0000/summary,B11GZ0000,,,0,No Issues
+https://jira.hmg-corp.io/projects/E01ETC000/summary,E01ETC000,,,0,No Issues
+https://jira.hmg-corp.io/projects/T01LT2000/summary,T01LT2000,2025-07-21T11:00:01.000+0900,T01LT2000-1,1,Success
+https://jira.hmg-corp.io/projects/T02BO4000/summary,T02BO4000,,,0,No Issues
+https://jira.hmg-corp.io/projects/T03QTHYD0/summary,T03QTHYD0,2025-07-17T13:18:11.000+0900,T03QTHYD0-1,1,Success
+https://jira.hmg-corp.io/projects/T04QTAIR0/summary,T04QTAIR0,,,0,No Issues
+https://jira.hmg-corp.io/projects/T05QTCHYD/summary,T05QTCHYD,,,0,No Issues
+https://jira.hmg-corp.io/projects/T06QTCAIR/summary,T06QTCAIR,,,0,No Issues
+https://jira.hmg-corp.io/projects/T07QVAIR0/summary,T07QVAIR0,,,0,No Issues
+https://jira.hmg-corp.io/projects/T08EG0000/summary,T08EG0000,,,0,No Issues
+https://jira.hmg-corp.io/projects/T09QZICE0/summary,T09QZICE0,2025-08-08T13:48:23.000+0900,T09QZICE0-2,2,Success
+https://jira.hmg-corp.io/projects/T10QZFCUS/summary,T10QZFCUS,,,0,No Issues
+https://jira.hmg-corp.io/projects/T11QZFCEU/summary,T11QZFCEU,,,0,No Issues
+https://jira.hmg-corp.io/projects/T12QZFCKO/summary,T12QZFCKO,,,0,No Issues
+https://jira.hmg-corp.io/projects/T13QZC000/summary,T13QZC000,,,0,No Issues
+https://jira.hmg-corp.io/projects/CSEV/summary,CSEV,2022-10-27T07:30:12.000+0900,CSEV-1,1,Success
+https://jira.hmg-corp.io/projects/CSEVCSVCU/summary,CSEVCSVCU,,,0,No Issues
+https://jira.hmg-corp.io/projects/CSICECS/summary,CSICECS,,,0,No Issues
+https://jira.hmg-corp.io/projects/CVED/summary,CVED,2026-09-15T00:13:24.000+0900,CVED-1130,748,Success
+https://jira.hmg-corp.io/projects/CVEDCMMN/summary,CVEDCMMN,2024-09-04T14:52:07.000+0900,CVEDCMMN-40,1,Success
+https://jira.hmg-corp.io/projects/CVEEBSCCUD/summary,CVEEBSCCUD,2026-06-20T22:22:04.000+0900,CVEEBSCCUD-4,10,Success
+https://jira.hmg-corp.io/projects/CVEEBSCMDV/summary,CVEEBSCMDV,2026-06-20T22:22:04.000+0900,CVEEBSCMDV-1,6,Success
+https://jira.hmg-corp.io/projects/CVEEBSCNTD/summary,CVEEBSCNTD,2023-03-24T00:32:18.000+0900,CVEEBSCNTD-3,4,Success
+https://jira.hmg-corp.io/projects/CVEEBSIDMS/summary,CVEEBSIDMS,2022-12-01T01:15:28.000+0900,CVEEBSIDMS-5,5,Success
+https://jira.hmg-corp.io/projects/CVEEBSISJB/summary,CVEEBSISJB,2026-06-20T19:52:51.000+0900,CVEEBSISJB-6,8,Success
+https://jira.hmg-corp.io/projects/CVEEBSNIDS/summary,CVEEBSNIDS,2022-06-22T08:08:48.000+0900,CVEEBSNIDS-2,2,Success
+https://jira.hmg-corp.io/projects/CVEEBSPTGH/summary,CVEEBSPTGH,,,0,No Issues
+https://jira.hmg-corp.io/projects/CVEEBSRGWD/summary,CVEEBSRGWD,2026-06-20T22:22:03.000+0900,CVEEBSRGWD-1,2,Success
+https://jira.hmg-corp.io/projects/CVEVJP/summary,CVEVJP,2026-06-20T15:59:35.000+0900,CVEVJP-1,29,Success
+https://jira.hmg-corp.io/projects/CVHILS/summary,CVHILS,2026-09-16T16:24:01.000+0900,CVHILS-27,26,Success
+https://jira.hmg-corp.io/projects/CVIOBX/summary,CVIOBX,2025-09-24T10:12:01.000+0900,CVIOBX-1,1,Success
+https://jira.hmg-corp.io/projects/CVSWP/summary,CVSWP,2026-09-15T00:10:16.000+0900,CVSWP-1121,1149,Success
+https://jira.hmg-corp.io/projects/CVVCUVSRM/summary,CVVCUVSRM,,,0,No Issues
+https://jira.hmg-corp.io/projects/CYEVCYBVCU/summary,CYEVCYBVCU,,,0,No Issues
+https://jira.hmg-corp.io/projects/CYFCCSVCU/summary,CYFCCSVCU,,,0,No Issues
+https://jira.hmg-corp.io/projects/CYFCMYVCU/summary,CYFCMYVCU,,,0,No Issues
+https://jira.hmg-corp.io/projects/CYICECS/summary,CYICECS,2026-06-20T12:43:19.000+0900,CYICECS-3,9,Success
+https://jira.hmg-corp.io/projects/EGICECS/summary,EGICECS,2022-08-18T06:18:18.000+0900,EGICECS-1,2,Success
+https://jira.hmg-corp.io/projects/GYEVCS/summary,GYEVCS,,,0,No Issues
+https://jira.hmg-corp.io/projects/GYEVRHDVCU/summary,GYEVRHDVCU,,,0,No Issues
+https://jira.hmg-corp.io/projects/GYICECS/summary,GYICECS,2022-08-18T06:18:31.000+0900,GYICECS-2,2,Success
+https://jira.hmg-corp.io/projects/GZICECS/summary,GZICECS,2022-08-18T06:18:40.000+0900,GZICECS-2,2,Success
+https://jira.hmg-corp.io/projects/HILS/summary,HILS,2026-06-21T01:04:57.000+0900,HILS-7,373,Success
+https://jira.hmg-corp.io/projects/HMIE/summary,HMIE,2026-08-27T00:39:40.000+0900,HMIE-905,1269,Success
+https://jira.hmg-corp.io/projects/IOBXSWP/summary,IOBXSWP,2026-09-16T09:30:57.000+0900,IOBXSWP-66,66,Success
+https://jira.hmg-corp.io/projects/MDGL/summary,MDGL,2026-06-20T23:47:12.000+0900,MDGL-1,4,Success
+https://jira.hmg-corp.io/projects/PLAYPRJ/summary,PLAYPRJ,2024-01-05T05:41:56.000+0900,PLAYPRJ-33,8,Success
+https://jira.hmg-corp.io/projects/PPV/summary,PPV,,,0,No Issues
+https://jira.hmg-corp.io/projects/PYFCVCU/summary,PYFCVCU,,,0,No Issues
+https://jira.hmg-corp.io/projects/PYICECS/summary,PYICECS,,,0,No Issues
+https://jira.hmg-corp.io/projects/PYPTCSVCU/summary,PYPTCSVCU,2024-07-11T11:20:55.000+0900,PYPTCSVCU-1,1,Success
+https://jira.hmg-corp.io/projects/QTEVVCU/summary,QTEVVCU,2026-06-21T05:09:17.000+0900,QTEVVCU-1,50,Success
+https://jira.hmg-corp.io/projects/QTICECS/summary,QTICECS,,,0,No Issues
+https://jira.hmg-corp.io/projects/QVICECS/summary,QVICECS,,,0,No Issues
+https://jira.hmg-corp.io/projects/QZCEV/summary,QZCEV,,,0,No Issues
+https://jira.hmg-corp.io/projects/QZCFC32T/summary,QZCFC32T,2025-09-08T10:22:15.000+0900,QZCFC32T-2,1,Success
+https://jira.hmg-corp.io/projects/QZFC25PE/summary,QZFC25PE,,,0,No Issues
+https://jira.hmg-corp.io/projects/QZFCVCU/summary,QZFCVCU,,,0,No Issues
+https://jira.hmg-corp.io/projects/QZFCVCUDOM/summary,QZFCVCUDOM,,,0,No Issues
+https://jira.hmg-corp.io/projects/QZFCVCUNAP/summary,QZFCVCUNAP,2026-06-19T16:29:39.000+0900,QZFCVCUNAP-164,6,Success
+https://jira.hmg-corp.io/projects/QZFCVCUSF/summary,QZFCVCUSF,2025-12-05T16:23:23.000+0900,QZFCVCUSF-809,2,Success
+https://jira.hmg-corp.io/projects/QZICECS/summary,QZICECS,,,0,No Issues
+https://jira.hmg-corp.io/projects/REQVCU/summary,REQVCU,2026-06-20T11:38:21.000+0900,REQVCU-99,255,Success
+https://jira.hmg-corp.io/projects/VCU/summary,VCU,2026-09-15T00:18:00.000+0900,VCU-11609,13622,Success
+https://jira.hmg-corp.io/projects/VCU1PART/summary,VCU1PART,2026-06-20T07:17:47.000+0900,VCU1PART-3,34,Success
+https://jira.hmg-corp.io/projects/VCUD/summary,VCUD,2026-09-15T00:10:13.000+0900,VCUD-492,774,Success
+https://jira.hmg-corp.io/projects/VCUPMV1/summary,VCUPMV1,2026-06-20T10:54:23.000+0900,VCUPMV1-4,24,Success
+https://jira.hmg-corp.io/projects/VCUSWP/summary,VCUSWP,2026-09-16T16:10:21.000+0900,VCUSWP-246,249,Success
+https://jira.hmg-corp.io/projects/VCUT/summary,VCUT,2026-09-12T00:19:00.000+0900,VCUT-675,780,Success
+https://jira.hmg-corp.io/projects/VCUV/summary,VCUV,2026-09-15T00:03:27.000+0900,VCUV-95,311,Success
+https://jira.hmg-corp.io/projects/VECU/summary,VECU,2026-06-21T01:09:50.000+0900,VECU-7,28,Success
+https://jira.hmg-corp.io/projects/COMMTAAS/summary,COMMTAAS,2026-06-21T00:05:50.000+0900,COMMTAAS-2,222,Success
+https://jira.hmg-corp.io/projects/TAASINFRA/summary,TAASINFRA,2026-06-20T22:25:32.000+0900,TAASINFRA-15,111,Success
+https://jira.hmg-corp.io/projects/WSRE/summary,WSRE,2026-07-07T15:14:39.000+0900,WSRE-38,28,Success
+https://jira.hmg-corp.io/projects/KIABW/summary,KIABW,2026-07-01T15:26:09.000+0900,KIABW-738,674,Success
+https://jira.hmg-corp.io/projects/BBPDEV/summary,BBPDEV,2026-05-08T17:00:12.000+0900,BBPDEV-475,137,Success
+https://jira.hmg-corp.io/projects/A1DTE/summary,A1DTE,2026-06-20T22:02:56.000+0900,A1DTE-32,34,Success
+https://jira.hmg-corp.io/projects/CVASIMS/summary,CVASIMS,2026-06-19T20:40:08.000+0900,CVASIMS-1,225,Success
+https://jira.hmg-corp.io/projects/EXAL/summary,EXAL,2025-07-04T08:31:47.000+0900,EXAL-5,13,Success
+https://jira.hmg-corp.io/projects/FFP/summary,FFP,2026-08-18T17:36:49.000+0900,FFP-15,91,Success
+https://jira.hmg-corp.io/projects/FPM/summary,FPM,2026-08-27T09:25:11.000+0900,FPM-377,363,Success
+https://jira.hmg-corp.io/projects/HKMCKMS/summary,HKMCKMS,,,0,No Issues
+https://jira.hmg-corp.io/projects/JPCT/summary,JPCT,2025-01-07T15:35:25.000+0900,JPCT-4,4,Success
+https://jira.hmg-corp.io/projects/NENEP/summary,NENEP,2026-08-29T14:50:51.000+0900,NENEP-1065,1054,Success
+https://jira.hmg-corp.io/projects/RBAV/summary,RBAV,2026-06-20T14:43:18.000+0900,RBAV-25,436,Success
+https://jira.hmg-corp.io/projects/RDLM/summary,RDLM,2026-06-20T21:15:42.000+0900,RDLM-16,447,Success
+https://jira.hmg-corp.io/projects/SEADE/summary,SEADE,2026-05-04T18:49:47.000+0900,SEADE-210,159,Success
+https://jira.hmg-corp.io/projects/SWMIG/summary,SWMIG,2026-06-01T12:33:12.000+0900,SWMIG-84,83,Success
+https://jira.hmg-corp.io/projects/SYNCADE/summary,SYNCADE,2026-07-07T08:55:22.000+0900,SYNCADE-5,5,Success
+https://jira.hmg-corp.io/projects/TDTS/summary,TDTS,,,0,No Issues
+https://jira.hmg-corp.io/projects/VHFPM/summary,VHFPM,,,0,No Issues
+https://jira.hmg-corp.io/projects/GH/summary,GH,2026-06-20T16:46:50.000+0900,GH-5,20,Success
+https://jira.hmg-corp.io/projects/ISCMODS/summary,ISCMODS,2026-09-16T07:55:51.000+0900,ISCMODS-11,16,Success
+https://jira.hmg-corp.io/projects/ETATB/summary,ETATB,2024-10-07T10:35:45.000+0900,ETATB-8,7,Success
+https://jira.hmg-corp.io/projects/AHQA/summary,AHQA,2025-11-04T09:41:29.000+0900,AHQA-1,1,Success
+https://jira.hmg-corp.io/projects/SX3CRASH/summary,SX3CRASH,,,0,No Issues
+https://jira.hmg-corp.io/projects/ICMUAPTIV/summary,ICMUAPTIV,2026-08-19T15:05:27.000+0900,ICMUAPTIV-14,14,Success
+https://jira.hmg-corp.io/projects/ICMULG/summary,ICMULG,2026-09-07T11:57:37.000+0900,ICMULG-4,28,Success
+https://jira.hmg-corp.io/projects/ICMUMOBIS/summary,ICMUMOBIS,2026-09-16T10:45:02.000+0900,ICMUMOBIS-205,195,Success
+https://jira.hmg-corp.io/projects/ISCM/summary,ISCM,2026-08-26T14:20:35.000+0900,ISCM-13,12,Success
+https://jira.hmg-corp.io/projects/ISCMAUMOVI/summary,ISCMAUMOVI,2026-09-02T11:49:49.000+0900,ISCMAUMOVI-32,24,Success
+https://jira.hmg-corp.io/projects/ISCMMOBIS/summary,ISCMMOBIS,2026-09-16T15:54:13.000+0900,ISCMMOBIS-329,276,Success
+https://jira.hmg-corp.io/projects/ISCMVEONEE/summary,ISCMVEONEE,2026-09-14T16:02:09.000+0900,ISCMVEONEE-117,113,Success
+https://jira.hmg-corp.io/projects/SSTEST/summary,SSTEST,2023-10-27T02:15:10.000+0900,SSTEST-6,7,Success
+https://jira.hmg-corp.io/projects/THWF/summary,THWF,2026-09-15T14:39:56.000+0900,THWF-3349,2377,Success
+https://jira.hmg-corp.io/projects/VDPGATE/summary,VDPGATE,2026-02-03T15:45:41.000+0900,VDPGATE-16,11,Success
+https://jira.hmg-corp.io/projects/BATTERYDQ/summary,BATTERYDQ,2026-07-09T00:30:31.000+0900,BATTERYDQ-10,791,Success
+https://jira.hmg-corp.io/projects/V6HPENGINE/summary,V6HPENGINE,2026-05-20T09:49:28.000+0900,V6HPENGINE-2,127,Success
+https://jira.hmg-corp.io/projects/DTPOC/summary,DTPOC,2026-06-20T23:01:36.000+0900,DTPOC-51,565,Success
+https://jira.hmg-corp.io/projects/RAMPPJ/summary,RAMPPJ,2026-09-03T20:50:42.000+0900,RAMPPJ-130,205,Success
+https://jira.hmg-corp.io/projects/MCAMMO/summary,MCAMMO,2026-06-20T20:10:14.000+0900,MCAMMO-261,801,Success
+https://jira.hmg-corp.io/projects/BLTN/summary,BLTN,2026-06-21T04:22:31.000+0900,BLTN-12,28,Success
+https://jira.hmg-corp.io/projects/CDIMAL/summary,CDIMAL,2026-06-19T21:23:29.000+0900,CDIMAL-11,22,Success
+https://jira.hmg-corp.io/projects/CDIMAPTIV/summary,CDIMAPTIV,2024-11-15T15:26:05.000+0900,CDIMAPTIV-6,4,Success
+https://jira.hmg-corp.io/projects/CDIMCONTI/summary,CDIMCONTI,2026-06-19T17:15:57.000+0900,CDIMCONTI-6,4,Success
+https://jira.hmg-corp.io/projects/CDIMDA/summary,CDIMDA,,,0,No Issues
+https://jira.hmg-corp.io/projects/CDIMF/summary,CDIMF,2026-06-19T22:24:04.000+0900,CDIMF-3,22,Success
+https://jira.hmg-corp.io/projects/CDIMGENTEX/summary,CDIMGENTEX,2025-01-22T10:21:00.000+0900,CDIMGENTEX-8,8,Success
+https://jira.hmg-corp.io/projects/CDIMHA/summary,CDIMHA,2026-01-22T11:19:08.000+0900,CDIMHA-6,4,Success
+https://jira.hmg-corp.io/projects/CDIMHANON/summary,CDIMHANON,2025-01-17T07:45:44.000+0900,CDIMHANON-19,17,Success
+https://jira.hmg-corp.io/projects/CDIMHELLA/summary,CDIMHELLA,,,0,No Issues
+https://jira.hmg-corp.io/projects/CDIMHT/summary,CDIMHT,2025-02-04T15:50:54.000+0900,CDIMHT-10,8,Success
+https://jira.hmg-corp.io/projects/CDIMIEE/summary,CDIMIEE,2025-03-04T15:28:47.000+0900,CDIMIEE-5,5,Success
+https://jira.hmg-corp.io/projects/CDIMIH/summary,CDIMIH,2026-06-19T17:15:57.000+0900,CDIMIH-6,4,Success
+https://jira.hmg-corp.io/projects/CDIMII/summary,CDIMII,,,0,No Issues
+https://jira.hmg-corp.io/projects/CDIMIM/summary,CDIMIM,2024-11-04T10:08:21.000+0900,CDIMIM-2,1,Success
+https://jira.hmg-corp.io/projects/CDIMKBWS/summary,CDIMKBWS,2026-06-19T19:54:03.000+0900,CDIMKBWS-2,1,Success
+https://jira.hmg-corp.io/projects/CDIMKEFICO/summary,CDIMKEFICO,2026-06-19T21:24:29.000+0900,CDIMKEFICO-6,47,Success
+https://jira.hmg-corp.io/projects/CDIMKHK/summary,CDIMKHK,2026-06-19T18:22:11.000+0900,CDIMKHK-11,7,Success
+https://jira.hmg-corp.io/projects/CDIMKOSTAL/summary,CDIMKOSTAL,2026-06-19T21:22:31.000+0900,CDIMKOSTAL-11,29,Success
+https://jira.hmg-corp.io/projects/CDIMKYUNG/summary,CDIMKYUNG,2024-12-20T08:10:11.000+0900,CDIMKYUNG-8,5,Success
+https://jira.hmg-corp.io/projects/CDIMLGE/summary,CDIMLGE,2026-08-11T11:12:07.000+0900,CDIMLGE-205,254,Success
+https://jira.hmg-corp.io/projects/CDIMLS/summary,CDIMLS,2025-01-22T13:37:55.000+0900,CDIMLS-3,3,Success
+https://jira.hmg-corp.io/projects/CDIMMANDO/summary,CDIMMANDO,2026-06-19T21:24:27.000+0900,CDIMMANDO-7,38,Success
+https://jira.hmg-corp.io/projects/CDIMMG/summary,CDIMMG,,,0,No Issues
+https://jira.hmg-corp.io/projects/CDIMMOBASE/summary,CDIMMOBASE,2026-08-11T11:12:49.000+0900,CDIMMOBASE-31,22,Success
+https://jira.hmg-corp.io/projects/CDIMMOBIS/summary,CDIMMOBIS,2026-06-19T22:24:10.000+0900,CDIMMOBIS-8,100,Success
+https://jira.hmg-corp.io/projects/CDIMPHA/summary,CDIMPHA,2026-06-19T21:24:14.000+0900,CDIMPHA-3,7,Success
+https://jira.hmg-corp.io/projects/CDIMSB/summary,CDIMSB,2025-02-03T09:06:10.000+0900,CDIMSB-5,5,Success
+https://jira.hmg-corp.io/projects/CDIMSE/summary,CDIMSE,2025-01-07T08:48:58.000+0900,CDIMSE-8,5,Success
+https://jira.hmg-corp.io/projects/CDIMSHB/summary,CDIMSHB,2024-12-05T14:30:45.000+0900,CDIMSHB-3,1,Success
+https://jira.hmg-corp.io/projects/CDIMSL/summary,CDIMSL,2026-06-19T21:22:29.000+0900,CDIMSL-16,26,Success
+https://jira.hmg-corp.io/projects/CDIMSS/summary,CDIMSS,,,0,No Issues
+https://jira.hmg-corp.io/projects/CDIMTHN/summary,CDIMTHN,2026-06-19T21:24:11.000+0900,CDIMTHN-4,4,Success
+https://jira.hmg-corp.io/projects/CDIMYURA/summary,CDIMYURA,2026-06-19T21:24:11.000+0900,CDIMYURA-10,21,Success
+https://jira.hmg-corp.io/projects/JCSWCPM/summary,JCSWCPM,2024-12-16T19:12:35.000+0900,JCSWCPM-31,1,Success
+https://jira.hmg-corp.io/projects/EHGM/summary,EHGM,2026-06-21T04:43:14.000+0900,EHGM-1,10,Success
+https://jira.hmg-corp.io/projects/ESGUIDE/summary,ESGUIDE,,,0,No Issues
+https://jira.hmg-corp.io/projects/DENEM/summary,DENEM,2026-09-16T14:38:20.000+0900,DENEM-14,16,Success
+https://jira.hmg-corp.io/projects/HENEM/summary,HENEM,2026-09-10T00:58:08.000+0900,HENEM-42,69,Success
+https://jira.hmg-corp.io/projects/MENEM/summary,MENEM,2025-12-05T13:36:03.000+0900,MENEM-3,5,Success
+https://jira.hmg-corp.io/projects/PENEM/summary,PENEM,2026-09-16T15:21:27.000+0900,PENEM-26,29,Success
+https://jira.hmg-corp.io/projects/TMDMD/summary,TMDMD,2026-09-15T09:22:05.000+0900,TMDMD-65,59,Success
+https://jira.hmg-corp.io/projects/TMDPOCD/summary,TMDPOCD,,,0,No Issues
+https://jira.hmg-corp.io/projects/TMDRD/summary,TMDRD,2026-08-22T01:56:01.000+0900,TMDRD-10,38,Success
+https://jira.hmg-corp.io/projects/TMDSC/summary,TMDSC,,,0,No Issues
+https://jira.hmg-corp.io/projects/XA2TESD/summary,XA2TESD,2026-09-14T16:19:46.000+0900,XA2TESD-178,149,Success
+https://jira.hmg-corp.io/projects/ELECWIRING/summary,ELECWIRING,2026-06-20T12:58:41.000+0900,ELECWIRING-3,18,Success
+https://jira.hmg-corp.io/projects/WIRINGZERO/summary,WIRINGZERO,,,0,No Issues
+https://jira.hmg-corp.io/projects/HMETCESDB/summary,HMETCESDB,2026-09-16T17:17:36.000+0900,HMETCESDB-547,490,Success
+https://jira.hmg-corp.io/projects/HMETCEUOTA/summary,HMETCEUOTA,2026-08-19T16:41:25.000+0900,HMETCEUOTA-139,142,Success
+https://jira.hmg-corp.io/projects/HMERU/summary,HMERU,2026-09-16T17:24:29.000+0900,HMERU-12258,11907,Success
+https://jira.hmg-corp.io/projects/HMETC/summary,HMETC,2026-09-16T14:50:48.000+0900,HMETC-6509,6582,Success
+https://jira.hmg-corp.io/projects/AMZAA/summary,AMZAA,2026-06-20T07:43:43.000+0900,AMZAA-46,615,Success
+https://jira.hmg-corp.io/projects/CAAI/summary,CAAI,2026-09-16T17:31:18.000+0900,CAAI-3157,3012,Success
+https://jira.hmg-corp.io/projects/CAAIM/summary,CAAIM,2026-05-04T10:57:28.000+0900,CAAIM-11,14,Success
+https://jira.hmg-corp.io/projects/CCAI/summary,CCAI,2026-09-15T19:51:08.000+0900,CCAI-924,989,Success
+https://jira.hmg-corp.io/projects/CCNVR/summary,CCNVR,,,0,No Issues
+https://jira.hmg-corp.io/projects/CONNECTKB/summary,CONNECTKB,2026-07-11T00:23:25.000+0900,CONNECTKB-6,21,Success
+https://jira.hmg-corp.io/projects/COSVR/summary,COSVR,2026-09-08T18:53:36.000+0900,COSVR-959,923,Success
+https://jira.hmg-corp.io/projects/CSTF/summary,CSTF,2026-06-30T15:43:23.000+0900,CSTF-35,35,Success
+https://jira.hmg-corp.io/projects/EUCERENCE/summary,EUCERENCE,2026-09-12T00:01:18.000+0900,EUCERENCE-583,1136,Success
+https://jira.hmg-corp.io/projects/FORTY2DOT/summary,FORTY2DOT,2026-09-15T17:03:20.000+0900,FORTY2DOT-1499,1421,Success
+https://jira.hmg-corp.io/projects/PBVIVIVR/summary,PBVIVIVR,2026-09-16T17:39:29.000+0900,PBVIVIVR-1285,1282,Success
+https://jira.hmg-corp.io/projects/VRISSUE/summary,VRISSUE,2026-08-22T03:52:20.000+0900,VRISSUE-590,711,Success
+https://jira.hmg-corp.io/projects/VRNLU/summary,VRNLU,,,0,No Issues
+https://jira.hmg-corp.io/projects/VRREQ/summary,VRREQ,2026-08-22T02:37:07.000+0900,VRREQ-38,54,Success
+https://jira.hmg-corp.io/projects/VRRUISSUE/summary,VRRUISSUE,2026-09-16T17:27:54.000+0900,VRRUISSUE-1628,1619,Success
+https://jira.hmg-corp.io/projects/VRTRACK/summary,VRTRACK,2026-09-16T16:19:35.000+0900,VRTRACK-648,614,Success
+https://jira.hmg-corp.io/projects/VSCSERVER/summary,VSCSERVER,2026-09-16T17:18:38.000+0900,VSCSERVER-1696,1687,Success
+https://jira.hmg-corp.io/projects/CED1/summary,CED1,2026-06-20T06:24:53.000+0900,CED1-7,35,Success
+https://jira.hmg-corp.io/projects/EPDT/summary,EPDT,2026-09-01T20:47:40.000+0900,EPDT-37,50,Success
+https://jira.hmg-corp.io/projects/EPNVH/summary,EPNVH,2026-08-24T12:41:24.000+0900,EPNVH-38,33,Success
+https://jira.hmg-corp.io/projects/HMIECPD/summary,HMIECPD,2026-06-20T10:06:43.000+0900,HMIECPD-3,27,Success
+https://jira.hmg-corp.io/projects/HMIEECD/summary,HMIEECD,2026-08-21T17:50:45.000+0900,HMIEECD-88,108,Success
+https://jira.hmg-corp.io/projects/HMIEKOR/summary,HMIEKOR,2026-09-15T09:53:54.000+0900,HMIEKOR-235,285,Success
+https://jira.hmg-corp.io/projects/ADASBATTE/summary,ADASBATTE,2026-06-20T10:08:37.000+0900,ADASBATTE-6,23,Success
+https://jira.hmg-corp.io/projects/BDD/summary,BDD,2026-09-15T17:42:26.000+0900,BDD-738,736,Success
+https://jira.hmg-corp.io/projects/WHD/summary,WHD,,,0,No Issues
+https://jira.hmg-corp.io/projects/ETD/summary,ETD,2026-09-10T22:19:19.000+0900,ETD-69,58,Success
+https://jira.hmg-corp.io/projects/HETDA/summary,HETDA,2026-09-16T14:55:16.000+0900,HETDA-1586,1646,Success
+https://jira.hmg-corp.io/projects/CLO/summary,CLO,2026-08-27T12:44:29.000+0900,CLO-12,26,Success
+https://jira.hmg-corp.io/projects/EEDPTM/summary,EEDPTM,2026-08-15T02:22:30.000+0900,EEDPTM-144,127,Success
+https://jira.hmg-corp.io/projects/HMCHAEFSC/summary,HMCHAEFSC,2026-07-22T11:33:46.000+0900,HMCHAEFSC-9,12,Success
+https://jira.hmg-corp.io/projects/MCUAUROBAY/summary,MCUAUROBAY,2026-09-14T13:57:26.000+0900,MCUAUROBAY-314,126,Success
+https://jira.hmg-corp.io/projects/MCUAUTOSAR/summary,MCUAUTOSAR,2026-06-08T14:10:44.000+0900,MCUAUTOSAR-15,19,Success
+https://jira.hmg-corp.io/projects/MCUBW/summary,MCUBW,2026-06-20T13:45:34.000+0900,MCUBW-8,111,Success
+https://jira.hmg-corp.io/projects/MCUINDALL/summary,MCUINDALL,2026-09-15T13:08:16.000+0900,MCUINDALL-323,255,Success
+https://jira.hmg-corp.io/projects/MCUMAVEL/summary,MCUMAVEL,2026-07-10T15:41:28.000+0900,MCUMAVEL-115,115,Success
+https://jira.hmg-corp.io/projects/MCUMOBISMG/summary,MCUMOBISMG,2026-06-20T09:13:13.000+0900,MCUMOBISMG-3,22,Success
+https://jira.hmg-corp.io/projects/MCUVALEO/summary,MCUVALEO,2024-01-30T11:34:09.000+0900,MCUVALEO-14,20,Success
+https://jira.hmg-corp.io/projects/MCUVTSCOMG/summary,MCUVTSCOMG,2026-08-21T17:16:49.000+0900,MCUVTSCOMG-185,198,Success
+https://jira.hmg-corp.io/projects/MCUXEV002/summary,MCUXEV002,,,0,No Issues
+https://jira.hmg-corp.io/projects/MCUXHEV001/summary,MCUXHEV001,2026-06-20T18:05:40.000+0900,MCUXHEV001-2,66,Success
+https://jira.hmg-corp.io/projects/MCUZF/summary,MCUZF,2026-08-28T14:44:48.000+0900,MCUZF-177,173,Success
+https://jira.hmg-corp.io/projects/TURKEYMCU/summary,TURKEYMCU,2026-08-18T17:31:23.000+0900,TURKEYMCU-812,264,Success
+https://jira.hmg-corp.io/projects/EMCDESIGN0/summary,EMCDESIGN0,2026-06-20T15:55:17.000+0900,EMCDESIGN0-30,71,Success
+https://jira.hmg-corp.io/projects/MCUTECHSVC/summary,MCUTECHSVC,,,0,No Issues
+https://jira.hmg-corp.io/projects/ACSISSUE/summary,ACSISSUE,2023-11-24T13:03:44.000+0900,ACSISSUE-1,1,Success
+https://jira.hmg-corp.io/projects/APCCSMO/summary,APCCSMO,2026-09-03T00:34:25.000+0900,APCCSMO-735,724,Success
+https://jira.hmg-corp.io/projects/APITOOL/summary,APITOOL,2026-09-16T16:33:08.000+0900,APITOOL-9843,1056,Success
+https://jira.hmg-corp.io/projects/APPTRACK/summary,APPTRACK,2026-09-15T13:40:54.000+0900,APPTRACK-54,49,Success
+https://jira.hmg-corp.io/projects/AUTH/summary,AUTH,2026-09-12T00:05:03.000+0900,AUTH-469,665,Success
+https://jira.hmg-corp.io/projects/AWSCCS/summary,AWSCCS,2026-09-16T17:32:52.000+0900,AWSCCS-10584,10429,Success
+https://jira.hmg-corp.io/projects/AZURECCS/summary,AZURECCS,,,0,No Issues
+https://jira.hmg-corp.io/projects/BAIDUCCS/summary,BAIDUCCS,,,0,No Issues
+https://jira.hmg-corp.io/projects/BLS/summary,BLS,2026-09-15T16:50:35.000+0900,BLS-301,301,Success
+https://jira.hmg-corp.io/projects/C2DEV/summary,C2DEV,2026-09-16T17:06:31.000+0900,C2DEV-1959,1698,Success
+https://jira.hmg-corp.io/projects/CAI/summary,CAI,2026-09-16T17:34:27.000+0900,CAI-1663,1348,Success
+https://jira.hmg-corp.io/projects/CALENDAR/summary,CALENDAR,2026-08-21T18:08:48.000+0900,CALENDAR-87,355,Success
+https://jira.hmg-corp.io/projects/CAP/summary,CAP,2026-09-16T16:20:03.000+0900,CAP-1525,1488,Success
+https://jira.hmg-corp.io/projects/CBLP/summary,CBLP,2026-06-20T16:54:54.000+0900,CBLP-2,34,Success
+https://jira.hmg-corp.io/projects/CCDEV/summary,CCDEV,2026-09-16T13:40:02.000+0900,CCDEV-498,424,Success
+https://jira.hmg-corp.io/projects/CCSAUTH/summary,CCSAUTH,2026-09-16T16:41:37.000+0900,CCSAUTH-196,185,Success
+https://jira.hmg-corp.io/projects/CCSAUTHSPT/summary,CCSAUTHSPT,2026-09-16T17:08:45.000+0900,CCSAUTHSPT-440,332,Success
+https://jira.hmg-corp.io/projects/CCSCENTER/summary,CCSCENTER,2026-07-09T14:38:28.000+0900,CCSCENTER-632,576,Success
+https://jira.hmg-corp.io/projects/CCSCNT/summary,CCSCNT,,,0,No Issues
+https://jira.hmg-corp.io/projects/CCSCONFIG/summary,CCSCONFIG,2026-09-12T14:12:51.000+0900,CCSCONFIG-2469,2432,Success
+https://jira.hmg-corp.io/projects/CCSDEVTEAM/summary,CCSDEVTEAM,2022-01-11T01:58:16.000+0900,CCSDEVTEAM-15,15,Success
+https://jira.hmg-corp.io/projects/CCSDP/summary,CCSDP,2026-06-20T19:06:21.000+0900,CCSDP-766,2112,Success
+https://jira.hmg-corp.io/projects/CCSGATEWAY/summary,CCSGATEWAY,2026-09-16T16:01:33.000+0900,CCSGATEWAY-1174,1714,Success
+https://jira.hmg-corp.io/projects/CCSGCENTER/summary,CCSGCENTER,2026-09-15T09:48:22.000+0900,CCSGCENTER-1422,1388,Success
+https://jira.hmg-corp.io/projects/CCSGCM/summary,CCSGCM,2026-06-20T23:00:42.000+0900,CCSGCM-11,769,Success
+https://jira.hmg-corp.io/projects/CCSGOP/summary,CCSGOP,2026-09-16T13:54:39.000+0900,CCSGOP-1540,957,Success
+https://jira.hmg-corp.io/projects/CCSICTIF/summary,CCSICTIF,2026-09-16T16:23:26.000+0900,CCSICTIF-62,96,Success
+https://jira.hmg-corp.io/projects/CCSIM/summary,CCSIM,2026-09-16T13:41:03.000+0900,CCSIM-1684,1154,Success
+https://jira.hmg-corp.io/projects/CCSINFRA/summary,CCSINFRA,2026-09-16T17:42:04.000+0900,CCSINFRA-151,96,Success
+https://jira.hmg-corp.io/projects/CCSISSUE/summary,CCSISSUE,2026-09-16T17:34:49.000+0900,CCSISSUE-16098,15038,Success
+https://jira.hmg-corp.io/projects/CCSLAB/summary,CCSLAB,2026-09-11T14:02:38.000+0900,CCSLAB-17,17,Success
+https://jira.hmg-corp.io/projects/CCSLMS/summary,CCSLMS,2026-09-16T17:41:48.000+0900,CCSLMS-8021,7063,Success
+https://jira.hmg-corp.io/projects/CCSLOC/summary,CCSLOC,2026-08-22T03:28:55.000+0900,CCSLOC-58,174,Success
+https://jira.hmg-corp.io/projects/CCSMD/summary,CCSMD,2026-09-16T17:40:41.000+0900,CCSMD-10343,9941,Success
+https://jira.hmg-corp.io/projects/CCSMO/summary,CCSMO,2026-08-22T03:48:12.000+0900,CCSMO-81,1085,Success
+https://jira.hmg-corp.io/projects/CCSMODERN/summary,CCSMODERN,2026-06-20T07:24:45.000+0900,CCSMODERN-2,189,Success
+https://jira.hmg-corp.io/projects/CCSO11Y/summary,CCSO11Y,2026-09-16T17:08:55.000+0900,CCSO11Y-747,767,Success
+https://jira.hmg-corp.io/projects/CCSONE/summary,CCSONE,,,0,No Issues
+https://jira.hmg-corp.io/projects/CCSOPDEV/summary,CCSOPDEV,2026-09-16T17:39:17.000+0900,CCSOPDEV-11619,13126,Success
+https://jira.hmg-corp.io/projects/CCSOPS/summary,CCSOPS,2026-09-16T11:04:39.000+0900,CCSOPS-1136,606,Success
+https://jira.hmg-corp.io/projects/CCSOPSPART/summary,CCSOPSPART,2026-07-09T14:40:25.000+0900,CCSOPSPART-409,833,Success
+https://jira.hmg-corp.io/projects/CCSPF/summary,CCSPF,2026-08-13T09:53:36.000+0900,CCSPF-7,7,Success
+https://jira.hmg-corp.io/projects/CCSPIOT/summary,CCSPIOT,2026-06-20T14:08:26.000+0900,CCSPIOT-2,24,Success
+https://jira.hmg-corp.io/projects/CCSPJTMNG/summary,CCSPJTMNG,2026-09-15T13:18:41.000+0900,CCSPJTMNG-1467,1148,Success
+https://jira.hmg-corp.io/projects/CCSPLAN/summary,CCSPLAN,2024-07-29T08:31:03.000+0900,CCSPLAN-3,33,Success
+https://jira.hmg-corp.io/projects/CCSPORTAL/summary,CCSPORTAL,2026-09-16T17:23:34.000+0900,CCSPORTAL-3707,2809,Success
+https://jira.hmg-corp.io/projects/CCSPRJMGT/summary,CCSPRJMGT,2026-09-11T07:52:28.000+0900,CCSPRJMGT-100,152,Success
+https://jira.hmg-corp.io/projects/CCSQA/summary,CCSQA,2026-09-16T16:45:45.000+0900,CCSQA-2732,2483,Success
+https://jira.hmg-corp.io/projects/CCSRTM/summary,CCSRTM,2026-09-16T13:51:17.000+0900,CCSRTM-2490,4069,Success
+https://jira.hmg-corp.io/projects/CCSSERVER/summary,CCSSERVER,2026-09-16T16:35:58.000+0900,CCSSERVER-1783,1558,Success
+https://jira.hmg-corp.io/projects/CCSSREWG/summary,CCSSREWG,2026-07-09T14:38:30.000+0900,CCSSREWG-620,506,Success
+https://jira.hmg-corp.io/projects/CCSSUPPORT/summary,CCSSUPPORT,2026-09-16T17:42:22.000+0900,CCSSUPPORT-3722,3560,Success
+https://jira.hmg-corp.io/projects/CCSVCRM/summary,CCSVCRM,2026-08-06T13:55:34.000+0900,CCSVCRM-235,225,Success
+https://jira.hmg-corp.io/projects/CCSVLOPS/summary,CCSVLOPS,2026-09-01T00:06:07.000+0900,CCSVLOPS-77,84,Success
+https://jira.hmg-corp.io/projects/CD/summary,CD,2026-09-16T17:27:58.000+0900,CD-1554,1332,Success
+https://jira.hmg-corp.io/projects/CHARGEHSTR/summary,CHARGEHSTR,2026-06-19T19:42:17.000+0900,CHARGEHSTR-1,12,Success
+https://jira.hmg-corp.io/projects/CINEMODEV/summary,CINEMODEV,2026-09-09T16:37:34.000+0900,CINEMODEV-73,67,Success
+https://jira.hmg-corp.io/projects/CINEMOOPS/summary,CINEMOOPS,2026-06-20T07:49:23.000+0900,CINEMOOPS-1,25,Success
+https://jira.hmg-corp.io/projects/CLIP/summary,CLIP,2026-09-16T15:48:05.000+0900,CLIP-480,366,Success
+https://jira.hmg-corp.io/projects/CLIPSUPP/summary,CLIPSUPP,2026-01-28T10:09:25.000+0900,CLIPSUPP-2,2,Success
+https://jira.hmg-corp.io/projects/CM/summary,CM,2026-09-11T14:42:27.000+0900,CM-3458,8229,Success
+https://jira.hmg-corp.io/projects/CNC/summary,CNC,2026-09-16T15:01:56.000+0900,CNC-6915,5645,Success
+https://jira.hmg-corp.io/projects/CO/summary,CO,2026-06-20T23:06:45.000+0900,CO-32,1444,Success
+https://jira.hmg-corp.io/projects/CPLINKDATA/summary,CPLINKDATA,2025-07-30T10:56:57.000+0900,CPLINKDATA-26,19,Success
+https://jira.hmg-corp.io/projects/CPLINKDEV/summary,CPLINKDEV,2025-05-13T17:18:35.000+0900,CPLINKDEV-15,14,Success
+https://jira.hmg-corp.io/projects/CPX2/summary,CPX2,2026-09-16T10:52:54.000+0900,CPX2-980,949,Success
+https://jira.hmg-corp.io/projects/CSAML/summary,CSAML,2026-09-15T19:37:42.000+0900,CSAML-103,100,Success
+https://jira.hmg-corp.io/projects/CSAP/summary,CSAP,2026-06-21T03:46:17.000+0900,CSAP-4,2302,Success
+https://jira.hmg-corp.io/projects/CSAS/summary,CSAS,2026-06-20T19:59:12.000+0900,CSAS-24,309,Success
+https://jira.hmg-corp.io/projects/CSTVOC/summary,CSTVOC,,,0,No Issues
+https://jira.hmg-corp.io/projects/CTM/summary,CTM,2026-06-20T20:01:32.000+0900,CTM-161,106,Success
+https://jira.hmg-corp.io/projects/CUS/summary,CUS,2026-07-08T10:31:22.000+0900,CUS-245,173,Success
+https://jira.hmg-corp.io/projects/CVA/summary,CVA,,,0,No Issues
+https://jira.hmg-corp.io/projects/DCVOC/summary,DCVOC,2026-08-22T03:59:42.000+0900,DCVOC-76,105,Success
+https://jira.hmg-corp.io/projects/DKC2G/summary,DKC2G,2026-09-16T17:42:13.000+0900,DKC2G-9476,8499,Success
+https://jira.hmg-corp.io/projects/DPTHEME/summary,DPTHEME,2026-09-14T10:00:21.000+0900,DPTHEME-523,400,Success
+https://jira.hmg-corp.io/projects/DTTEST/summary,DTTEST,2026-06-20T14:17:10.000+0900,DTTEST-8,7,Success
+https://jira.hmg-corp.io/projects/DVS/summary,DVS,2026-07-07T00:13:13.000+0900,DVS-231,265,Success
+https://jira.hmg-corp.io/projects/EPG/summary,EPG,2026-06-20T21:27:21.000+0900,EPG-40,171,Success
+https://jira.hmg-corp.io/projects/EPGISSUE/summary,EPGISSUE,2026-06-20T15:09:46.000+0900,EPGISSUE-2,1,Success
+https://jira.hmg-corp.io/projects/EUCCSMO/summary,EUCCSMO,2026-06-19T18:45:37.000+0900,EUCCSMO-57,55,Success
+https://jira.hmg-corp.io/projects/EVS2/summary,EVS2,2026-06-20T16:31:08.000+0900,EVS2-2,531,Success
+https://jira.hmg-corp.io/projects/FCS2/summary,FCS2,2026-09-05T00:40:12.000+0900,FCS2-2,38,Success
+https://jira.hmg-corp.io/projects/FDSEFS/summary,FDSEFS,2026-09-16T14:10:18.000+0900,FDSEFS-183,220,Success
+https://jira.hmg-corp.io/projects/FESUPPORT/summary,FESUPPORT,2026-06-02T15:43:54.000+0900,FESUPPORT-5,5,Success
+https://jira.hmg-corp.io/projects/FRONTEND/summary,FRONTEND,2026-09-16T15:42:06.000+0900,FRONTEND-2165,2108,Success
+https://jira.hmg-corp.io/projects/GASOPSISSU/summary,GASOPSISSU,2026-09-16T16:05:23.000+0900,GASOPSISSU-326,317,Success
+https://jira.hmg-corp.io/projects/GLOBALCM/summary,GLOBALCM,2026-09-16T17:42:13.000+0900,GLOBALCM-10896,9759,Success
+https://jira.hmg-corp.io/projects/GOAGSPA/summary,GOAGSPA,2026-09-01T00:00:05.000+0900,GOAGSPA-5019,4010,Success
+https://jira.hmg-corp.io/projects/GPSS/summary,GPSS,2026-06-20T05:44:54.000+0900,GPSS-6,274,Success
+https://jira.hmg-corp.io/projects/GSPA/summary,GSPA,2026-09-15T14:38:56.000+0900,GSPA-1726,1634,Success
+https://jira.hmg-corp.io/projects/GSPAISSUE/summary,GSPAISSUE,2026-06-20T09:11:34.000+0900,GSPAISSUE-2,117,Success
+https://jira.hmg-corp.io/projects/GSS/summary,GSS,2026-06-20T14:36:10.000+0900,GSS-20,18,Success
+https://jira.hmg-corp.io/projects/H2O/summary,H2O,2026-06-20T18:14:34.000+0900,H2O-32,152,Success
+https://jira.hmg-corp.io/projects/HAMS/summary,HAMS,,,0,No Issues
+https://jira.hmg-corp.io/projects/HCLOUDB2B/summary,HCLOUDB2B,2026-09-15T11:00:04.000+0900,HCLOUDB2B-620,513,Success
+https://jira.hmg-corp.io/projects/HCLOUDCCSS/summary,HCLOUDCCSS,2026-09-15T12:23:45.000+0900,HCLOUDCCSS-19,501,Success
+https://jira.hmg-corp.io/projects/HCLOUDFORC/summary,HCLOUDFORC,2026-07-07T17:30:13.000+0900,HCLOUDFORC-733,2068,Success
+https://jira.hmg-corp.io/projects/HCLOUDSR/summary,HCLOUDSR,2026-09-16T15:56:45.000+0900,HCLOUDSR-5450,5089,Success
+https://jira.hmg-corp.io/projects/HHSDEV/summary,HHSDEV,2026-06-21T03:39:43.000+0900,HHSDEV-6,1691,Success
+https://jira.hmg-corp.io/projects/HMCTEST1/summary,HMCTEST1,2025-03-20T10:53:15.000+0900,HMCTEST1-203,34,Success
+https://jira.hmg-corp.io/projects/ICCTRACK/summary,ICCTRACK,2026-09-07T19:03:00.000+0900,ICCTRACK-57,39,Success
+https://jira.hmg-corp.io/projects/ICOP/summary,ICOP,2026-09-16T17:03:37.000+0900,ICOP-356,535,Success
+https://jira.hmg-corp.io/projects/IDCCS/summary,IDCCS,2026-09-16T17:09:12.000+0900,IDCCS-5567,5479,Success
+https://jira.hmg-corp.io/projects/INCCSOP/summary,INCCSOP,,,0,No Issues
+https://jira.hmg-corp.io/projects/INDCCS/summary,INDCCS,2026-09-07T18:23:54.000+0900,INDCCS-561,504,Success
+https://jira.hmg-corp.io/projects/INFOCONTEN/summary,INFOCONTEN,2026-09-16T08:33:00.000+0900,INFOCONTEN-565,416,Success
+https://jira.hmg-corp.io/projects/INFOMMS/summary,INFOMMS,2026-06-20T13:49:22.000+0900,INFOMMS-1,13,Success
+https://jira.hmg-corp.io/projects/JPCCS/summary,JPCCS,2026-09-16T15:36:31.000+0900,JPCCS-557,489,Success
+https://jira.hmg-corp.io/projects/JPKCCSVOC/summary,JPKCCSVOC,2026-08-03T17:25:04.000+0900,JPKCCSVOC-7,10,Success
+https://jira.hmg-corp.io/projects/KRNMS/summary,KRNMS,2026-09-09T18:01:14.000+0900,KRNMS-424,409,Success
+https://jira.hmg-corp.io/projects/LAMP/summary,LAMP,2026-06-20T14:12:44.000+0900,LAMP-18,291,Success
+https://jira.hmg-corp.io/projects/LMS/summary,LMS,2026-06-20T18:09:40.000+0900,LMS-298,343,Success
+https://jira.hmg-corp.io/projects/LMS2/summary,LMS2,2026-09-16T09:56:12.000+0900,LMS2-271,247,Success
+https://jira.hmg-corp.io/projects/LSC/summary,LSC,2026-06-20T19:32:57.000+0900,LSC-43,272,Success
+https://jira.hmg-corp.io/projects/MEACCS/summary,MEACCS,2026-09-14T15:26:51.000+0900,MEACCS-300,150,Success
+https://jira.hmg-corp.io/projects/MQTT/summary,MQTT,2026-06-20T19:58:13.000+0900,MQTT-40,301,Success
+https://jira.hmg-corp.io/projects/NAV/summary,NAV,2026-06-21T05:15:45.000+0900,NAV-15,373,Success
+https://jira.hmg-corp.io/projects/NCCP/summary,NCCP,2026-07-13T15:40:15.000+0900,NCCP-12,12,Success
+https://jira.hmg-corp.io/projects/PBSISSUE/summary,PBSISSUE,2026-06-20T15:09:47.000+0900,PBSISSUE-4,32,Success
+https://jira.hmg-corp.io/projects/PLS2/summary,PLS2,2026-06-20T13:30:11.000+0900,PLS2-13,89,Success
+https://jira.hmg-corp.io/projects/PNCSVR/summary,PNCSVR,2026-06-20T14:51:28.000+0900,PNCSVR-1,176,Success
+https://jira.hmg-corp.io/projects/PODBBANG/summary,PODBBANG,2026-06-20T22:54:09.000+0900,PODBBANG-1,261,Success
+https://jira.hmg-corp.io/projects/RETS2/summary,RETS2,2026-06-20T13:35:24.000+0900,RETS2-11,47,Success
+https://jira.hmg-corp.io/projects/SACCSVOC/summary,SACCSVOC,2026-09-10T16:36:04.000+0900,SACCSVOC-92,91,Success
+https://jira.hmg-corp.io/projects/SCS/summary,SCS,2026-06-21T05:01:48.000+0900,SCS-234,371,Success
+https://jira.hmg-corp.io/projects/STR3AMING/summary,STR3AMING,2026-09-15T00:13:28.000+0900,STR3AMING-381,383,Success
+https://jira.hmg-corp.io/projects/SVCHUB/summary,SVCHUB,2026-09-16T16:28:22.000+0900,SVCHUB-5691,5556,Success
+https://jira.hmg-corp.io/projects/SVCHUBADM/summary,SVCHUBADM,2026-09-16T17:26:31.000+0900,SVCHUBADM-5116,4980,Success
+https://jira.hmg-corp.io/projects/SVRTRACK/summary,SVRTRACK,2026-09-15T13:41:49.000+0900,SVRTRACK-127,122,Success
+https://jira.hmg-corp.io/projects/TFS2/summary,TFS2,2026-06-20T15:07:46.000+0900,TFS2-2,211,Success
+https://jira.hmg-corp.io/projects/TMO/summary,TMO,2026-09-16T10:48:41.000+0900,TMO-2069,2023,Success
+https://jira.hmg-corp.io/projects/TMOSISSUE/summary,TMOSISSUE,2026-06-20T13:35:32.000+0900,TMOSISSUE-2,4,Success
+https://jira.hmg-corp.io/projects/VCRMDEVOPS/summary,VCRMDEVOPS,2026-09-16T17:12:18.000+0900,VCRMDEVOPS-424,315,Success
+https://jira.hmg-corp.io/projects/VMSISSUE/summary,VMSISSUE,,,0,No Issues
+https://jira.hmg-corp.io/projects/VNS/summary,VNS,2026-09-16T15:03:52.000+0900,VNS-435,423,Success
+https://jira.hmg-corp.io/projects/VOPTIONSET/summary,VOPTIONSET,2025-12-02T12:16:27.000+0900,VOPTIONSET-3,3,Success
+https://jira.hmg-corp.io/projects/WELAA/summary,WELAA,2026-06-20T13:15:43.000+0900,WELAA-1,165,Success
+https://jira.hmg-corp.io/projects/WTS2/summary,WTS2,2026-06-20T20:01:08.000+0900,WTS2-167,191,Success
+https://jira.hmg-corp.io/projects/AAOSDEV/summary,AAOSDEV,2026-09-15T18:06:04.000+0900,AAOSDEV-188,129,Success
+https://jira.hmg-corp.io/projects/C3DEV/summary,C3DEV,,,0,No Issues
+https://jira.hmg-corp.io/projects/CFDEV/summary,CFDEV,2026-09-16T17:10:16.000+0900,CFDEV-378,387,Success
+https://jira.hmg-corp.io/projects/CPQM/summary,CPQM,2026-09-16T13:42:43.000+0900,CPQM-477,1143,Success
+https://jira.hmg-corp.io/projects/CPQW/summary,CPQW,,,0,No Issues
+https://jira.hmg-corp.io/projects/HMGCPDEVOP/summary,HMGCPDEVOP,2026-09-16T16:46:23.000+0900,HMGCPDEVOP-130,142,Success
+https://jira.hmg-corp.io/projects/HMGCPTS/summary,HMGCPTS,2026-09-16T09:07:27.000+0900,HMGCPTS-23169,10274,Success
+https://jira.hmg-corp.io/projects/HMGCPV/summary,HMGCPV,2026-09-16T16:50:55.000+0900,HMGCPV-9443,9117,Success
+https://jira.hmg-corp.io/projects/HMGOP/summary,HMGOP,2026-09-16T17:07:44.000+0900,HMGOP-1382,1561,Success
+https://jira.hmg-corp.io/projects/HMGOPSPT/summary,HMGOPSPT,2026-09-16T17:42:31.000+0900,HMGOPSPT-39243,40359,Success
+https://jira.hmg-corp.io/projects/VPTRACK/summary,VPTRACK,2026-09-10T10:34:31.000+0900,VPTRACK-2278,2279,Success
+https://jira.hmg-corp.io/projects/AHTF/summary,AHTF,2026-09-02T08:44:03.000+0900,AHTF-517,583,Success
+https://jira.hmg-corp.io/projects/CLANGUAGE/summary,CLANGUAGE,2026-09-16T10:23:03.000+0900,CLANGUAGE-102,96,Success
+https://jira.hmg-corp.io/projects/CONNECTGUI/summary,CONNECTGUI,2026-09-11T16:14:56.000+0900,CONNECTGUI-498,546,Success
+https://jira.hmg-corp.io/projects/CONNECTUX/summary,CONNECTUX,2026-09-16T17:16:49.000+0900,CONNECTUX-6324,6141,Success
+https://jira.hmg-corp.io/projects/CWIDEUX/summary,CWIDEUX,,,0,No Issues
+https://jira.hmg-corp.io/projects/HOTA/summary,HOTA,2026-09-09T10:57:27.000+0900,HOTA-3,3,Success
+https://jira.hmg-corp.io/projects/IFA/summary,IFA,,,0,No Issues
+https://jira.hmg-corp.io/projects/INFOGUI/summary,INFOGUI,2026-09-16T16:24:32.000+0900,INFOGUI-249,237,Success
+https://jira.hmg-corp.io/projects/INMM/summary,INMM,2026-09-03T09:15:27.000+0900,INMM-7,25,Success
+https://jira.hmg-corp.io/projects/LOKML/summary,LOKML,2026-09-09T11:32:01.000+0900,LOKML-52,41,Success
+https://jira.hmg-corp.io/projects/MESSAGE/summary,MESSAGE,2026-09-16T16:48:46.000+0900,MESSAGE-428,404,Success
+https://jira.hmg-corp.io/projects/MLANGUAGE/summary,MLANGUAGE,2026-09-16T17:42:25.000+0900,MLANGUAGE-11986,12371,Success
+https://jira.hmg-corp.io/projects/UXTASK/summary,UXTASK,2026-09-16T16:55:35.000+0900,UXTASK-76,98,Success
+https://jira.hmg-corp.io/projects/VUXP/summary,VUXP,,,0,No Issues
+https://jira.hmg-corp.io/projects/ARCRT/summary,ARCRT,2026-06-21T04:59:47.000+0900,ARCRT-3,4,Success
+https://jira.hmg-corp.io/projects/ARNAV/summary,ARNAV,2026-06-21T04:57:18.000+0900,ARNAV-35,56,Success
+https://jira.hmg-corp.io/projects/CUTE/summary,CUTE,2024-06-19T16:38:23.000+0900,CUTE-4,4,Success
+https://jira.hmg-corp.io/projects/GPERF/summary,GPERF,2026-06-21T05:00:23.000+0900,GPERF-2,10,Success
+https://jira.hmg-corp.io/projects/IBD20/summary,IBD20,2026-07-27T15:26:18.000+0900,IBD20-2634,1631,Success
+https://jira.hmg-corp.io/projects/IBD2M/summary,IBD2M,2026-09-16T15:41:13.000+0900,IBD2M-133,121,Success
+https://jira.hmg-corp.io/projects/IBDGET/summary,IBDGET,2026-05-28T07:50:10.000+0900,IBDGET-59,58,Success
+https://jira.hmg-corp.io/projects/IBDPLAN/summary,IBDPLAN,2025-12-02T13:20:28.000+0900,IBDPLAN-3786,3016,Success
+https://jira.hmg-corp.io/projects/IBDV/summary,IBDV,2026-06-18T14:45:37.000+0900,IBDV-92,102,Success
+https://jira.hmg-corp.io/projects/ICDAP/summary,ICDAP,2026-09-15T15:08:22.000+0900,ICDAP-141,133,Success
+https://jira.hmg-corp.io/projects/INCL/summary,INCL,2026-08-22T03:44:32.000+0900,INCL-52,141,Success
+https://jira.hmg-corp.io/projects/INFOAGD/summary,INFOAGD,2026-08-22T02:21:33.000+0900,INFOAGD-48,51,Success
+https://jira.hmg-corp.io/projects/INFONAVREQ/summary,INFONAVREQ,,,0,No Issues
+https://jira.hmg-corp.io/projects/INFOPLAN/summary,INFOPLAN,2026-09-16T17:25:25.000+0900,INFOPLAN-2079,2000,Success
+https://jira.hmg-corp.io/projects/INFOPR/summary,INFOPR,2026-06-20T08:26:32.000+0900,INFOPR-1,11,Success
+https://jira.hmg-corp.io/projects/INFOSIGHT/summary,INFOSIGHT,2026-08-22T04:11:23.000+0900,INFOSIGHT-17,64,Success
+https://jira.hmg-corp.io/projects/INFOWEEKLY/summary,INFOWEEKLY,2026-06-19T22:06:56.000+0900,INFOWEEKLY-1,37,Success
+https://jira.hmg-corp.io/projects/IVIDATA/summary,IVIDATA,2026-09-14T16:23:04.000+0900,IVIDATA-104,92,Success
+https://jira.hmg-corp.io/projects/MARKETS/summary,MARKETS,2026-06-20T08:40:44.000+0900,MARKETS-10,106,Success
+https://jira.hmg-corp.io/projects/NAVTODO/summary,NAVTODO,2026-06-21T05:03:12.000+0900,NAVTODO-4,364,Success
+https://jira.hmg-corp.io/projects/TASK/summary,TASK,2026-07-13T15:42:58.000+0900,TASK-7,3,Success
+https://jira.hmg-corp.io/projects/TNR/summary,TNR,2026-06-21T05:01:50.000+0900,TNR-7,316,Success
+https://jira.hmg-corp.io/projects/WIN/summary,WIN,2026-06-21T04:39:00.000+0900,WIN-12,19,Success
+https://jira.hmg-corp.io/projects/INFOINVST/summary,INFOINVST,,,0,No Issues
+https://jira.hmg-corp.io/projects/CDMS/summary,CDMS,2026-09-16T16:43:07.000+0900,CDMS-947,939,Success
+https://jira.hmg-corp.io/projects/CHCL/summary,CHCL,2026-04-16T17:03:34.000+0900,CHCL-1,353,Success
+https://jira.hmg-corp.io/projects/CHDS/summary,CHDS,2026-04-27T23:09:40.000+0900,CHDS-1,950,Success
+https://jira.hmg-corp.io/projects/CHITMS/summary,CHITMS,2026-06-20T12:38:21.000+0900,CHITMS-1,104,Success
+https://jira.hmg-corp.io/projects/CLMDENSO/summary,CLMDENSO,2026-08-24T16:40:31.000+0900,CLMDENSO-4,4,Success
+https://jira.hmg-corp.io/projects/CLMMOBIS/summary,CLMMOBIS,2026-08-12T17:35:24.000+0900,CLMMOBIS-9,9,Success
+https://jira.hmg-corp.io/projects/CSMCONTI/summary,CSMCONTI,2026-09-10T15:34:07.000+0900,CSMCONTI-112,111,Success
+https://jira.hmg-corp.io/projects/CSMDNKR/summary,CSMDNKR,2026-08-24T17:02:19.000+0900,CSMDNKR-36,34,Success
+https://jira.hmg-corp.io/projects/CSMLGE/summary,CSMLGE,2026-06-29T09:20:26.000+0900,CSMLGE-43,42,Success
+https://jira.hmg-corp.io/projects/CSMMOBIS/summary,CSMMOBIS,2026-08-25T16:49:08.000+0900,CSMMOBIS-10,10,Success
+https://jira.hmg-corp.io/projects/CSMTRACK/summary,CSMTRACK,2026-09-09T13:55:44.000+0900,CSMTRACK-134,104,Success
+https://jira.hmg-corp.io/projects/CWMDNKR/summary,CWMDNKR,2026-09-14T15:50:57.000+0900,CWMDNKR-32,33,Success
+https://jira.hmg-corp.io/projects/CWMLGE/summary,CWMLGE,2026-07-13T10:48:33.000+0900,CWMLGE-18,19,Success
+https://jira.hmg-corp.io/projects/CWMLGEDNKR/summary,CWMLGEDNKR,,,0,No Issues
+https://jira.hmg-corp.io/projects/CWMMOBIS/summary,CWMMOBIS,2026-08-28T11:22:41.000+0900,CWMMOBIS-40,39,Success
+https://jira.hmg-corp.io/projects/DCTRACK/summary,DCTRACK,2026-07-18T00:28:12.000+0900,DCTRACK-43,41,Success
+https://jira.hmg-corp.io/projects/DCUCONT/summary,DCUCONT,2026-06-20T22:54:10.000+0900,DCUCONT-1,183,Success
+https://jira.hmg-corp.io/projects/DCUCTRACK/summary,DCUCTRACK,2026-07-18T00:33:07.000+0900,DCUCTRACK-7,28,Success
+https://jira.hmg-corp.io/projects/DISP/summary,DISP,2026-07-11T00:24:22.000+0900,DISP-191,197,Success
+https://jira.hmg-corp.io/projects/HMCHUDC/summary,HMCHUDC,2026-09-15T17:31:48.000+0900,HMCHUDC-19,19,Success
+https://jira.hmg-corp.io/projects/HMCHUDM/summary,HMCHUDM,2026-09-16T16:04:04.000+0900,HMCHUDM-24,24,Success
+https://jira.hmg-corp.io/projects/ICC/summary,ICC,2026-09-09T16:26:07.000+0900,ICC-101,88,Success
+https://jira.hmg-corp.io/projects/ICCLTRACK/summary,ICCLTRACK,2026-08-28T10:48:49.000+0900,ICCLTRACK-52,40,Success
+https://jira.hmg-corp.io/projects/JX2CLU/summary,JX2CLU,,,0,No Issues
+https://jira.hmg-corp.io/projects/MON12TRACK/summary,MON12TRACK,2026-09-16T11:04:57.000+0900,MON12TRACK-140,68,Success
+https://jira.hmg-corp.io/projects/OIPMON/summary,OIPMON,2024-06-18T19:52:31.000+0900,OIPMON-2,2,Success
+https://jira.hmg-corp.io/projects/SWAT71/summary,SWAT71,2026-06-25T15:13:11.000+0900,SWAT71-2,1,Success
+https://jira.hmg-corp.io/projects/SWAT72/summary,SWAT72,,,0,No Issues
+https://jira.hmg-corp.io/projects/SWAT73/summary,SWAT73,2026-06-25T15:57:38.000+0900,SWAT73-3,3,Success
+https://jira.hmg-corp.io/projects/SWAT74/summary,SWAT74,,,0,No Issues
+https://jira.hmg-corp.io/projects/SWAT75/summary,SWAT75,,,0,No Issues
+https://jira.hmg-corp.io/projects/THYBANT/summary,THYBANT,2026-09-07T13:23:58.000+0900,THYBANT-13,19,Success
+https://jira.hmg-corp.io/projects/THYGATN/summary,THYGATN,2026-08-19T14:11:00.000+0900,THYGATN-36,7,Success
+https://jira.hmg-corp.io/projects/ACCSSDK/summary,ACCSSDK,2026-09-16T17:10:27.000+0900,ACCSSDK-2478,2290,Success
+https://jira.hmg-corp.io/projects/ACTIONITEM/summary,ACTIONITEM,2026-09-16T03:27:28.000+0900,ACTIONITEM-106,136,Success
+https://jira.hmg-corp.io/projects/ASG/summary,ASG,2026-06-21T04:13:02.000+0900,ASG-5,1019,Success
+https://jira.hmg-corp.io/projects/BBDEV/summary,BBDEV,2026-08-21T08:25:12.000+0900,BBDEV-799,997,Success
+https://jira.hmg-corp.io/projects/CCEVP/summary,CCEVP,,,0,No Issues
+https://jira.hmg-corp.io/projects/CCICBT/summary,CCICBT,2026-08-22T03:47:37.000+0900,CCICBT-96,103,Success
+https://jira.hmg-corp.io/projects/CCITC/summary,CCITC,2026-09-15T17:06:35.000+0900,CCITC-3311,2558,Success
+https://jira.hmg-corp.io/projects/CCOSIVIS/summary,CCOSIVIS,2026-06-21T05:06:51.000+0900,CCOSIVIS-7,1449,Success
+https://jira.hmg-corp.io/projects/CCSDEVHAE/summary,CCSDEVHAE,2026-09-10T00:51:56.000+0900,CCSDEVHAE-36,142,Success
+https://jira.hmg-corp.io/projects/CCSPM/summary,CCSPM,,,0,No Issues
+https://jira.hmg-corp.io/projects/CCSSDK/summary,CCSSDK,2026-06-20T05:01:06.000+0900,CCSSDK-13,23,Success
+https://jira.hmg-corp.io/projects/GCCIVOC/summary,GCCIVOC,2026-07-07T17:40:40.000+0900,GCCIVOC-67,2118,Success
+https://jira.hmg-corp.io/projects/GCI/summary,GCI,2026-09-16T17:37:33.000+0900,GCI-2025,687,Success
+https://jira.hmg-corp.io/projects/GOA/summary,GOA,2026-08-26T09:19:28.000+0900,GOA-77,2054,Success
+https://jira.hmg-corp.io/projects/HCCIVOC/summary,HCCIVOC,2026-07-07T17:35:38.000+0900,HCCIVOC-8,2724,Success
+https://jira.hmg-corp.io/projects/HOA/summary,HOA,2025-04-08T10:02:07.000+0900,HOA-1,2,Success
+https://jira.hmg-corp.io/projects/ICCSSDK/summary,ICCSSDK,2026-09-16T17:25:58.000+0900,ICCSSDK-2245,2251,Success
+https://jira.hmg-corp.io/projects/KOA/summary,KOA,2026-09-16T17:08:42.000+0900,KOA-3086,6883,Success
+https://jira.hmg-corp.io/projects/MAQA/summary,MAQA,2026-09-10T00:03:43.000+0900,MAQA-614,624,Success
+https://jira.hmg-corp.io/projects/MAST/summary,MAST,2026-07-28T09:11:29.000+0900,MAST-39,30,Success
+https://jira.hmg-corp.io/projects/MOBILE/summary,MOBILE,2026-09-15T18:17:02.000+0900,MOBILE-332,313,Success
+https://jira.hmg-corp.io/projects/NCCSSDK/summary,NCCSSDK,2026-08-30T00:00:52.000+0900,NCCSSDK-62,172,Success
+https://jira.hmg-corp.io/projects/ODS/summary,ODS,,,0,No Issues
+https://jira.hmg-corp.io/projects/PRCT/summary,PRCT,2026-09-05T00:05:42.000+0900,PRCT-982,964,Success
+https://jira.hmg-corp.io/projects/SPADEV/summary,SPADEV,2026-09-16T17:16:57.000+0900,SPADEV-7279,6286,Success
+https://jira.hmg-corp.io/projects/SPAQA/summary,SPAQA,2026-09-16T17:40:39.000+0900,SPAQA-32206,31254,Success
+https://jira.hmg-corp.io/projects/SPATEST/summary,SPATEST,2026-06-22T10:08:09.000+0900,SPATEST-9649,10262,Success
+https://jira.hmg-corp.io/projects/COPOP/summary,COPOP,2026-09-16T10:38:31.000+0900,COPOP-349,343,Success
+https://jira.hmg-corp.io/projects/CTA/summary,CTA,2026-09-15T15:07:44.000+0900,CTA-502,456,Success
+https://jira.hmg-corp.io/projects/CUDENSO/summary,CUDENSO,2026-06-20T06:35:22.000+0900,CUDENSO-2,29,Success
+https://jira.hmg-corp.io/projects/CUTYW/summary,CUTYW,2026-06-20T16:36:25.000+0900,CUTYW-2,34,Success
+https://jira.hmg-corp.io/projects/CUVISTEON/summary,CUVISTEON,2026-08-31T16:34:50.000+0900,CUVISTEON-123,120,Success
+https://jira.hmg-corp.io/projects/HCWM/summary,HCWM,2026-06-20T13:26:02.000+0900,HCWM-4,196,Success
+https://jira.hmg-corp.io/projects/HETD/summary,HETD,2026-06-20T08:18:55.000+0900,HETD-25,1064,Success
+https://jira.hmg-corp.io/projects/HISW/summary,HISW,2026-08-29T01:03:42.000+0900,HISW-21,76,Success
+https://jira.hmg-corp.io/projects/HMAP/summary,HMAP,2023-07-14T20:27:55.000+0900,HMAP-7,5,Success
+https://jira.hmg-corp.io/projects/HMIEDC/summary,HMIEDC,2026-06-20T02:42:25.000+0900,HMIEDC-24,43,Success
+https://jira.hmg-corp.io/projects/HSDD/summary,HSDD,2026-06-20T17:27:41.000+0900,HSDD-3,122,Success
+https://jira.hmg-corp.io/projects/INCSMS/summary,INCSMS,2026-08-25T00:24:54.000+0900,INCSMS-37,184,Success
+https://jira.hmg-corp.io/projects/QBDC/summary,QBDC,,,0,No Issues
+https://jira.hmg-corp.io/projects/SITA/summary,SITA,2026-09-16T14:06:57.000+0900,SITA-9,99,Success
+https://jira.hmg-corp.io/projects/SITB/summary,SITB,2026-09-16T16:33:19.000+0900,SITB-126,114,Success
+https://jira.hmg-corp.io/projects/SITH/summary,SITH,2026-09-16T16:59:52.000+0900,SITH-247,239,Success
+https://jira.hmg-corp.io/projects/SITI/summary,SITI,2026-09-16T10:28:42.000+0900,SITI-50,47,Success
+https://jira.hmg-corp.io/projects/SITM/summary,SITM,2026-09-16T17:02:18.000+0900,SITM-282,205,Success
+https://jira.hmg-corp.io/projects/SRMS/summary,SRMS,2026-09-15T13:58:29.000+0900,SRMS-146,167,Success
+https://jira.hmg-corp.io/projects/SRTR/summary,SRTR,2026-09-16T15:45:35.000+0900,SRTR-1690,891,Success
+https://jira.hmg-corp.io/projects/SSCM/summary,SSCM,2024-08-19T15:41:23.000+0900,SSCM-20,147,Success
+https://jira.hmg-corp.io/projects/VAMS/summary,VAMS,2026-09-16T15:22:48.000+0900,VAMS-155,149,Success
+https://jira.hmg-corp.io/projects/ADVANCED/summary,ADVANCED,2026-06-20T22:03:32.000+0900,ADVANCED-3,10,Success
+https://jira.hmg-corp.io/projects/AHSMON/summary,AHSMON,2026-06-21T02:48:28.000+0900,AHSMON-10,22,Success
+https://jira.hmg-corp.io/projects/AAOSFPT/summary,AAOSFPT,2026-09-16T16:27:47.000+0900,AAOSFPT-917,905,Success
+https://jira.hmg-corp.io/projects/AAOSFRWDEV/summary,AAOSFRWDEV,2026-09-16T17:09:57.000+0900,AAOSFRWDEV-1134,1005,Success
+https://jira.hmg-corp.io/projects/AHTS/summary,AHTS,2026-09-16T17:14:54.000+0900,AHTS-2585,2400,Success
+https://jira.hmg-corp.io/projects/AHTSASSET/summary,AHTSASSET,2026-09-11T09:59:15.000+0900,AHTSASSET-17,28,Success
+https://jira.hmg-corp.io/projects/AMAP/summary,AMAP,2026-06-20T08:33:05.000+0900,AMAP-3,169,Success
+https://jira.hmg-corp.io/projects/APP/summary,APP,2026-06-20T22:00:44.000+0900,APP-16,428,Success
+https://jira.hmg-corp.io/projects/AVNTIB/summary,AVNTIB,2026-09-13T00:03:07.000+0900,AVNTIB-86,136,Success
+https://jira.hmg-corp.io/projects/CAOI/summary,CAOI,2026-09-16T17:31:57.000+0900,CAOI-1871,1027,Success
+https://jira.hmg-corp.io/projects/CAQA/summary,CAQA,2026-09-12T00:34:41.000+0900,CAQA-214,443,Success
+https://jira.hmg-corp.io/projects/CAQM/summary,CAQM,2026-09-16T17:41:03.000+0900,CAQM-18935,18617,Success
+https://jira.hmg-corp.io/projects/CAQW/summary,CAQW,2026-09-16T17:42:35.000+0900,CAQW-19048,19057,Success
+https://jira.hmg-corp.io/projects/CARMGR/summary,CARMGR,2026-09-15T00:01:32.000+0900,CARMGR-80,110,Success
+https://jira.hmg-corp.io/projects/CCAM/summary,CCAM,2026-06-20T02:22:15.000+0900,CCAM-16,411,Success
+https://jira.hmg-corp.io/projects/CCCL/summary,CCCL,2025-05-14T12:01:44.000+0900,CCCL-8,15,Success
+https://jira.hmg-corp.io/projects/CCCS/summary,CCCS,2026-05-11T18:26:09.000+0900,CCCS-11,19,Success
+https://jira.hmg-corp.io/projects/CCICPROJ/summary,CCICPROJ,2026-08-04T09:46:37.000+0900,CCICPROJ-1503,1387,Success
+https://jira.hmg-corp.io/projects/CCICSECURE/summary,CCICSECURE,2026-06-21T05:11:47.000+0900,CCICSECURE-4,61,Success
+https://jira.hmg-corp.io/projects/CCNCCCS/summary,CCNCCCS,2026-08-06T13:13:05.000+0900,CCNCCCS-83,77,Success
+https://jira.hmg-corp.io/projects/CCNCMDEV/summary,CCNCMDEV,2026-09-04T11:22:01.000+0900,CCNCMDEV-29097,28966,Success
+https://jira.hmg-corp.io/projects/CCNCMREL/summary,CCNCMREL,2026-08-31T16:48:22.000+0900,CCNCMREL-7534,75897,Success
+https://jira.hmg-corp.io/projects/CCOS20/summary,CCOS20,2026-06-21T05:07:35.000+0900,CCOS20-17,51,Success
+https://jira.hmg-corp.io/projects/CCOSDEV/summary,CCOSDEV,2026-06-21T02:00:18.000+0900,CCOSDEV-5,340,Success
+https://jira.hmg-corp.io/projects/CCOSRP/summary,CCOSRP,2026-06-21T03:39:32.000+0900,CCOSRP-8,581,Success
+https://jira.hmg-corp.io/projects/CCOSWEB/summary,CCOSWEB,2026-06-20T20:22:39.000+0900,CCOSWEB-1,123,Success
+https://jira.hmg-corp.io/projects/CCSACTDEV/summary,CCSACTDEV,2026-09-03T00:36:12.000+0900,CCSACTDEV-22,68,Success
+https://jira.hmg-corp.io/projects/CCSDEV/summary,CCSDEV,2026-09-16T15:41:22.000+0900,CCSDEV-1299,1071,Success
+https://jira.hmg-corp.io/projects/CCVL/summary,CCVL,2026-01-12T18:28:27.000+0900,CCVL-6,6,Success
+https://jira.hmg-corp.io/projects/CCWT/summary,CCWT,2025-03-24T15:38:07.000+0900,CCWT-19,19,Success
+https://jira.hmg-corp.io/projects/CDPM/summary,CDPM,,,0,No Issues
+https://jira.hmg-corp.io/projects/CDR/summary,CDR,2026-06-20T02:06:36.000+0900,CDR-4,26,Success
+https://jira.hmg-corp.io/projects/CDSLK/summary,CDSLK,2026-09-16T17:38:34.000+0900,CDSLK-1155,1152,Success
+https://jira.hmg-corp.io/projects/CEVCG/summary,CEVCG,2025-01-21T15:47:57.000+0900,CEVCG-1,14,Success
+https://jira.hmg-corp.io/projects/CFRS/summary,CFRS,2026-06-19T22:36:22.000+0900,CFRS-30,29,Success
+https://jira.hmg-corp.io/projects/CGCPOC/summary,CGCPOC,,,0,No Issues
+https://jira.hmg-corp.io/projects/CGMX/summary,CGMX,2026-07-23T19:11:09.000+0900,CGMX-100,112,Success
+https://jira.hmg-corp.io/projects/CHCON/summary,CHCON,2026-06-24T18:22:00.000+0900,CHCON-661,646,Success
+https://jira.hmg-corp.io/projects/CHDN/summary,CHDN,2026-07-22T15:26:09.000+0900,CHDN-36,170,Success
+https://jira.hmg-corp.io/projects/CHOME/summary,CHOME,2026-09-16T17:42:00.000+0900,CHOME-6806,6564,Success
+https://jira.hmg-corp.io/projects/CICD/summary,CICD,2026-09-16T17:37:24.000+0900,CICD-1918,1763,Success
+https://jira.hmg-corp.io/projects/CILSWDEV/summary,CILSWDEV,2026-03-11T11:06:24.000+0900,CILSWDEV-58,139,Success
+https://jira.hmg-corp.io/projects/CKYBD/summary,CKYBD,2026-09-16T17:30:22.000+0900,CKYBD-3357,3197,Success
+https://jira.hmg-corp.io/projects/CLULGE/summary,CLULGE,2026-09-14T19:47:18.000+0900,CLULGE-211,208,Success
+https://jira.hmg-corp.io/projects/CMCE/summary,CMCE,2024-12-12T15:20:25.000+0900,CMCE-48,46,Success
+https://jira.hmg-corp.io/projects/CMFA/summary,CMFA,2026-09-16T17:38:09.000+0900,CMFA-6476,6465,Success
+https://jira.hmg-corp.io/projects/CMUB/summary,CMUB,2026-09-16T17:13:55.000+0900,CMUB-2627,2720,Success
+https://jira.hmg-corp.io/projects/COAA/summary,COAA,2026-09-16T15:04:27.000+0900,COAA-1057,732,Success
+https://jira.hmg-corp.io/projects/COAG/summary,COAG,,,0,No Issues
+https://jira.hmg-corp.io/projects/CONNECTCID/summary,CONNECTCID,2026-09-16T17:42:36.000+0900,CONNECTCID-133655,214281,Success
+https://jira.hmg-corp.io/projects/CPA/summary,CPA,2026-06-20T05:03:38.000+0900,CPA-12,25,Success
+https://jira.hmg-corp.io/projects/CPISSUES/summary,CPISSUES,2026-09-05T00:18:12.000+0900,CPISSUES-356,290,Success
+https://jira.hmg-corp.io/projects/CPROF/summary,CPROF,2026-09-16T17:40:12.000+0900,CPROF-11790,10927,Success
+https://jira.hmg-corp.io/projects/CSUI/summary,CSUI,2026-09-16T17:39:23.000+0900,CSUI-19957,19607,Success
+https://jira.hmg-corp.io/projects/CSWC/summary,CSWC,2026-04-16T16:02:44.000+0900,CSWC-2,4,Success
+https://jira.hmg-corp.io/projects/CVCON/summary,CVCON,2026-09-16T17:41:43.000+0900,CVCON-23336,22315,Success
+https://jira.hmg-corp.io/projects/CVIP/summary,CVIP,2026-09-16T14:02:24.000+0900,CVIP-398,388,Success
+https://jira.hmg-corp.io/projects/CVMS/summary,CVMS,2024-06-07T13:13:20.000+0900,CVMS-4,4,Success
+https://jira.hmg-corp.io/projects/CXP/summary,CXP,2026-09-03T00:10:29.000+0900,CXP-184,180,Success
+https://jira.hmg-corp.io/projects/EXCCOS20/summary,EXCCOS20,2026-06-21T05:07:35.000+0900,EXCCOS20-16,7037,Success
+https://jira.hmg-corp.io/projects/EXNCP12YT/summary,EXNCP12YT,2026-09-16T15:59:45.000+0900,EXNCP12YT-3105,2929,Success
+https://jira.hmg-corp.io/projects/GBSC/summary,GBSC,2026-09-16T17:39:41.000+0900,GBSC-989,934,Success
+https://jira.hmg-corp.io/projects/ICPUS/summary,ICPUS,2026-06-20T20:50:02.000+0900,ICPUS-1,51,Success
+https://jira.hmg-corp.io/projects/INFOADE/summary,INFOADE,2026-09-16T17:28:42.000+0900,INFOADE-2221,2197,Success
+https://jira.hmg-corp.io/projects/INFOCCS/summary,INFOCCS,2026-09-10T19:48:49.000+0900,INFOCCS-96,89,Success
+https://jira.hmg-corp.io/projects/INFOCCSP/summary,INFOCCSP,2026-05-28T11:20:44.000+0900,INFOCCSP-6,20,Success
+https://jira.hmg-corp.io/projects/INFODEVBD/summary,INFODEVBD,2026-09-03T00:46:28.000+0900,INFODEVBD-36,640,Success
+https://jira.hmg-corp.io/projects/INFODEVIM/summary,INFODEVIM,2026-06-20T13:28:26.000+0900,INFODEVIM-15,77,Success
+https://jira.hmg-corp.io/projects/INFODEVSPT/summary,INFODEVSPT,2026-09-10T10:02:55.000+0900,INFODEVSPT-114,104,Success
+https://jira.hmg-corp.io/projects/INFOSOA/summary,INFOSOA,2026-09-16T14:16:31.000+0900,INFOSOA-1054,1176,Success
+https://jira.hmg-corp.io/projects/INFOSWCAR/summary,INFOSWCAR,2026-09-14T16:52:32.000+0900,INFOSWCAR-1254,1205,Success
+https://jira.hmg-corp.io/projects/INFOSWDEV/summary,INFOSWDEV,2026-09-10T00:59:30.000+0900,INFOSWDEV-237,258,Success
+https://jira.hmg-corp.io/projects/INFOSWREQ/summary,INFOSWREQ,2026-09-16T16:16:09.000+0900,INFOSWREQ-1268,1145,Success
+https://jira.hmg-corp.io/projects/INFOVMS/summary,INFOVMS,,,0,No Issues
+https://jira.hmg-corp.io/projects/INFOXEV/summary,INFOXEV,2025-12-08T15:12:07.000+0900,INFOXEV-56,67,Success
+https://jira.hmg-corp.io/projects/JAD/summary,JAD,2026-07-02T01:22:02.000+0900,JAD-2,150,Success
+https://jira.hmg-corp.io/projects/LSA/summary,LSA,2025-03-13T12:42:36.000+0900,LSA-23,23,Success
+https://jira.hmg-corp.io/projects/NIDSETHDB/summary,NIDSETHDB,2026-06-20T07:18:45.000+0900,NIDSETHDB-7,7,Success
+https://jira.hmg-corp.io/projects/ODCOPS/summary,ODCOPS,2026-08-21T20:15:39.000+0900,ODCOPS-196,198,Success
+https://jira.hmg-corp.io/projects/PERF/summary,PERF,2026-06-21T01:42:32.000+0900,PERF-8,15,Success
+https://jira.hmg-corp.io/projects/PFSW/summary,PFSW,2026-09-16T16:34:24.000+0900,PFSW-838,759,Success
+https://jira.hmg-corp.io/projects/PGM/summary,PGM,2026-06-30T16:57:04.000+0900,PGM-368,1195,Success
+https://jira.hmg-corp.io/projects/POIPPROJ/summary,POIPPROJ,2026-06-20T08:33:16.000+0900,POIPPROJ-3,38,Success
+https://jira.hmg-corp.io/projects/PSG/summary,PSG,2026-06-20T22:35:14.000+0900,PSG-22,531,Success
+https://jira.hmg-corp.io/projects/PSUI/summary,PSUI,2026-09-16T16:29:47.000+0900,PSUI-1506,1371,Success
+https://jira.hmg-corp.io/projects/PSW/summary,PSW,2026-06-20T09:21:48.000+0900,PSW-4,44,Success
+https://jira.hmg-corp.io/projects/PUH/summary,PUH,2026-06-20T08:32:57.000+0900,PUH-41,402,Success
+https://jira.hmg-corp.io/projects/RRT/summary,RRT,2024-05-03T16:46:10.000+0900,RRT-5,12,Success
+https://jira.hmg-corp.io/projects/SBTC/summary,SBTC,2026-06-24T17:14:53.000+0900,SBTC-26,233,Success
+https://jira.hmg-corp.io/projects/SCID/summary,SCID,2026-09-16T17:37:51.000+0900,SCID-1099,1063,Success
+https://jira.hmg-corp.io/projects/SDM/summary,SDM,2026-06-20T08:21:15.000+0900,SDM-12,116,Success
+https://jira.hmg-corp.io/projects/SFCDEV/summary,SFCDEV,2026-09-16T16:48:32.000+0900,SFCDEV-866,1136,Success
+https://jira.hmg-corp.io/projects/SFCPTL/summary,SFCPTL,,,0,No Issues
+https://jira.hmg-corp.io/projects/SFCPTL2025/summary,SFCPTL2025,2026-09-10T14:42:37.000+0900,SFCPTL2025-22,54,Success
+https://jira.hmg-corp.io/projects/SFCREL/summary,SFCREL,2026-09-16T16:35:45.000+0900,SFCREL-12,33,Success
+https://jira.hmg-corp.io/projects/SSPE/summary,SSPE,2026-06-30T20:01:35.000+0900,SSPE-86,130,Success
+https://jira.hmg-corp.io/projects/SSW/summary,SSW,2024-05-22T17:21:25.000+0900,SSW-3,2,Success
+https://jira.hmg-corp.io/projects/TMOSCCNC/summary,TMOSCCNC,2026-08-22T03:56:48.000+0900,TMOSCCNC-9,152,Success
+https://jira.hmg-corp.io/projects/TMOSS5W/summary,TMOSS5W,2026-06-20T06:59:47.000+0900,TMOSS5W-3,13,Success
+https://jira.hmg-corp.io/projects/VEHICLEVCR/summary,VEHICLEVCR,2026-06-21T03:38:32.000+0900,VEHICLEVCR-1,38,Success
+https://jira.hmg-corp.io/projects/YOCTO/summary,YOCTO,2026-06-21T05:04:45.000+0900,YOCTO-24,2819,Success
+https://jira.hmg-corp.io/projects/CLUSRS/summary,CLUSRS,2026-06-21T04:51:04.000+0900,CLUSRS-13,95,Success
+https://jira.hmg-corp.io/projects/CONNAPP/summary,CONNAPP,2026-09-16T15:27:00.000+0900,CONNAPP-269,136,Success
+https://jira.hmg-corp.io/projects/DPIM/summary,DPIM,2026-06-20T22:28:06.000+0900,DPIM-3,15,Success
+https://jira.hmg-corp.io/projects/EXNCP4/summary,EXNCP4,2026-06-20T22:44:54.000+0900,EXNCP4-143,5899,Success
+https://jira.hmg-corp.io/projects/GIESUP/summary,GIESUP,2026-06-20T13:41:09.000+0900,GIESUP-4,10,Success
+https://jira.hmg-corp.io/projects/HATCI/summary,HATCI,2026-09-16T06:22:39.000+0900,HATCI-613,409,Success
+https://jira.hmg-corp.io/projects/HMETCMAP1/summary,HMETCMAP1,2026-06-21T03:20:26.000+0900,HMETCMAP1-14,414,Success
+https://jira.hmg-corp.io/projects/HMETCMAP2/summary,HMETCMAP2,2026-04-27T18:07:59.000+0900,HMETCMAP2-4,856,Success
+https://jira.hmg-corp.io/projects/HMETCMAP21/summary,HMETCMAP21,2026-06-20T22:22:30.000+0900,HMETCMAP21-1181,4,Success
+https://jira.hmg-corp.io/projects/HMETCVRM/summary,HMETCVRM,2026-06-20T23:44:41.000+0900,HMETCVRM-1,20,Success
+https://jira.hmg-corp.io/projects/HMIM/summary,HMIM,2026-09-16T17:40:22.000+0900,HMIM-7450,7216,Success
+https://jira.hmg-corp.io/projects/HTC21MAP1/summary,HTC21MAP1,2026-08-06T21:43:36.000+0900,HTC21MAP1-222,214,Success
+https://jira.hmg-corp.io/projects/HTC21MAP2/summary,HTC21MAP2,2026-06-21T01:41:37.000+0900,HTC21MAP2-3,301,Success
+https://jira.hmg-corp.io/projects/HTC22MAP1/summary,HTC22MAP1,2026-08-06T21:41:31.000+0900,HTC22MAP1-152,251,Success
+https://jira.hmg-corp.io/projects/HTCASSET/summary,HTCASSET,2023-06-20T23:56:55.000+0900,HTCASSET-206,165,Success
+https://jira.hmg-corp.io/projects/HTCH/summary,HTCH,2026-09-16T07:48:46.000+0900,HTCH-5497,5140,Success
+https://jira.hmg-corp.io/projects/HTCK/summary,HTCK,2026-09-16T04:02:04.000+0900,HTCK-2206,3369,Success
+https://jira.hmg-corp.io/projects/HTMS/summary,HTMS,2026-09-09T08:33:51.000+0900,HTMS-64886,21491,Success
+https://jira.hmg-corp.io/projects/IBDIM/summary,IBDIM,2026-06-20T14:44:12.000+0900,IBDIM-3,54,Success
+https://jira.hmg-corp.io/projects/ICOLLABO/summary,ICOLLABO,2026-06-21T03:54:06.000+0900,ICOLLABO-54,195,Success
+https://jira.hmg-corp.io/projects/IHAP/summary,IHAP,2026-09-16T17:42:36.000+0900,IHAP-24686,23609,Success
+https://jira.hmg-corp.io/projects/IMIM/summary,IMIM,2026-08-03T13:12:22.000+0900,IMIM-6,878,Success
+https://jira.hmg-corp.io/projects/INFOHMIE/summary,INFOHMIE,2026-06-21T03:13:29.000+0900,INFOHMIE-75,90,Success
+https://jira.hmg-corp.io/projects/ITMS/summary,ITMS,2026-09-16T17:17:24.000+0900,ITMS-9760,8775,Success
+https://jira.hmg-corp.io/projects/SWGAT/summary,SWGAT,2023-04-27T12:47:09.000+0900,SWGAT-202,153,Success
+https://jira.hmg-corp.io/projects/SWGROUP/summary,SWGROUP,2020-04-27T16:11:03.000+0900,SWGROUP-2056,1527,Success
+https://jira.hmg-corp.io/projects/SWUPDATE/summary,SWUPDATE,2026-09-16T17:32:37.000+0900,SWUPDATE-34221,32096,Success
+https://jira.hmg-corp.io/projects/TA/summary,TA,,,0,No Issues
+https://jira.hmg-corp.io/projects/THYD/summary,THYD,2026-06-21T05:03:06.000+0900,THYD-3,98,Success
+https://jira.hmg-corp.io/projects/THYDMON/summary,THYDMON,2026-06-21T04:44:10.000+0900,THYDMON-1,21,Success
+https://jira.hmg-corp.io/projects/THYDRESULT/summary,THYDRESULT,2021-08-13T10:19:36.000+0900,THYDRESULT-18,17,Success
+https://jira.hmg-corp.io/projects/THYIASSETS/summary,THYIASSETS,2026-09-16T09:19:26.000+0900,THYIASSETS-486,372,Success
+https://jira.hmg-corp.io/projects/THYIBUDGET/summary,THYIBUDGET,2026-09-16T16:03:05.000+0900,THYIBUDGET-763,751,Success
+https://jira.hmg-corp.io/projects/UTMS/summary,UTMS,2026-02-04T10:59:23.000+0900,UTMS-27421,20197,Success
+https://jira.hmg-corp.io/projects/WSMSTHYD/summary,WSMSTHYD,2024-07-26T13:32:59.000+0900,WSMSTHYD-11711,2218,Success
+https://jira.hmg-corp.io/projects/CHCCNC/summary,CHCCNC,2026-09-16T17:39:42.000+0900,CHCCNC-5262,5200,Success
+https://jira.hmg-corp.io/projects/CHCLMOB/summary,CHCLMOB,2026-09-12T00:38:31.000+0900,CHCLMOB-277,282,Success
+https://jira.hmg-corp.io/projects/GENESISP/summary,GENESISP,2026-09-16T17:40:58.000+0900,GENESISP-15318,14827,Success
+https://jira.hmg-corp.io/projects/HMCP/summary,HMCP,2026-09-16T17:39:16.000+0900,HMCP-18230,17654,Success
+https://jira.hmg-corp.io/projects/ICPM/summary,ICPM,2025-04-22T13:58:43.000+0900,ICPM-974,530,Success
+https://jira.hmg-corp.io/projects/KMCP/summary,KMCP,2026-09-16T10:07:18.000+0900,KMCP-6088,5944,Success
+https://jira.hmg-corp.io/projects/MLIMS/summary,MLIMS,2026-06-21T02:15:22.000+0900,MLIMS-1,35,Success
+https://jira.hmg-corp.io/projects/THYDASSETS/summary,THYDASSETS,2026-09-16T09:34:20.000+0900,THYDASSETS-3665,1661,Success
+https://jira.hmg-corp.io/projects/THYDBUDGET/summary,THYDBUDGET,2026-09-16T16:36:46.000+0900,THYDBUDGET-4328,4139,Success
+https://jira.hmg-corp.io/projects/THYDEVALST/summary,THYDEVALST,2026-07-13T18:13:23.000+0900,THYDEVALST-10,8,Success
+https://jira.hmg-corp.io/projects/AHSSUMS/summary,AHSSUMS,2026-06-21T03:27:08.000+0900,AHSSUMS-4,97,Success
+https://jira.hmg-corp.io/projects/CARDATA/summary,CARDATA,2024-06-10T08:13:59.000+0900,CARDATA-143,58,Success
+https://jira.hmg-corp.io/projects/CDU5TRACK/summary,CDU5TRACK,2026-09-03T00:36:01.000+0900,CDU5TRACK-87,82,Success
+https://jira.hmg-corp.io/projects/CLUCONTI/summary,CLUCONTI,2026-08-11T09:12:17.000+0900,CLUCONTI-490,471,Success
+https://jira.hmg-corp.io/projects/CLUDNKR/summary,CLUDNKR,2026-09-14T15:14:08.000+0900,CLUDNKR-3168,2972,Success
+https://jira.hmg-corp.io/projects/CLUGRAPHIC/summary,CLUGRAPHIC,2021-02-04T10:59:22.000+0900,CLUGRAPHIC-4,4,Success
+https://jira.hmg-corp.io/projects/CLUHDISP/summary,CLUHDISP,2026-06-21T04:38:53.000+0900,CLUHDISP-20,224,Success
+https://jira.hmg-corp.io/projects/CLUTYW/summary,CLUTYW,2026-09-16T15:49:44.000+0900,CLUTYW-1769,1642,Success
+https://jira.hmg-corp.io/projects/CLUVEK/summary,CLUVEK,2026-06-21T04:40:44.000+0900,CLUVEK-47,480,Success
+https://jira.hmg-corp.io/projects/DTRACK/summary,DTRACK,2026-07-20T14:16:38.000+0900,DTRACK-767,593,Success
+https://jira.hmg-corp.io/projects/FCMS/summary,FCMS,2021-06-09T13:50:42.000+0900,FCMS-3507,1151,Success
+https://jira.hmg-corp.io/projects/THYE/summary,THYE,2026-06-21T04:55:13.000+0900,THYE-3,133,Success
+https://jira.hmg-corp.io/projects/AHRF/summary,AHRF,2026-06-19T23:58:39.000+0900,AHRF-18,22,Success
+https://jira.hmg-corp.io/projects/APPMRKT3P/summary,APPMRKT3P,2026-08-31T09:40:36.000+0900,APPMRKT3P-156,130,Success
+https://jira.hmg-corp.io/projects/AWSROUTE/summary,AWSROUTE,2026-06-21T04:35:02.000+0900,AWSROUTE-6,76,Success
+https://jira.hmg-corp.io/projects/BYOD/summary,BYOD,2026-09-16T15:30:34.000+0900,BYOD-582,639,Success
+https://jira.hmg-corp.io/projects/CCUTRACK/summary,CCUTRACK,2026-07-18T00:45:51.000+0900,CCUTRACK-24,47,Success
+https://jira.hmg-corp.io/projects/CHN1TRACK/summary,CHN1TRACK,2026-06-18T09:25:56.000+0900,CHN1TRACK-339,331,Success
+https://jira.hmg-corp.io/projects/CLUPMDEV/summary,CLUPMDEV,2026-06-20T23:43:16.000+0900,CLUPMDEV-14,1037,Success
+https://jira.hmg-corp.io/projects/CLUPMREL/summary,CLUPMREL,2026-08-22T04:00:18.000+0900,CLUPMREL-7841,9123,Success
+https://jira.hmg-corp.io/projects/CTC/summary,CTC,2026-09-16T15:15:49.000+0900,CTC-1457,1459,Success
+https://jira.hmg-corp.io/projects/ESTRACK/summary,ESTRACK,2026-09-16T02:12:23.000+0900,ESTRACK-11899,12776,Success
+https://jira.hmg-corp.io/projects/ESTRACK20/summary,ESTRACK20,2026-09-16T17:34:04.000+0900,ESTRACK20-6035,4967,Success
+https://jira.hmg-corp.io/projects/FTPERMIT/summary,FTPERMIT,2026-08-22T01:30:55.000+0900,FTPERMIT-1561,27,Success
+https://jira.hmg-corp.io/projects/GISTIS1COD/summary,GISTIS1COD,2026-06-20T13:34:09.000+0900,GISTIS1COD-2,20,Success
+https://jira.hmg-corp.io/projects/INFOFIND/summary,INFOFIND,,,0,No Issues
+https://jira.hmg-corp.io/projects/INFOFM/summary,INFOFM,,,0,No Issues
+https://jira.hmg-corp.io/projects/INFOGLOBAL/summary,INFOGLOBAL,2026-06-30T14:55:24.000+0900,INFOGLOBAL-40,62,Success
+https://jira.hmg-corp.io/projects/INFOPM/summary,INFOPM,2026-06-27T00:31:40.000+0900,INFOPM-237,1890,Success
+https://jira.hmg-corp.io/projects/INFOSEC/summary,INFOSEC,2026-06-19T16:33:21.000+0900,INFOSEC-4,47,Success
+https://jira.hmg-corp.io/projects/INFOUPDATE/summary,INFOUPDATE,2026-06-30T13:57:24.000+0900,INFOUPDATE-38,45,Success
+https://jira.hmg-corp.io/projects/IPCUDEV/summary,IPCUDEV,2026-07-19T16:54:39.000+0900,IPCUDEV-198,20,Success
+https://jira.hmg-corp.io/projects/NARM/summary,NARM,2026-09-14T15:18:46.000+0900,NARM-11,8,Success
+https://jira.hmg-corp.io/projects/RDP/summary,RDP,2026-06-21T04:38:34.000+0900,RDP-14,502,Success
+https://jira.hmg-corp.io/projects/ROAMING/summary,ROAMING,,,0,No Issues
+https://jira.hmg-corp.io/projects/ROUTEPLAN/summary,ROUTEPLAN,2026-06-21T04:42:58.000+0900,ROUTEPLAN-1,59,Success
+https://jira.hmg-corp.io/projects/SMTHTC/summary,SMTHTC,2026-09-12T00:14:47.000+0900,SMTHTC-6,31,Success
+https://jira.hmg-corp.io/projects/SYSISSUE/summary,SYSISSUE,2026-02-11T11:08:26.000+0900,SYSISSUE-18,20,Success
+https://jira.hmg-corp.io/projects/TEST/summary,TEST,2025-12-17T16:46:01.000+0900,TEST-912,21,Success
+https://jira.hmg-corp.io/projects/UPDATECARE/summary,UPDATECARE,2026-09-16T15:48:25.000+0900,UPDATECARE-232,349,Success
+https://jira.hmg-corp.io/projects/UPDATEPM/summary,UPDATEPM,2026-09-16T16:58:30.000+0900,UPDATEPM-793,797,Success
+https://jira.hmg-corp.io/projects/AHTE/summary,AHTE,2026-07-20T19:22:42.000+0900,AHTE-122,136,Success
+https://jira.hmg-corp.io/projects/AVNT/summary,AVNT,2026-08-21T18:31:49.000+0900,AVNT-18,55,Success
+https://jira.hmg-corp.io/projects/AVNTOTAJIR/summary,AVNTOTAJIR,2026-06-02T17:30:39.000+0900,AVNTOTAJIR-1,1,Success
+https://jira.hmg-corp.io/projects/BLTNCAM2/summary,BLTNCAM2,2026-06-21T00:03:39.000+0900,BLTNCAM2-14,326,Success
+https://jira.hmg-corp.io/projects/BROADCAST/summary,BROADCAST,2026-09-15T19:49:27.000+0900,BROADCAST-355,328,Success
+https://jira.hmg-corp.io/projects/C5TRACK/summary,C5TRACK,2026-06-05T15:45:35.000+0900,C5TRACK-8,99,Success
+https://jira.hmg-corp.io/projects/CARPLAY/summary,CARPLAY,2026-09-16T16:31:56.000+0900,CARPLAY-269,261,Success
+https://jira.hmg-corp.io/projects/CCIC27/summary,CCIC27,2026-09-02T16:57:48.000+0900,CCIC27-1254,1236,Success
+https://jira.hmg-corp.io/projects/CCIC27TRAC/summary,CCIC27TRAC,2026-09-14T10:12:12.000+0900,CCIC27TRAC-867,846,Success
+https://jira.hmg-corp.io/projects/CCICISSUE/summary,CCICISSUE,2026-04-28T01:54:33.000+0900,CCICISSUE-34,239,Success
+https://jira.hmg-corp.io/projects/CCICTRACK/summary,CCICTRACK,2026-09-14T10:44:15.000+0900,CCICTRACK-2678,2649,Success
+https://jira.hmg-corp.io/projects/CCNCBTRACK/summary,CCNCBTRACK,2026-09-10T16:25:14.000+0900,CCNCBTRACK-83,67,Success
+https://jira.hmg-corp.io/projects/CCNCISSUE/summary,CCNCISSUE,2026-09-16T17:38:16.000+0900,CCNCISSUE-9081,8597,Success
+https://jira.hmg-corp.io/projects/CCNCTRACK/summary,CCNCTRACK,2026-09-15T11:33:57.000+0900,CCNCTRACK-3524,3486,Success
+https://jira.hmg-corp.io/projects/CCNCUX/summary,CCNCUX,2026-09-10T00:00:08.000+0900,CCNCUX-1090,1043,Success
+https://jira.hmg-corp.io/projects/CCRC/summary,CCRC,2026-09-16T17:34:05.000+0900,CCRC-2597,2530,Success
+https://jira.hmg-corp.io/projects/CCRCTRACK/summary,CCRCTRACK,,,0,No Issues
+https://jira.hmg-corp.io/projects/CLU12TRACK/summary,CLU12TRACK,2026-09-01T09:33:27.000+0900,CLU12TRACK-1018,974,Success
+https://jira.hmg-corp.io/projects/CLU4TRACK/summary,CLU4TRACK,2025-07-17T20:38:40.000+0900,CLU4TRACK-230,260,Success
+https://jira.hmg-corp.io/projects/CLU8TRACK/summary,CLU8TRACK,2025-07-17T18:11:31.000+0900,CLU8TRACK-14,26,Success
+https://jira.hmg-corp.io/projects/CLUCCIC27/summary,CLUCCIC27,2026-09-15T14:21:03.000+0900,CLUCCIC27-374,347,Success
+https://jira.hmg-corp.io/projects/CLUFUSA/summary,CLUFUSA,,,0,No Issues
+https://jira.hmg-corp.io/projects/CLUPPS/summary,CLUPPS,2026-03-24T17:19:40.000+0900,CLUPPS-148,139,Success
+https://jira.hmg-corp.io/projects/CLUPPSW/summary,CLUPPSW,2026-06-01T17:24:33.000+0900,CLUPPSW-74,103,Success
+https://jira.hmg-corp.io/projects/CLUREVIEW/summary,CLUREVIEW,2026-01-19T11:21:41.000+0900,CLUREVIEW-83,69,Success
+https://jira.hmg-corp.io/projects/CLUSTRACK/summary,CLUSTRACK,2026-09-11T15:39:35.000+0900,CLUSTRACK-501,488,Success
+https://jira.hmg-corp.io/projects/CLUWTRACK/summary,CLUWTRACK,2026-09-11T15:39:34.000+0900,CLUWTRACK-93,85,Success
+https://jira.hmg-corp.io/projects/CONNISSUE/summary,CONNISSUE,,,0,No Issues
+https://jira.hmg-corp.io/projects/CONNLIGHT/summary,CONNLIGHT,2026-09-15T16:59:41.000+0900,CONNLIGHT-1451,1444,Success
+https://jira.hmg-corp.io/projects/CONNPROJ/summary,CONNPROJ,,,0,No Issues
+https://jira.hmg-corp.io/projects/CONNUPDATE/summary,CONNUPDATE,2026-09-13T00:00:10.000+0900,CONNUPDATE-9,7,Success
+https://jira.hmg-corp.io/projects/CQIM/summary,CQIM,2026-09-16T17:42:22.000+0900,CQIM-17315,17507,Success
+https://jira.hmg-corp.io/projects/CQIW/summary,CQIW,2026-09-16T17:41:30.000+0900,CQIW-8824,7809,Success
+https://jira.hmg-corp.io/projects/CSPROJ/summary,CSPROJ,2026-08-22T02:23:12.000+0900,CSPROJ-15,20,Success
+https://jira.hmg-corp.io/projects/CSTRACK/summary,CSTRACK,2026-09-16T16:56:47.000+0900,CSTRACK-1918,1848,Success
+https://jira.hmg-corp.io/projects/CWI/summary,CWI,2025-06-04T22:42:19.000+0900,CWI-1,1,Success
+https://jira.hmg-corp.io/projects/CWTRACK/summary,CWTRACK,2026-09-16T17:35:51.000+0900,CWTRACK-1726,1862,Success
+https://jira.hmg-corp.io/projects/D2VTRACK/summary,D2VTRACK,2026-03-19T20:19:32.000+0900,D2VTRACK-42,222,Success
+https://jira.hmg-corp.io/projects/DCUPROJ/summary,DCUPROJ,2026-06-21T05:07:21.000+0900,DCUPROJ-43,145,Success
+https://jira.hmg-corp.io/projects/DISPTHEME/summary,DISPTHEME,2026-06-16T09:00:23.000+0900,DISPTHEME-24,9,Success
+https://jira.hmg-corp.io/projects/EXNCP/summary,EXNCP,2026-09-16T17:41:31.000+0900,EXNCP-51070,40077,Success
+https://jira.hmg-corp.io/projects/HMGINFONET/summary,HMGINFONET,,,0,No Issues
+https://jira.hmg-corp.io/projects/HTC22MAP2/summary,HTC22MAP2,2026-08-23T00:05:06.000+0900,HTC22MAP2-276,459,Success
+https://jira.hmg-corp.io/projects/HTC23MAP1/summary,HTC23MAP1,2026-08-15T00:22:08.000+0900,HTC23MAP1-386,1073,Success
+https://jira.hmg-corp.io/projects/HTCG/summary,HTCG,2026-09-16T09:32:38.000+0900,HTCG-2363,2173,Success
+https://jira.hmg-corp.io/projects/HTCWTC/summary,HTCWTC,2026-07-09T23:00:59.000+0900,HTCWTC-10017,8107,Success
+https://jira.hmg-corp.io/projects/INFOTODO/summary,INFOTODO,2026-06-21T05:06:23.000+0900,INFOTODO-4,7454,Success
+https://jira.hmg-corp.io/projects/ISDG/summary,ISDG,2026-05-26T11:28:05.000+0900,ISDG-2,1,Success
+https://jira.hmg-corp.io/projects/OTAOPS/summary,OTAOPS,2026-06-19T22:41:24.000+0900,OTAOPS-2,17,Success
+https://jira.hmg-corp.io/projects/P2TRACK/summary,P2TRACK,2026-07-18T00:27:54.000+0900,P2TRACK-99,98,Success
+https://jira.hmg-corp.io/projects/P5TRACK/summary,P5TRACK,2026-08-12T16:22:30.000+0900,P5TRACK-1029,1019,Success
+https://jira.hmg-corp.io/projects/P6TRACK/summary,P6TRACK,2026-09-14T16:48:46.000+0900,P6TRACK-1910,1889,Success
+https://jira.hmg-corp.io/projects/PBVISSUE/summary,PBVISSUE,2026-08-31T11:44:12.000+0900,PBVISSUE-410,217,Success
+https://jira.hmg-corp.io/projects/PBVIVIPROJ/summary,PBVIVIPROJ,2026-09-15T14:06:12.000+0900,PBVIVIPROJ-557,544,Success
+https://jira.hmg-corp.io/projects/PBVTRACK/summary,PBVTRACK,2026-09-15T11:24:11.000+0900,PBVTRACK-615,596,Success
+https://jira.hmg-corp.io/projects/S4TRACK/summary,S4TRACK,2026-07-18T00:27:56.000+0900,S4TRACK-98,95,Success
+https://jira.hmg-corp.io/projects/S5LTRACK/summary,S5LTRACK,2026-09-01T13:23:22.000+0900,S5LTRACK-620,620,Success
+https://jira.hmg-corp.io/projects/S5MTRACK/summary,S5MTRACK,2026-09-10T15:52:57.000+0900,S5MTRACK-679,665,Success
+https://jira.hmg-corp.io/projects/S5WLTRACK/summary,S5WLTRACK,2026-09-14T11:21:10.000+0900,S5WLTRACK-1531,1502,Success
+https://jira.hmg-corp.io/projects/S5WMTRACK/summary,S5WMTRACK,2026-09-07T16:09:08.000+0900,S5WMTRACK-1905,1884,Success
+https://jira.hmg-corp.io/projects/SISSUE/summary,SISSUE,2026-09-13T00:00:27.000+0900,SISSUE-290,845,Success
+https://jira.hmg-corp.io/projects/UPDATETASK/summary,UPDATETASK,2026-06-19T17:44:38.000+0900,UPDATETASK-36,55,Success
+https://jira.hmg-corp.io/projects/WOSAG/summary,WOSAG,2026-06-20T06:18:53.000+0900,WOSAG-2,53,Success
+https://jira.hmg-corp.io/projects/WOSMS/summary,WOSMS,2024-07-10T13:44:06.000+0900,WOSMS-1,1,Success
+https://jira.hmg-corp.io/projects/CCSPHTC/summary,CCSPHTC,2026-07-07T18:08:12.000+0900,CCSPHTC-9,1513,Success
+https://jira.hmg-corp.io/projects/CCSPLMS/summary,CCSPLMS,,,0,No Issues
+https://jira.hmg-corp.io/projects/CCSPMSA/summary,CCSPMSA,,,0,No Issues
+https://jira.hmg-corp.io/projects/CCSPOP/summary,CCSPOP,2026-07-07T18:07:57.000+0900,CCSPOP-1676,1580,Success
+https://jira.hmg-corp.io/projects/OTADM/summary,OTADM,2026-07-07T15:19:29.000+0900,OTADM-33,39,Success
+https://jira.hmg-corp.io/projects/OTAOP/summary,OTAOP,2026-07-07T15:19:28.000+0900,OTAOP-22,65,Success
+https://jira.hmg-corp.io/projects/OTAWEB/summary,OTAWEB,2026-06-21T02:18:04.000+0900,OTAWEB-69,356,Success
+https://jira.hmg-corp.io/projects/YOTA/summary,YOTA,2026-07-07T15:14:08.000+0900,YOTA-18,117,Success
+https://jira.hmg-corp.io/projects/ADCDSPACE/summary,ADCDSPACE,2026-09-01T00:08:30.000+0900,ADCDSPACE-29,54,Success
+https://jira.hmg-corp.io/projects/ADLOGTEST/summary,ADLOGTEST,2026-08-24T17:54:13.000+0900,ADLOGTEST-38,58,Success
+https://jira.hmg-corp.io/projects/ADSILSTEMP/summary,ADSILSTEMP,2023-09-20T05:54:22.000+0900,ADSILSTEMP-7,11,Success
+https://jira.hmg-corp.io/projects/ADVER1AI/summary,ADVER1AI,2026-08-22T03:34:14.000+0900,ADVER1AI-261,386,Success
+https://jira.hmg-corp.io/projects/ADVER1IPG/summary,ADVER1IPG,2026-06-20T08:02:30.000+0900,ADVER1IPG-3,12,Success
+https://jira.hmg-corp.io/projects/ADVERHKL/summary,ADVERHKL,2026-06-20T01:35:08.000+0900,ADVERHKL-3,121,Success
+https://jira.hmg-corp.io/projects/ADVERMBS/summary,ADVERMBS,2026-08-31T10:43:03.000+0900,ADVERMBS-111,110,Success
+https://jira.hmg-corp.io/projects/ACAIM/summary,ACAIM,2026-06-20T04:24:34.000+0900,ACAIM-11,25,Success
+https://jira.hmg-corp.io/projects/ACBRC/summary,ACBRC,2026-06-20T04:24:32.000+0900,ACBRC-12,27,Success
+https://jira.hmg-corp.io/projects/ACCRW/summary,ACCRW,2026-06-20T08:02:38.000+0900,ACCRW-3,23,Success
+https://jira.hmg-corp.io/projects/ACDAM/summary,ACDAM,2026-06-20T03:05:30.000+0900,ACDAM-15,19,Success
+https://jira.hmg-corp.io/projects/ACSEL/summary,ACSEL,2026-06-20T08:10:54.000+0900,ACSEL-3,39,Success
+https://jira.hmg-corp.io/projects/ACTEW/summary,ACTEW,2026-06-20T08:02:40.000+0900,ACTEW-1,53,Success
+https://jira.hmg-corp.io/projects/ADCDCL/summary,ADCDCL,2026-08-29T00:41:39.000+0900,ADCDCL-4,32,Success
+https://jira.hmg-corp.io/projects/ADDC/summary,ADDC,,,0,No Issues
+https://jira.hmg-corp.io/projects/ADTDM/summary,ADTDM,2026-04-28T18:59:40.000+0900,ADTDM-81,120,Success
+https://jira.hmg-corp.io/projects/MOBILCAL/summary,MOBILCAL,2026-01-29T18:04:56.000+0900,MOBILCAL-12,13,Success
+https://jira.hmg-corp.io/projects/RRCKM/summary,RRCKM,2026-06-20T22:46:18.000+0900,RRCKM-30,61,Success
+https://jira.hmg-corp.io/projects/ADCL/summary,ADCL,2026-07-29T07:41:13.000+0900,ADCL-133,161,Success
+https://jira.hmg-corp.io/projects/ADADE3/summary,ADADE3,2026-06-21T04:21:49.000+0900,ADADE3-80,114,Success
+https://jira.hmg-corp.io/projects/ADCHHV/summary,ADCHHV,2025-09-26T09:58:03.000+0900,ADCHHV-2,2,Success
+https://jira.hmg-corp.io/projects/ADCHMV/summary,ADCHMV,2025-02-25T08:43:28.000+0900,ADCHMV-1,1,Success
+https://jira.hmg-corp.io/projects/ADTMP1/summary,ADTMP1,2026-06-20T14:30:46.000+0900,ADTMP1-13,282,Success
+https://jira.hmg-corp.io/projects/ADAI4PDEA/summary,ADAI4PDEA,2026-09-16T17:09:48.000+0900,ADAI4PDEA-13,23,Success
+https://jira.hmg-corp.io/projects/ADCADASDRV/summary,ADCADASDRV,2026-09-14T12:52:58.000+0900,ADCADASDRV-35,31,Success
+https://jira.hmg-corp.io/projects/ADCARSPECM/summary,ADCARSPECM,2026-09-16T16:15:01.000+0900,ADCARSPECM-1792,926,Success
+https://jira.hmg-corp.io/projects/ADCBC/summary,ADCBC,2026-09-16T11:57:48.000+0900,ADCBC-17,84,Success
+https://jira.hmg-corp.io/projects/ADCBCVM/summary,ADCBCVM,2026-06-20T15:04:47.000+0900,ADCBCVM-4,24,Success
+https://jira.hmg-corp.io/projects/ADCCORNERR/summary,ADCCORNERR,2026-09-14T18:13:45.000+0900,ADCCORNERR-28,34,Success
+https://jira.hmg-corp.io/projects/ADCDAW/summary,ADCDAW,2026-09-04T17:01:48.000+0900,ADCDAW-47,42,Success
+https://jira.hmg-corp.io/projects/ADCDAWCP/summary,ADCDAWCP,2026-06-20T22:56:08.000+0900,ADCDAWCP-2,40,Success
+https://jira.hmg-corp.io/projects/ADCES/summary,ADCES,2026-09-16T11:25:02.000+0900,ADCES-76,63,Success
+https://jira.hmg-corp.io/projects/ADCFCA/summary,ADCFCA,2026-09-16T11:06:34.000+0900,ADCFCA-125,130,Success
+https://jira.hmg-corp.io/projects/ADCFCACP/summary,ADCFCACP,2026-08-03T10:56:45.000+0900,ADCFCACP-35,27,Success
+https://jira.hmg-corp.io/projects/ADCFCAL/summary,ADCFCAL,2026-09-16T14:46:41.000+0900,ADCFCAL-57,54,Success
+https://jira.hmg-corp.io/projects/ADCFRCMROD/summary,ADCFRCMROD,2026-07-18T00:31:19.000+0900,ADCFRCMROD-18,42,Success
+https://jira.hmg-corp.io/projects/ADCFS/summary,ADCFS,2026-09-15T17:59:28.000+0900,ADCFS-322,383,Success
+https://jira.hmg-corp.io/projects/ADCHBA/summary,ADCHBA,2026-08-20T17:05:51.000+0900,ADCHBA-24,89,Success
+https://jira.hmg-corp.io/projects/ADCHBACP/summary,ADCHBACP,,,0,No Issues
+https://jira.hmg-corp.io/projects/ADCHDA/summary,ADCHDA,2026-09-16T16:19:15.000+0900,ADCHDA-194,156,Success
+https://jira.hmg-corp.io/projects/ADCHDA4/summary,ADCHDA4,2026-09-16T17:41:36.000+0900,ADCHDA4-1546,1490,Success
+https://jira.hmg-corp.io/projects/ADCHDA4M/summary,ADCHDA4M,2026-09-15T09:25:32.000+0900,ADCHDA4M-27,43,Success
+https://jira.hmg-corp.io/projects/ADCHDACP/summary,ADCHDACP,2026-08-21T19:01:00.000+0900,ADCHDACP-183,172,Success
+https://jira.hmg-corp.io/projects/ADCHME/summary,ADCHME,2026-06-21T03:41:44.000+0900,ADCHME-1,106,Success
+https://jira.hmg-corp.io/projects/ADCISLA/summary,ADCISLA,2026-09-16T16:56:51.000+0900,ADCISLA-34,42,Success
+https://jira.hmg-corp.io/projects/ADCIT/summary,ADCIT,2026-09-04T16:06:51.000+0900,ADCIT-396,380,Success
+https://jira.hmg-corp.io/projects/ADCIVC/summary,ADCIVC,2026-09-16T08:08:30.000+0900,ADCIVC-260,246,Success
+https://jira.hmg-corp.io/projects/ADCLFA/summary,ADCLFA,2026-09-14T17:08:13.000+0900,ADCLFA-103,54,Success
+https://jira.hmg-corp.io/projects/ADCLKA/summary,ADCLKA,2026-09-15T13:10:45.000+0900,ADCLKA-104,107,Success
+https://jira.hmg-corp.io/projects/ADCLKACP/summary,ADCLKACP,2022-12-08T18:05:44.000+0900,ADCLKACP-5,4,Success
+https://jira.hmg-corp.io/projects/ADCMV/summary,ADCMV,2026-06-20T16:40:32.000+0900,ADCMV-2,205,Success
+https://jira.hmg-corp.io/projects/ADCNSCC/summary,ADCNSCC,2026-09-15T16:38:12.000+0900,ADCNSCC-82,60,Success
+https://jira.hmg-corp.io/projects/ADCNSCCCP/summary,ADCNSCCCP,2026-06-19T20:54:05.000+0900,ADCNSCCCP-11,32,Success
+https://jira.hmg-corp.io/projects/ADCRCR/summary,ADCRCR,2026-08-28T08:58:57.000+0900,ADCRCR-86,83,Success
+https://jira.hmg-corp.io/projects/ADCSCC/summary,ADCSCC,2026-09-15T10:14:39.000+0900,ADCSCC-170,140,Success
+https://jira.hmg-corp.io/projects/ADCTFL/summary,ADCTFL,2026-09-07T11:14:16.000+0900,ADCTFL-4,30,Success
+https://jira.hmg-corp.io/projects/ADCTRL/summary,ADCTRL,2026-07-14T14:13:58.000+0900,ADCTRL-11,9,Success
+https://jira.hmg-corp.io/projects/ADCUX/summary,ADCUX,2026-05-13T19:20:10.000+0900,ADCUX-45,44,Success
+https://jira.hmg-corp.io/projects/ADDN8APTIV/summary,ADDN8APTIV,2026-09-11T10:09:54.000+0900,ADDN8APTIV-47,44,Success
+https://jira.hmg-corp.io/projects/ADSCCCP/summary,ADSCCCP,2026-06-20T05:00:16.000+0900,ADSCCCP-3,12,Success
+https://jira.hmg-corp.io/projects/ADTJ/summary,ADTJ,2026-03-16T13:21:36.000+0900,ADTJ-12,12,Success
+https://jira.hmg-corp.io/projects/AGF2RGJXJK/summary,AGF2RGJXJK,2026-08-03T16:57:01.000+0900,AGF2RGJXJK-99,69,Success
+https://jira.hmg-corp.io/projects/FBEG/summary,FBEG,2026-06-20T15:17:33.000+0900,FBEG-1,14,Success
+https://jira.hmg-corp.io/projects/NE1AWADAS/summary,NE1AWADAS,2026-09-16T16:55:14.000+0900,NE1AWADAS-115,108,Success
+https://jira.hmg-corp.io/projects/SP3ADAS/summary,SP3ADAS,2026-06-19T20:16:12.000+0900,SP3ADAS-4,8,Success
+https://jira.hmg-corp.io/projects/ADCINFO/summary,ADCINFO,2026-09-08T14:30:34.000+0900,ADCINFO-1,21,Success
+https://jira.hmg-corp.io/projects/ADEPRK/summary,ADEPRK,2026-09-16T14:55:32.000+0900,ADEPRK-1125,1975,Success
+https://jira.hmg-corp.io/projects/ADEPRKHKL/summary,ADEPRKHKL,2026-09-16T17:43:08.000+0900,ADEPRKHKL-789,762,Success
+https://jira.hmg-corp.io/projects/ADLG/summary,ADLG,2026-09-16T16:13:07.000+0900,ADLG-79,83,Success
+https://jira.hmg-corp.io/projects/ADPRKDG/summary,ADPRKDG,2026-09-16T08:21:17.000+0900,ADPRKDG-482,481,Success
+https://jira.hmg-corp.io/projects/APDCR/summary,APDCR,2026-09-16T10:30:55.000+0900,APDCR-112,522,Success
+https://jira.hmg-corp.io/projects/APRHMG/summary,APRHMG,2026-03-31T20:31:56.000+0900,APRHMG-15,14,Success
+https://jira.hmg-corp.io/projects/APUXCR/summary,APUXCR,2026-02-04T13:08:11.000+0900,APUXCR-4,4,Success
+https://jira.hmg-corp.io/projects/BDCPDWMB/summary,BDCPDWMB,2026-08-26T18:14:39.000+0900,BDCPDWMB-5,5,Success
+https://jira.hmg-corp.io/projects/PDWUISPSW/summary,PDWUISPSW,2026-09-16T17:41:45.000+0900,PDWUISPSW-872,858,Success
+https://jira.hmg-corp.io/projects/RSPASPEC/summary,RSPASPEC,2026-06-19T15:14:59.000+0900,RSPASPEC-8,63,Success
+https://jira.hmg-corp.io/projects/UISP/summary,UISP,,,0,No Issues
+https://jira.hmg-corp.io/projects/WDCMRMB/summary,WDCMRMB,2026-01-29T18:30:14.000+0900,WDCMRMB-1,1,Success
+https://jira.hmg-corp.io/projects/WDCMRMC/summary,WDCMRMC,2026-01-29T18:30:14.000+0900,WDCMRMC-1,1,Success
+https://jira.hmg-corp.io/projects/WDCMRSE/summary,WDCMRSE,2026-01-29T18:30:09.000+0900,WDCMRSE-1,1,Success
+https://jira.hmg-corp.io/projects/AACHDS/summary,AACHDS,2026-06-20T18:00:19.000+0900,AACHDS-4,127,Success
+https://jira.hmg-corp.io/projects/ADCHPD/summary,ADCHPD,2026-09-16T10:16:57.000+0900,ADCHPD-17,148,Success
+https://jira.hmg-corp.io/projects/ADESWP/summary,ADESWP,2026-06-24T10:14:32.000+0900,ADESWP-80,638,Success
+https://jira.hmg-corp.io/projects/ADPRKC/summary,ADPRKC,2023-07-20T01:30:42.000+0900,ADPRKC-58,65,Success
+https://jira.hmg-corp.io/projects/ADRFSWP/summary,ADRFSWP,2025-02-11T10:03:54.000+0900,ADRFSWP-3,3,Success
+https://jira.hmg-corp.io/projects/ADRMFCP/summary,ADRMFCP,2026-06-20T16:42:14.000+0900,ADRMFCP-4,104,Success
+https://jira.hmg-corp.io/projects/TED/summary,TED,,,0,No Issues
+https://jira.hmg-corp.io/projects/TEI/summary,TEI,2022-07-21T07:38:40.000+0900,TEI-2,2,Success
+https://jira.hmg-corp.io/projects/AD1HDA4/summary,AD1HDA4,2026-09-16T09:27:03.000+0900,AD1HDA4-100,91,Success
+https://jira.hmg-corp.io/projects/ADCRPD/summary,ADCRPD,2026-09-01T00:10:36.000+0900,ADCRPD-81,185,Success
+https://jira.hmg-corp.io/projects/ADPARTTEST/summary,ADPARTTEST,2026-09-12T00:31:30.000+0900,ADPARTTEST-87,357,Success
+https://jira.hmg-corp.io/projects/ADTM/summary,ADTM,2026-05-22T13:39:14.000+0900,ADTM-18,15,Success
+https://jira.hmg-corp.io/projects/APTM/summary,APTM,2026-02-06T13:06:55.000+0900,APTM-4,2,Success
+https://jira.hmg-corp.io/projects/CONNECTSVM/summary,CONNECTSVM,,,0,No Issues
+https://jira.hmg-corp.io/projects/ISP4LG/summary,ISP4LG,2026-05-22T14:14:52.000+0900,ISP4LG-2,2,Success
+https://jira.hmg-corp.io/projects/ISP4MOBIS/summary,ISP4MOBIS,2026-09-03T10:12:59.000+0900,ISP4MOBIS-2,2,Success
+https://jira.hmg-corp.io/projects/PRKCDM/summary,PRKCDM,,,0,No Issues
+https://jira.hmg-corp.io/projects/SVMHKL/summary,SVMHKL,2026-05-11T10:23:53.000+0900,SVMHKL-1,1,Success
+https://jira.hmg-corp.io/projects/SVMVALEO/summary,SVMVALEO,2026-05-11T10:27:20.000+0900,SVMVALEO-1,1,Success
+https://jira.hmg-corp.io/projects/ACCHC/summary,ACCHC,2026-06-20T21:24:18.000+0900,ACCHC-2,37,Success
+https://jira.hmg-corp.io/projects/ADUTLDRLB/summary,ADUTLDRLB,2026-09-15T13:21:47.000+0900,ADUTLDRLB-76,75,Success
+https://jira.hmg-corp.io/projects/ADUTLDRMT/summary,ADUTLDRMT,2026-09-07T14:15:42.000+0900,ADUTLDRMT-74,72,Success
+https://jira.hmg-corp.io/projects/UTTFT/summary,UTTFT,,,0,No Issues
+https://jira.hmg-corp.io/projects/ADCVDEV/summary,ADCVDEV,2026-06-21T03:40:51.000+0900,ADCVDEV-6,179,Success
+https://jira.hmg-corp.io/projects/ADEFTX/summary,ADEFTX,2026-09-16T11:50:05.000+0900,ADEFTX-76,68,Success
+https://jira.hmg-corp.io/projects/ADESIMAI/summary,ADESIMAI,2026-08-29T00:34:09.000+0900,ADESIMAI-74,73,Success
+https://jira.hmg-corp.io/projects/ADHDPA4/summary,ADHDPA4,2026-06-20T04:57:55.000+0900,ADHDPA4-1,101,Success
+https://jira.hmg-corp.io/projects/ENCV/summary,ENCV,2024-01-30T02:21:55.000+0900,ENCV-9,11,Success
+https://jira.hmg-corp.io/projects/AGF2MX5/summary,AGF2MX5,2026-09-15T09:14:08.000+0900,AGF2MX5-141,136,Success
+https://jira.hmg-corp.io/projects/ADCMIDCCV/summary,ADCMIDCCV,2026-06-20T23:55:07.000+0900,ADCMIDCCV-3,86,Success
+https://jira.hmg-corp.io/projects/LV2UA/summary,LV2UA,,,0,No Issues
+https://jira.hmg-corp.io/projects/ADSTDAI/summary,ADSTDAI,2026-09-15T00:18:10.000+0900,ADSTDAI-132,352,Success
+https://jira.hmg-corp.io/projects/CROWDMAP1/summary,CROWDMAP1,2026-06-19T21:51:33.000+0900,CROWDMAP1-25,24,Success
+https://jira.hmg-corp.io/projects/SFST/summary,SFST,2025-04-07T11:14:42.000+0900,SFST-1,1,Success
+https://jira.hmg-corp.io/projects/EXCOS/summary,EXCOS,2026-06-20T05:38:18.000+0900,EXCOS-16,318,Success
+https://jira.hmg-corp.io/projects/HPWM01/summary,HPWM01,2023-04-11T04:50:40.000+0900,HPWM01-87,37,Success
+https://jira.hmg-corp.io/projects/HCUSYNTST/summary,HCUSYNTST,2023-08-18T07:11:02.000+0900,HCUSYNTST-3,6,Success
+https://jira.hmg-corp.io/projects/VGUI/summary,VGUI,2026-06-20T14:54:58.000+0900,VGUI-3,213,Success
+https://jira.hmg-corp.io/projects/VTD/summary,VTD,2023-06-02T07:44:28.000+0900,VTD-1,1,Success
+https://jira.hmg-corp.io/projects/TNKCSW9/summary,TNKCSW9,2025-12-10T13:28:26.000+0900,TNKCSW9-35,26,Success
+https://jira.hmg-corp.io/projects/AA/summary,AA,2026-06-20T07:08:13.000+0900,AA-251,580,Success
+https://jira.hmg-corp.io/projects/AAQT/summary,AAQT,2026-06-21T05:12:00.000+0900,AAQT-11,59,Success
+https://jira.hmg-corp.io/projects/CAPDEV/summary,CAPDEV,2026-09-14T17:13:47.000+0900,CAPDEV-218,197,Success
+https://jira.hmg-corp.io/projects/CCS1T/summary,CCS1T,2026-09-16T14:14:04.000+0900,CCS1T-1100,956,Success
+https://jira.hmg-corp.io/projects/CCU1/summary,CCU1,,,0,No Issues
+https://jira.hmg-corp.io/projects/CCU1H/summary,CCU1H,2026-06-21T05:12:36.000+0900,CCU1H-3,77,Success
+https://jira.hmg-corp.io/projects/CCU1HMC/summary,CCU1HMC,,,0,No Issues
+https://jira.hmg-corp.io/projects/CCU1HWBS/summary,CCU1HWBS,,,0,No Issues
+https://jira.hmg-corp.io/projects/CCU1M/summary,CCU1M,2026-06-21T05:11:18.000+0900,CCU1M-62,306,Success
+https://jira.hmg-corp.io/projects/CCU1S/summary,CCU1S,2026-09-16T13:36:37.000+0900,CCU1S-2922,2745,Success
+https://jira.hmg-corp.io/projects/CCU2SEC/summary,CCU2SEC,2026-06-20T00:26:43.000+0900,CCU2SEC-2,68,Success
+https://jira.hmg-corp.io/projects/CCU2STEST/summary,CCU2STEST,2024-10-10T14:01:02.000+0900,CCU2STEST-19,4,Success
+https://jira.hmg-corp.io/projects/CCU2W/summary,CCU2W,2026-09-16T17:21:22.000+0900,CCU2W-705,697,Success
+https://jira.hmg-corp.io/projects/CCUDEV/summary,CCUDEV,2026-09-15T17:04:45.000+0900,CCUDEV-148,142,Success
+https://jira.hmg-corp.io/projects/CCUSPECMGR/summary,CCUSPECMGR,2026-09-16T14:11:26.000+0900,CCUSPECMGR-491,472,Success
+https://jira.hmg-corp.io/projects/CP/summary,CP,2026-07-30T11:08:06.000+0900,CP-110,161,Success
+https://jira.hmg-corp.io/projects/CPDEV/summary,CPDEV,,,0,No Issues
+https://jira.hmg-corp.io/projects/CPHAE/summary,CPHAE,2026-09-15T11:28:49.000+0900,CPHAE-416,377,Success
+https://jira.hmg-corp.io/projects/CPQTP1/summary,CPQTP1,2026-06-21T05:12:58.000+0900,CPQTP1-8,14,Success
+https://jira.hmg-corp.io/projects/CPRT/summary,CPRT,,,0,No Issues
+https://jira.hmg-corp.io/projects/DASHTEST/summary,DASHTEST,2026-08-19T16:05:08.000+0900,DASHTEST-80,97,Success
+https://jira.hmg-corp.io/projects/DBSWP/summary,DBSWP,2026-09-11T09:59:34.000+0900,DBSWP-538,1,Success
+https://jira.hmg-corp.io/projects/DLESSP/summary,DLESSP,2026-09-07T12:46:13.000+0900,DLESSP-9,167,Success
+https://jira.hmg-corp.io/projects/EGWW/summary,EGWW,2026-09-10T11:47:28.000+0900,EGWW-57,58,Success
+https://jira.hmg-corp.io/projects/HZP/summary,HZP,,,0,No Issues
+https://jira.hmg-corp.io/projects/MLBMEXT/summary,MLBMEXT,2026-09-09T13:16:33.000+0900,MLBMEXT-320,123,Success
+https://jira.hmg-corp.io/projects/NCSP/summary,NCSP,2026-08-22T03:37:38.000+0900,NCSP-42,40,Success
+https://jira.hmg-corp.io/projects/NSD1T/summary,NSD1T,2026-09-03T15:13:55.000+0900,NSD1T-157,147,Success
+https://jira.hmg-corp.io/projects/OTA1/summary,OTA1,2026-06-21T05:12:16.000+0900,OTA1-3,152,Success
+https://jira.hmg-corp.io/projects/OTA1LOG/summary,OTA1LOG,2026-06-20T09:50:28.000+0900,OTA1LOG-1,225,Success
+https://jira.hmg-corp.io/projects/OTA2/summary,OTA2,2026-06-21T05:11:46.000+0900,OTA2-1,5,Success
+https://jira.hmg-corp.io/projects/OTA2LOG/summary,OTA2LOG,,,0,No Issues
+https://jira.hmg-corp.io/projects/OTAGEN1/summary,OTAGEN1,2026-09-16T17:39:48.000+0900,OTAGEN1-3547,3232,Success
+https://jira.hmg-corp.io/projects/OTAGEN2/summary,OTAGEN2,2026-09-16T17:15:49.000+0900,OTAGEN2-3785,3490,Success
+https://jira.hmg-corp.io/projects/OTAGEN2M/summary,OTAGEN2M,2026-01-06T17:46:03.000+0900,OTAGEN2M-518,517,Success
+https://jira.hmg-corp.io/projects/OTAGEN3/summary,OTAGEN3,,,0,No Issues
+https://jira.hmg-corp.io/projects/PU/summary,PU,2026-09-16T08:46:40.000+0900,PU-440,366,Success
+https://jira.hmg-corp.io/projects/QTAA/summary,QTAA,2026-06-24T09:49:29.000+0900,QTAA-575,548,Success
+https://jira.hmg-corp.io/projects/QTRTU/summary,QTRTU,2026-08-22T03:46:15.000+0900,QTRTU-9,34,Success
+https://jira.hmg-corp.io/projects/SDP/summary,SDP,2026-06-21T05:00:12.000+0900,SDP-30,35,Success
+https://jira.hmg-corp.io/projects/SOA/summary,SOA,2026-09-07T16:43:21.000+0900,SOA-1227,1326,Success
+https://jira.hmg-corp.io/projects/TPMS/summary,TPMS,2026-06-21T02:06:06.000+0900,TPMS-3,11,Success
+https://jira.hmg-corp.io/projects/UMTCCU/summary,UMTCCU,2026-06-25T20:33:19.000+0900,UMTCCU-120,120,Success
+https://jira.hmg-corp.io/projects/VAPI/summary,VAPI,2026-09-07T12:44:23.000+0900,VAPI-13,422,Success
+https://jira.hmg-corp.io/projects/VCIS/summary,VCIS,,,0,No Issues
+https://jira.hmg-corp.io/projects/VCRM/summary,VCRM,2026-09-16T13:03:48.000+0900,VCRM-86,75,Success
+https://jira.hmg-corp.io/projects/VDMS/summary,VDMS,2024-10-02T22:05:48.000+0900,VDMS-27,1,Success
+https://jira.hmg-corp.io/projects/VDMSDEV/summary,VDMSDEV,2026-06-21T04:37:12.000+0900,VDMSDEV-9,38,Success
+https://jira.hmg-corp.io/projects/VFAS/summary,VFAS,2026-06-21T05:12:42.000+0900,VFAS-2,61,Success
+https://jira.hmg-corp.io/projects/VISSCI/summary,VISSCI,2026-09-07T12:46:05.000+0900,VISSCI-34,106,Success
+https://jira.hmg-corp.io/projects/VMS/summary,VMS,2026-09-15T00:14:10.000+0900,VMS-9,118,Success
+https://jira.hmg-corp.io/projects/VUM/summary,VUM,2024-05-30T15:29:36.000+0900,VUM-4,5,Success
+https://jira.hmg-corp.io/projects/ZENOHENV/summary,ZENOHENV,,,0,No Issues
+https://jira.hmg-corp.io/projects/BCUITM/summary,BCUITM,2025-05-22T11:27:38.000+0900,BCUITM-1,1,Success
+https://jira.hmg-corp.io/projects/CCSTEST/summary,CCSTEST,2025-09-01T14:54:03.000+0900,CCSTEST-1,17,Success
+https://jira.hmg-corp.io/projects/CCU2IT/summary,CCU2IT,2026-09-16T09:42:06.000+0900,CCU2IT-738,709,Success
+https://jira.hmg-corp.io/projects/CCU2ITM/summary,CCU2ITM,2026-09-16T17:24:12.000+0900,CCU2ITM-60,68,Success
+https://jira.hmg-corp.io/projects/CCUIM/summary,CCUIM,2026-09-07T18:27:55.000+0900,CCUIM-1342,1260,Success
+https://jira.hmg-corp.io/projects/CCUSWV/summary,CCUSWV,2024-03-04T05:05:13.000+0900,CCUSWV-1583,1634,Success
+https://jira.hmg-corp.io/projects/ELENET/summary,ELENET,2026-06-17T11:26:11.000+0900,ELENET-4,981,Success
+https://jira.hmg-corp.io/projects/LOGTOOL/summary,LOGTOOL,2026-09-15T14:19:26.000+0900,LOGTOOL-793,793,Success
+https://jira.hmg-corp.io/projects/NETWORK/summary,NETWORK,2026-06-21T03:09:05.000+0900,NETWORK-3,105,Success
+https://jira.hmg-corp.io/projects/OTAIT/summary,OTAIT,2026-08-28T09:48:05.000+0900,OTAIT-44,42,Success
+https://jira.hmg-corp.io/projects/OTAMANAGE/summary,OTAMANAGE,2026-09-16T16:48:44.000+0900,OTAMANAGE-866,862,Success
+https://jira.hmg-corp.io/projects/ELSWDEV/summary,ELSWDEV,2026-06-26T08:48:13.000+0900,ELSWDEV-3,3,Success
+https://jira.hmg-corp.io/projects/FMSLOA/summary,FMSLOA,2026-06-20T20:52:20.000+0900,FMSLOA-15,24,Success
+https://jira.hmg-corp.io/projects/KSWR/summary,KSWR,2026-08-14T10:21:21.000+0900,KSWR-2,4,Success
+https://jira.hmg-corp.io/projects/THWHJW/summary,THWHJW,,,0,No Issues
+https://jira.hmg-corp.io/projects/ZSCR/summary,ZSCR,2026-09-16T16:51:29.000+0900,ZSCR-13,13,Success
+https://jira.hmg-corp.io/projects/EEGROUP/summary,EEGROUP,2026-06-20T14:58:04.000+0900,EEGROUP-35,7,Success
+https://jira.hmg-corp.io/projects/DEV48VLBM/summary,DEV48VLBM,2026-09-16T09:09:53.000+0900,DEV48VLBM-19,14,Success
+https://jira.hmg-corp.io/projects/ECD/summary,ECD,2021-02-03T00:52:38.000+0900,ECD-44,3,Success
+https://jira.hmg-corp.io/projects/HMCLVBMS/summary,HMCLVBMS,,,0,No Issues
+https://jira.hmg-corp.io/projects/ICU/summary,ICU,2026-09-16T14:00:50.000+0900,ICU-607,546,Success
+https://jira.hmg-corp.io/projects/KSCPDC/summary,KSCPDC,,,0,No Issues
+https://jira.hmg-corp.io/projects/LVBMSDIS/summary,LVBMSDIS,2025-04-03T13:14:03.000+0900,LVBMSDIS-1,4,Success
+https://jira.hmg-corp.io/projects/MOBCR/summary,MOBCR,2026-09-01T08:23:12.000+0900,MOBCR-397,347,Success
+https://jira.hmg-corp.io/projects/PARKINGLBM/summary,PARKINGLBM,2025-06-18T09:33:05.000+0900,PARKINGLBM-4,2,Success
+https://jira.hmg-corp.io/projects/PDC/summary,PDC,2026-09-16T12:52:10.000+0900,PDC-1857,1582,Success
+https://jira.hmg-corp.io/projects/PDC001/summary,PDC001,,,0,No Issues
+https://jira.hmg-corp.io/projects/PDCCOWORK/summary,PDCCOWORK,2026-09-16T09:23:39.000+0900,PDCCOWORK-598,551,Success
+https://jira.hmg-corp.io/projects/PDCEX001/summary,PDCEX001,,,0,No Issues
+https://jira.hmg-corp.io/projects/PDCICU/summary,PDCICU,2026-09-01T00:21:31.000+0900,PDCICU-41,287,Success
+https://jira.hmg-corp.io/projects/PDCX/summary,PDCX,2026-09-16T14:13:33.000+0900,PDCX-1215,870,Success
+https://jira.hmg-corp.io/projects/PLBM/summary,PLBM,2026-08-11T18:31:01.000+0900,PLBM-193,97,Success
+https://jira.hmg-corp.io/projects/PNAC/summary,PNAC,,,0,No Issues
+https://jira.hmg-corp.io/projects/RLBM/summary,RLBM,2024-08-05T16:19:07.000+0900,RLBM-7,5,Success
+https://jira.hmg-corp.io/projects/TMF/summary,TMF,2026-09-15T18:41:11.000+0900,TMF-330,289,Success
+https://jira.hmg-corp.io/projects/BCAMCCNC/summary,BCAMCCNC,2026-08-22T02:56:17.000+0900,BCAMCCNC-104,141,Success
+https://jira.hmg-corp.io/projects/BDC/summary,BDC,2026-09-16T14:31:50.000+0900,BDC-3298,3188,Success
+https://jira.hmg-corp.io/projects/BDCARCH/summary,BDCARCH,,,0,No Issues
+https://jira.hmg-corp.io/projects/BDCATE/summary,BDCATE,2026-09-16T17:38:16.000+0900,BDCATE-5686,5703,Success
+https://jira.hmg-corp.io/projects/BDCAY/summary,BDCAY,2026-09-16T11:47:44.000+0900,BDCAY-711,713,Success
+https://jira.hmg-corp.io/projects/BDCDKSURE/summary,BDCDKSURE,2026-08-27T00:09:59.000+0900,BDCDKSURE-47,52,Success
+https://jira.hmg-corp.io/projects/BDCP/summary,BDCP,2026-01-27T16:39:47.000+0900,BDCP-187,214,Success
+https://jira.hmg-corp.io/projects/BDCPDW/summary,BDCPDW,2026-09-16T16:47:29.000+0900,BDCPDW-170,645,Success
+https://jira.hmg-corp.io/projects/BDCQE/summary,BDCQE,2026-09-16T16:03:24.000+0900,BDCQE-15,17,Success
+https://jira.hmg-corp.io/projects/BDCSCR/summary,BDCSCR,2026-06-21T03:46:15.000+0900,BDCSCR-1,404,Success
+https://jira.hmg-corp.io/projects/BDCSV/summary,BDCSV,2026-06-20T19:47:48.000+0900,BDCSV-4,24,Success
+https://jira.hmg-corp.io/projects/BDCSWD/summary,BDCSWD,2026-06-20T23:31:11.000+0900,BDCSWD-1,243,Success
+https://jira.hmg-corp.io/projects/BDCUT/summary,BDCUT,2026-09-15T17:47:26.000+0900,BDCUT-777,779,Success
+https://jira.hmg-corp.io/projects/BICIM/summary,BICIM,2026-09-16T17:32:02.000+0900,BICIM-2279,2284,Success
+https://jira.hmg-corp.io/projects/BLTNCAM3/summary,BLTNCAM3,2026-09-16T17:11:13.000+0900,BLTNCAM3-898,699,Success
+https://jira.hmg-corp.io/projects/BSS/summary,BSS,2026-08-26T19:55:05.000+0900,BSS-21,63,Success
+https://jira.hmg-corp.io/projects/CAT/summary,CAT,2026-06-30T17:30:32.000+0900,CAT-96,93,Success
+https://jira.hmg-corp.io/projects/DITPMSRX/summary,DITPMSRX,2025-06-18T09:33:38.000+0900,DITPMSRX-3,2,Success
+https://jira.hmg-corp.io/projects/DK/summary,DK,2026-09-15T00:01:46.000+0900,DK-751,733,Success
+https://jira.hmg-corp.io/projects/DKCOWORK/summary,DKCOWORK,2026-09-11T18:24:30.000+0900,DKCOWORK-361,358,Success
+https://jira.hmg-corp.io/projects/DKSW/summary,DKSW,2026-09-16T14:50:40.000+0900,DKSW-762,738,Success
+https://jira.hmg-corp.io/projects/DKSWD/summary,DKSWD,,,0,No Issues
+https://jira.hmg-corp.io/projects/DKTSCR/summary,DKTSCR,2026-09-16T17:23:15.000+0900,DKTSCR-736,697,Success
+https://jira.hmg-corp.io/projects/DVRS/summary,DVRS,2026-06-21T04:37:01.000+0900,DVRS-13,29,Success
+https://jira.hmg-corp.io/projects/ESE/summary,ESE,2026-09-11T15:53:32.000+0900,ESE-479,485,Success
+https://jira.hmg-corp.io/projects/ESEDEV/summary,ESEDEV,2026-08-28T13:44:24.000+0900,ESEDEV-9,9,Success
+https://jira.hmg-corp.io/projects/HMIEBDC/summary,HMIEBDC,2026-09-16T15:12:31.000+0900,HMIEBDC-3094,3022,Success
+https://jira.hmg-corp.io/projects/IPSU/summary,IPSU,2026-06-21T04:50:54.000+0900,IPSU-20,27,Success
+https://jira.hmg-corp.io/projects/JWFRU/summary,JWFRU,2021-09-27T01:43:56.000+0900,JWFRU-2,3,Success
+https://jira.hmg-corp.io/projects/MLM/summary,MLM,2026-06-21T04:52:38.000+0900,MLM-7,8,Success
+https://jira.hmg-corp.io/projects/ROA/summary,ROA,2026-09-03T14:12:44.000+0900,ROA-83,65,Success
+https://jira.hmg-corp.io/projects/ROAS/summary,ROAS,2026-09-16T16:10:14.000+0900,ROAS-355,244,Success
+https://jira.hmg-corp.io/projects/SBCM/summary,SBCM,2026-06-21T04:55:02.000+0900,SBCM-4,80,Success
+https://jira.hmg-corp.io/projects/SUREDKEY/summary,SUREDKEY,2026-09-14T20:39:15.000+0900,SUREDKEY-60,67,Success
+https://jira.hmg-corp.io/projects/SWCM/summary,SWCM,2026-09-16T14:58:27.000+0900,SWCM-195,167,Success
+https://jira.hmg-corp.io/projects/TCYIENT/summary,TCYIENT,2026-09-03T00:14:54.000+0900,TCYIENT-55,58,Success
+https://jira.hmg-corp.io/projects/TDCR/summary,TDCR,2026-09-14T20:16:20.000+0900,TDCR-384,350,Success
+https://jira.hmg-corp.io/projects/THWH/summary,THWH,2026-06-21T04:37:12.000+0900,THWH-1,32,Success
+https://jira.hmg-corp.io/projects/THWHCR/summary,THWHCR,2026-07-21T18:43:19.000+0900,THWHCR-652,653,Success
+https://jira.hmg-corp.io/projects/THWHCV/summary,THWHCV,2026-06-21T02:45:13.000+0900,THWHCV-22,27,Success
+https://jira.hmg-corp.io/projects/THWHGN7/summary,THWHGN7,2022-01-28T00:48:02.000+0900,THWHGN7-2,2,Success
+https://jira.hmg-corp.io/projects/THWHJK/summary,THWHJK,2020-12-01T03:25:22.000+0900,THWHJK-115,6,Success
+https://jira.hmg-corp.io/projects/THWHSW/summary,THWHSW,2026-06-21T04:36:53.000+0900,THWHSW-1,64,Success
+https://jira.hmg-corp.io/projects/TMCR/summary,TMCR,2025-03-05T17:06:15.000+0900,TMCR-90,18,Success
+https://jira.hmg-corp.io/projects/TMOBASE/summary,TMOBASE,2026-09-16T16:09:56.000+0900,TMOBASE-1430,1253,Success
+https://jira.hmg-corp.io/projects/TMOBIS/summary,TMOBIS,2026-09-16T16:54:10.000+0900,TMOBIS-1672,1524,Success
+https://jira.hmg-corp.io/projects/TPMSIN/summary,TPMSIN,2026-09-15T12:19:29.000+0900,TPMSIN-231,229,Success
+https://jira.hmg-corp.io/projects/TPMSSW/summary,TPMSSW,2026-09-16T17:11:58.000+0900,TPMSSW-2011,989,Success
+https://jira.hmg-corp.io/projects/TREL/summary,TREL,,,0,No Issues
+https://jira.hmg-corp.io/projects/TSCR/summary,TSCR,2026-09-16T16:22:24.000+0900,TSCR-6306,5894,Success
+https://jira.hmg-corp.io/projects/TSW/summary,TSW,2026-09-10T18:26:11.000+0900,TSW-1022,1006,Success
+https://jira.hmg-corp.io/projects/TSWE/summary,TSWE,2026-09-16T14:32:04.000+0900,TSWE-614,615,Success
+https://jira.hmg-corp.io/projects/TTS/summary,TTS,2026-09-16T00:03:05.000+0900,TTS-1276,391,Success
+https://jira.hmg-corp.io/projects/UWBBLECONT/summary,UWBBLECONT,2026-09-16T17:42:32.000+0900,UWBBLECONT-675,662,Success
+https://jira.hmg-corp.io/projects/UWBBLELGI/summary,UWBBLELGI,2026-09-16T16:39:25.000+0900,UWBBLELGI-577,648,Success
+https://jira.hmg-corp.io/projects/UWBRADAR/summary,UWBRADAR,,,0,No Issues
+https://jira.hmg-corp.io/projects/ATCIS/summary,ATCIS,2026-09-15T10:11:27.000+0900,ATCIS-1193,1156,Success
+https://jira.hmg-corp.io/projects/ATCLIB/summary,ATCLIB,2026-08-31T18:22:55.000+0900,ATCLIB-33,265,Success
+https://jira.hmg-corp.io/projects/ATCSWIS/summary,ATCSWIS,2026-06-20T14:02:17.000+0900,ATCSWIS-40,98,Success
+https://jira.hmg-corp.io/projects/ATCU/summary,ATCU,2026-09-16T17:20:04.000+0900,ATCU-3674,3402,Success
+https://jira.hmg-corp.io/projects/ATCUCV/summary,ATCUCV,2026-06-20T01:22:13.000+0900,ATCUCV-4,25,Success
+https://jira.hmg-corp.io/projects/ATCVTIS/summary,ATCVTIS,2026-06-20T18:18:17.000+0900,ATCVTIS-5,10,Success
+https://jira.hmg-corp.io/projects/BPCMWTC07/summary,BPCMWTC07,2026-07-02T00:55:57.000+0900,BPCMWTC07-105,47,Success
+https://jira.hmg-corp.io/projects/CWSURE/summary,CWSURE,2026-09-16T14:08:18.000+0900,CWSURE-709,708,Success
+https://jira.hmg-corp.io/projects/LCRSYNC/summary,LCRSYNC,2025-03-28T11:04:05.000+0900,LCRSYNC-42,24,Success
+https://jira.hmg-corp.io/projects/PCIT/summary,PCIT,2026-08-22T02:02:40.000+0900,PCIT-248,32,Success
+https://jira.hmg-corp.io/projects/PSCR/summary,PSCR,,,0,No Issues
+https://jira.hmg-corp.io/projects/PTGPSD/summary,PTGPSD,2026-09-12T00:25:31.000+0900,PTGPSD-407,611,Success
+https://jira.hmg-corp.io/projects/RCMJIRA/summary,RCMJIRA,2026-06-19T21:52:05.000+0900,RCMJIRA-86,14,Success
+https://jira.hmg-corp.io/projects/SBCMR/summary,SBCMR,2026-09-08T00:07:29.000+0900,SBCMR-268,429,Success
+https://jira.hmg-corp.io/projects/SCD1/summary,SCD1,2026-06-19T22:09:00.000+0900,SCD1-5,68,Success
+https://jira.hmg-corp.io/projects/SCD2/summary,SCD2,2025-02-10T16:51:43.000+0900,SCD2-7,7,Success
+https://jira.hmg-corp.io/projects/SGU0707/summary,SGU0707,2026-09-08T00:11:19.000+0900,SGU0707-25,37,Success
+https://jira.hmg-corp.io/projects/SPCR/summary,SPCR,2026-08-22T03:29:32.000+0900,SPCR-64,74,Success
+https://jira.hmg-corp.io/projects/SPEED/summary,SPEED,2026-09-14T08:58:04.000+0900,SPEED-338,45,Success
+https://jira.hmg-corp.io/projects/SPLIT/summary,SPLIT,,,0,No Issues
+https://jira.hmg-corp.io/projects/ECDPART/summary,ECDPART,2026-09-16T13:51:01.000+0900,ECDPART-1063,1009,Success
+https://jira.hmg-corp.io/projects/ECDPARTL/summary,ECDPARTL,2026-09-16T17:26:57.000+0900,ECDPARTL-301,325,Success
+https://jira.hmg-corp.io/projects/ELECCONV/summary,ELECCONV,2026-08-24T13:28:16.000+0900,ELECCONV-13,46,Success
+https://jira.hmg-corp.io/projects/ELECSW/summary,ELECSW,2026-09-16T16:12:35.000+0900,ELECSW-968,946,Success
+https://jira.hmg-corp.io/projects/PSMSCM/summary,PSMSCM,2026-09-04T14:45:27.000+0900,PSMSCM-263,232,Success
+https://jira.hmg-corp.io/projects/ROBO/summary,ROBO,2026-08-22T03:43:54.000+0900,ROBO-20,44,Success
+https://jira.hmg-corp.io/projects/SPW/summary,SPW,2026-07-15T11:34:37.000+0900,SPW-50,47,Success
+https://jira.hmg-corp.io/projects/UIP/summary,UIP,2026-09-03T16:36:53.000+0900,UIP-43,35,Success
+https://jira.hmg-corp.io/projects/WPC/summary,WPC,2026-09-11T13:59:33.000+0900,WPC-933,1144,Success
+https://jira.hmg-corp.io/projects/DTC/summary,DTC,2026-06-20T21:06:46.000+0900,DTC-26,230,Success
+https://jira.hmg-corp.io/projects/ELECT/summary,ELECT,2021-11-23T03:47:17.000+0900,ELECT-1,1,Success
+https://jira.hmg-corp.io/projects/ELECTEST/summary,ELECTEST,2023-08-21T23:42:03.000+0900,ELECTEST-920,919,Success
+https://jira.hmg-corp.io/projects/FRU/summary,FRU,2026-06-19T16:42:19.000+0900,FRU-81,16,Success
+https://jira.hmg-corp.io/projects/HMCCODA/summary,HMCCODA,2026-09-16T17:36:11.000+0900,HMCCODA-51,69,Success
+https://jira.hmg-corp.io/projects/THWHNE/summary,THWHNE,2026-06-21T04:25:53.000+0900,THWHNE-3,112,Success
+https://jira.hmg-corp.io/projects/THWHRS4/summary,THWHRS4,2026-06-21T03:47:20.000+0900,THWHRS4-8,4,Success
+https://jira.hmg-corp.io/projects/THYECLU/summary,THYECLU,2026-09-01T14:47:57.000+0900,THYECLU-2728,1072,Success
+https://jira.hmg-corp.io/projects/AMVT/summary,AMVT,2026-09-14T14:22:00.000+0900,AMVT-82,69,Success
+https://jira.hmg-corp.io/projects/BN700/summary,BN700,,,0,No Issues
+https://jira.hmg-corp.io/projects/EPCN/summary,EPCN,,,0,No Issues
+https://jira.hmg-corp.io/projects/HIT/summary,HIT,2026-08-24T14:02:26.000+0900,HIT-356,282,Success
+https://jira.hmg-corp.io/projects/OTATEST/summary,OTATEST,2026-09-16T16:55:49.000+0900,OTATEST-3349,3209,Success
+https://jira.hmg-corp.io/projects/SIRIUS/summary,SIRIUS,2026-06-19T20:59:37.000+0900,SIRIUS-17,45,Success
+https://jira.hmg-corp.io/projects/SUAI/summary,SUAI,2026-09-08T17:59:06.000+0900,SUAI-69,103,Success
+https://jira.hmg-corp.io/projects/SUMS/summary,SUMS,2026-09-16T17:24:09.000+0900,SUMS-115092,103081,Success
+https://jira.hmg-corp.io/projects/SUMSDATA/summary,SUMSDATA,2025-09-12T15:14:42.000+0900,SUMSDATA-65,27,Success
+https://jira.hmg-corp.io/projects/SUMSKPI/summary,SUMSKPI,2026-09-16T09:37:22.000+0900,SUMSKPI-1603,1497,Success
+https://jira.hmg-corp.io/projects/SUMSMBR/summary,SUMSMBR,2026-09-16T17:41:36.000+0900,SUMSMBR-443,416,Success
+https://jira.hmg-corp.io/projects/SUMSOP/summary,SUMSOP,2026-06-20T16:30:07.000+0900,SUMSOP-516,935,Success
+https://jira.hmg-corp.io/projects/SUMSS/summary,SUMSS,,,0,No Issues
+https://jira.hmg-corp.io/projects/SUMSYS/summary,SUMSYS,2026-09-16T17:44:02.000+0900,SUMSYS-1614,1516,Success
+https://jira.hmg-corp.io/projects/TS/summary,TS,2026-09-16T14:51:46.000+0900,TS-46610,40823,Success
+https://jira.hmg-corp.io/projects/BATTCOLLAB/summary,BATTCOLLAB,,,0,No Issues
+https://jira.hmg-corp.io/projects/CCU1SCRUMA/summary,CCU1SCRUMA,2026-09-16T15:52:47.000+0900,CCU1SCRUMA-606,678,Success
+https://jira.hmg-corp.io/projects/CCU2SCRUMA/summary,CCU2SCRUMA,2026-09-16T15:51:43.000+0900,CCU2SCRUMA-81,99,Success
+https://jira.hmg-corp.io/projects/ELECCWS/summary,ELECCWS,2026-06-20T15:33:21.000+0900,ELECCWS-5,87,Success
+https://jira.hmg-corp.io/projects/IBSCOWORK/summary,IBSCOWORK,2026-06-19T19:52:25.000+0900,IBSCOWORK-2,8,Success
+https://jira.hmg-corp.io/projects/IBUMOBASE/summary,IBUMOBASE,2026-06-20T18:50:48.000+0900,IBUMOBASE-9,136,Success
+https://jira.hmg-corp.io/projects/PDCISSUE/summary,PDCISSUE,2025-03-21T13:23:06.000+0900,PDCISSUE-7,7,Success
+https://jira.hmg-corp.io/projects/PDWIBUSCR/summary,PDWIBUSCR,2026-08-11T11:33:34.000+0900,PDWIBUSCR-29,22,Success
+https://jira.hmg-corp.io/projects/WAC/summary,WAC,2026-08-22T03:22:30.000+0900,WAC-98,138,Success
+https://jira.hmg-corp.io/projects/EMBDWGHM/summary,EMBDWGHM,2025-12-04T13:19:37.000+0900,EMBDWGHM-7,6,Success
+https://jira.hmg-corp.io/projects/EMBDWGMD/summary,EMBDWGMD,2025-10-16T16:42:19.000+0900,EMBDWGMD-3,5,Success
+https://jira.hmg-corp.io/projects/SBWDEV001/summary,SBWDEV001,2026-03-27T11:11:58.000+0900,SBWDEV001-1,1,Success
+https://jira.hmg-corp.io/projects/GENXMUT/summary,GENXMUT,2024-07-04T06:34:30.000+0900,GENXMUT-10,10,Success
+https://jira.hmg-corp.io/projects/ISSUESL/summary,ISSUESL,2023-11-01T18:29:32.000+0900,ISSUESL-1,1,Success
+https://jira.hmg-corp.io/projects/LAMPSYSSPE/summary,LAMPSYSSPE,2025-09-08T10:59:20.000+0900,LAMPSYSSPE-4,1,Success
+https://jira.hmg-corp.io/projects/LCPSM/summary,LCPSM,2025-11-07T09:50:53.000+0900,LCPSM-9,2,Success
+https://jira.hmg-corp.io/projects/LCSSCRM/summary,LCSSCRM,2025-11-07T10:26:29.000+0900,LCSSCRM-30,30,Success
+https://jira.hmg-corp.io/projects/GENCAE23/summary,GENCAE23,2025-08-05T16:13:02.000+0900,GENCAE23-5,5,Success
+https://jira.hmg-corp.io/projects/TVEM/summary,TVEM,,,0,No Issues
+https://jira.hmg-corp.io/projects/LLX3CCU2/summary,LLX3CCU2,,,0,No Issues
+https://jira.hmg-corp.io/projects/OTASIDE/summary,OTASIDE,2026-09-08T00:02:05.000+0900,OTASIDE-71,92,Success
+https://jira.hmg-corp.io/projects/MEEI/summary,MEEI,,,0,No Issues
+https://jira.hmg-corp.io/projects/MEVS/summary,MEVS,,,0,No Issues
+https://jira.hmg-corp.io/projects/MSD/summary,MSD,2026-06-26T15:12:52.000+0900,MSD-1,4,Success
+https://jira.hmg-corp.io/projects/ROP/summary,ROP,2026-05-22T17:08:23.000+0900,ROP-3,3,Success
+https://jira.hmg-corp.io/projects/IDCTFT/summary,IDCTFT,2022-05-09T04:19:50.000+0900,IDCTFT-21,20,Success
+https://jira.hmg-corp.io/projects/MAASDEVOPR/summary,MAASDEVOPR,2026-06-21T05:16:24.000+0900,MAASDEVOPR-18,1501,Success
+https://jira.hmg-corp.io/projects/MGO/summary,MGO,2026-07-07T15:41:01.000+0900,MGO-946,2989,Success
+https://jira.hmg-corp.io/projects/MPMO/summary,MPMO,2026-06-20T22:24:41.000+0900,MPMO-1197,1771,Success
+https://jira.hmg-corp.io/projects/FDCD/summary,FDCD,2024-02-25T10:03:53.000+0900,FDCD-1,9,Success
+https://jira.hmg-corp.io/projects/Y3D2/summary,Y3D2,2026-06-20T21:51:09.000+0900,Y3D2-1,8,Success
+https://jira.hmg-corp.io/projects/HMTCCE/summary,HMTCCE,2026-02-25T18:43:51.000+0900,HMTCCE-2,7,Success
+https://jira.hmg-corp.io/projects/SBJEONG/summary,SBJEONG,2026-01-08T16:06:08.000+0900,SBJEONG-1,1,Success
+https://jira.hmg-corp.io/projects/AHSTR/summary,AHSTR,2026-08-31T13:27:15.000+0900,AHSTR-632,574,Success
+https://jira.hmg-corp.io/projects/CHCOP/summary,CHCOP,2026-09-15T00:03:45.000+0900,CHCOP-2658,2904,Success
+https://jira.hmg-corp.io/projects/CHNINFOENG/summary,CHNINFOENG,2026-06-20T20:06:33.000+0900,CHNINFOENG-4,151,Success
+https://jira.hmg-corp.io/projects/CHNINFOQC/summary,CHNINFOQC,2026-09-15T00:06:31.000+0900,CHNINFOQC-1055,1055,Success
+https://jira.hmg-corp.io/projects/CHNP/summary,CHNP,2026-09-16T17:34:35.000+0900,CHNP-6510,6387,Success
+https://jira.hmg-corp.io/projects/CHTC/summary,CHTC,2026-06-20T19:54:37.000+0900,CHTC-278,550,Success
+https://jira.hmg-corp.io/projects/CLUTYWCHN/summary,CLUTYWCHN,2026-06-20T19:51:32.000+0900,CLUTYWCHN-2,32,Success
+https://jira.hmg-corp.io/projects/CNCCU/summary,CNCCU,2026-07-06T11:57:23.000+0900,CNCCU-41,29,Success
+https://jira.hmg-corp.io/projects/HMTCPASS01/summary,HMTCPASS01,2026-09-15T15:24:51.000+0900,HMTCPASS01-149,140,Success
+https://jira.hmg-corp.io/projects/RTMTEST1/summary,RTMTEST1,,,0,No Issues
+https://jira.hmg-corp.io/projects/THYIAT/summary,THYIAT,2026-09-15T09:30:42.000+0900,THYIAT-787,699,Success
+https://jira.hmg-corp.io/projects/THYICLUTC/summary,THYICLUTC,2026-09-16T14:24:01.000+0900,THYICLUTC-600,1046,Success
+https://jira.hmg-corp.io/projects/AUTOCON/summary,AUTOCON,2022-05-08T23:18:53.000+0900,AUTOCON-3,5,Success
+https://jira.hmg-corp.io/projects/CDCUK/summary,CDCUK,2026-06-20T16:37:05.000+0900,CDCUK-34,77,Success
+https://jira.hmg-corp.io/projects/CDCUM/summary,CDCUM,2026-06-20T18:32:06.000+0900,CDCUM-37,110,Success
+https://jira.hmg-corp.io/projects/CDCUT/summary,CDCUT,2022-08-26T00:36:15.000+0900,CDCUT-74,91,Success
+https://jira.hmg-corp.io/projects/ELEC/summary,ELEC,2022-09-05T06:34:49.000+0900,ELEC-19,38,Success
+https://jira.hmg-corp.io/projects/GEN3/summary,GEN3,2022-06-10T02:28:16.000+0900,GEN3-5,12,Success
+https://jira.hmg-corp.io/projects/HMCKEF/summary,HMCKEF,2022-11-14T05:36:22.000+0900,HMCKEF-1,1,Success
+https://jira.hmg-corp.io/projects/XEV/summary,XEV,2022-05-09T03:18:05.000+0900,XEV-3,3,Success
+https://jira.hmg-corp.io/projects/P232789/summary,P232789,2026-06-20T08:39:03.000+0900,P232789-5,44,Success
+https://jira.hmg-corp.io/projects/PCITED/summary,PCITED,2026-06-20T05:45:44.000+0900,PCITED-5,94,Success
+https://jira.hmg-corp.io/projects/RMDEV/summary,RMDEV,2026-06-20T22:21:30.000+0900,RMDEV-3,19,Success
+https://jira.hmg-corp.io/projects/VPCPM/summary,VPCPM,2026-06-20T17:39:31.000+0900,VPCPM-11,18,Success
+https://jira.hmg-corp.io/projects/HHVCESASWV/summary,HHVCESASWV,2025-12-17T09:13:06.000+0900,HHVCESASWV-1,3,Success
+https://jira.hmg-corp.io/projects/HHVMCAS/summary,HHVMCAS,2026-09-16T14:56:24.000+0900,HHVMCAS-121,109,Success
+https://jira.hmg-corp.io/projects/HHVMCPECS/summary,HHVMCPECS,2026-09-16T12:36:28.000+0900,HHVMCPECS-67,62,Success
+https://jira.hmg-corp.io/projects/LG/summary,LG,2026-06-20T23:55:47.000+0900,LG-170,44,Success
+https://jira.hmg-corp.io/projects/MDMS/summary,MDMS,2026-06-20T15:17:08.000+0900,MDMS-5,28,Success
+https://jira.hmg-corp.io/projects/YXLAPECS/summary,YXLAPECS,2022-08-04T15:26:29.000+0900,YXLAPECS-1,1,Success
+https://jira.hmg-corp.io/projects/APENTEST/summary,APENTEST,2026-09-09T15:35:52.000+0900,APENTEST-12,11,Success
+https://jira.hmg-corp.io/projects/CSSS/summary,CSSS,2026-06-21T05:02:23.000+0900,CSSS-1,2,Success
+https://jira.hmg-corp.io/projects/HAECICD/summary,HAECICD,,,0,No Issues
+https://jira.hmg-corp.io/projects/HMGCSMS02/summary,HMGCSMS02,2026-02-05T12:39:14.000+0900,HMGCSMS02-4,13,Success
+https://jira.hmg-corp.io/projects/IDS/summary,IDS,2026-09-16T09:32:49.000+0900,IDS-425,395,Success
+https://jira.hmg-corp.io/projects/KIAM/summary,KIAM,2026-07-07T15:47:49.000+0900,KIAM-5167,7370,Success
+https://jira.hmg-corp.io/projects/QIM2021/summary,QIM2021,2026-06-21T01:46:10.000+0900,QIM2021-5,84,Success
+https://jira.hmg-corp.io/projects/QIM2022/summary,QIM2022,2026-06-20T23:14:05.000+0900,QIM2022-1,154,Success
+https://jira.hmg-corp.io/projects/STI2021/summary,STI2021,2026-06-21T01:59:53.000+0900,STI2021-7,1195,Success
+https://jira.hmg-corp.io/projects/STI2022/summary,STI2022,2026-06-21T00:01:37.000+0900,STI2022-258,1776,Success
+https://jira.hmg-corp.io/projects/XA2/summary,XA2,,,0,No Issues
+https://jira.hmg-corp.io/projects/XAEI/summary,XAEI,2025-05-15T08:33:08.000+0900,XAEI-55,57,Success
+https://jira.hmg-corp.io/projects/XVPM/summary,XVPM,2025-02-20T13:24:35.000+0900,XVPM-1,1,Success
+https://jira.hmg-corp.io/projects/VTPTOC/summary,VTPTOC,2026-06-20T11:30:10.000+0900,VTPTOC-1,10,Success
+https://jira.hmg-corp.io/projects/ECU4U/summary,ECU4U,2026-06-20T22:18:41.000+0900,ECU4U-2,398,Success
+https://jira.hmg-corp.io/projects/SVGEN4/summary,SVGEN4,2026-06-20T21:45:27.000+0900,SVGEN4-1,24,Success
+https://jira.hmg-corp.io/projects/TMLIBDEV/summary,TMLIBDEV,2026-09-03T12:47:27.000+0900,TMLIBDEV-40,41,Success
+https://jira.hmg-corp.io/projects/VDCUTOOL/summary,VDCUTOOL,2023-04-14T05:43:43.000+0900,VDCUTOOL-6,5,Success
+https://jira.hmg-corp.io/projects/JCPS/summary,JCPS,2026-07-15T15:50:47.000+0900,JCPS-7,7,Success
+https://jira.hmg-corp.io/projects/PMS/summary,PMS,2026-09-12T00:42:21.000+0900,PMS-3,1333,Success
+https://jira.hmg-corp.io/projects/SILREG/summary,SILREG,2026-09-15T15:49:44.000+0900,SILREG-498,378,Success
+https://jira.hmg-corp.io/projects/SWDEVCW/summary,SWDEVCW,2026-06-20T21:43:35.000+0900,SWDEVCW-6,380,Success
+https://jira.hmg-corp.io/projects/TGCV/summary,TGCV,2026-06-20T22:21:09.000+0900,TGCV-155,354,Success
+https://jira.hmg-corp.io/projects/TGG/summary,TGG,2026-06-20T23:00:11.000+0900,TGG-74,216,Success
+https://jira.hmg-corp.io/projects/VVC/summary,VVC,2026-09-09T14:07:24.000+0900,VVC-207,228,Success
+https://jira.hmg-corp.io/projects/X2E/summary,X2E,2026-09-16T15:30:08.000+0900,X2E-545,485,Success
+https://jira.hmg-corp.io/projects/EDAR/summary,EDAR,2026-06-20T23:15:36.000+0900,EDAR-2,267,Success
+https://jira.hmg-corp.io/projects/GDM/summary,GDM,,,0,No Issues
+https://jira.hmg-corp.io/projects/HECD/summary,HECD,2022-06-15T00:49:06.000+0900,HECD-5,5,Success
+https://jira.hmg-corp.io/projects/HMCAPSAFEO/summary,HMCAPSAFEO,,,0,No Issues
+https://jira.hmg-corp.io/projects/IVCS/summary,IVCS,2026-09-16T17:07:46.000+0900,IVCS-126,119,Success
+https://jira.hmg-corp.io/projects/MPC/summary,MPC,,,0,No Issues
+https://jira.hmg-corp.io/projects/SDVVCDEV/summary,SDVVCDEV,,,0,No Issues
+https://jira.hmg-corp.io/projects/VCDEVOPS/summary,VCDEVOPS,2026-05-14T08:58:12.000+0900,VCDEVOPS-6,7,Success
+https://jira.hmg-corp.io/projects/VCPOC/summary,VCPOC,2026-09-15T17:37:03.000+0900,VCPOC-62,61,Success
+https://jira.hmg-corp.io/projects/VPCAPU/summary,VPCAPU,2026-09-10T00:44:54.000+0900,VPCAPU-939,1736,Success
+https://jira.hmg-corp.io/projects/VPCAPUKE/summary,VPCAPUKE,2026-09-16T09:03:49.000+0900,VPCAPUKE-455,412,Success
+https://jira.hmg-corp.io/projects/VPCAPUTEST/summary,VPCAPUTEST,2026-08-22T02:25:17.000+0900,VPCAPUTEST-198,734,Success
+https://jira.hmg-corp.io/projects/VPCAPUVALK/summary,VPCAPUVALK,2026-09-12T00:26:50.000+0900,VPCAPUVALK-30,118,Success
+https://jira.hmg-corp.io/projects/XILSHKCS/summary,XILSHKCS,2026-06-20T20:33:07.000+0900,XILSHKCS-4,13,Success
+https://jira.hmg-corp.io/projects/IATDCTR/summary,IATDCTR,2026-06-21T00:01:34.000+0900,IATDCTR-3,6,Success
+https://jira.hmg-corp.io/projects/IATDCTRL/summary,IATDCTRL,2026-06-20T12:26:32.000+0900,IATDCTRL-2,10,Success
+https://jira.hmg-corp.io/projects/ACLOGIC/summary,ACLOGIC,2026-06-20T20:38:35.000+0900,ACLOGIC-11,33,Success
+https://jira.hmg-corp.io/projects/VTLD/summary,VTLD,2026-06-21T03:56:08.000+0900,VTLD-6,7,Success
+https://jira.hmg-corp.io/projects/CMDOM/summary,CMDOM,,,0,No Issues
+https://jira.hmg-corp.io/projects/CMEU7/summary,CMEU7,2022-09-28T01:42:39.000+0900,CMEU7-1,4,Success
+https://jira.hmg-corp.io/projects/CMEXP/summary,CMEXP,,,0,No Issues
+https://jira.hmg-corp.io/projects/CMHILS/summary,CMHILS,,,0,No Issues
+https://jira.hmg-corp.io/projects/CMMILT/summary,CMMILT,,,0,No Issues
+https://jira.hmg-corp.io/projects/CMNDCU/summary,CMNDCU,2022-10-13T02:00:28.000+0900,CMNDCU-4,4,Success
+https://jira.hmg-corp.io/projects/COMM/summary,COMM,2026-06-20T23:34:34.000+0900,COMM-5,69,Success
+https://jira.hmg-corp.io/projects/CYBERSEC/summary,CYBERSEC,2026-06-20T21:33:03.000+0900,CYBERSEC-18,30,Success
+https://jira.hmg-corp.io/projects/FUSAMS/summary,FUSAMS,2026-06-20T17:53:26.000+0900,FUSAMS-16,50,Success
+https://jira.hmg-corp.io/projects/HCN7F/summary,HCN7F,2023-01-12T02:14:26.000+0900,HCN7F-1,1,Success
+https://jira.hmg-corp.io/projects/HTDF/summary,HTDF,2026-06-20T22:17:20.000+0900,HTDF-1,14,Success
+https://jira.hmg-corp.io/projects/KFTC/summary,KFTC,2026-09-02T18:30:24.000+0900,KFTC-3,3,Success
+https://jira.hmg-corp.io/projects/RBBUILD/summary,RBBUILD,2026-08-05T11:08:26.000+0900,RBBUILD-10,10,Success
+https://jira.hmg-corp.io/projects/TQMO/summary,TQMO,,,0,No Issues
+https://jira.hmg-corp.io/projects/VASD/summary,VASD,2026-06-20T20:17:25.000+0900,VASD-43,94,Success
+https://jira.hmg-corp.io/projects/VDCU/summary,VDCU,2026-06-20T23:23:10.000+0900,VDCU-37,54,Success
+https://jira.hmg-corp.io/projects/VDCUBSW/summary,VDCUBSW,2026-09-15T13:40:41.000+0900,VDCUBSW-1541,1111,Success
+https://jira.hmg-corp.io/projects/VPC11VT/summary,VPC11VT,,,0,No Issues
+https://jira.hmg-corp.io/projects/VPCBIDT/summary,VPCBIDT,,,0,No Issues
+https://jira.hmg-corp.io/projects/VPCPROD/summary,VPCPROD,2022-09-26T01:07:07.000+0900,VPCPROD-72,14,Success
+https://jira.hmg-corp.io/projects/VPCRB/summary,VPCRB,2026-09-16T14:09:05.000+0900,VPCRB-977,956,Success
+https://jira.hmg-corp.io/projects/VPCVT/summary,VPCVT,2026-09-16T09:42:34.000+0900,VPCVT-2211,2104,Success
+https://jira.hmg-corp.io/projects/VSVF/summary,VSVF,2026-06-20T18:04:18.000+0900,VSVF-611,558,Success
+https://jira.hmg-corp.io/projects/WAP/summary,WAP,2026-06-21T02:40:24.000+0900,WAP-1,206,Success
+https://jira.hmg-corp.io/projects/VDCL/summary,VDCL,2026-07-07T15:14:54.000+0900,VDCL-128,166,Success
+https://jira.hmg-corp.io/projects/HVCMS/summary,HVCMS,2026-05-19T13:36:43.000+0900,HVCMS-5,5,Success
+https://jira.hmg-corp.io/projects/KEFHAEPCM/summary,KEFHAEPCM,2026-09-16T14:33:35.000+0900,KEFHAEPCM-1002,997,Success
+https://jira.hmg-corp.io/projects/CBTSUP/summary,CBTSUP,2026-09-11T15:15:05.000+0900,CBTSUP-24,24,Success
+https://jira.hmg-corp.io/projects/CCSAPPRVW/summary,CCSAPPRVW,2026-09-09T10:56:20.000+0900,CCSAPPRVW-3861,4073,Success
+https://jira.hmg-corp.io/projects/CCSBIZOPS/summary,CCSBIZOPS,2026-06-20T12:29:08.000+0900,CCSBIZOPS-1,442,Success
+https://jira.hmg-corp.io/projects/CCSCOMM/summary,CCSCOMM,2026-06-11T13:20:27.000+0900,CCSCOMM-9,9,Success
+https://jira.hmg-corp.io/projects/CCSDATA/summary,CCSDATA,,,0,No Issues
+https://jira.hmg-corp.io/projects/CCSHSC/summary,CCSHSC,2026-09-16T08:18:28.000+0900,CCSHSC-1182,549,Success
+https://jira.hmg-corp.io/projects/CCSTERMS/summary,CCSTERMS,,,0,No Issues
+https://jira.hmg-corp.io/projects/CCSVOC/summary,CCSVOC,2026-09-16T17:31:15.000+0900,CCSVOC-67105,65342,Success
+https://jira.hmg-corp.io/projects/CCSVOCCV/summary,CCSVOCCV,2026-09-16T15:45:41.000+0900,CCSVOCCV-1739,1543,Success
+https://jira.hmg-corp.io/projects/COGL/summary,COGL,2026-08-24T09:15:01.000+0900,COGL-152,152,Success
+https://jira.hmg-corp.io/projects/DIGITAL2/summary,DIGITAL2,2026-09-16T17:30:05.000+0900,DIGITAL2-1640,1554,Success
+https://jira.hmg-corp.io/projects/INFOIDEA/summary,INFOIDEA,2020-01-16T17:04:09.000+0900,INFOIDEA-1388,881,Success
+https://jira.hmg-corp.io/projects/OTAEUG/summary,OTAEUG,2026-09-14T17:42:22.000+0900,OTAEUG-4,4,Success
+https://jira.hmg-corp.io/projects/OTAEUH/summary,OTAEUH,2026-09-11T11:26:35.000+0900,OTAEUH-12,10,Success
+https://jira.hmg-corp.io/projects/OTAEUK/summary,OTAEUK,2026-09-16T17:29:53.000+0900,OTAEUK-22,22,Success
+https://jira.hmg-corp.io/projects/OTAKRH/summary,OTAKRH,2026-09-16T17:34:31.000+0900,OTAKRH-22,29,Success
+https://jira.hmg-corp.io/projects/OTAKRK/summary,OTAKRK,2026-09-16T15:47:38.000+0900,OTAKRK-13,25,Success
+https://jira.hmg-corp.io/projects/OTAM/summary,OTAM,2026-07-23T16:50:47.000+0900,OTAM-27,17,Success
+https://jira.hmg-corp.io/projects/OTANAH/summary,OTANAH,2026-09-16T09:41:56.000+0900,OTANAH-12,29,Success
+https://jira.hmg-corp.io/projects/OTANAK/summary,OTANAK,2026-09-16T16:27:19.000+0900,OTANAK-27,21,Success
+https://jira.hmg-corp.io/projects/OTARELEASE/summary,OTARELEASE,2026-09-16T11:01:03.000+0900,OTARELEASE-335,285,Success
+https://jira.hmg-corp.io/projects/OTAUNZH/summary,OTAUNZH,2026-09-16T16:16:32.000+0900,OTAUNZH-12,11,Success
+https://jira.hmg-corp.io/projects/OTAUNZK/summary,OTAUNZK,2026-09-16T08:15:28.000+0900,OTAUNZK-11,10,Success
+https://jira.hmg-corp.io/projects/SWBIZ/summary,SWBIZ,2025-12-12T11:03:24.000+0900,SWBIZ-318,262,Success
+https://jira.hmg-corp.io/projects/HMGCFODHK/summary,HMGCFODHK,2026-07-07T17:13:15.000+0900,HMGCFODHK-6,342,Success
+https://jira.hmg-corp.io/projects/CHRGSW/summary,CHRGSW,2026-06-20T18:55:26.000+0900,CHRGSW-2,6,Success
+https://jira.hmg-corp.io/projects/CCIHLB/summary,CCIHLB,,,0,No Issues
+https://jira.hmg-corp.io/projects/CSDG/summary,CSDG,2026-07-07T18:05:15.000+0900,CSDG-584,1456,Success
+https://jira.hmg-corp.io/projects/DDS1/summary,DDS1,2025-04-19T02:02:50.000+0900,DDS1-47,62,Success
+https://jira.hmg-corp.io/projects/DEPTI/summary,DEPTI,2022-04-12T05:07:36.000+0900,DEPTI-9,3,Success
+https://jira.hmg-corp.io/projects/ISPM3D/summary,ISPM3D,2023-03-22T23:52:20.000+0900,ISPM3D-389,90,Success
+https://jira.hmg-corp.io/projects/RNDIT22/summary,RNDIT22,2022-06-08T01:44:28.000+0900,RNDIT22-1,2,Success
+https://jira.hmg-corp.io/projects/SIC/summary,SIC,2022-09-15T04:45:45.000+0900,SIC-2,2,Success
+https://jira.hmg-corp.io/projects/VPCRA/summary,VPCRA,2022-02-24T06:52:59.000+0900,VPCRA-4,4,Success
+https://jira.hmg-corp.io/projects/VPCSW/summary,VPCSW,2023-05-26T04:52:33.000+0900,VPCSW-60,51,Success
+https://jira.hmg-corp.io/projects/AVIONICS/summary,AVIONICS,2023-10-24T06:26:29.000+0900,AVIONICS-14,1,Success
+https://jira.hmg-corp.io/projects/THLQ/summary,THLQ,2026-02-13T11:09:34.000+0900,THLQ-221,18,Success
+https://jira.hmg-corp.io/projects/MYM/summary,MYM,2026-06-21T04:51:01.000+0900,MYM-14,368,Success

@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exalate Migration Audit Tool (Jira Data Center)</title>
+  <style>
+    :root {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-surface-secondary: #f1f5f9;
+      --border-color: #e2e8f0;
+      --border-hover: #cbd5e1;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-light: #eff6ff;
+      --accent-warning-bg: #fffbeb;
+      --accent-warning-border: #fef3c7;
+      --accent-warning-text: #b45309;
+      --accent-danger-bg: #fef2f2;
+      --accent-danger-border: #fecaca;
+      --accent-danger-text: #b91c1c;
+      --accent-success-bg: #f0fdf4;
+      --accent-success-border: #bbf7d0;
+      --accent-success-text: #15803d;
+      --code-bg: #1e293b;
+      --code-text: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.65;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: #ffffff;
+      padding: 40px 48px;
+    }
+
+    header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    header p {
+      color: #94a3b8;
+      font-size: 16px;
+      max-width: 800px;
+      line-height: 1.5;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-primary { background-color: #3b82f6; color: #ffffff; }
+    .badge-secondary { background-color: #475569; color: #f8fafc; }
+    .badge-success { background-color: #10b981; color: #ffffff; }
+    .badge-warning { background-color: #f59e0b; color: #ffffff; }
+
+    .content {
+      padding: 48px;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 36px 0 16px 0;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--bg-surface-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h2:first-of-type {
+      margin-top: 0;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 24px 0 12px 0;
+    }
+
+    p, ul, ol {
+      margin-bottom: 16px;
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+
+    ul, ol {
+      padding-left: 24px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    /* Warning & Notice Boxes */
+    .alert-box {
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 20px 0;
+      border: 1px solid transparent;
+      font-size: 14px;
+    }
+
+    .alert-danger {
+      background-color: var(--accent-danger-bg);
+      border-color: var(--accent-danger-border);
+      color: var(--accent-danger-text);
+    }
+
+    .alert-warning {
+      background-color: var(--accent-warning-bg);
+      border-color: var(--accent-warning-border);
+      color: var(--accent-warning-text);
+    }
+
+    .alert-info {
+      background-color: var(--primary-light);
+      border-color: #dbeafe;
+      color: #1e40af;
+    }
+
+    .alert-box h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Cards Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .card {
+      background: var(--bg-surface-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 18px;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .card:hover {
+      border-color: var(--primary);
+    }
+
+    .card h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card p {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+
+    /* Code Blocks & Terminal */
+    pre {
+      background-color: var(--code-bg);
+      color: var(--code-text);
+      padding: 18px 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 13.5px;
+      line-height: 1.55;
+      margin: 16px 0;
+      border: 1px solid #334155;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 13.5px;
+      background-color: var(--bg-surface-secondary);
+      color: #0f172a;
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+    }
+
+    pre code {
+      background: none;
+      color: inherit;
+      padding: 0;
+      border: none;
+      font-size: inherit;
+    }
+
+    .terminal-window {
+      background-color: #0f172a;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 20px 0;
+      border: 1px solid #334155;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+    }
+
+    .terminal-header {
+      background-color: #1e293b;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .terminal-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+
+    .dot-red { background-color: #ef4444; }
+    .dot-yellow { background-color: #f59e0b; }
+    .dot-green { background-color: #10b981; }
+
+    .terminal-title {
+      color: #94a3b8;
+      font-size: 12px;
+      margin-left: 8px;
+      font-family: ui-monospace, monospace;
+    }
+
+    .terminal-body {
+      padding: 18px 20px;
+      color: #e2e8f0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+      line-height: 1.5;
+      overflow-x: auto;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+
+    thead {
+      background-color: var(--bg-surface-secondary);
+    }
+
+    th {
+      text-align: left;
+      padding: 12px 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    td {
+      padding: 12px 16px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background-color: #f8fafc;
+    }
+
+    .table-tag {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      background: #e2e8f0;
+      color: #334155;
+    }
+
+    footer {
+      background-color: var(--bg-surface-secondary);
+      border-top: 1px solid var(--border-color);
+      padding: 24px 48px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 12px; }
+      header { padding: 24px; }
+      .content { padding: 24px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Exalate Migration Audit Tool (Jira DC)</h1>
+      <p>Jira Data Center → Jira Cloud 마이그레이션 사전조사를 위한 Exalate Incoming / Outgoing 동기화 큐(Queue) 및 오류(Errors) 안전 감사 도구</p>
+      <div class="badges">
+        <span class="badge badge-primary">Python 3.11+</span>
+        <span class="badge badge-success">Strict Read-Only</span>
+        <span class="badge badge-secondary">Jira Data Center</span>
+        <span class="badge badge-warning">Exalate IssueHub 4.0</span>
+        <span class="badge badge-secondary">../env Compatible</span>
+      </div>
+    </header>
+
+    <div class="content">
+      <!-- 1. Security Warning -->
+      <div class="alert-box alert-danger">
+        <h4>⚠️ Confidentiality & Security Warning</h4>
+        <p><strong>생성된 JSON 및 CSV 파일에는 다음 정보가 포함될 수 있습니다:</strong></p>
+        <ul style="margin: 6px 0 0 20px; color: inherit;">
+          <li>Jira 이슈 메타데이터 (Issue Key, Project, Summary 등)</li>
+          <li>사용자 계정 정보 및 인스턴스 연결 정보</li>
+          <li>원격 동기화 대상 시스템(Remote System) 주소 및 설정</li>
+          <li>Exalate 동기화 오류 및 스택트레이스</li>
+        </ul>
+        <p style="margin-top: 6px;">수집된 산출물은 기밀 마이그레이션 감사 데이터(Confidential Assessment Data)로 취급하여 안전하게 보관하세요.</p>
+      </div>
+
+      <!-- 2. Core Distinction -->
+      <div class="alert-box alert-warning">
+        <h4>📌 핵심 주의사항: Queue와 Sync Relation의 구분</h4>
+        <p>REST API(<code>syncevents</code>, <code>syncrequests</code>)를 통해 수집되는 데이터는 <strong>현재 처리 대기 중이거나 진행 중인 트랜잭션(Queue)</strong>입니다.</p>
+        <div style="background: rgba(0,0,0,0.04); padding: 8px 12px; border-radius: 6px; margin: 8px 0; font-family: monospace; font-size: 13px;">
+          <strong>* Outgoing Queue != 전체 Outgoing Synced Issues</strong><br>
+          <strong>* Incoming Queue != 전체 Incoming Synced Issues</strong>
+        </div>
+        <ul style="margin: 6px 0 0 20px; color: inherit;">
+          <li><strong>Outgoing Queue</strong>: 현재 로컬 Jira에서 원격 인스턴스로 전송 대기 중인 이벤트</li>
+          <li><strong>Incoming Queue</strong>: 원격 인스턴스에서 도착하여 로컬 Jira에 반영 대기 중인 요청</li>
+          <li><strong>Error</strong>: 현재 처리 실패 및 재시도 대기 상태의 오류 트랜잭션</li>
+          <li><strong>전체 동기화된 이슈(Synced Issues / Relations)</strong>: 이미 동기화되어 유지되고 있는 Issue Mapping 데이터이며, 이는 <strong>Phase 2 (Jira ActiveObjects DB 직접 조회)</strong> 단계에서 수집합니다.</li>
+        </ul>
+      </div>
+
+      <!-- 3. Key Features -->
+      <h2>🚀 주요 기능</h2>
+      <div class="grid">
+        <div class="card">
+          <h4>🔒 운영 환경 Strict Read-Only</h4>
+          <p>오직 HTTP <code>GET</code> 요청만 허용하며, <code>POST</code>, <code>PUT</code>, <code>PATCH</code>, <code>DELETE</code> 호출은 코드 레벨에서 엄격히 차단됩니다. Jira DB 쓰기 작업이 없어 무중단 운영 환경에서도 안전합니다.</p>
+        </div>
+        <div class="card">
+          <h4>⚙️ ../env 완벽 연동 & 타겟 전환</h4>
+          <p>상위 디렉토리의 <code>../env</code> 파일을 자동으로 인식합니다. <code>--target OPS</code>(운영) 또는 <code>--target STG</code>(검증) 옵션으로 대상 Jira DC 환경을 원클릭으로 전환할 수 있습니다.</p>
+        </div>
+        <div class="card">
+          <h4>🔑 인증 체계 분리 지원</h4>
+          <p>Jira 8.14+ 권장 방식인 <strong>Personal Access Token (PAT, Bearer)</strong>과 기존 <strong>Basic Auth (Username + Password)</strong>를 클래스로 분리하여 유연하고 안정적인 인증을 지원합니다.</p>
+        </div>
+        <div class="card">
+          <h4>🛡️ HTTP 복원력 & 지수 백오프</h4>
+          <p>429(Rate Limit), 500, 502, 503, 504 응답 시 지수 백오프(Exponential Backoff: 1s, 2s, 4s...)를 적용해 자동 재시도하며, 401/403/404 발생 시 명확한 원인 진단을 제공합니다.</p>
+        </div>
+        <div class="card">
+          <h4>🕵️ 탐색적 스키마 로깅 (Debug)</h4>
+          <p>Exalate 버전에 따른 필드 차이를 파악할 수 있도록, 최초 API 호출 시 Status Code, Content-Type, Root Keys, Result Item Keys를 <code>DEBUG</code> 로그로 분석하여 기록합니다.</p>
+        </div>
+        <div class="card">
+          <h4>🎭 민감정보 자동 마스킹</h4>
+          <p>로그 및 콘솔에 토큰, 비밀번호, Authorization 헤더, 쿠키, URL 내 Credential이 노출되지 않도록 <code>***REDACTED***</code>로 실시간 마스킹 처리합니다.</p>
+        </div>
+      </div>
+
+      <!-- 4. Environment Variables -->
+      <h2>⚙️ 환경변수 (<code>../env</code>) 설정 매핑</h2>
+      <p>실행 위치 기준 상위 디렉토리의 <code>../env</code> 파일에 정의된 변수를 자동으로 읽어옵니다. 별도의 복사 없이 기존 <code>../env</code> 파일을 그대로 사용합니다.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th>환경변수명</th>
+            <th>설명</th>
+            <th>기본값 / 비고</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>운영 환경 (OPS)</strong></td>
+            <td><code>JIRA_DC_OPS_URL</code></td>
+            <td>Jira Data Center 운영 서버 Base URL</td>
+            <td><code>OPS_JIRA_URL</code> 대체 가능</td>
+          </tr>
+          <tr>
+            <td><strong>운영 환경 (OPS)</strong></td>
+            <td><code>JIRA_DC_OPS_API_TOKEN</code></td>
+            <td>Jira DC Personal Access Token (Bearer)</td>
+            <td><code>JIRA_DC_OPS_TOKEN</code> 대체 가능</td>
+          </tr>
+          <tr>
+            <td><strong>운영 환경 (OPS)</strong></td>
+            <td><code>JIRA_DC_OPS_USERNAME</code> / <code>PASSWORD</code></td>
+            <td>Basic Auth 접속 계정 및 암호</td>
+            <td>PAT 미사용 시 적용</td>
+          </tr>
+          <tr>
+            <td><strong>스테이징 (STG)</strong></td>
+            <td><code>JIRA_DC_STG_URL</code></td>
+            <td>Jira Data Center 검증 서버 Base URL</td>
+            <td><code>STG_JIRA_URL</code> 대체 가능</td>
+          </tr>
+          <tr>
+            <td><strong>스테이징 (STG)</strong></td>
+            <td><code>JIRA_DC_STG_API_TOKEN</code></td>
+            <td>Jira DC Personal Access Token (Bearer)</td>
+            <td><code>JIRA_DC_STG_TOKEN</code> 대체 가능</td>
+          </tr>
+          <tr>
+            <td><strong>스테이징 (STG)</strong></td>
+            <td><code>JIRA_DC_STG_USERNAME</code> / <code>PASSWORD</code></td>
+            <td>Basic Auth 접속 계정 및 암호</td>
+            <td>PAT 미사용 시 적용</td>
+          </tr>
+          <tr>
+            <td><strong>공통</strong></td>
+            <td><code>JIRA_SSL_VERIFY</code></td>
+            <td>SSL 인증서 검증 여부</td>
+            <td><code>False</code> 시 SSL 경고 억제</td>
+          </tr>
+          <tr>
+            <td><strong>출력</strong></td>
+            <td><code>OUTPUT_DIR</code></td>
+            <td>JSON 및 CSV 결과물 저장 디렉토리</td>
+            <td><code>./output</code></td>
+          </tr>
+          <tr>
+            <td><strong>네트워크</strong></td>
+            <td><code>PAGE_SIZE</code> / <code>MAX_RETRIES</code></td>
+            <td>페이지당 레코드 수 / 최대 재시도 횟수</td>
+            <td><code>50</code> / <code>5</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 5. Usage -->
+      <h2>💻 CLI 실행 방법</h2>
+
+      <h3>1. 기본 실행 (운영 Jira DC 조사)</h3>
+      <p>기본적으로 <code>JIRA_DC_OPS</code> 설정을 사용하며 <code>../env</code> 파일을 자동 로드합니다:</p>
+      <pre><code>python main.py</code></pre>
+
+      <h3>2. 대상 환경 지정 (OPS vs STG)</h3>
+      <p><code>--target</code> (또는 <code>--env</code>) 플래그를 통해 검증 또는 운영 환경을 지정합니다:</p>
+      <pre><code># Staging DC 조사 (사내망/VPN 환경)
+python main.py --target STG
+
+# Operations DC 조사
+python main.py --target OPS</code></pre>
+
+      <h3>3. 인증 방식 선택 (PAT vs Basic)</h3>
+      <pre><code># Basic Auth로 명시적 실행
+python main.py --target OPS --auth-type basic
+
+# Personal Access Token(Bearer)으로 실행 (기본값)
+python main.py --target OPS --auth-type pat</code></pre>
+
+      <h3>4. 요약(Summary)만 신속 조회 (<code>limit=0</code> 쿼리)</h3>
+      <p>전체 상세 데이터를 다운로드하지 않고 현재 큐 및 에러 건수만 빠르게 확인합니다:</p>
+      <pre><code>python main.py --target OPS --summary</code></pre>
+
+      <h3>5. 특정 큐/에러만 개별 조사</h3>
+      <pre><code># Outgoing Queue만 수집
+python main.py --target OPS --outgoing
+
+# Incoming Queue만 수집
+python main.py --target OPS --incoming
+
+# 에러 목록만 수집
+python main.py --target OPS --errors</code></pre>
+
+      <h3>6. 디버그 모드 (실제 Exalate API 응답 스키마 분석)</h3>
+      <pre><code>python main.py --target OPS --debug</code></pre>
+
+      <!-- 6. Console Output Example -->
+      <h2>📊 콘솔 출력 화면 예시</h2>
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <div class="terminal-dot dot-red"></div>
+          <div class="terminal-dot dot-yellow"></div>
+          <div class="terminal-dot dot-green"></div>
+          <span class="terminal-title">bash - python main.py --target OPS</span>
+        </div>
+        <div class="terminal-body">
+====================================================<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exalate Migration Audit (Jira DC)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+====================================================<br>
+Target Environment : JIRA_DC_OPS<br>
+Jira Base URL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: https://dev-jira.osci.kr<br>
+Config File&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: ../env<br>
+Authentication&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: PersonalAccessToken (Bearer ***)<br>
+SSL Verification&nbsp;&nbsp;&nbsp;: Disabled<br>
+----------------------------------------------------<br>
+Outgoing Queue : 10<br>
+Incoming Queue : 3<br>
+Errors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 2<br>
+----------------------------------------------------<br>
+<br>
+OUTGOING<br>
+Collected: 10<br>
+<br>
+INCOMING<br>
+Collected: 3<br>
+<br>
+ERRORS<br>
+Collected: 2<br>
+<br>
+----------------------------------------------------<br>
+Reports Generated:<br>
+&nbsp;&nbsp;output/exalate_summary.json<br>
+&nbsp;&nbsp;output/exalate_summary.csv<br>
+&nbsp;&nbsp;output/exalate_outgoing.json<br>
+&nbsp;&nbsp;output/exalate_outgoing.csv<br>
+&nbsp;&nbsp;output/exalate_incoming.json<br>
+&nbsp;&nbsp;output/exalate_incoming.csv<br>
+&nbsp;&nbsp;output/exalate_errors.json<br>
+&nbsp;&nbsp;output/exalate_errors.csv<br>
+====================================================<br>
+<br>
+[IMPORTANT MIGRATION NOTE]<br>
+&nbsp;&nbsp;* Outgoing Queue != Total Outgoing Synced Issues<br>
+&nbsp;&nbsp;* Incoming Queue != Total Incoming Synced Issues<br>
+&nbsp;&nbsp;* These metrics reflect in-flight / pending queue transactions.<br>
+&nbsp;&nbsp;* Synced Issue Relations / Connections require separate assessment (Phase 2).<br>
+====================================================
+        </div>
+      </div>
+
+      <!-- 7. Output Files -->
+      <h2>📄 생성되는 결과 파일 (<code>./output</code>)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>파일명</th>
+            <th>포맷</th>
+            <th>주요 필드 / 내용</th>
+            <th>용도</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: #f0fdf4;">
+            <td><strong><code>exalate_report.html</code></strong></td>
+            <td><span class="table-tag" style="background:#22c55e; color:#fff;">MASTER HTML</span></td>
+            <td>통합 인터랙티브 대시보드 (Summary + Outgoing + Incoming + Errors 탭 및 실시간 검색)</td>
+            <td><strong>마이그레이션 전체 현황 원클릭 확인</strong></td>
+          </tr>
+          <tr>
+            <td><code>exalate_summary.html</code></td>
+            <td><span class="table-tag" style="background:#3b82f6; color:#fff;">HTML</span></td>
+            <td>요약 메트릭 카드 및 통계 테이블</td>
+            <td>브라우저 요약 보고서</td>
+          </tr>
+          <tr>
+            <td><code>exalate_summary.json</code></td>
+            <td><span class="table-tag">JSON</span></td>
+            <td><code>jira.baseUrl</code>, <code>collectedAt</code>, <code>outgoing.total</code>, <code>incoming.total</code>, <code>errors.total</code></td>
+            <td>자동화 파이프라인 및 대시보드 연동</td>
+          </tr>
+          <tr>
+            <td><code>exalate_summary.csv</code></td>
+            <td><span class="table-tag">CSV</span></td>
+            <td><code>type</code>, <code>count</code> (OUTGOING, INCOMING, ERROR)</td>
+            <td>스프레드시트 및 경영진 요약 보고</td>
+          </tr>
+          <tr>
+            <td><code>exalate_outgoing.html</code></td>
+            <td><span class="table-tag" style="background:#3b82f6; color:#fff;">HTML</span></td>
+            <td>Outgoing Sync Queue 테이블 웹 리포트 (실시간 검색)</td>
+            <td>브라우저 발신 대기열 확인</td>
+          </tr>
+          <tr>
+            <td><code>exalate_outgoing.json</code></td>
+            <td><span class="table-tag">JSON</span></td>
+            <td>Exalate <code>/syncevents</code> API 응답 원본 전체 (무손실 보존)</td>
+            <td>상세 감사 추적 및 디버깅</td>
+          </tr>
+          <tr>
+            <td><code>exalate_outgoing.csv</code></td>
+            <td><span class="table-tag">CSV</span></td>
+            <td><code>id</code>, <code>issueKey</code>, <code>status</code>, <code>connectionName</code>, <code>created</code>, <code>error</code> 등</td>
+            <td>미처리 Outgoing 큐 대상 이슈 목록 분석</td>
+          </tr>
+          <tr>
+            <td><code>exalate_incoming.html</code></td>
+            <td><span class="table-tag" style="background:#3b82f6; color:#fff;">HTML</span></td>
+            <td>Incoming Sync Queue 테이블 웹 리포트 (실시간 검색)</td>
+            <td>브라우저 수신 대기열 확인</td>
+          </tr>
+          <tr>
+            <td><code>exalate_incoming.json</code></td>
+            <td><span class="table-tag">JSON</span></td>
+            <td>Exalate <code>/syncrequests</code> API 응답 원본 전체 (무손실 보존)</td>
+            <td>상세 감사 추적 및 디버깅</td>
+          </tr>
+          <tr>
+            <td><code>exalate_incoming.csv</code></td>
+            <td><span class="table-tag">CSV</span></td>
+            <td><code>id</code>, <code>issueKey</code>, <code>status</code>, <code>connectionName</code>, <code>created</code>, <code>error</code> 등</td>
+            <td>미반영 Incoming 큐 대상 요청 목록 분석</td>
+          </tr>
+          <tr>
+            <td><code>exalate_errors.html</code></td>
+            <td><span class="table-tag" style="background:#ef4444; color:#fff;">HTML</span></td>
+            <td>Exalate Error 테이블 웹 리포트 (오류 유형별 배지 및 실시간 검색)</td>
+            <td>브라우저 오류 분석</td>
+          </tr>
+          <tr>
+            <td><code>exalate_errors.json</code></td>
+            <td><span class="table-tag">JSON</span></td>
+            <td>Exalate <code>/errors</code> API 응답 원본 전체 (무손실 보존)</td>
+            <td>오류 스택트레이스 분석</td>
+          </tr>
+          <tr>
+            <td><code>exalate_errors.csv</code></td>
+            <td><span class="table-tag">CSV</span></td>
+            <td><code>id</code>, <code>issueKey</code>, <code>connection</code>, <code>errorType</code>, <code>message</code>, <code>created</code></td>
+            <td>마이그레이션 전 선행 조치할 동기화 에러 목록</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 8. Architecture & Phase 2 -->
+      <h2>🔮 2단계 확장 안내: DB Relation Collector</h2>
+      <p>이번 1단계 도구는 실시간 트랜잭션 큐와 에러를 수집합니다. 2단계에서는 Jira ActiveObjects 데이터베이스 직접 조회를 통해 전체 동기화 이슈 매핑 및 트리거 조건을 수집하도록 확장됩니다.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h4>AO_08F1AF_RELATION</h4>
+          <p>로컬 Jira 이슈와 원격 Exalate 인스턴스 이슈 간의 1:1 영구 동기화 매핑 테이블입니다. (전체 Synced Issues 식별)</p>
+        </div>
+        <div class="card">
+          <h4>AO_08F1AF_TRIGGER</h4>
+          <p>동기화를 유발하는 JQL 조건식 및 트리거 활성화 상태 정보가 저장된 테이블입니다.</p>
+        </div>
+        <div class="card">
+          <h4>AO_08F1AF_INSTANCE</h4>
+          <p>연결된 원격 Jira/ServiceNow/Zendesk 등 원격 Exalate 인스턴스의 URL 및 타입 정보입니다.</p>
+        </div>
+      </div>
+
+      <!-- 9. Testing -->
+      <h2>🧪 단위 및 통합 테스트 검증</h2>
+      <p>실제 Exalate 서버 연결 없이도 Mocking 기반으로 모든 시나리오를 검증하는 테스트 스위트가 포함되어 있습니다:</p>
+      <pre><code>pytest -v</code></pre>
+      <p><strong>총 28개 테스트 전체 통과 (100% Coverage):</strong></p>
+      <ul>
+        <li><code>test_outgoing_count</code>, <code>test_incoming_count</code>, <code>test_error_count</code> (큐 건수 조회)</li>
+        <li><code>test_empty_response</code>, <code>test_pagination</code>, <code>test_pagination_max_pages_guard</code> (안전한 페이징)</li>
+        <li><code>test_401</code>, <code>test_403</code>, <code>test_404</code> (인증/권한/미설치 예외 처리)</li>
+        <li><code>test_429_retry</code>, <code>test_500_retry</code>, <code>test_500_retry_exhausted</code> (지수 백오프 자동 재시도)</li>
+        <li><code>test_invalid_json</code>, <code>test_html_response_detection</code> (HTML 로그인 리다이렉트 진단)</li>
+        <li><code>test_strict_read_only_enforcement</code> (POST, PUT, PATCH, DELETE 차단)</li>
+        <li><code>test_sensitive_data_masking</code> (토큰, 암호, Authorization 헤더 마스킹)</li>
+        <li><code>test_resolve_config_ops</code>, <code>test_resolve_config_stg</code> (<code>../env</code> 변수 매핑 검증)</li>
+        <li><code>test_cli_end_to_end</code> (CLI 인자 파싱 및 파일 출력 전과정 검증)</li>
+      </ul>
+    </div>
+
+    <footer>
+      Exalate Migration Audit Tool &copy; 2026. Confidential Migration Assessment Utility.
+    </footer>
+  </div>
+</body>
+</html>

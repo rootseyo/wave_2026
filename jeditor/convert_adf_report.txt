@@ -1,0 +1,1 @@
+[17:26:26 +0.01m] Successfully loaded 141 fields from Jira Cloud for mapping.

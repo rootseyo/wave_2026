@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jira Component Watcher Migration & Verification Toolkit Documentation</title>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Highlight.js Night Owl Theme -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/night-owl.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <!-- Mermaid.js -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+    <style>
+        :root {
+            --bg-primary: #0b0f19;
+            --bg-card: #111827;
+            --bg-surface: #1f2937;
+            --bg-code: #030712;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            --accent-blue: #3b82f6;
+            --accent-cyan: #06b6d4;
+            --accent-purple: #8b5cf6;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --border-color: #1f2937;
+            --border-highlight: #374151;
+            --badge-bg: rgba(59, 130, 246, 0.12);
+            --badge-border: rgba(59, 130, 246, 0.3);
+            --shadow-lg: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 2.5rem 1rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 3rem 3.5rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Header / Banner */
+        .hero {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 2.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .badge-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 1.25rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--badge-bg);
+            border: 1px solid var(--badge-border);
+            color: #60a5fa;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badge.green {
+            background: rgba(16, 185, 129, 0.12);
+            border-color: rgba(16, 185, 129, 0.3);
+            color: #34d399;
+        }
+
+        .badge.purple {
+            background: rgba(139, 92, 246, 0.12);
+            border-color: rgba(139, 92, 246, 0.3);
+            color: #a78bfa;
+        }
+
+        .badge.amber {
+            background: rgba(245, 158, 11, 0.12);
+            border-color: rgba(245, 158, 11, 0.3);
+            color: #fbbf24;
+        }
+
+        .badge.cyan {
+            background: rgba(6, 182, 212, 0.12);
+            border-color: rgba(6, 182, 212, 0.3);
+            color: #22d3ee;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: #ffffff;
+            margin-bottom: 0.85rem;
+            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 950px;
+        }
+
+        /* Headings */
+        h2 {
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: #f9fafb;
+            margin: 3rem 0 1.25rem 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 4px solid var(--accent-blue);
+            padding-left: 14px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #e5e7eb;
+            margin: 2rem 0 0.85rem 0;
+        }
+
+        h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #d1d5db;
+            margin: 1.25rem 0 0.5rem 0;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Quick Navigation Bar */
+        .quick-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            background: var(--bg-surface);
+            padding: 12px 18px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2.5rem;
+        }
+
+        .quick-nav a {
+            color: #93c5fd;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 4px 10px;
+            border-radius: 6px;
+            transition: all 0.15s ease;
+        }
+
+        .quick-nav a:hover {
+            background: rgba(59, 130, 246, 0.2);
+            color: #ffffff;
+        }
+
+        /* Lists */
+        ul, ol {
+            color: var(--text-secondary);
+            padding-left: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        li {
+            margin-bottom: 0.45rem;
+        }
+
+        li strong {
+            color: var(--text-primary);
+        }
+
+        /* Inline Code & Code Blocks */
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9em;
+            background-color: var(--bg-surface);
+            color: #67e8f9;
+            padding: 3px 7px;
+            border-radius: 6px;
+            border: 1px solid var(--border-highlight);
+        }
+
+        pre {
+            margin: 1.25rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        pre code {
+            display: block;
+            padding: 1.25rem 1.5rem;
+            background-color: var(--bg-code) !important;
+            color: #f3f4f6;
+            font-size: 0.925rem;
+            border: none;
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+
+        /* Blockquotes / Callouts */
+        blockquote {
+            background-color: rgba(31, 41, 55, 0.5);
+            border-left: 4px solid var(--accent-cyan);
+            border-radius: 0 8px 8px 0;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            color: #d1d5db;
+        }
+
+        blockquote.warning {
+            border-left-color: var(--accent-amber);
+            background-color: rgba(245, 158, 11, 0.08);
+        }
+
+        blockquote.danger {
+            border-left-color: var(--accent-rose);
+            background-color: rgba(244, 63, 94, 0.08);
+        }
+
+        blockquote.success {
+            border-left-color: var(--accent-emerald);
+            background-color: rgba(16, 185, 129, 0.08);
+        }
+
+        blockquote p {
+            margin-bottom: 0;
+            color: #d1d5db;
+        }
+
+        /* Diagrams */
+        .mermaid-wrapper {
+            background: var(--bg-code);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin: 1.5rem 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Tables */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.925rem;
+            background: var(--bg-card);
+        }
+
+        th {
+            background: var(--bg-surface);
+            color: #f9fafb;
+            font-weight: 600;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            vertical-align: middle;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background-color: rgba(31, 41, 55, 0.4);
+        }
+
+        td code {
+            color: #a5b4fc;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: var(--border-color);
+            margin: 2.75rem 0;
+        }
+
+        /* Custom Card Sections */
+        .workflow-step {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin-bottom: 1.75rem;
+            transition: border-color 0.2s ease, transform 0.15s ease;
+        }
+
+        .workflow-step:hover {
+            border-color: var(--border-highlight);
+        }
+
+        .workflow-step h3 {
+            margin-top: 0;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--border-highlight);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-tag {
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 6px;
+            background: rgba(59, 130, 246, 0.2);
+            color: #93c5fd;
+            font-weight: 500;
+        }
+
+        .step-tag.scan {
+            background: rgba(6, 182, 212, 0.2);
+            color: #67e8f9;
+        }
+
+        .step-tag.migrate {
+            background: rgba(139, 92, 246, 0.2);
+            color: #c4b5fd;
+        }
+
+        .step-tag.verify {
+            background: rgba(16, 185, 129, 0.2);
+            color: #6ee7b7;
+        }
+
+        .meta-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 8px;
+            margin-top: 1rem;
+            margin-bottom: 0;
+        }
+
+        .meta-item {
+            background: var(--bg-code);
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        /* Feature Cards Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .feature-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .feature-card h4 {
+            margin-top: 0;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-card p {
+            font-size: 0.925rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .status-pill {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .status-pill.match { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+        .status-pill.mismatch { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+        .status-pill.missing { background: rgba(244, 63, 94, 0.2); color: #fb7185; }
+        .status-pill.dryrun { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+            .container {
+                padding: 1.5rem 1.25rem;
+                border-radius: 12px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            .workflow-step {
+                padding: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="badge-group">
+                <span class="badge">🚀 Jira DC ➔ Jira Cloud</span>
+                <span class="badge green">✨ Safe Scan & Migration</span>
+                <span class="badge purple">🔍 Automated Verification</span>
+                <span class="badge cyan">📊 Interactive HTML Dashboard</span>
+                <span class="badge amber">🛡️ Fail-Safe Protection</span>
+            </div>
+            <h1>Jira Component Watcher Migration & Verification Toolkit</h1>
+            <p>Jira Data Center 환경의 <strong>Component Watcher</strong> 플러그인 설정을 조회·분석하고, 사용자/그룹/이벤트 매핑을 거쳐 Jira Cloud로 안전하게 마이그레이션하며, 데이터 정합성을 전수 검증하는 엔지니어링 툴킷입니다.</p>
+        </header>
+
+        <!-- Quick Navigation -->
+        <nav class="quick-nav">
+            <a href="#overview">📌 개요 및 아키텍처</a>
+            <a href="#workflow">⚡ 표준 실행 워크플로우</a>
+            <a href="#scan-tool">🔍 1. 프로젝트 안전 스캔 (scan_projects.py)</a>
+            <a href="#migrate-tool">🚀 2. 마이그레이션 엔진 (migrate.py)</a>
+            <a href="#verify-tool">✅ 3. 정합성 검증 (verify_migration.py)</a>
+            <a href="#event-mapping">📋 이벤트 매핑 규격</a>
+            <a href="#env-config">⚙️ 환경 설정 (.env)</a>
+            <a href="#safety-features">🛡️ 안전 수칙 및 트러블슈팅</a>
+        </nav>
+
+        <!-- Section 1: Overview & Architecture -->
+        <section id="overview">
+            <h2>📌 개요 및 아키텍처 (Overview & Architecture)</h2>
+            <p>
+                <strong>Component Watcher</strong>는 특정 컴포넌트(Component)에 이슈가 생성, 수정, 할당되거나 상태/댓글/작업로그가 변경될 때 지정된 사용자 또는 사용자 그룹에 자동으로 알림을 전송하는 Jira 플러그인입니다.
+            </p>
+            <p>
+                Jira Data Center에서 Cloud로 이전할 때, 온프레미스 계정명(Username)을 Cloud 표준(Email/Account ID)으로 매핑하고, 숫자형 Event ID를 Cloud URN 형식으로 변환하여 Cloud Component Watcher REST API에 동기화해야 합니다.
+            </p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>🔍 사전 분석 & 시각화</h4>
+                    <p>Jira DC의 컴포넌트 와쳐 설정을 조회하여 프로젝트별 사용자/그룹 현황 및 통계를 인터랙티브 HTML 대시보드로 즉시 확인합니다.</p>
+                    <span class="status-pill dryrun">Read-Only Safe Mode</span>
+                </div>
+                <div class="feature-card">
+                    <h4>🚀 안전한 3단계 마이그레이션</h4>
+                    <p>Dry-Run 시뮬레이션을 통해 충돌 및 사전 등록 여부를 파악한 뒤, 선별적으로 Cloud API에 안전하게 전송합니다.</p>
+                    <span class="status-pill match">Dry-Run / Real-Run / API Test</span>
+                </div>
+                <div class="feature-card">
+                    <h4>✅ 전수 정합성 자동 검증</h4>
+                    <p>DC와 Cloud 양쪽의 와쳐 사용자(이메일), 그룹, 이벤트 타입을 컴포넌트 단위로 1:1 대조하여 엑셀 호환 CSV 리포트를 생성합니다.</p>
+                    <span class="status-pill match">Bidirectional 1:1 Matching</span>
+                </div>
+            </div>
+
+            <h3>📊 데이터 흐름도 (Data Architecture Flowchart)</h3>
+            <div class="mermaid-wrapper">
+                <div class="mermaid">
+                flowchart LR
+                    subgraph Source ["🏛️ Jira Data Center (STG / OPS)"]
+                        DC_API["Component Watcher REST API<br/><code>/rest/componentwatcher/1.0/config/...</code>"]
+                        DC_USER["User REST API<br/><code>/rest/api/2/user?username=...</code>"]
+                    end
+
+                    subgraph Engine ["⚙️ Component Watcher Toolkit"]
+                        P_LIST["../projects.txt<br/>(대상 프로젝트 목록)"]
+                        SCAN["1. scan_projects.py<br/>(안전 스캔 & 시각화)"]
+                        MIG["2. migrate.py<br/>(변환 & 마이그레이션)"]
+                        VER["3. verify_migration.py<br/>(정합성 전수 검증)"]
+                    end
+
+                    subgraph Target ["☁️ Jira Cloud (Sandbox / OPS)"]
+                        CLOUD_API["Component Watcher Cloud API<br/><code>/rest/componentwatcher/1.0/...</code>"]
+                    end
+
+                    subgraph Reports ["📄 결과 산출물 (Reports)"]
+                        DASH["dashboard.html<br/>(스캔 대시보드)"]
+                        REP_HTML["report.html<br/>(마이그레이션 결과)"]
+                        REP_CSV["report.csv<br/>(검증 대조표)"]
+                        LOG["log.txt<br/>(상세 진단 로그)"]
+                    end
+
+                    P_LIST --> SCAN
+                    P_LIST --> MIG
+                    P_LIST --> VER
+
+                    DC_API --> SCAN
+                    DC_USER --> SCAN
+                    SCAN --> DASH
+
+                    DC_API --> MIG
+                    DC_USER --> MIG
+                    MIG -->|Payload Post| CLOUD_API
+                    MIG --> REP_HTML
+                    MIG --> LOG
+
+                    DC_API --> VER
+                    CLOUD_API --> VER
+                    VER --> REP_CSV
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Section 2: Standard Workflow -->
+        <section id="workflow">
+            <h2>⚡ 표준 실행 워크플로우 (Standard Workflow)</h2>
+            <p>마이그레이션 및 정합성 검증 작업은 반드시 아래의 <strong>3단계 표준 절차</strong>에 따라 순차적으로 수행합니다.</p>
+
+            <div class="mermaid-wrapper">
+                <div class="mermaid">
+                flowchart TD
+                    Step1["Step 1. 사전 스캔 & 설정 분석<br/><code>python3 scan_projects.py --env stg</code>"] --> Review1{"설정 현황 및 대상 검토<br/>(dashboard.html 확인)"}
+                    Review1 --> Step2_Dry["Step 2-1. 마이그레이션 사전 시뮬레이션<br/><code>python3 migrate.py --source-env stg --target-env sandbox --dry-run</code>"]
+                    Step2_Dry --> Review2{"Dry-Run 결과 검토<br/>(report.html 확인)"}
+                    Review2 --> Step2_Real["Step 2-2. Cloud 실제 마이그레이션 실행<br/><code>python3 migrate.py --source-env stg --target-env sandbox --real-run</code>"]
+                    Step2_Real --> Step3["Step 3. DC vs Cloud 정합성 전수 검증<br/><code>python3 verify_migration.py</code>"]
+                    Step3 --> Final{"최종 리포트 검증 완료<br/>(report.csv 확인)"}
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Section 3: Tool 1 - scan_projects.py -->
+        <section id="scan-tool">
+            <h2>🔍 Step 1. 대상 프로젝트 안전 스캔 (scan_projects.py)</h2>
+            <div class="workflow-step">
+                <h3>
+                    <span>scan_projects.py — 읽기 전용 사전 조사 및 인터랙티브 대시보드 생성</span>
+                    <span class="step-tag scan">Scan & Dashboard</span>
+                </h3>
+                <p>
+                    Jira Cloud에 어떤 변경도 가하지 않는 <strong>완전한 읽기 전용(Read-Only Safe Mode)</strong> 도구입니다. 
+                    지정된 프로젝트 목록의 Component Watcher 설정 현황(컴포넌트 수, 와쳐 지정 사용자/그룹, 이벤트)을 조회하고 사용자 이메일을 일괄 변환하여 인터랙티브 대시보드(<code>dashboard.html</code>)를 생성합니다.
+                </p>
+
+                <h4>주요 실행 명령어</h4>
+                <pre><code class="language-bash"># 1. 대화형 환경 선택 실행 (기본 ../projects.txt 사용)
+python3 scan_projects.py
+
+# 2. STG 환경 대상 즉시 스캔 (프롬프트 생략: -y)
+python3 scan_projects.py --env stg -y
+
+# 3. OPS 환경 대상 및 특정 프로젝트 목록 파일 지정 실행
+python3 scan_projects.py --env ops --file ./custom_projects.txt -y</code></pre>
+
+                <h4>CLI 옵션 매개변수</h4>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>옵션</th>
+                                <th>타입</th>
+                                <th>기본값</th>
+                                <th>설명</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>--env</code></td>
+                                <td><code>stg</code> | <code>ops</code></td>
+                                <td>대화형 선택</td>
+                                <td>스캔 대상 Jira DC 환경 (Stage 또는 Operations)</td>
+                            </tr>
+                            <tr>
+                                <td><code>--file</code></td>
+                                <td>경로 (string)</td>
+                                <td><code>../projects.txt</code></td>
+                                <td>대상 프로젝트 키 목록 텍스트 파일 경로</td>
+                            </tr>
+                            <tr>
+                                <td><code>-y</code>, <code>--yes</code></td>
+                                <td>플래그</td>
+                                <td><code>False</code></td>
+                                <td>안전 스캔 동의 프롬프트 없이 즉시 진행</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>주요 기능 및 산출물</h4>
+                <ul>
+                    <li><strong>사용자 이메일 캐싱</strong>: 동일 사용자의 반복 조회를 방지하여 Jira DC API 부하 최소화</li>
+                    <li><strong>보안 인증 실패 방지</strong>: HTTP 401 발생 시 계정 잠금을 방지하기 위해 즉시 작업을 안전하게 중단</li>
+                    <li><strong>dashboard.html</strong>: TOP 5 와쳐 보유 프로젝트, 와쳐 유형 비율(사용자 vs 그룹), 프로젝트별/컴포넌트별 상세 테이블 및 실시간 검색/필터 기능 내장</li>
+                </ul>
+
+                <div class="meta-list">
+                    <div class="meta-item">📥 <strong>입력</strong>: <code>../projects.txt</code>, <code>../env</code></div>
+                    <div class="meta-item">📊 <strong>출력</strong>: 콘솔 요약, <code>dashboard.html</code>, <code>log.txt</code></div>
+                    <div class="meta-item">🔒 <strong>영향도</strong>: Jira DC 조회 전용 (Cloud 데이터 변경 전혀 없음)</div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Section 4: Tool 2 - migrate.py -->
+        <section id="migrate-tool">
+            <h2>🚀 Step 2. 컴포넌트 와쳐 마이그레이션 엔진 (migrate.py)</h2>
+            <div class="workflow-step">
+                <h3>
+                    <span>migrate.py — 설정 변환 및 Jira Cloud REST API 동기화</span>
+                    <span class="step-tag migrate">Migration Engine</span>
+                </h3>
+                <p>
+                    Jira Data Center의 Component Watcher 설정을 스캔 및 분석한 후, 대화형 확인(<strong>"스캔 후 migration 하겠습니까?"</strong>)을 거쳐 Jira Cloud REST API로 안전하게 마이그레이션합니다.<br/>
+                    사용자 할당에 이슈가 발생하더라도 <strong>설정 값(이벤트 규칙, 그룹)을 우선 마이그레이션</strong>하고, 사용자 할당을 분리하여 이슈가 발생한 사용자별로 상세 진단 로그를 남깁니다.
+                </p>
+
+                <h4>주요 실행 명령어</h4>
+                <pre><code class="language-bash"># [표준 실행] 스캔 ➔ 요약 및 대시보드(dashboard.html) 확인 ➔ 마이그레이션 진행 여부 질의 (Y/N)
+python3 migrate.py --source-env stg --target-env sandbox
+
+# [스캔 전용 모드] 스캔 및 대시보드 리포트만 생성 (Cloud 마이그레이션 미수행)
+python3 migrate.py --source-env stg --target-env sandbox --scan-only
+# 또는 기존 scan_projects.py 실행 시 migrate.py 스캔 엔진이 통합 실행됩니다:
+python3 scan_projects.py --env stg
+
+# [비대화형/자동 모드] 질의 프롬프트 없이 스캔 후 즉시 마이그레이션 진행
+python3 migrate.py --source-env stg --target-env sandbox -y
+
+# [연결 테스트] Cloud REST API 연결 및 엔드포인트 응답 점검
+python3 migrate.py --source-env stg --target-env sandbox --test-cloud</code></pre>
+
+                <h4>CLI 옵션 매개변수</h4>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>옵션</th>
+                                <th>타입</th>
+                                <th>기본값</th>
+                                <th>설명</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>--source-env</code>, <code>--env</code></td>
+                                <td><code>stg</code> | <code>ops</code></td>
+                                <td>대화형 선택</td>
+                                <td>소스 Jira DC 환경 선택</td>
+                            </tr>
+                            <tr>
+                                <td><code>--target-env</code>, <code>--target</code></td>
+                                <td><code>sandbox</code> | <code>ops</code></td>
+                                <td>대화형 선택</td>
+                                <td>대상 Jira Cloud 환경 선택 (stg 입력 시 sandbox로 자동 매핑)</td>
+                            </tr>
+                            <tr>
+                                <td><code>--scan-only</code>, <code>--dry-run</code></td>
+                                <td>플래그</td>
+                                <td>False</td>
+                                <td>스캔 및 대시보드(dashboard.html) 생성만 수행하고 마이그레이션 미수행</td>
+                            </tr>
+                            <tr>
+                                <td><code>-y</code>, <code>--yes</code></td>
+                                <td>플래그</td>
+                                <td>False</td>
+                                <td>스캔 후 마이그레이션 진행 확인 프롬프트 없이 즉시 마이그레이션 실행</td>
+                            </tr>
+                            <tr>
+                                <td><code>--real-run</code></td>
+                                <td>플래그</td>
+                                <td>False</td>
+                                <td>스캔 후 바로 마이그레이션 실행 (기존 호환용)</td>
+                            </tr>
+                            <tr>
+                                <td><code>--test-cloud</code></td>
+                                <td>플래그</td>
+                                <td>False</td>
+                                <td>Target Jira Cloud REST API 연결 및 엔드포인트 응답 테스트</td>
+                            </tr>
+                            <tr>
+                                <td><code>--file</code></td>
+                                <td>경로</td>
+                                <td><code>../projects.txt</code></td>
+                                <td>처리 대상 프로젝트 키 목록 파일</td>
+                            </tr>
+                            <tr>
+                                <td><code>--project</code></td>
+                                <td>문자열</td>
+                                <td><code>None</code></td>
+                                <td><code>--test-cloud</code> 실행 시 단일 테스트 대상 프로젝트 키 지정</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>상태 판정 및 중복 처리 로직</h4>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>상태 코드</th>
+                                <th>설명 및 조치</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="status-pill dryrun">DRY-RUN</span></td>
+                                <td>Dry-Run 모드로 실행되어 데이터 추출 및 변환 검증이 완료된 상태</td>
+                            </tr>
+                            <tr>
+                                <td><span class="status-pill match">MATCH</span></td>
+                                <td>Jira Cloud에 이미 설정이 존재하며, DC 설정(사용자, 그룹)과 100% 동일하여 추가 전송 생략</td>
+                            </tr>
+                            <tr>
+                                <td><span class="status-pill mismatch">MISMATCH</span></td>
+                                <td>Jira Cloud에 이미 설정이 존재하지만 DC 설정과 차이가 있음 (기존 설정 보호를 위해 자동 덮어쓰기 방지)</td>
+                            </tr>
+                            <tr>
+                                <td><span class="status-pill match">SUCCESS</span></td>
+                                <td>Jira Cloud에 신규 컴포넌트 와쳐 설정이 정상적으로 생성됨 (HTTP 200/201)</td>
+                            </tr>
+                            <tr>
+                                <td><span class="status-pill mismatch">EXISTING</span></td>
+                                <td>Cloud API 전송 중 이미 등록된 설정으로 반환됨</td>
+                            </tr>
+                            <tr>
+                                <td><span class="status-pill missing">FAILED</span></td>
+                                <td>네트워크 오류 또는 권한/엔드포인트 에러로 마이그레이션 실패</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="meta-list">
+                    <div class="meta-item">📥 <strong>입력</strong>: <code>../projects.txt</code>, <code>../env</code></div>
+                    <div class="meta-item">📄 <strong>출력</strong>: <code>report.html</code> (마이그레이션 상세 리포트), <code>log.txt</code></div>
+                    <div class="meta-item">⚙️ <strong>엔드포인트</strong>: <code>/rest/componentwatcher/1.0/config/configurations/{projectKey}</code></div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Section 5: Tool 3 - verify_migration.py -->
+        <section id="verify-tool">
+            <h2>✅ Step 3. 마이그레이션 정합성 전수 검증 (verify_migration.py)</h2>
+            <div class="workflow-step">
+                <h3>
+                    <span>verify_migration.py — DC vs Cloud 설정 1:1 대조 및 CSV 리포트 생성</span>
+                    <span class="step-tag verify">Verification & Audit</span>
+                </h3>
+                <p>
+                    마이그레이션 완료 후 Jira DC와 Jira Cloud 양쪽 시스템에서 동일 프로젝트의 컴포넌트 와쳐 설정을 동시에 가져와 <strong>와쳐 사용자(이메일)</strong>, <strong>그룹 목록</strong>, <strong>이벤트 설정</strong>이 완벽하게 일치하는지 전수 검증합니다.
+                </p>
+
+                <h4>주요 실행 명령어</h4>
+                <pre><code class="language-bash"># 1. 기본 실행 (대화형 환경 선택 -> report.csv 생성)
+python3 verify_migration.py
+
+# 2. 프로젝트 파일 및 출력 CSV 경로 직접 지정 실행
+python3 verify_migration.py --file ../projects.txt --output ./migration_verification_report.csv</code></pre>
+
+                <h4>CLI 옵션 매개변수</h4>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>옵션</th>
+                                <th>타입</th>
+                                <th>기본값</th>
+                                <th>설명</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>--file</code></td>
+                                <td>경로</td>
+                                <td><code>../projects.txt</code></td>
+                                <td>검증 대상 프로젝트 목록 파일 (부재 시 <code>../jeditor/projects.txt</code> 폴백)</td>
+                            </tr>
+                            <tr>
+                                <td><code>--output</code></td>
+                                <td>경로</td>
+                                <td><code>report.csv</code></td>
+                                <td>검증 결과가 저장될 CSV 파일 경로 (Excel 호환 UTF-8 BOM 인코딩)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>검증 판정 기준 (Verification Status)</h4>
+                <ul>
+                    <li><span class="status-pill match">MATCH</span>: DC와 Cloud 양쪽에 컴포넌트가 존재하며 사용자(이메일), 그룹, 이벤트가 100% 일치함</li>
+                    <li><span class="status-pill mismatch">MISMATCH</span>: 양쪽에 존재하나 사용자 수, 그룹 명단, 또는 이벤트 구성에 차이가 있음 (상세 불일치 내역이 <code>Details</code> 열에 기록됨)</li>
+                    <li><span class="status-pill missing">MISSING_IN_CLOUD</span>: DC에는 와쳐가 설정되어 있으나 Cloud에는 등록되지 않음</li>
+                    <li><span class="status-pill missing">MISSING_IN_DC</span>: Cloud에는 설정되어 있으나 DC에는 존재하지 않음</li>
+                    <li><span class="status-pill missing">DC_FETCH_ERROR</span>: DC API 통신 오류 또는 권한 문제로 설정을 불러오지 못함</li>
+                </ul>
+
+                <div class="meta-list">
+                    <div class="meta-item">📥 <strong>입력</strong>: <code>../projects.txt</code>, <code>../env</code></div>
+                    <div class="meta-item">📊 <strong>출력</strong>: 콘솔 통계, <code>report.csv</code> (UTF-8 with BOM)</div>
+                    <div class="meta-item">📑 <strong>CSV 헤더</strong>: <code>Project Key, Component Name, Status, DC Watchers, Cloud Watchers, Watchers Match, DC Groups, Cloud Groups, Groups Match, DC Events, Cloud Events, Events Match, Details</code></div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Section 6: Event Type Mapping -->
+        <section id="event-mapping">
+            <h2>📋 이벤트 매핑 규격 (Event Type Mapping Reference)</h2>
+            <p>
+                Jira Data Center의 Component Watcher는 내부 정수 ID로 이벤트를 관리하며, Jira Cloud는 Atlassian 표준 URN 문자열 형식을 사용합니다. 툴킷은 아래 규격에 맞춰 양방향 자동 매핑을 수행합니다.
+            </p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DC Event ID</th>
+                            <th>Cloud Event URN String</th>
+                            <th>이벤트 명칭 및 발생 조건</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>1</code></td>
+                            <td><code>avi:jira:created:issue</code></td>
+                            <td><strong>이슈 생성 (Issue Created)</strong> — 컴포넌트가 지정된 새 이슈가 등록될 때</td>
+                        </tr>
+                        <tr>
+                            <td><code>2</code></td>
+                            <td><code>avi:jira:updated:issue</code></td>
+                            <td><strong>이슈 수정 (Issue Updated)</strong> — 이슈 필드나 정보가 변경될 때</td>
+                        </tr>
+                        <tr>
+                            <td><code>3</code></td>
+                            <td><code>avi:jira:assigned:issue</code></td>
+                            <td><strong>담당자 변경 (Issue Assigned)</strong> — 이슈의 담당자가 변경될 때</td>
+                        </tr>
+                        <tr>
+                            <td><code>4</code></td>
+                            <td><code>avi:jira:updated:resolution</code></td>
+                            <td><strong>해결책 변경 (Issue Resolved)</strong> — 해결책(Resolution)이 지정되거나 변경될 때</td>
+                        </tr>
+                        <tr>
+                            <td><code>5</code></td>
+                            <td><code>avi:jira:updated:status</code></td>
+                            <td><strong>상태 변경 (Status Updated)</strong> — 워크플로우 상태 전이가 발생할 때</td>
+                        </tr>
+                        <tr>
+                            <td><code>6</code></td>
+                            <td><code>avi:jira:commented:issue</code></td>
+                            <td><strong>댓글 작성 (Issue Commented)</strong> — 이슈에 새 댓글이 등록될 때</td>
+                        </tr>
+                        <tr>
+                            <td><code>10</code></td>
+                            <td><code>avi:jira:created:worklog</code></td>
+                            <td><strong>작업로그 등록 (Worklog Created)</strong> — 소요 시간 작업로그가 기록될 때</td>
+                        </tr>
+                        <tr>
+                            <td><code>15</code></td>
+                            <td><code>avi:jira:updated:worklog</code></td>
+                            <td><strong>작업로그 수정 (Worklog Updated)</strong> — 기존 작업로그가 수정될 때</td>
+                        </tr>
+                        <tr>
+                            <td><code>16</code></td>
+                            <td><code>avi:jira:deleted:worklog</code></td>
+                            <td><strong>작업로그 삭제 (Worklog Deleted)</strong> — 기존 작업로그가 삭제될 때</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Section 7: Environment Configuration -->
+        <section id="env-config">
+            <h2>⚙️ 환경 설정 및 프로젝트 파일 (.env & projects.txt)</h2>
+            <p>툴킷 실행에 필요한 자격증명 및 엔드포인트는 상위 디렉터리의 <code>../env</code> 파일에서 중앙 집중식으로 관리됩니다.</p>
+
+            <h3>1. ../env 환경 변수 정의서</h3>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>환경 변수명</th>
+                            <th>구분</th>
+                            <th>설명 및 예시</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>JIRA_DC_STG_URL</code></td>
+                            <td>DC STG</td>
+                            <td>Jira DC Stage 베이스 URL (예: <code>https://jira-stg.company.com</code>)</td>
+                        </tr>
+                        <tr>
+                            <td><code>JIRA_DC_STG_USERNAME</code></td>
+                            <td>DC STG</td>
+                            <td>DC Stage 관리자 계정 ID</td>
+                        </tr>
+                        <tr>
+                            <td><code>JIRA_DC_STG_PASSWORD</code></td>
+                            <td>DC STG</td>
+                            <td>DC Stage 관리자 비밀번호</td>
+                        </tr>
+                        <tr>
+                            <td><code>JIRA_DC_OPS_URL</code></td>
+                            <td>DC OPS</td>
+                            <td>Jira DC Production 베이스 URL (예: <code>https://jira.company.com</code>)</td>
+                        </tr>
+                        <tr>
+                            <td><code>JIRA_DC_OPS_USERNAME</code></td>
+                            <td>DC OPS</td>
+                            <td>DC Production 관리자 계정 ID</td>
+                        </tr>
+                        <tr>
+                            <td><code>JIRA_DC_OPS_PASSWORD</code></td>
+                            <td>DC OPS</td>
+                            <td>DC Production 관리자 비밀번호</td>
+                        </tr>
+                        <tr>
+                            <td><code>JIRA_CLOUD_SANDBOX_URL</code></td>
+                            <td>Cloud SANDBOX</td>
+                            <td>Jira Cloud Sandbox 사이트 URL (예: <code>https://company-sandbox.atlassian.net</code>)</td>
+                        </tr>
+                        <tr>
+                            <td><code>JIRA_CLOUD_SANDBOX_ADMIN_EMAIL</code></td>
+                            <td>Cloud SANDBOX</td>
+                            <td>Jira Cloud 관리자 Atlassian 이메일</td>
+                        </tr>
+                        <tr>
+                            <td><code>JIRA_CLOUD_SANDBOX_API_TOKEN</code></td>
+                            <td>Cloud SANDBOX</td>
+                            <td>Atlassian 계정 관리에서 발급받은 API 토큰</td>
+                        </tr>
+                        <tr>
+                            <td><code>JIRA_CLOUD_OPS_URL</code></td>
+                            <td>Cloud OPS</td>
+                            <td>Jira Cloud Production 사이트 URL (예: <code>https://company.atlassian.net</code>)</td>
+                        </tr>
+                        <tr>
+                            <td><code>JIRA_CLOUD_OPS_ADMIN_EMAIL</code></td>
+                            <td>Cloud OPS</td>
+                            <td>Jira Cloud Production 관리자 Atlassian 이메일</td>
+                        </tr>
+                        <tr>
+                            <td><code>JIRA_CLOUD_OPS_API_TOKEN</code></td>
+                            <td>Cloud OPS</td>
+                            <td>Jira Cloud Production Atlassian API 토큰</td>
+                        </tr>
+                        <tr>
+                            <td><code>JIRA_SSL_VERIFY</code></td>
+                            <td>공통</td>
+                            <td>사내 자체 서명 인증서 사용 시 SSL 검증 여부 (<code>true</code> 또는 <code>false</code>)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>2. ../projects.txt 대상 프로젝트 정의 예시</h3>
+            <p>한 줄에 하나의 Jira 프로젝트 키를 입력합니다. <code>#</code>으로 시작하는 주석 라인 및 빈 줄은 자동으로 무시됩니다.</p>
+            <pre><code class="language-plaintext"># 마이그레이션 대상 Jira 프로젝트 키 목록
+PROJ1
+PROJ2
+SERVICE_DESK
+INFRA_CORE</code></pre>
+        </section>
+
+        <hr>
+
+        <!-- Section 8: Safety Features & Troubleshooting -->
+        <section id="safety-features">
+            <h2>🛡️ 안전 수칙 및 트러블슈팅 (Safety & Troubleshooting)</h2>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>🔒 계정 잠금 방지 (401 Interceptor)</h4>
+                    <p>비밀번호나 API 토큰 만료로 인한 계정 잠금 사태를 방지하기 위해, 최초 HTTP 401 인증 실패 감지 즉시 전체 루프를 안전하게 강제 중단합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🔄 지능형 재시도 (Exponential Backoff)</h4>
+                    <p>순간적인 네트워크 지연이나 Rate Limit(429), 게이트웨이 오류(500, 502, 503, 504) 발생 시 최대 3회까지 지수 백오프 기반으로 자동 재시도합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📝 자격증명 마스킹 진단 로그</h4>
+                    <p><code>log.txt</code> 파일에 리다이렉트 체인 및 헤더 진단 정보를 상세히 기록하되 패스워드나 인증 토큰은 철저히 마스킹되어 안전합니다.</p>
+                </div>
+            </div>
+
+            <h3>자주 발생하는 문제 및 해결 방안 (FAQ)</h3>
+            
+            <blockquote class="warning">
+                <p><strong>Q1. <code>[인증 오류] Jira 인증 실패 (HTTP 401)</code>가 발생하며 스크립트가 중단됩니다.</strong></p>
+                <p>➔ <code>../env</code> 파일의 계정 ID 또는 비밀번호/API 토큰이 올바른지 확인하세요. 사내 SSO/2FA가 적용된 경우 일반 비밀번호 대신 개인 액세스 토큰(PAT)을 발급받아 설정해야 할 수 있습니다.</p>
+            </blockquote>
+
+            <blockquote class="warning">
+                <p><strong>Q2. SSL 인증서 오류(SSLError: certificate verify failed)가 발생합니다.</strong></p>
+                <p>➔ 사내 사설 인증서를 사용하는 환경인 경우 <code>../env</code> 파일에 <code>JIRA_SSL_VERIFY=false</code>를 추가하거나 실행 환경의 시스템 인증서 번들에 루트 인증서를 등록하세요.</p>
+            </blockquote>
+
+            <blockquote class="danger">
+                <p><strong>Q3. Jira Cloud 대상 프로젝트에 컴포넌트가 등록되어 있지 않은 경우</strong></p>
+                <p>➔ Component Watcher는 Jira 프로젝트 내에 해당 컴포넌트(Component)가 먼저 생성되어 있어야 와쳐 설정 등록이 가능합니다. 프로젝트 컴포넌트 동기화가 먼저 완료되었는지 확인하세요.</p>
+            </blockquote>
+
+            <blockquote class="success">
+                <p><strong>Q4. Excel에서 <code>report.csv</code>를 열었을 때 한글이 깨집니다.</strong></p>
+                <p>➔ 본 툴킷의 <code>verify_migration.py</code>는 Microsoft Excel 한글 자동 인식을 위해 <code>utf-8-sig</code>(BOM 포함)로 저장하므로 별도 인코딩 변환 없이 바로 정상 열람이 가능합니다.</p>
+            </blockquote>
+        </section>
+
+        <hr>
+
+        <!-- Footer -->
+        <footer style="text-align: center; color: var(--text-muted); font-size: 0.875rem; padding-top: 1rem;">
+            <p>Jira Component Watcher Migration & Verification Toolkit • Automated by Google Antigravity</p>
+        </footer>
+    </main>
+
+    <script>
+        // Mermaid.js Initialization
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                darkMode: true,
+                background: '#030712',
+                primaryColor: '#1e293b',
+                primaryTextColor: '#f3f4f6',
+                primaryBorderColor: '#3b82f6',
+                lineColor: '#60a5fa',
+                secondaryColor: '#111827',
+                tertiaryColor: '#1f2937'
+            }
+        });
+
+        // Highlight.js Initialization
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((el) => {
+                hljs.highlightElement(el);
+            });
+        });
+    </script>
+</body>
+</html>

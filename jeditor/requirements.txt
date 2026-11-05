@@ -1,0 +1,14 @@
+# ==============================================================================
+# Jira JEditor to Cloud ADF Migration Suite - Python Dependencies
+# ==============================================================================
+
+# [1] Core Migration & Query Runner (step2_query_runner.py, step4_convert_adf.py)
+pymysql>=1.0.0
+requests>=2.28.0
+markdown-it-py>=3.0.0,<5
+beautifulsoup4>=4.11.0
+python-dotenv>=1.0.0
+
+# [2] Optional: Browser UI Automation (check_jeditor_templates_browser.py)
+# Only needed if you run check_jeditor_templates_browser.py to inspect Jira DC templates
+playwright>=1.40.0

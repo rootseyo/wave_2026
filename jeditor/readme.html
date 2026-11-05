@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEditor 마이그레이션 실행 가이드</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --surface: #0b1120;
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --blue: #38bdf8;
+            --green: #34d399;
+            --amber: #fbbf24;
+            --purple: #c084fc;
+            --border: #334155;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Segoe UI", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 32px 16px 64px;
+        }
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+        }
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+            margin-bottom: 28px;
+        }
+        h1 { font-size: 1.8rem; font-weight: 800; color: #fff; }
+        header p { color: var(--muted); margin-top: 6px; font-size: 0.95rem; }
+        h2 {
+            font-size: 1.25rem;
+            margin: 32px 0 14px;
+            padding-left: 12px;
+            border-left: 4px solid var(--blue);
+            color: #fff;
+        }
+        h2.opt { border-left-color: var(--amber); }
+        .flow-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 18px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .flow-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 6px 12px;
+            border-radius: 8px;
+            color: var(--blue);
+        }
+        .flow-arrow { color: var(--muted); }
+        .step-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-bottom: 14px;
+        }
+        .step-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+        .step-title { font-size: 1.05rem; font-weight: 700; color: #fff; }
+        .badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 6px;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--blue);
+        }
+        .badge.green { background: rgba(52, 211, 153, 0.15); color: var(--green); }
+        .badge.amber { background: rgba(251, 191, 36, 0.15); color: var(--amber); }
+        .badge.purple { background: rgba(192, 132, 252, 0.15); color: var(--purple); }
+        .desc { color: var(--muted); font-size: 0.9rem; margin-bottom: 10px; }
+        pre {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 14px;
+            overflow-x: auto;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.88rem;
+            color: #e2e8f0;
+            line-height: 1.55;
+        }
+        code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            background: var(--surface);
+            color: var(--blue);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.86em;
+        }
+        pre code { background: none; color: inherit; padding: 0; }
+        .command-row { display: flex; align-items: stretch; gap: 8px; margin: 8px 0; }
+        .command-row pre { flex: 1; min-width: 0; white-space: pre; margin: 0; }
+        .copy-command {
+            flex-shrink: 0;
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--surface);
+            color: var(--blue);
+            font: inherit;
+            font-size: 0.82rem;
+            cursor: pointer;
+        }
+        .copy-command:hover { border-color: var(--blue); }
+        .copy-command:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+        .command-label { color: var(--muted); font-size: 0.85rem; margin-top: 10px; }
+        .io {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+            font-size: 0.82rem;
+            color: var(--muted);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            font-size: 0.88rem;
+        }
+        th, td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+        }
+        th { background: var(--surface); color: var(--muted); font-weight: 600; }
+        tr:last-child td { border-bottom: none; }
+    </style>
+</head>
+<body>
+<main class="container">
+    <header>
+        <h1>🚀 JEditor 마이그레이션 실행 순서 가이드</h1>
+        <p>Windows 터미널(PowerShell / 명령 프롬프트)에서 jeditor 폴더로 이동한 뒤, 복사 버튼으로 명령어를 한 줄씩 실행하세요. Python 3의 <code>python</code> 명령을 사용합니다. <code>py</code>를 사용하는 환경에서는 첫 단어만 바꾸세요.</p>
+    </header>
+
+    <!-- 1. 메인 워크플로우 -->
+    <section>
+        <h2>1. 메인 작업: 이슈 전체 필드 마이그레이션 (HTML ➔ ADF)</h2>
+        <div class="flow-bar">
+            <span class="flow-item">Step 1. 프로젝트 목록 반영</span>
+            <span class="flow-arrow">➔</span>
+            <span class="flow-item">Step 2. DB 데이터 추출</span>
+            <span class="flow-arrow">➔</span>
+            <span class="flow-item">Step 3. 현황 분석(선택)</span>
+            <span class="flow-arrow">➔</span>
+            <span class="flow-item">Step 4. Cloud ADF 변환</span>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <span class="step-title">Step 1. 대상 프로젝트 키 SQL 반영</span>
+                <span class="badge">필수</span>
+            </div>
+            <p class="desc"><code>../projects.txt</code>의 대상 프로젝트 목록을 SQL 쿼리 파일(<code>jeditor_mysql_queries.sql</code>)에 반영합니다.</p>
+            <pre><code>python step1_update_sql_projects.py</code></pre>
+            <div class="io">
+                <span>📥 입력: <code>../projects.txt</code></span>
+                <span>📄 갱신: <code>jeditor_mysql_queries.sql</code></span>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <span class="step-title">Step 2. Jira DC DB에서 HTML 데이터 추출</span>
+                <span class="badge">필수</span>
+            </div>
+            <p class="desc">대상 프로젝트의 본문(Description), 환경(Environment), 커스텀 필드의 모든 HTML/JEditor 데이터를 고속 JSONL 포맷(<code>data.jsonl</code>)으로 추출합니다.</p>
+            <p class="command-label">대화형 실행 (Enter를 누르면 기본값 data.jsonl)</p>
+            <pre><code>python step2_query_runner.py</code></pre>
+            <p class="command-label">또는 프롬프트 없이 단일 파일로 추출</p>
+            <pre><code>python step2_query_runner.py --no-prompt --single-file</code></pre>
+            <div class="io">
+                <span>📥 쿼리: <code>jeditor_mysql_queries.sql</code></span>
+                <span>📄 출력: <code>data.jsonl</code> (또는 <code>data.html</code> / <code>data_projects/</code>)</span>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <span class="step-title">Step 3. 추출 데이터 통계 대시보드 확인</span>
+                <span class="badge purple">선택</span>
+            </div>
+            <p class="desc">추출된 <code>data.jsonl</code>(또는 <code>data.html</code>)의 프로젝트별·필드별 건수를 대시보드(<code>data_dashboard.html</code>)로 확인합니다.</p>
+            <pre><code>python step3_analyze_data_html.py</code></pre>
+            <div class="io">
+                <span>📥 입력: <code>data.jsonl</code> (또는 <code>data.html</code> 자동 감지)</span>
+                <span>📊 출력: <code>data_dashboard.html</code></span>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-header">
+                <span class="step-title">Step 4. HTML ➔ ADF 변환 및 Jira Cloud 반영</span>
+                <span class="badge green">필수 (핵심)</span>
+            </div>
+            <p class="desc">추출된 이슈 데이터를 ADF로 변환하고 첨부파일/이미지를 포함해 Jira Cloud에 업데이트합니다.</p>
+            <p class="command-label">대화형 마법사 (환경 / 실행 모드 선택)</p>
+            <pre><code>python step4_convert_adf.py</code></pre>
+            <p class="command-label">특정 이슈 1건 미리보기 (PROJ-123을 실제 이슈 키로 변경)</p>
+            <pre><code>python step4_convert_adf.py --dry-run PROJ-123</code></pre>
+            <p class="command-label">특정 이슈 1건 실제 반영</p>
+            <pre><code>python step4_convert_adf.py PROJ-123</code></pre>
+            <div class="io">
+                <span>📥 입력: <code>data.jsonl</code> (또는 <code>data.html</code>) + <code>id-mappings-jira-classic-customField.html</code></span>
+                <span>📑 리포트: <code>convert_adf_reports/index.html</code></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. 부가 기능 A: 기본값(Default Value) 점검 -->
+    <section>
+        <h2 class="opt">2. 부가 작업 A: 커스텀 필드 기본값(Default Value) 찾아서 설정 바꾸기</h2>
+        <div class="step-card">
+            <div class="step-header">
+                <span class="step-title">커스텀 필드 기본값·Renderer 조회 (Step 5 실행 전 필수)</span>
+                <span class="badge amber">관리자 설정 변경용</span>
+            </div>
+            <p class="desc">HTML·일반 텍스트 기본값과 컨텍스트·이슈 유형·Renderer 설정을 조회합니다. default_values.html과 Step 5 비교용 default_values.json을 생성합니다. 이전 기본값이 있는 범위는 템플릿 이관보다 우선합니다. 터미널에 단계·배치·건수·소요 시간이 표시되고, SQL 처리 중에는 10초마다 진행 로그가 나옵니다. 기본값은 20개 프로젝트씩 순차 조회, 배치 간 0.5초 대기, 쿼리당 120초 제한입니다.</p>
+            <p class="command-label">1) DB에서 HTML 기본값 설정 목록 추출</p>
+            <pre><code>python run_default_values.py</code></pre>
+            <p class="command-label">DB가 바쁠 때: 배치를 줄이고 대기 시간 늘리기</p>
+            <pre><code>python run_default_values.py --batch-size 5 --cooldown 2 --query-timeout 60</code></pre>
+            <p class="command-label">2) Cloud 설정 바로가기 링크가 포함된 대시보드 생성</p>
+            <pre><code>python make_default_values_dashboard.py default_values.html</code></pre>
+            <div class="io">
+                <span>📥 쿼리: <code>jeditor_default_values_all.sql</code></span>
+                <span>📊 출력: <code>default_values.html</code>, <code>default_values.json</code>, <code>default_values_dashboard.html</code></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 부가 기능 B: 프로젝트 템플릿 점검 -->
+    <section>
+        <h2 class="opt">3. 부가 작업 B: JEditor 템플릿 → Dynamic Forms Cloud</h2>
+        <div class="step-card">
+            <div class="step-header">
+                <span class="step-title">Step 5. JEditor 전용 템플릿(AO_BF4748) 리포트 생성</span>
+                <span class="badge amber">템플릿 확인용</span>
+            </div>
+            <p class="desc">기본 대상은 스크립트 상위 폴더의 <code>projects.txt</code>입니다. <code>--project ATCU,BDD</code>를 지정하면 해당 목록을 우선 사용합니다. 목록이 없거나 비어 있으면 실행을 중단합니다. 먼저 <code>python run_default_values.py</code>를 실행하세요. 기본값 전체 중복은 제외하고 일부 중복·범위 불명확·Renderer 미확인도 검토 제외합니다. 기본값이 없으며 대상 범위에 JEditor Renderer가 적용된 템플릿만 이관 후보가 됩니다. JEditor 템플릿을 추출하고 Visibility와 Autofill의 필드·이슈 유형 ID를 비교합니다. Visibility의 <code>All</code>·<code>ALL</code>은 전체 범위로 인정하여 Autofill 대상을 모두 포함하는 것으로 처리합니다. Autofill 이슈 유형의 <code>ALL</code>도 전체 이슈 유형으로 인식합니다. Autofill이 ALL이면 Visibility 이슈 유형도 ALL이어야 범위를 충족합니다. 빈 값·설정 누락은 ALL로 간주하지 않습니다. PASS(일치 또는 ALL 포함), REVIEW(범위·그룹 제한 검토), MISMATCH(범위 불일치), UNKNOWN(설정 누락·해석 불가)을 리포트에 표시합니다. 자동 채우기가 활성화되고 본문이 있으며 PASS인 항목만 마이그레이션 대상입니다.</p>
+            <pre><code>python step5_check_jeditor_templates_sql.py --env ops</code></pre>
+            <div class="io">
+                <span>📥 쿼리: <code>jeditor_template_queries.sql</code></span>
+                <span>📊 출력: <code>template_report.html</code></span>
+            </div>
+        </div>
+        <div class="step-card">
+            <div class="step-header">
+                <span class="step-title">Import 파일 생성 및 적용</span>
+                <span class="badge amber">테스트 환경에서 실행</span>
+            </div>
+            <p class="desc">실제 데이터로 만든 Step 5 리포트와 대상 Cloud의 필드 ID 매핑 파일을 준비한 뒤 실행합니다. 현재 저장소의 예제 리포트는 사용하지 마세요.</p>
+            <pre><code>python build_dynamic_forms_import.py</code></pre>
+            <p class="desc" style="margin-top:10px">기본 입력은 <code>template_report.html</code>과 <code>id-mappings-jira-classic-customField.html</code>입니다. 매핑 파일은 현재 폴더에서 먼저 찾고, 없으면 상위 폴더에서 찾습니다. Export 샘플 JSON은 필요 없습니다. 매핑 파일은 대상 Cloud 환경의 것을 사용하세요. ATCU만 생성하려면 뒤에 <code>--project ATCU</code>를 붙이세요.</p>
+            <div class="io">
+                <span>📄 출력: <code>dynamic_forms_import/프로젝트/Cloud필드ID/값해시/import.json</code></span>
+                <span>🔎 매핑 확인: <code>mapping-report.json</code></span>
+            </div>
+            <p class="desc" style="margin-top:10px">프로젝트 + 매핑된 필드 + 본문 값마다 <code>import.json</code> 하나를 만듭니다. 동일 조합은 하나로 합치고, 다른 값은 별도 폴더에 저장합니다. 최신 Step 5에서 설정 검증 PASS, 기본값 우선·Renderer 검증 PASS 및 마이그레이션 대상으로 판정된 템플릿만 처리합니다. 이전 리포트는 Step 5를 다시 실행해 갱신하세요. 댓글(comment)은 제외하고 나머지 필드는 계속 생성합니다. 제외 내역은 mapping-report.json에 기록합니다. 필드 매핑 누락·중복이 있으면 생성을 중단합니다. 재실행 시 기존 출력 폴더를 사용하며, 교체 안내 후 동일 경로의 import.json과 mapping-report.json을 덮어씁니다. 이번에 생성하지 않는 이전 파일은 유지됩니다.</p>
+            <p class="desc">필요한 <code>import.json</code>을 대상 Dynamic Forms 설정에서 <strong>Import → Replace fields</strong>로 불러오고, draft를 확인한 뒤 <strong>APPLY CHANGES</strong>를 누릅니다. 같은 필드에 다른 파일을 다시 import하면 기존 규칙이 교체됩니다.</p>
+            <p class="desc">파일에는 이슈 유형·가시성 조건을 넣지 않습니다. 원본 정보는 <code>mapping-report.json</code>에서 확인하고 적용 범위는 대상 설정에서 지정하세요. Cloud 필드 타입은 기본적으로 textarea로 가정합니다. 실제 타입을 export 정보로 검증하려면 <code>--sample "export파일경로.json"</code>을 추가하세요.</p>
+        </div>
+    </section>
+
+    <!-- 4. 핵심 파일 요약 표 -->
+    <section>
+        <h2>📂 핵심 파일 요약</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width:36%">파일명</th>
+                    <th style="width:16%">구분</th>
+                    <th>역할</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>jeditor_mysql_queries.sql</code></td>
+                    <td>메인 SQL</td>
+                    <td>이슈 본문 / 환경 / 커스텀필드 HTML 데이터 전체 추출 (댓글 제외)</td>
+                </tr>
+                <tr>
+                    <td><code>step1_update_sql_projects.py</code></td>
+                    <td>Step 1</td>
+                    <td><code>../projects.txt</code> 프로젝트 목록을 SQL에 반영</td>
+                </tr>
+                <tr>
+                    <td><code>step2_query_runner.py</code></td>
+                    <td>Step 2</td>
+                    <td>DB 쿼리 실행 및 <code>data.jsonl</code> (또는 <code>data.html</code>) 추출</td>
+                </tr>
+                <tr>
+                    <td><code>step3_analyze_data_html.py</code></td>
+                    <td>Step 3</td>
+                    <td><code>data.jsonl</code> / <code>data.html</code> 통계 분석 및 <code>data_dashboard.html</code> 생성</td>
+                </tr>
+                <tr>
+                    <td><code>step4_convert_adf.py</code></td>
+                    <td>Step 4</td>
+                    <td>HTML ➔ ADF 변환 및 Jira Cloud 마이그레이션 실행</td>
+                </tr>
+                <tr>
+                    <td><code>jeditor_default_values_all.sql</code></td>
+                    <td>부가 SQL</td>
+                    <td>기본값 전체 컨텍스트와 이슈 유형 조회</td>
+                </tr>
+                <tr>
+                    <td><code>run_default_values.py</code></td>
+                    <td>부가 실행</td>
+                    <td>기본값·Renderer 스냅샷 생성 (default_values.html / default_values.json)</td>
+                </tr>
+                <tr>
+                    <td><code>make_default_values_dashboard.py</code></td>
+                    <td>부가 리포트</td>
+                    <td>기본값 현황 대시보드 + Cloud 관리자 설정 바로가기 링크 생성</td>
+                </tr>
+                <tr>
+                    <td><code>build_dynamic_forms_import.py</code></td>
+                    <td>템플릿 이전</td>
+                    <td>필드 ID 매핑을 적용해 Dynamic Forms import JSON 생성</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+<script>
+    // Keep the copied text limited to one command, including when opened as a local file.
+    async function copyCommand(text) {
+        if (window.isSecureContext && navigator.clipboard) {
+            try {
+                await navigator.clipboard.writeText(text);
+                return;
+            } catch (_) { /* Try the local-file fallback below. */ }
+        }
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.setAttribute('readonly', '');
+        textarea.style.cssText = 'position:fixed;left:-9999px;top:0';
+        document.body.appendChild(textarea);
+        try {
+            textarea.select();
+            if (!document.execCommand('copy')) throw new Error('Copy failed');
+        } finally {
+            textarea.remove();
+        }
+    }
+
+    document.querySelectorAll('pre').forEach(pre => {
+        const code = pre.querySelector('code');
+        if (!code) return;
+        const row = document.createElement('div');
+        row.className = 'command-row';
+        pre.before(row);
+        row.appendChild(pre);
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'copy-command';
+        button.textContent = '복사';
+        button.setAttribute('aria-label', '명령어 복사: ' + code.textContent.trim());
+        button.setAttribute('aria-live', 'polite');
+        let resetTimer;
+        button.addEventListener('click', async () => {
+            clearTimeout(resetTimer);
+            try {
+                await copyCommand(code.textContent.trim());
+                button.textContent = '복사됨';
+            } catch (_) {
+                button.textContent = '직접 선택해 복사';
+                const range = document.createRange();
+                range.selectNodeContents(code);
+                const selection = window.getSelection();
+                selection.removeAllRanges();
+                selection.addRange(range);
+            }
+            button.focus();
+            resetTimer = setTimeout(() => { button.textContent = '복사'; }, 2500);
+        });
+        row.appendChild(button);
+    });
+</script>
+</body>
+</html>

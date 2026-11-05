@@ -1,0 +1,12 @@
+{
+  "input": "single_issue_reports/AAOSFRWDEV-543/step2_data_AAOSFRWDEV-543.html",
+  "mode": "dry-run",
+  "counts": {
+    "SUCCEEDED": 0,
+    "PREVIEW": 1,
+    "SKIPPED": 0,
+    "RESUMED": 0,
+    "FAILED": 0
+  },
+  "elapsed_seconds": 0.51
+}

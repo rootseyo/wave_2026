@@ -1,0 +1,8 @@
+Scenario,Available Decisions,Your Decision,Notes
+"Source of truth for issueType entity","USE_SOURCE | USE_DESTINATION | DECIDE_LATER","DECIDE_LATER",""
+"Source of truth for customField entity","USE_SOURCE | USE_DESTINATION | DECIDE_LATER","DECIDE_LATER",""
+"Source of truth for fieldLayout entity","USE_SOURCE | USE_DESTINATION | DECIDE_LATER","DECIDE_LATER",""
+"Source of truth for fieldLayoutScheme entity","MERGE_RETAIN_SOURCE | MERGE_RETAIN_DESTINATION | USE_SOURCE | USE_DESTINATION | DECIDE_LATER","DECIDE_LATER",""
+"Source of truth for screenScheme entity","USE_SOURCE | USE_DESTINATION | DECIDE_LATER","DECIDE_LATER",""
+"Source of truth for issueTypeScreenScheme entity","MERGE_RETAIN_SOURCE | MERGE_RETAIN_DESTINATION | USE_SOURCE | USE_DESTINATION | DECIDE_LATER","DECIDE_LATER",""
+"Source of truth for customField option, default value and version order entities","USE_SOURCE | USE_DESTINATION | DEFAULT","DEFAULT","If ""Default"" is selected, the behavior will follow the choice made for the Source of truth for customField entity."

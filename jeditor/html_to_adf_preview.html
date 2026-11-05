@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jira HTML → ADF 변환기 & 미리보기</title>
+  <style>
+    :root {
+      --primary: #0052cc;
+      --primary-hover: #0747a6;
+      --primary-light: #deebff;
+      --success: #00875a;
+      --success-light: #e3fcef;
+      --warning: #ffab00;
+      --danger: #de350b;
+      --text-main: #172b4d;
+      --text-sub: #5e6c84;
+      --bg-main: #f4f5f7;
+      --bg-card: #ffffff;
+      --border-color: #dfe1e6;
+      --border-hover: #b3bac5;
+      --code-bg: #f4f5f7;
+      --radius-sm: 4px;
+      --radius-md: 6px;
+      --radius-lg: 8px;
+      --shadow-sm: 0 1px 2px rgba(9, 30, 66, 0.08);
+      --shadow-md: 0 4px 12px rgba(9, 30, 66, 0.12);
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: SFMono-Medium, "SF Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-stack);
+      color: var(--text-main);
+      background-color: var(--bg-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* 상단 헤더 */
+    header {
+      background-color: #0747a6;
+      color: #ffffff;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-icon {
+      width: 28px;
+      height: 28px;
+      background: #ffffff;
+      color: #0747a6;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 15px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand-text h1 {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      line-height: 1.2;
+    }
+
+    .brand-text p {
+      font-size: 12px;
+      color: #deebff;
+      line-height: 1.2;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* 버튼 스타일 */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.15s ease-in-out;
+      text-decoration: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background-color: #0052cc;
+      color: #ffffff;
+      border-color: #0052cc;
+    }
+    .btn-primary:hover {
+      background-color: #0747a6;
+      border-color: #0747a6;
+    }
+
+    .btn-highlight {
+      background-color: #ffab00;
+      color: #172b4d;
+      border-color: #ffab00;
+    }
+    .btn-highlight:hover {
+      background-color: #ff9900;
+    }
+
+    .btn-secondary {
+      background-color: #ffffff;
+      color: #172b4d;
+      border-color: var(--border-color);
+    }
+    .btn-secondary:hover {
+      background-color: #ebecf0;
+      border-color: var(--border-hover);
+    }
+
+    .btn-ghost-light {
+      background-color: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    .btn-ghost-light:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-sm {
+      padding: 4px 10px;
+      font-size: 12px;
+    }
+
+    /* 메인 워크스페이스 레이아웃 (좌우 2분할) */
+    main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding: 16px;
+      height: calc(100vh - 65px);
+      min-height: 500px;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+    }
+
+    .panel {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .panel-header {
+      padding: 10px 16px;
+      background-color: #fafbfc;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .panel-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 10px;
+      background-color: #ebecf0;
+      color: var(--text-sub);
+    }
+    .badge-blue {
+      background-color: var(--primary-light);
+      color: var(--primary);
+    }
+    .badge-green {
+      background-color: var(--success-light);
+      color: var(--success);
+    }
+
+    /* 탭 헤더 */
+    .tabs {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .tab-btn {
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-sub);
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      transition: all 0.15s;
+    }
+    .tab-btn:hover {
+      color: var(--primary);
+      background-color: #ebecf0;
+    }
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+      background-color: #ffffff;
+    }
+
+    /* 입력 툴바 (샘플 데이터 등) */
+    .toolbar {
+      padding: 8px 16px;
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .toolbar-label {
+      font-size: 12px;
+      color: var(--text-sub);
+      font-weight: 600;
+    }
+
+    /* 패널 본문 */
+    .panel-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    /* 텍스트 영역 */
+    .editor-textarea {
+      flex: 1;
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 16px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text-main);
+      background-color: #ffffff;
+      resize: none;
+      scrollbar-gutter: stable;
+      overscroll-behavior: contain;
+    }
+    .editor-textarea:focus {
+      background-color: #fafbfc;
+    }
+
+    /* 우측 탭 컨텐츠 영역 */
+    .tab-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: none;
+      scrollbar-gutter: stable;
+      overscroll-behavior: contain;
+    }
+    .tab-content.active {
+      display: block;
+    }
+
+    /* JSON 뷰어 */
+    #tab-json {
+      padding: 0;
+      background-color: #fafbfc;
+    }
+    .json-code {
+      margin: 0;
+      padding: 16px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      line-height: 1.5;
+      color: #24292e;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    /* Jira Visual Render 프리뷰 스타일 (Jira Cloud ADF 테마) */
+    .adf-preview {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #172b4d;
+      background-color: #ffffff;
+    }
+
+    .adf-preview h1 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #172b4d;
+      margin: 16px 0 8px 0;
+      border-bottom: 1px solid #ebecf0;
+      padding-bottom: 4px;
+    }
+    .adf-preview h2 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #172b4d;
+      margin: 14px 0 6px 0;
+    }
+    .adf-preview h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #172b4d;
+      margin: 12px 0 6px 0;
+    }
+    .adf-preview h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #172b4d;
+      margin: 10px 0 4px 0;
+    }
+    .adf-preview p {
+      margin-bottom: 8px;
+    }
+    .adf-preview p:last-child {
+      margin-bottom: 0;
+    }
+
+    .adf-preview a {
+      color: #0052cc;
+      text-decoration: underline;
+    }
+    .adf-preview a:hover {
+      color: #0747a6;
+    }
+
+    .adf-preview ul, .adf-preview ol {
+      margin: 6px 0 10px 24px;
+    }
+    .adf-preview li {
+      margin-bottom: 4px;
+    }
+
+    .adf-preview blockquote {
+      border-left: 3px solid #4c9aff;
+      padding: 4px 12px;
+      margin: 10px 0;
+      color: #5e6c84;
+      background-color: #f4f5f7;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+
+    .adf-preview pre.adf-codeblock {
+      background-color: #f4f5f7;
+      border: 1px solid #dfe1e6;
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      margin: 10px 0;
+      overflow-x: auto;
+    }
+
+    .adf-preview hr.adf-rule {
+      border: none;
+      border-top: 1px solid #dfe1e6;
+      margin: 16px 0;
+    }
+
+    /* ADF 표 스타일 */
+    .adf-preview table.adf-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 13px;
+      border: 1px solid #dfe1e6;
+    }
+    .adf-preview table.adf-table th,
+    .adf-preview table.adf-table td {
+      border: 1px solid #dfe1e6;
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .adf-preview table.adf-table th {
+      background-color: #f4f5f7;
+      font-weight: 600;
+      color: #172b4d;
+    }
+
+    .adf-preview code {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      background-color: #f4f5f7;
+      border-radius: 3px;
+      padding: 1px 4px;
+      color: #172b4d;
+    }
+
+    /* ADF 인스펙터/통계 탭 */
+    .inspector-card {
+      background: #fafbfc;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+    .inspector-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 8px;
+    }
+    .stat-item {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 8px 10px;
+    }
+    .stat-num {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .stat-desc {
+      font-size: 11px;
+      color: var(--text-sub);
+    }
+
+    /* 하단 상태바 */
+    .panel-footer {
+      padding: 8px 16px;
+      background-color: #fafbfc;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-sub);
+    }
+
+    /* 플로팅 알림 토스트 */
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: #172b4d;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 1000;
+      pointer-events: none;
+    }
+    #toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    #toast.success {
+      background-color: #006644;
+    }
+
+    /* 드래그 앤 드롭 오버레이 */
+    .drop-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(222, 235, 255, 0.9);
+      border: 2px dashed #0052cc;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: #0052cc;
+      z-index: 10;
+    }
+    .panel-body.dragover .drop-overlay {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 헤더 영역 -->
+  <header>
+    <div class="brand">
+      <div class="brand-icon">A</div>
+      <div class="brand-text">
+        <h1>Jira HTML → ADF 변환기 & 미리보기</h1>
+        <p>JEditor HTML/마크업을 Atlassian Document Format (ADF)으로 변환</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button type="button" class="btn btn-highlight" id="btn-copy-adf" title="클라우드 Jira에 바로 붙여넣거나 API로 전송할 수 있는 ADF JSON을 복사합니다.">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        ADF JSON 복사
+      </button>
+      <button type="button" class="btn btn-ghost-light btn-sm" id="btn-copy-min" title="공백을 제거한 1줄 압축 JSON으로 복사">
+        단일행(Minified) 복사
+      </button>
+      <button type="button" class="btn btn-ghost-light btn-sm" id="btn-download-json" title="ADF JSON 파일로 저장">
+        JSON 다운로드
+      </button>
+    </div>
+  </header>
+
+  <!-- 메인 워크스페이스 -->
+  <main>
+    <!-- 좌측: HTML 입력 패널 -->
+    <section class="panel" aria-label="HTML 입력 영역">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span>HTML 소스 입력</span>
+          <span class="badge" id="html-badge">대기 중</span>
+        </div>
+        <div>
+          <button type="button" class="btn btn-secondary btn-sm" id="btn-clear">지우기</button>
+        </div>
+      </div>
+
+      <!-- 샘플 불러오기 툴바 -->
+      <div class="toolbar">
+        <span class="toolbar-label">샘플 템플릿:</span>
+        <button type="button" class="btn btn-secondary btn-sm" id="sample-table">표 & 서식 (JEditor)</button>
+        <button type="button" class="btn btn-secondary btn-sm" id="sample-estrack">ESTRACK 사양서 (실제)</button>
+        <button type="button" class="btn btn-secondary btn-sm" id="sample-code">코드 & 목록</button>
+      </div>
+
+      <div class="panel-body" id="html-drop-zone">
+        <div class="drop-overlay">HTML 파일을 여기에 놓으세요</div>
+        <textarea
+          id="html-input"
+          class="editor-textarea"
+          placeholder="여기에 Jira Server/DC의 HTML 텍스트 또는 JEditor 본문을 붙여넣으세요... (실시간으로 우측에 변환됩니다)"
+          spellcheck="false"
+          autocorrect="off"
+          autocapitalize="off"
+        ></textarea>
+      </div>
+
+      <div class="panel-footer">
+        <span id="html-stats">0 글자 | 0 줄</span>
+        <span>HTML 또는 텍스트 파일을 드래그 앤 드롭할 수 있습니다.</span>
+      </div>
+    </section>
+
+    <!-- 우측: ADF 미리보기 & JSON 패널 -->
+    <section class="panel" aria-label="ADF 결과 영역">
+      <div class="panel-header">
+        <div class="tabs" role="tablist">
+          <button type="button" class="tab-btn active" role="tab" id="tab-btn-preview" data-target="tab-preview">Jira 미리보기</button>
+          <button type="button" class="tab-btn" role="tab" id="tab-btn-json" data-target="tab-json">ADF JSON</button>
+          <button type="button" class="tab-btn" role="tab" id="tab-btn-inspect" data-target="tab-inspect">노드 분석</button>
+        </div>
+        <div style="display:flex; align-items:center; gap:6px;">
+          <button type="button" class="btn btn-primary btn-sm" id="btn-copy-preview">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            ADF 복사
+          </button>
+        </div>
+      </div>
+
+      <div class="panel-body">
+        <!-- 탭 1: Jira Cloud 렌더링 미리보기 -->
+        <div class="tab-content active" id="tab-preview">
+          <div class="adf-preview" id="adf-render-container">
+            <p style="color: #6b778c; text-align: center; margin-top: 60px;">
+              좌측에 HTML 텍스트를 입력하면 Jira Cloud 형식의 실시간 미리보기가 표시됩니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- 탭 2: ADF JSON 뷰어 -->
+        <div class="tab-content" id="tab-json">
+          <pre class="json-code"><code id="adf-json-output">{\n  "version": 1,\n  "type": "doc",\n  "content": [\n    {\n      "type": "paragraph",\n      "content": []\n    }\n  ]\n}</code></pre>
+        </div>
+
+        <!-- 탭 3: 노드 구조 분석 (Inspector) -->
+        <div class="tab-content" id="tab-inspect">
+          <div class="inspector-card">
+            <div class="inspector-title">문서 요약 (Document Stats)</div>
+            <div class="stat-grid">
+              <div class="stat-item">
+                <div class="stat-num" id="stat-total-blocks">0</div>
+                <div class="stat-desc">최상위 블록 수</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-num" id="stat-paragraphs">0</div>
+                <div class="stat-desc">문단 (paragraphs)</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-num" id="stat-tables">0</div>
+                <div class="stat-desc">표 (tables)</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-num" id="stat-headings">0</div>
+                <div class="stat-desc">제목 (headings)</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-num" id="stat-lists">0</div>
+                <div class="stat-desc">목록 (lists)</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-num" id="stat-codeblocks">0</div>
+                <div class="stat-desc">코드블록 (code)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="inspector-card">
+            <div class="inspector-title">ADF 사양 적합성 검증</div>
+            <div id="inspector-validation" style="font-size: 13px; color: var(--text-sub);">
+              • Root schema: <code>doc (version: 1)</code><br>
+              • 표준 Cloud REST API 호환: <b>적합</b>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-footer">
+        <span id="adf-status-label">변환 준비 완료</span>
+        <span id="adf-calc-time">소요 시간: 0ms</span>
+      </div>
+    </section>
+  </main>
+
+  <!-- 토스트 알림 -->
+  <div id="toast" role="status" aria-live="polite">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <span id="toast-message">클립보드에 복사되었습니다!</span>
+  </div>
+
+  <!-- JavaScript 변환 엔진 및 UI 로직 -->
+  <script>
+    (function () {
+      'use strict';
+
+      // =========================================================================
+      // 1. HTML → ADF 변환기 핵심 엔진 (JavaScript 포팅)
+      // =========================================================================
+      function htmlToAdf(rawHtml) {
+        if (!rawHtml || typeof rawHtml !== 'string' || !rawHtml.trim()) {
+          return {
+            version: 1,
+            type: 'doc',
+            content: [{ type: 'paragraph', content: [] }]
+          };
+        }
+
+        // HTML 전처리 (br 닫힘 태그 등 표준화)
+        let cleanHtml = rawHtml
+          .replace(/<\/br\s*>/gi, '<br/>')
+          .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+          .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, '');
+
+        const parser = new DOMParser();
+        const parsedDoc = parser.parseFromString(cleanHtml, 'text/html');
+        const body = parsedDoc.body;
+
+        // 숨겨진 요소 제거
+        body.querySelectorAll('script, style, iframe, object, head, .jeditor-template-watermark').forEach(el => el.remove());
+        body.querySelectorAll('*').forEach(el => {
+          if (el.style && el.style.display === 'none') {
+            el.remove();
+          }
+        });
+
+        // 색상 정규화 (#hex)
+        function normalizeColor(val) {
+          if (!val) return null;
+          val = val.trim().toLowerCase().replace('!important', '').trim();
+          const colorMap = {
+            white: '#ffffff', black: '#000000', red: '#ff0000', yellow: '#ffff00',
+            blue: '#0052cc', green: '#00875a', gray: '#808080', grey: '#808080',
+            orange: '#ff5630', purple: '#6554c0', teal: '#00b8d9'
+          };
+          if (colorMap[val]) return colorMap[val];
+          if (/^#[0-9a-f]{3}$/i.test(val)) {
+            return '#' + val.slice(1).split('').map(c => c + c).join('').toLowerCase();
+          }
+          if (/^#[0-9a-f]{6}$/i.test(val)) return val.toLowerCase();
+          const rgb = val.match(/^rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/i);
+          if (rgb) {
+            const r = parseInt(rgb[1], 10), g = parseInt(rgb[2], 10), b = parseInt(rgb[3], 10);
+            if (r <= 255 && g <= 255 && b <= 255) {
+              return '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('').toLowerCase();
+            }
+          }
+          return null;
+        }
+
+        // 요소에서 ADF Marks 추출
+        function getElementMarks(el, currentMarks) {
+          const marks = currentMarks ? [...currentMarks] : [];
+          if (!el || el.nodeType !== Node.ELEMENT_NODE) return marks;
+
+          const tag = el.nodeName.toLowerCase();
+          if (tag === 'b' || tag === 'strong') marks.push({ type: 'strong' });
+          if (tag === 'i' || tag === 'em') marks.push({ type: 'em' });
+          if (tag === 'u') marks.push({ type: 'underline' });
+          if (tag === 's' || tag === 'strike' || tag === 'del') marks.push({ type: 'strike' });
+          if (tag === 'code') marks.push({ type: 'code' });
+          if (tag === 'sub') marks.push({ type: 'subsup', attrs: { type: 'sub' } });
+          if (tag === 'sup') marks.push({ type: 'subsup', attrs: { type: 'sup' } });
+
+          if (tag === 'a' && el.getAttribute('href')) {
+            const href = el.getAttribute('href').trim();
+            if (href && !href.startsWith('javascript:')) {
+              marks.push({ type: 'link', attrs: { href: href } });
+            }
+          }
+
+          if (tag === 'font' && el.getAttribute('color')) {
+            const c = normalizeColor(el.getAttribute('color'));
+            if (c) marks.push({ type: 'textColor', attrs: { color: c } });
+          }
+
+          if (el.style) {
+            if (el.style.color) {
+              const c = normalizeColor(el.style.color);
+              if (c) marks.push({ type: 'textColor', attrs: { color: c } });
+            }
+            if (el.style.fontWeight === 'bold' || parseInt(el.style.fontWeight, 10) >= 600) {
+              marks.push({ type: 'strong' });
+            }
+            if (el.style.fontStyle === 'italic') {
+              marks.push({ type: 'em' });
+            }
+            if (el.style.textDecoration && el.style.textDecoration.includes('underline')) {
+              marks.push({ type: 'underline' });
+            }
+            if (el.style.textDecoration && (el.style.textDecoration.includes('line-through') || el.style.textDecoration.includes('strike'))) {
+              marks.push({ type: 'strike' });
+            }
+            if (el.style.backgroundColor) {
+              const bg = normalizeColor(el.style.backgroundColor);
+              if (bg && bg !== '#ffffff' && bg !== 'transparent') {
+                marks.push({ type: 'backgroundColor', attrs: { color: bg } });
+              }
+            }
+          }
+
+          // 중복 mark 제거
+          const deduped = new Map();
+          marks.forEach(m => deduped.set(m.type, m));
+          return Array.from(deduped.values());
+        }
+
+        const BLOCK_TAGS = new Set([
+          'p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+          'table', 'ul', 'ol', 'pre', 'blockquote', 'hr', 'section', 'article', 'header', 'footer'
+        ]);
+
+        function hasBlockChild(node) {
+          if (!node || node.nodeType !== Node.ELEMENT_NODE) return false;
+          if (BLOCK_TAGS.has(node.nodeName.toLowerCase())) return true;
+          for (let i = 0; i < node.childNodes.length; i++) {
+            if (hasBlockChild(node.childNodes[i])) return true;
+          }
+          return false;
+        }
+
+        // 인라인 파싱
+        function parseInline(node, currentMarks) {
+          if (node.nodeType === Node.TEXT_NODE) {
+            const rawText = node.textContent;
+            if (!rawText) return [];
+            // nbsp 정규화
+            const text = rawText.replace(/\u00a0/g, ' ');
+            const res = { type: 'text', text: text };
+            if (currentMarks && currentMarks.length > 0) {
+              res.marks = currentMarks;
+            }
+            return [res];
+          }
+
+          if (node.nodeType !== Node.ELEMENT_NODE) return [];
+
+          const tag = node.nodeName.toLowerCase();
+          if (tag === 'br') {
+            return [{ type: 'hardBreak' }];
+          }
+
+          if (tag === 'img') {
+            const src = node.getAttribute('src') || '';
+            const alt = node.getAttribute('alt') || '이미지';
+            if (src) {
+              return [{ type: 'text', text: `[${alt}]`, marks: [{ type: 'link', attrs: { href: src } }] }];
+            }
+            return [];
+          }
+
+          const marks = getElementMarks(node, currentMarks);
+          let inlines = [];
+          for (let i = 0; i < node.childNodes.length; i++) {
+            inlines = inlines.concat(parseInline(node.childNodes[i], marks));
+          }
+          return inlines;
+        }
+
+        // 인접 텍스트 노드 병합
+        function mergeInlines(inlines) {
+          const merged = [];
+          for (let item of inlines) {
+            if (item.type === 'text') {
+              if (item.text === '') continue;
+              const prev = merged[merged.length - 1];
+              if (prev && prev.type === 'text') {
+                const prevMarks = JSON.stringify(prev.marks || []);
+                const currMarks = JSON.stringify(item.marks || []);
+                if (prevMarks === currMarks) {
+                  prev.text += item.text;
+                  continue;
+                }
+              }
+            }
+            merged.push(item);
+          }
+          return merged;
+        }
+
+        // 블록 레벨 파싱
+        function parseBlocks(nodes, currentMarks) {
+          const blocks = [];
+          let pendingInlines = [];
+
+          function flushInlines() {
+            if (pendingInlines.length > 0) {
+              const merged = mergeInlines(pendingInlines);
+              const hasVisible = merged.some(m => m.type === 'hardBreak' || (m.type === 'text' && m.text.trim().length > 0));
+              if (hasVisible) {
+                blocks.push({
+                  type: 'paragraph',
+                  content: merged
+                });
+              }
+              pendingInlines = [];
+            }
+          }
+
+          for (let i = 0; i < nodes.length; i++) {
+            const node = nodes[i];
+
+            if (node.nodeType === Node.TEXT_NODE) {
+              pendingInlines = pendingInlines.concat(parseInline(node, currentMarks));
+              continue;
+            }
+
+            if (node.nodeType !== Node.ELEMENT_NODE) continue;
+
+            const tag = node.nodeName.toLowerCase();
+
+            if (tag === 'br') {
+              pendingInlines.push({ type: 'hardBreak' });
+              continue;
+            }
+
+            if (tag === 'hr') {
+              flushInlines();
+              blocks.push({ type: 'rule' });
+              continue;
+            }
+
+            if (/^h[1-6]$/.test(tag)) {
+              flushInlines();
+              const level = parseInt(tag[1], 10);
+              let headingInlines = [];
+              for (let j = 0; j < node.childNodes.length; j++) {
+                headingInlines = headingInlines.concat(parseInline(node.childNodes[j], currentMarks));
+              }
+              blocks.push({
+                type: 'heading',
+                attrs: { level: level },
+                content: mergeInlines(headingInlines)
+              });
+              continue;
+            }
+
+            if (tag === 'pre') {
+              flushInlines();
+              const codeText = node.textContent || '';
+              const codeBlock = {
+                type: 'codeBlock',
+                content: codeText ? [{ type: 'text', text: codeText }] : []
+              };
+              const lang = node.getAttribute('data-language') || (node.querySelector('code') ? node.querySelector('code').className.replace(/language-/, '') : null);
+              if (lang) codeBlock.attrs = { language: lang };
+              blocks.push(codeBlock);
+              continue;
+            }
+
+            if (tag === 'blockquote') {
+              flushInlines();
+              let innerBlocks = parseBlocks(node.childNodes, currentMarks);
+              if (innerBlocks.length === 0) innerBlocks = [{ type: 'paragraph', content: [] }];
+              blocks.push({
+                type: 'blockquote',
+                content: innerBlocks
+              });
+              continue;
+            }
+
+            if (tag === 'ul' || tag === 'ol') {
+              flushInlines();
+              const isOrdered = tag === 'ol';
+              const listItems = [];
+              const lis = node.querySelectorAll(':scope > li');
+              lis.forEach(li => {
+                let liBlocks = parseBlocks(li.childNodes, currentMarks);
+                if (liBlocks.length === 0) {
+                  liBlocks = [{ type: 'paragraph', content: [] }];
+                } else if (liBlocks[0].type !== 'paragraph') {
+                  liBlocks.unshift({ type: 'paragraph', content: [] });
+                }
+                listItems.push({
+                  type: 'listItem',
+                  content: liBlocks
+                });
+              });
+              if (listItems.length > 0) {
+                const listNode = {
+                  type: isOrdered ? 'orderedList' : 'bulletList',
+                  content: listItems
+                };
+                if (isOrdered && node.getAttribute('start')) {
+                  const s = parseInt(node.getAttribute('start'), 10);
+                  if (!isNaN(s)) listNode.attrs = { order: s };
+                }
+                blocks.push(listNode);
+              }
+              continue;
+            }
+
+            if (tag === 'table') {
+              flushInlines();
+              const rows = [];
+              const trs = node.querySelectorAll('tr');
+              trs.forEach(tr => {
+                if (tr.closest('table') !== node) return; // 중첩 테이블 방지
+                const cells = [];
+                tr.querySelectorAll(':scope > td, :scope > th').forEach(cell => {
+                  const isHeader = cell.nodeName.toLowerCase() === 'th';
+                  let cellBlocks = parseBlocks(cell.childNodes, currentMarks);
+                  if (cellBlocks.length === 0) {
+                    cellBlocks = [{ type: 'paragraph', content: [] }];
+                  }
+
+                  const cellAttrs = {};
+                  const colspan = parseInt(cell.getAttribute('colspan'), 10);
+                  if (colspan > 1) cellAttrs.colspan = colspan;
+                  const rowspan = parseInt(cell.getAttribute('rowspan'), 10);
+                  if (rowspan > 1) cellAttrs.rowspan = rowspan;
+
+                  let bg = null;
+                  if (cell.style && cell.style.backgroundColor) {
+                    bg = normalizeColor(cell.style.backgroundColor);
+                  } else if (cell.getAttribute('bgcolor')) {
+                    bg = normalizeColor(cell.getAttribute('bgcolor'));
+                  }
+                  if (bg) cellAttrs.background = bg;
+
+                  const cellNode = {
+                    type: isHeader ? 'tableHeader' : 'tableCell',
+                    content: cellBlocks
+                  };
+                  if (Object.keys(cellAttrs).length > 0) {
+                    cellNode.attrs = cellAttrs;
+                  }
+                  cells.push(cellNode);
+                });
+                if (cells.length > 0) {
+                  rows.push({
+                    type: 'tableRow',
+                    content: cells
+                  });
+                }
+              });
+
+              if (rows.length > 0) {
+                blocks.push({
+                  type: 'table',
+                  attrs: { isNumberColumnEnabled: false, layout: 'default' },
+                  content: rows
+                });
+              }
+              continue;
+            }
+
+            if (hasBlockChild(node)) {
+              flushInlines();
+              const inner = parseBlocks(node.childNodes, getElementMarks(node, currentMarks));
+              blocks.push(...inner);
+              continue;
+            }
+
+            if (tag === 'p' || tag === 'div' || tag === 'section' || tag === 'article') {
+              flushInlines();
+              const inlines = parseInline(node, currentMarks);
+              const merged = mergeInlines(inlines);
+              blocks.push({
+                type: 'paragraph',
+                content: merged
+              });
+              continue;
+            }
+
+            // 기타 인라인 태그
+            pendingInlines = pendingInlines.concat(parseInline(node, currentMarks));
+          }
+
+          flushInlines();
+          return blocks;
+        }
+
+        let content = parseBlocks(body.childNodes);
+        if (!content || content.length === 0) {
+          content = [{ type: 'paragraph', content: [] }];
+        }
+
+        return {
+          version: 1,
+          type: 'doc',
+          content: content
+        };
+      }
+
+      // =========================================================================
+      // 2. ADF → 시각적 HTML 렌더러 (Jira Cloud 스타일 Visual Preview)
+      // =========================================================================
+      function adfToVisualHtml(adfDoc) {
+        if (!adfDoc || !adfDoc.content || !Array.isArray(adfDoc.content)) {
+          return '<p style="color: #6b778c; text-align: center;">내용이 없습니다.</p>';
+        }
+
+        function escapeHtml(str) {
+          if (!str) return '';
+          return str
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+        }
+
+        function renderInlines(inlines) {
+          if (!inlines || !Array.isArray(inlines)) return '';
+          return inlines.map(node => {
+            if (node.type === 'hardBreak') return '<br/>';
+            if (node.type === 'text') {
+              let html = escapeHtml(node.text || '');
+              if (node.marks && Array.isArray(node.marks)) {
+                node.marks.forEach(mark => {
+                  if (mark.type === 'strong') html = `<strong>${html}</strong>`;
+                  else if (mark.type === 'em') html = `<em>${html}</em>`;
+                  else if (mark.type === 'underline') html = `<u>${html}</u>`;
+                  else if (mark.type === 'strike') html = `<s>${html}</s>`;
+                  else if (mark.type === 'code') html = `<code>${html}</code>`;
+                  else if (mark.type === 'subsup') {
+                    const t = mark.attrs?.type === 'sub' ? 'sub' : 'sup';
+                    html = `<${t}>${html}</${t}>`;
+                  } else if (mark.type === 'link') {
+                    const href = escapeHtml(mark.attrs?.href || '#');
+                    html = `<a href="${href}" target="_blank" rel="noopener noreferrer">${html}</a>`;
+                  } else if (mark.type === 'textColor') {
+                    const col = escapeHtml(mark.attrs?.color || '');
+                    if (col) html = `<span style="color:${col};">${html}</span>`;
+                  } else if (mark.type === 'backgroundColor') {
+                    const bg = escapeHtml(mark.attrs?.color || '');
+                    if (bg) html = `<span style="background-color:${bg}; border-radius: 2px; padding: 0 2px;">${html}</span>`;
+                  }
+                });
+              }
+              return html;
+            }
+            return '';
+          }).join('');
+        }
+
+        function renderBlocks(blocks) {
+          if (!blocks || !Array.isArray(blocks)) return '';
+          return blocks.map(block => {
+            const type = block.type;
+            if (type === 'paragraph') {
+              return `<p>${renderInlines(block.content)}</p>`;
+            }
+            if (type === 'heading') {
+              const level = Math.min(Math.max(block.attrs?.level || 1, 1), 6);
+              return `<h${level}>${renderInlines(block.content)}</h${level}>`;
+            }
+            if (type === 'bulletList') {
+              const items = (block.content || []).map(li => `<li>${renderBlocks(li.content)}</li>`).join('');
+              return `<ul>${items}</ul>`;
+            }
+            if (type === 'orderedList') {
+              const start = block.attrs?.order ? ` start="${block.attrs.order}"` : '';
+              const items = (block.content || []).map(li => `<li>${renderBlocks(li.content)}</li>`).join('');
+              return `<ol${start}>${items}</ol>`;
+            }
+            if (type === 'codeBlock') {
+              const text = (block.content || []).map(c => escapeHtml(c.text || '')).join('');
+              const lang = block.attrs?.language ? ` (언어: ${escapeHtml(block.attrs.language)})` : '';
+              return `<pre class="adf-codeblock"><code>${text}</code></pre>`;
+            }
+            if (type === 'blockquote') {
+              return `<blockquote>${renderBlocks(block.content)}</blockquote>`;
+            }
+            if (type === 'rule') {
+              return `<hr class="adf-rule" />`;
+            }
+            if (type === 'table') {
+              const rowsHtml = (block.content || []).map(row => {
+                const cellsHtml = (row.content || []).map(cell => {
+                  const tag = cell.type === 'tableHeader' ? 'th' : 'td';
+                  let attrs = '';
+                  if (cell.attrs?.colspan > 1) attrs += ` colspan="${cell.attrs.colspan}"`;
+                  if (cell.attrs?.rowspan > 1) attrs += ` rowspan="${cell.attrs.rowspan}"`;
+                  if (cell.attrs?.background) attrs += ` style="background-color:${escapeHtml(cell.attrs.background)};"`;
+                  return `<${tag}${attrs}>${renderBlocks(cell.content)}</${tag}>`;
+                }).join('');
+                return `<tr>${cellsHtml}</tr>`;
+              }).join('');
+              return `<table class="adf-table"><tbody>${rowsHtml}</tbody></table>`;
+            }
+            return '';
+          }).join('');
+        }
+
+        return renderBlocks(adfDoc.content);
+      }
+
+      // =========================================================================
+      // 3. UI 및 이벤트 바인딩
+      // =========================================================================
+      const htmlInput = document.getElementById('html-input');
+      const htmlStats = document.getElementById('html-stats');
+      const htmlBadge = document.getElementById('html-badge');
+      const adfRenderContainer = document.getElementById('adf-render-container');
+      const adfJsonOutput = document.getElementById('adf-json-output');
+      const adfStatusLabel = document.getElementById('adf-status-label');
+      const adfCalcTime = document.getElementById('adf-calc-time');
+
+      // 통계 노드
+      const statTotalBlocks = document.getElementById('stat-total-blocks');
+      const statParagraphs = document.getElementById('stat-paragraphs');
+      const statTables = document.getElementById('stat-tables');
+      const statHeadings = document.getElementById('stat-headings');
+      const statLists = document.getElementById('stat-lists');
+      const statCodeblocks = document.getElementById('stat-codeblocks');
+
+      // 토스트
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toast-message');
+      let toastTimer = null;
+
+      function showToast(msg, isSuccess = true) {
+        if (toastTimer) clearTimeout(toastTimer);
+        toastMessage.textContent = msg;
+        toast.className = isSuccess ? 'success show' : 'show';
+        toastTimer = setTimeout(() => {
+          toast.className = '';
+        }, 2200);
+      }
+
+      let currentAdf = null;
+
+      // 변환 수행 함수
+      function updateConversion() {
+        const text = htmlInput.value;
+        const lineCount = text ? text.split('\n').length : 0;
+        const charCount = text ? text.length : 0;
+        htmlStats.textContent = `${charCount.toLocaleString()} 글자 | ${lineCount.toLocaleString()} 줄`;
+
+        if (!text.trim()) {
+          htmlBadge.textContent = '비어 있음';
+          htmlBadge.className = 'badge';
+          currentAdf = { version: 1, type: 'doc', content: [{ type: 'paragraph', content: [] }] };
+          adfJsonOutput.textContent = JSON.stringify(currentAdf, null, 2);
+          adfRenderContainer.innerHTML = '<p style="color: #6b778c; text-align: center; margin-top: 60px;">좌측에 HTML 텍스트를 입력하면 Jira Cloud 형식의 실시간 미리보기가 표시됩니다.</p>';
+          adfStatusLabel.textContent = '대기 중';
+          adfCalcTime.textContent = '소요 시간: 0ms';
+          resetStats();
+          return;
+        }
+
+        htmlBadge.textContent = '변환 완료';
+        htmlBadge.className = 'badge badge-green';
+
+        const t0 = performance.now();
+        currentAdf = htmlToAdf(text);
+        const t1 = performance.now();
+        const duration = (t1 - t0).toFixed(1);
+
+        // ADF JSON 업데이트
+        adfJsonOutput.textContent = JSON.stringify(currentAdf, null, 2);
+
+        // 시각적 렌더링 업데이트
+        adfRenderContainer.innerHTML = adfToVisualHtml(currentAdf);
+
+        // 상태 및 통계 업데이트
+        const blockCount = currentAdf.content ? currentAdf.content.length : 0;
+        adfStatusLabel.textContent = `변환 성공 (총 ${blockCount}개 최상위 블록)`;
+        adfCalcTime.textContent = `소요 시간: ${duration}ms`;
+
+        updateStats(currentAdf);
+      }
+
+      function resetStats() {
+        statTotalBlocks.textContent = '0';
+        statParagraphs.textContent = '0';
+        statTables.textContent = '0';
+        statHeadings.textContent = '0';
+        statLists.textContent = '0';
+        statCodeblocks.textContent = '0';
+      }
+
+      function updateStats(adf) {
+        if (!adf || !adf.content) {
+          resetStats();
+          return;
+        }
+        let p = 0, t = 0, h = 0, l = 0, c = 0;
+        function countNodes(blocks) {
+          blocks.forEach(b => {
+            if (b.type === 'paragraph') p++;
+            else if (b.type === 'table') t++;
+            else if (b.type === 'heading') h++;
+            else if (b.type === 'bulletList' || b.type === 'orderedList') l++;
+            else if (b.type === 'codeBlock') c++;
+            if (b.content && Array.isArray(b.content)) {
+              countNodes(b.content);
+            }
+          });
+        }
+        countNodes(adf.content);
+        statTotalBlocks.textContent = adf.content.length.toLocaleString();
+        statParagraphs.textContent = p.toLocaleString();
+        statTables.textContent = t.toLocaleString();
+        statHeadings.textContent = h.toLocaleString();
+        statLists.textContent = l.toLocaleString();
+        statCodeblocks.textContent = c.toLocaleString();
+      }
+
+      // 입력 이벤트 리스너
+      htmlInput.addEventListener('input', updateConversion);
+
+      // 클립보드 복사 함수 (안전한 폴백 포함)
+      async function copyText(text, successMsg) {
+        if (!text) {
+          showToast('복사할 내용이 없습니다.', false);
+          return;
+        }
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            // 폴백 textarea execCommand
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+          }
+          showToast(successMsg || 'ADF JSON이 클립보드에 복사되었습니다!', true);
+        } catch (err) {
+          showToast('복사 실패: ' + err.message, false);
+        }
+      }
+
+      // 복사 버튼들 이벤트
+      document.getElementById('btn-copy-adf').addEventListener('click', () => {
+        const jsonStr = JSON.stringify(currentAdf || { version: 1, type: 'doc', content: [] }, null, 2);
+        copyText(jsonStr, 'ADF JSON (들여쓰기)이 클립보드에 복사되었습니다!');
+      });
+
+      document.getElementById('btn-copy-preview').addEventListener('click', () => {
+        const jsonStr = JSON.stringify(currentAdf || { version: 1, type: 'doc', content: [] }, null, 2);
+        copyText(jsonStr, 'ADF JSON이 클립보드에 복사되었습니다!');
+      });
+
+      document.getElementById('btn-copy-min').addEventListener('click', () => {
+        const jsonStr = JSON.stringify(currentAdf || { version: 1, type: 'doc', content: [] });
+        copyText(jsonStr, '단일행 압축(Minified) ADF JSON이 복사되었습니다!');
+      });
+
+      // JSON 파일 다운로드
+      document.getElementById('btn-download-json').addEventListener('click', () => {
+        const jsonStr = JSON.stringify(currentAdf || { version: 1, type: 'doc', content: [] }, null, 2);
+        const blob = new Blob([jsonStr], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `jira_adf_${Date.now()}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast('ADF JSON 파일이 다운로드되었습니다!');
+      });
+
+      // 초기화 버튼
+      document.getElementById('btn-clear').addEventListener('click', () => {
+        htmlInput.value = '';
+        updateConversion();
+        htmlInput.focus();
+        showToast('입력창이 초기화되었습니다.');
+      });
+
+      // 탭 전환 로직
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          tabContents.forEach(c => c.classList.remove('active'));
+          btn.classList.add('active');
+          const targetId = btn.getAttribute('data-target');
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) targetEl.classList.add('active');
+        });
+      });
+
+      // =========================================================================
+      // 4. 샘플 템플릿 데이터
+      // =========================================================================
+      const SAMPLE_TABLE = `<h2><b>사양 및 인터페이스 변경 내역</b></h2>
+<p><span style="color:#0052cc">※ 아래 표에서 변경된 인터페이스 필드 및 규격을 확인하세요.</span></p>
+
+<table border="1" cellpadding="6" cellspacing="0" style="background-color:#ffffff; border-collapse:collapse; border:1px solid #dfe1e6; width:100%;">
+  <thead>
+    <tr style="background-color:#f4f5f7;">
+      <th style="width: 20%; background-color:#f4f5f7;">모듈명</th>
+      <th style="width: 25%; background-color:#f4f5f7;">파라미터</th>
+      <th style="width: 15%; background-color:#f4f5f7;">타입</th>
+      <th style="background-color:#f4f5f7;">설명 및 비고</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2" style="background-color:#fafbfc;"><b>CAN Driver</b></td>
+      <td><code>BaudRate</code></td>
+      <td>uint32</td>
+      <td>통신 속도 설정 (기본값: <b>500,000</b>)</td>
+    </tr>
+    <tr>
+      <td><code>FilterMask</code></td>
+      <td>hex</td>
+      <td><span style="color:#e74c3c;">수정:</span> 마스크 값 확장 <code>0x7FF</code></td>
+    </tr>
+    <tr>
+      <td style="background-color:#fafbfc;"><b>Gateway</b></td>
+      <td><code>RoutingTable</code></td>
+      <td>array</td>
+      <td>신규 라우팅 경로 <a href="https://example.com/routing">상세 문서 보기</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b>주의사항:</b></p>
+<ul>
+  <li>사양 변경 전 <i>Sandbox</i> 환경에서 사전 검증을 완료해야 합니다.</li>
+  <li>적용 완료 후 <del>구버전 프로토콜</del>은 비활성화됩니다.</li>
+</ul>`;
+
+      const SAMPLE_ESTRACK = `<h2><b>1) 연동사양 추가/변경 간략 설명</b></h2>
+<p><span style="color:#e74c3c">※ 연동사양과 신호 관점에서 추가/변경사항을 간략히 기술해 주세요.</span></p>
+<ul>
+  <li><p>예) SVM 뷰 모드에 XX모드가 추가되어 신호의 속성을 추가함<br/>(0xX 값 추가: XX모드)</p></li>
+</ul>
+
+<h2><b>2) CAN 신호 정보 (기반 DB 반영 정보)</b></h2>
+<p><span style="color:#e74c3c">※ 사양 추가 건이고 신호가 많은 경우 기반 DB 템플릿에 작성하여 파일첨부하시는 것을 권장합니다.</span></p>
+
+<h3><b>2-1) 3세대 신호 정보</b></h3>
+<table border="1" cellpadding="4" cellspacing="0" style="background-color:#ffffff; border-collapse:collapse; border:1px solid #cccccc; width:100%;">
+  <tbody>
+    <tr>
+      <td rowspan="2" style="background-color:#eeeeee; width:50px; text-align:center;"><b>Index</b></td>
+      <td rowspan="2" style="background-color:#eeeeee; width:70px; text-align:center;"><b>분류</b></td>
+      <td rowspan="2" style="background-color:#eeeeee; width:120px; text-align:center;"><b>신호 용도</b></td>
+      <td colspan="4" style="background-color:#eeeeee; text-align:center;"><b>3세대 DB 매핑</b></td>
+    </tr>
+    <tr>
+      <td style="background-color:#eeeeee; text-align:center;"><b>Sender</b></td>
+      <td style="background-color:#eeeeee; text-align:center;"><b>Receiver</b></td>
+      <td style="background-color:#eeeeee; text-align:center;"><b>Msg</b></td>
+      <td style="background-color:#eeeeee; text-align:center;"><b>Signal</b></td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">1</td>
+      <td style="text-align:center;"><span style="color:#00875a">추가</span></td>
+      <td>SVM 카메라 뷰 상태</td>
+      <td>HU</td>
+      <td>CCU</td>
+      <td>HU_SVM_01</td>
+      <td>SVM_ViewMode</td>
+    </tr>
+    <tr>
+      <td style="text-align:center;">2</td>
+      <td style="text-align:center;"><span style="color:#ff5630">수정</span></td>
+      <td>조향각 센서 데이터</td>
+      <td>MDPS</td>
+      <td>HU</td>
+      <td>MDPS_01</td>
+      <td>SAS_Angle</td>
+    </tr>
+  </tbody>
+</table>`;
+
+      const SAMPLE_CODE = `<h2>시스템 통합 가이드 & 명령어</h2>
+<blockquote>본 가이드는 Jira Cloud 마이그레이션 파이프라인 연동용 가이드입니다.</blockquote>
+
+<p>아래 명령어를 사용하여 <b>배치 모드</b>로 실행할 수 있습니다:</p>
+
+<pre data-language="bash"><code># 초저부하 모드로 단건 파이프라인 실행
+python3 pipeline_single_issue.py ESTRACK-14285 \\
+  --env SANDBOX \\
+  --dry-run \\
+  --html-only</code></pre>
+
+<p><b>주요 검증 항목:</b></p>
+<ol>
+  <li>ADF 스펙 준수 여부 (<code>doc (v1)</code>)</li>
+  <li>표(Table) 헤더 및 셀 병합(<code>colspan</code>, <code>rowspan</code>) 정상 변환</li>
+  <li>인라인 서식: <b>굵게</b>, <i>기울임</i>, <u>밑줄</u>, <s>취소선</s>, <span style="color:#0052cc">텍스트 색상</span></li>
+</ol>
+<hr />
+<p>문의사항이 있는 경우 관리자에게 문의하세요.</p>`;
+
+      document.getElementById('sample-table').addEventListener('click', () => {
+        htmlInput.value = SAMPLE_TABLE;
+        updateConversion();
+      });
+
+      document.getElementById('sample-estrack').addEventListener('click', () => {
+        htmlInput.value = SAMPLE_ESTRACK;
+        updateConversion();
+      });
+
+      document.getElementById('sample-code').addEventListener('click', () => {
+        htmlInput.value = SAMPLE_CODE;
+        updateConversion();
+      });
+
+      // =========================================================================
+      // 5. 드래그 앤 드롭 파일 로딩
+      // =========================================================================
+      const dropZone = document.getElementById('html-drop-zone');
+
+      ['dragenter', 'dragover'].forEach(name => {
+        dropZone.addEventListener(name, (e) => {
+          e.preventDefault();
+          dropZone.classList.add('dragover');
+        });
+      });
+
+      ['dragleave', 'drop'].forEach(name => {
+        dropZone.addEventListener(name, (e) => {
+          e.preventDefault();
+          dropZone.classList.remove('dragover');
+        });
+      });
+
+      dropZone.addEventListener('drop', (e) => {
+        const files = e.dataTransfer.files;
+        if (files && files.length > 0) {
+          const file = files[0];
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            htmlInput.value = event.target.result;
+            updateConversion();
+            showToast(`'${file.name}' 파일을 불러왔습니다!`);
+          };
+          reader.readAsText(file);
+        }
+      });
+
+      // 페이지 로드 시 기본 샘플 실행
+      htmlInput.value = SAMPLE_TABLE;
+      updateConversion();
+
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Exalate Outgoing Sync Queue</title>
+  <style>
+:root {
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-table-head: #f1f5f9;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --primary: #2563eb;
+  --primary-light: #eff6ff;
+  --danger: #dc2626;
+  --danger-light: #fef2f2;
+  --warning: #d97706;
+  --warning-light: #fffbeb;
+  --success: #16a34a;
+  --success-light: #f0fdf4;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.5;
+  padding: 32px 20px;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+header {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: #ffffff;
+  padding: 28px 32px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+header p {
+  color: #94a3b8;
+  font-size: 14px;
+}
+.meta-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(255,255,255,0.15);
+  color: #f8fafc;
+}
+.badge.blue { background: #3b82f6; }
+.badge.green { background: #10b981; }
+.badge.amber { background: #f59e0b; }
+.badge.red { background: #ef4444; }
+
+/* KPI Metrics */
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.metric-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+.metric-card .title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+.metric-card .value {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.1;
+}
+.metric-card .sub {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Callouts */
+.notice-box {
+  background: var(--warning-light);
+  border: 1px solid #fef3c7;
+  color: #92400e;
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+.notice-box strong { color: #78350f; }
+
+/* Card & Table */
+.card-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.section-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+.search-input {
+  padding: 8px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  font-size: 13px;
+  min-width: 260px;
+  outline: none;
+}
+.search-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(37,99,235,0.15);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  text-align: left;
+}
+th {
+  background-color: var(--bg-table-head);
+  padding: 10px 14px;
+  font-weight: 600;
+  color: var(--text-main);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-main);
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background-color: #f8fafc; }
+.empty-state {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+.status-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.pill-error { background: var(--danger-light); color: var(--danger); border: 1px solid #fecaca; }
+.pill-warn { background: var(--warning-light); color: var(--warning); border: 1px solid #fef3c7; }
+.pill-info { background: var(--primary-light); color: var(--primary); border: 1px solid #bfdbfe; }
+.pill-default { background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 32px;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Exalate Outgoing Sync Queue</h1>
+      <p>현재 로컬 Jira에서 원격 시스템으로 전송 대기/진행 중인 이벤트 목록</p>
+      <div class="meta-badges">
+        <span class="badge blue">총 3 건</span>
+        <span class="badge">수집: 3 건</span>
+      </div>
+    </header>
+
+    <div class="card-section">
+      <div class="section-header">
+        <h2>Outgoing Events (3 레코드)</h2>
+        <input type="text" id="searchInput" class="search-input" onkeyup="filterTable('searchInput', 'reportTable')" placeholder="실시간 검색 (이슈 키, 상태 등)...">
+      </div>
+      <div class="table-wrapper">
+        <table id="reportTable">
+          <thead>
+            <tr><th>id</th><th>issueId</th><th>issueKey</th><th>projectKey</th><th>connectionId</th><th>connectionName</th><th>remoteInstance</th><th>status</th><th>created</th><th>updated</th><th>error</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>101</td><td></td><td><strong>PROJ-101</strong></td><td><strong>PROJ</strong></td><td></td><td>DC2Cloud</td><td></td><td><span class="status-pill pill-warn">IN_PROGRESS</span></td><td>2026-09-03T16:00:00Z</td><td>2026-09-03T16:05:00Z</td><td></td></tr>
+<tr><td>102</td><td></td><td><strong>PROJ-102</strong></td><td><strong>PROJ</strong></td><td></td><td>DC2Cloud</td><td></td><td><span class="status-pill pill-info">QUEUED</span></td><td>2026-09-03T16:10:00Z</td><td>2026-09-03T16:10:00Z</td><td></td></tr>
+<tr><td>103</td><td></td><td><strong>PROJ-103</strong></td><td><strong>PROJ</strong></td><td></td><td>DC2Cloud</td><td></td><td><span class="status-pill pill-error">FAILED</span></td><td>2026-09-03T16:15:00Z</td><td></td><td style="max-width: 320px; word-break: break-word; font-size: 12.5px;">Connection timeout to remote instance</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <footer>
+      Exalate Migration Audit Tool &copy; 2026. Confidential Migration Assessment Data.
+    </footer>
+  </div>
+  
+<script>
+function filterTable(inputId, tableId) {
+  const input = document.getElementById(inputId);
+  const filter = input.value.toLowerCase();
+  const table = document.getElementById(tableId);
+  const tr = table.getElementsByTagName("tr");
+
+  for (let i = 1; i < tr.length; i++) {
+    let visible = false;
+    const tds = tr[i].getElementsByTagName("td");
+    for (let j = 0; j < tds.length; j++) {
+      if (tds[j]) {
+        const txtValue = tds[j].textContent || tds[j].innerText;
+        if (txtValue.toLowerCase().indexOf(filter) > -1) {
+          visible = true;
+          break;
+        }
+      }
+    }
+    tr[i].style.display = visible ? "" : "none";
+  }
+}
+</script>
+
+</body>
+</html>

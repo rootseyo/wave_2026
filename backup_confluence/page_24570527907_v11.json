@@ -1,0 +1,34 @@
+{
+  "authorId": "712020:0a72e379-938b-4f67-830a-563214481e43",
+  "parentType": "page",
+  "parentId": "24567447557",
+  "ownerId": "712020:0a72e379-938b-4f67-830a-563214481e43",
+  "createdAt": "2026-07-30T05:57:36.094Z",
+  "lastOwnerId": null,
+  "position": 8043,
+  "version": {
+    "number": 11,
+    "message": "",
+    "minorEdit": false,
+    "authorId": "712020:0a72e379-938b-4f67-830a-563214481e43",
+    "createdAt": "2026-09-30T12:35:56.580Z",
+    "ncsStepVersion": "50"
+  },
+  "spaceId": "24391090211",
+  "body": {
+    "storage": {
+      "representation": "storage",
+      "value": "<ac:structured-macro ac:name=\"details\" ac:schema-version=\"1\" data-layout=\"default\" ac:local-id=\"431305b7-427b-4d70-a2c4-695c1c897d2d\" ac:macro-id=\"01903e83-f849-458c-a772-21ba1bb7b88b\"><ac:rich-text-body><table data-table-width=\"760\" data-layout=\"default\" ac:local-id=\"0906f4bc39af\"><colgroup><col style=\"width: 285.0px;\" /><col style=\"width: 441.0px;\" /></colgroup><tbody><tr ac:local-id=\"ad5f2a0d-81de-440d-b4e6-c038a5fbbd61\"><th ac:local-id=\"b6e06ada-e82f-4bf3-aeaf-1b697bb05d67\"><p local-id=\"2c5b85f0340f\"><strong>2025 분석</strong></p></th><td ac:local-id=\"de678fbb-ef56-4562-bbff-efaebadc7945\"><p local-id=\"d1e7e1ffc6f6\">X</p></td></tr><tr ac:local-id=\"990a7584-1e1d-479c-bb23-8342c85201c6\"><th ac:local-id=\"e77ba10f-1029-475f-a520-f02c416e5277\"><p local-id=\"3037da6e10de\"><strong>Status</strong></p></th><td ac:local-id=\"fcd95f5c-6467-4193-868c-20c649a46999\"><p local-id=\"1bcef232fc06\"><ac:structured-macro ac:name=\"status\" ac:schema-version=\"1\" ac:macro-id=\"29153644-01bd-421a-880a-4636f693d3e0\"><ac:parameter ac:name=\"title\">변환개발</ac:parameter><ac:parameter ac:name=\"colour\">Blue</ac:parameter></ac:structured-macro> </p></td></tr><tr ac:local-id=\"f408c720-9eee-4b4d-a4f7-9b14f870552d\"><th ac:local-id=\"ad922be5-faa4-4883-82b5-f2cbefcde230\"><p local-id=\"a3b648e0651f\"><strong>Plugin Version&amp;Status</strong></p></th><td ac:local-id=\"e1392f0a-a10e-4856-ae93-8ef5c18546ae\"><p local-id=\"b6262f0ff72c\">8.58.2 활성화</p></td></tr><tr ac:local-id=\"8fa3bbf2-7717-45f8-a89c-17a24cff8aeb\"><th ac:local-id=\"e4d94567-795b-4054-b6ad-fa110632028e\"><p local-id=\"3ccf42855522\"><strong>WAVE 포함여부</strong></p></th><td ac:local-id=\"3711dcf6-5c2d-452b-a8f4-9a3fe9867517\"><p local-id=\"fbba8bfd79a3\">O</p></td></tr><tr ac:local-id=\"01524987-79eb-4eaa-8258-5b3987f28eda\"><th ac:local-id=\"b34421fe-d421-4220-9e7a-a94a6768c139\"><p local-id=\"5c47fef4233b\"><strong>벤더사</strong></p></th><td ac:local-id=\"2aed4667-c65f-4440-8fb1-7b7cd030f6f3\"><p local-id=\"9eb372487243\">Appfire</p></td></tr><tr ac:local-id=\"43ffd77d-cd71-4637-b371-e4f64f167106\"><th ac:local-id=\"403775b9-3bab-477c-ae77-81269f3f7d71\"><p local-id=\"c643b8b5c50d\"><strong>작성일자</strong></p></th><td ac:local-id=\"9e08c45b-d31f-45bd-a89a-71673710839c\"><p local-id=\"2c48afbcebb3\" /></td></tr><tr ac:local-id=\"62128fa8-9539-4284-ab5c-654da30cf8a9\"><th ac:local-id=\"1f109ec6-30b9-4bfd-8e60-1174cf8a64ee\"><p local-id=\"c7cb922f1180\"><strong>작성자</strong></p></th><td ac:local-id=\"64bb5e9a-78e9-4607-9ce2-1bb9baeed198\"><p local-id=\"9ca8de5a6161\">김세연</p></td></tr><tr ac:local-id=\"1f2e6955-00e9-4bd5-b71c-df68f7aaa0e0\"><th ac:local-id=\"19df41fb-f9f3-43cb-a1d5-f0379e60e15e\"><p local-id=\"cc70e931998d\"><strong>세부분석</strong></p></th><td ac:local-id=\"615812c3-ca32-4824-bf6a-cb713e10522d\"><p local-id=\"1fabf3ef7908\">O</p></td></tr><tr ac:local-id=\"19e3e45f-7f3c-48e6-939d-f60f0333f3c0\"><th ac:local-id=\"76659575-d7f1-418d-8cac-b710a97bc4dc\"><p local-id=\"ed26577c33df\"><strong>이슈 및 결정사항</strong></p></th><td ac:local-id=\"edd3641a-1fa4-43cb-b180-85de10be9b7a\"><p local-id=\"1765df7e3332\" /></td></tr></tbody></table></ac:rich-text-body></ac:structured-macro><ac:structured-macro ac:name=\"toc\" ac:schema-version=\"1\" data-layout=\"default\" ac:local-id=\"5b883c7b-06d4-41ec-affc-60a2c87a62b8\" ac:macro-id=\"db42abfe-1de5-4968-a3c0-1546ea0f4151\"><ac:parameter ac:name=\"style\">none</ac:parameter></ac:structured-macro><h3 local-id=\"19f5b151-6ee7-4ecb-8413-4fde85cf9052\">JCMA</h3><table data-table-width=\"1345\" data-layout=\"align-start\" ac:local-id=\"79d02625-dba6-47d5-aca5-644c871cf2b4\"><tbody><tr ac:local-id=\"eff8df3f-65f7-4e42-b25c-318de77f22e7\"><th ac:local-id=\"0cd71064-6f1c-4818-80c5-2bdd2d6d37df\"><p local-id=\"0300f0d67401\" style=\"text-align: center;\"><strong>구분</strong></p></th><th ac:local-id=\"24e14e93-6aa1-4f45-b472-3e98f0275b80\"><p local-id=\"3c818edc8734\" style=\"text-align: center;\"><strong>확인</strong></p></th><th ac:local-id=\"28f9b45c-326a-4b93-ab0d-04d93c513f2a\"><p local-id=\"863a90fd4f8f\" style=\"text-align: center;\"><strong>비고</strong></p></th></tr><tr ac:local-id=\"c50c6689-6237-4157-9584-3e2fb703f692\"><td ac:local-id=\"3bbccfd0-b7a5-43cf-aa36-dd7e2b798952\"><p local-id=\"613f8523a694\">JCMA 지원 가능 여부(전체)</p></td><td ac:local-id=\"ffbbbfe4-54f2-4c2c-9521-9eb3a04ca692\"><p local-id=\"65545a737b80\" style=\"text-align: center;\">O</p></td><td ac:local-id=\"a9af95ab-aacf-404e-b66d-3d0215fbcf9b\"><p local-id=\"2cc608638e92\" /></td></tr><tr ac:local-id=\"3965f56b-2846-4452-80b0-5df59832d959\"><td ac:local-id=\"358ed509-a6e5-4f66-a089-133dc43b3223\"><p local-id=\"8e417d6932d0\">JCMA 지원 가능 여부(Phase)</p></td><td ac:local-id=\"a9c33c19-79b8-4d9c-aa28-e1c488b8343d\"><p local-id=\"593af5b2db10\" style=\"text-align: center;\">X</p></td><td ac:local-id=\"c54b1810-9def-4c45-a0e8-622ea029dea3\"><p local-id=\"cb35f40d30ed\" /></td></tr><tr ac:local-id=\"60d30f95-20c3-45fa-809f-903fbebe3105\"><td ac:local-id=\"ec34a771-da00-4e57-b24c-aa4341082e5e\"><p local-id=\"7e535ace53b2\">JCMA 지원 가능 App Version</p></td><td ac:local-id=\"76adae27-963a-4f27-ae28-f02a4ca90ec0\"><p local-id=\"60b1f61328b4\" style=\"text-align: center;\">8.64.3 이상</p></td><td ac:local-id=\"dfc5b378-c49a-494b-908b-7e6cd66ba01e\"><p local-id=\"a29d2e63778f\" /></td></tr></tbody></table><h3 local-id=\"42afeaceaa75\">세부분석</h3><ul local-id=\"418138c1d5ea\"><li local-id=\"bd2c8134ffcb\"><p local-id=\"9096b4a13fe1\">대상 Box</p></li><li local-id=\"e3ac0eda0a6a\"><p local-id=\"1a1de498c516\" /></li></ul><ac:structured-macro ac:name=\"attachments\" ac:schema-version=\"1\" data-layout=\"wide\" ac:local-id=\"6b6af5ef-b29b-47b5-b20d-6056962ce417\" ac:macro-id=\"9a2c3866-c48c-4a3a-ae0c-a29859a39a92\" /><p local-id=\"06f21d4de4e7\" />"
+    }
+  },
+  "status": "current",
+  "title": "12-1.1.1-19. BigGantt",
+  "id": "24570527907",
+  "_links": {
+    "editui": "/pages/resumedraft.action?draftId=24570527907",
+    "webui": "/spaces/AC2/pages/24570527907/12-1.1.1-19.+BigGantt",
+    "edituiv2": "/spaces/AC2/pages/edit-v2/24570527907",
+    "tinyui": "/x/o4CEuAU",
+    "base": "https://cloud-osci.atlassian.net/wiki"
+  }
+}

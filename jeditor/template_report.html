@@ -1,0 +1,1944 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEditor Template SQL Extraction Report</title>
+    <style>
+        :root {
+            --primary: #0052cc;
+            --primary-light: #deebff;
+            --primary-dark: #0747a6;
+            --success: #36b37e;
+            --success-bg: #e3fcef;
+            --danger: #ff5630;
+            --danger-bg: #ffebe6;
+            --warning: #ffab00;
+            --warning-bg: #fff0b3;
+            --neutral: #6b778c;
+            --neutral-bg: #ebecf0;
+            --bg-page: #f4f5f7;
+            --bg-surface: #ffffff;
+            --border-color: #dfe1e6;
+            --text-dark: #172b4d;
+            --text-muted: #6b778c;
+            --shadow-sm: 0 1px 2px rgba(9, 30, 66, 0.08);
+            --shadow-md: 0 4px 12px rgba(9, 30, 66, 0.12);
+            --shadow-lg: 0 12px 24px -6px rgba(9, 30, 66, 0.25);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            font-size: 13px;
+            line-height: 1.5;
+            padding: 24px 32px;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-surface);
+            padding: 20px 24px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 20px;
+        }
+        .header-title-area h1 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .header-title-area p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+        .header-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-color);
+            background: var(--bg-surface);
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+        .btn-action:hover {
+            background: var(--neutral-bg);
+            border-color: #c1c7d0;
+        }
+        .btn-confluence {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 1px 2px rgba(0, 82, 204, 0.2);
+        }
+        .btn-confluence:hover {
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
+            color: #ffffff;
+        }
+        .btn-confluence-secondary {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-color: #b3d4ff;
+        }
+        .btn-confluence-secondary:hover {
+            background: #cce0ff;
+        }
+
+        .confluence-tip-banner {
+            background: #e6fcff;
+            border: 1px solid #b3f5ff;
+            border-left: 4px solid #00a3bf;
+            padding: 10px 16px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12.5px;
+            color: #0052cc;
+        }
+        .confluence-tip-banner strong { color: #0049b0; }
+        .confluence-tip-banner .tip-links {
+            display: flex;
+            gap: 10px;
+        }
+        .confluence-tip-banner a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .kpi-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .kpi-card.kpi-total { border-left: 4px solid var(--primary); }
+        .kpi-card.kpi-success { border-left: 4px solid var(--success); }
+        .kpi-card.kpi-warning { border-left: 4px solid var(--warning); }
+
+        .kpi-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .kpi-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 6px 0 2px 0;
+        }
+        .kpi-subtext {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .filter-bar {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 12px 18px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+        .search-box {
+            flex: 1 1 240px;
+            position: relative;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 8px 12px 8px 34px;
+            font-size: 13px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            background: var(--bg-surface);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .search-box input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px var(--primary-light);
+        }
+        .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+        .filter-select {
+            padding: 7px 12px;
+            font-size: 13px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            background: var(--bg-surface);
+            color: var(--text-dark);
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .filter-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px var(--primary-light);
+        }
+        .result-count {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            font-weight: 500;
+            padding: 0 4px;
+        }
+        .filter-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto;
+        }
+
+        .table-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        thead th {
+            background: #fafbfc;
+            border-bottom: 2px solid var(--border-color);
+            padding: 12px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        tbody td {
+            padding: 11px 10px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+        tbody tr.template-row:hover {
+            background-color: #f7f9fc;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .template-name {
+            font-size: 13px;
+            color: var(--text-dark);
+            display: block;
+        }
+        .template-desc {
+            font-size: 11.5px;
+            color: var(--text-muted);
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .spec-tag {
+            display: inline-block;
+            background: #ebecf0;
+            color: #42526e;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-family: SFMono-Medium, Menlo, Consolas, monospace;
+        }
+        .badge-field {
+            background: #deebff;
+            color: #0747a6;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            border: 1px solid #b3d4ff;
+        }
+        .badge-missing {
+            background: #ffebe6;
+            color: #de350b;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 11px;
+            border: 1px dashed #ff8f73;
+        }
+        .badge-target-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 1px 6px;
+            font-size: 10px;
+            font-weight: 700;
+            border-radius: 10px;
+            background: #e3fcef;
+            color: #006644;
+            border: 1px solid #abf5d1;
+        }
+        .badge-excluded-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 1px 6px;
+            font-size: 10px;
+            font-weight: 700;
+            border-radius: 10px;
+            background: #ffebe6;
+            color: #bf2600;
+            border: 1px solid #ffbdad;
+        }
+        .filter-chips-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            align-items: center;
+        }
+        .chip-btn {
+            padding: 5px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-surface);
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .chip-btn:hover { background: var(--neutral-bg); }
+        .chip-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+        .chip-btn.chip-target.active {
+            background: #00875a;
+            color: #ffffff;
+            border-color: #00875a;
+        }
+        .chip-btn.chip-excluded.active {
+            background: #de350b;
+            color: #ffffff;
+            border-color: #de350b;
+        }
+
+        /* Content Cell Styles */
+        .content-cell-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            min-width: 260px;
+            max-width: 440px;
+        }
+        .content-cell-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn-copy-tiny {
+            padding: 2px 6px;
+            font-size: 10.5px;
+            font-weight: 600;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .btn-copy-tiny:hover { background: #ebecf0; }
+        .template-content-preview {
+            max-height: 160px;
+            overflow-y: auto;
+            font-size: 12px;
+            line-height: 1.45;
+            background: #fafbfc;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            padding: 8px 10px;
+            color: var(--text-dark);
+        }
+        .template-content-preview p {
+            margin: 0 0 6px 0;
+        }
+        .template-content-preview p:last-child {
+            margin-bottom: 0;
+        }
+        .template-content-preview ul, .template-content-preview ol {
+            padding-left: 18px;
+            margin: 4px 0 6px 0;
+        }
+        .template-content-preview table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 4px 0;
+            font-size: 11px;
+        }
+        .template-content-preview td, .template-content-preview th {
+            border: 1px solid #c1c7d0;
+            padding: 3px 6px;
+        }
+
+        .template-metadata-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            padding: 8px 12px;
+            margin-bottom: 12px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            color: var(--text-dark);
+        }
+
+        .btn-toggle-preview {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 8px;
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-color);
+            background: var(--bg-surface);
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .btn-toggle-preview:hover {
+            background: var(--neutral-bg);
+        }
+        .btn-toggle-preview .chevron-icon {
+            transition: transform 0.2s ease;
+        }
+        .btn-toggle-preview.active .chevron-icon {
+            transform: rotate(180deg);
+        }
+
+        .btn-copy-row {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            padding: 4px 8px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.15s;
+        }
+        .btn-copy-row:hover {
+            background: var(--neutral-bg);
+        }
+
+        .btn-open-jira {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 11.5px;
+            padding: 3px 6px;
+            border-radius: var(--radius-sm);
+        }
+        .btn-open-jira:hover {
+            background: var(--primary-light);
+            text-decoration: underline;
+        }
+
+        .preview-row > td {
+            padding: 0 14px 14px;
+            background: #f7f9fa;
+        }
+        .preview-expandable-container {
+            width: 100%;
+            padding: 14px;
+            background: #f7f9fa;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+        }
+        .code-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+        .preview-panel {
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            background: #f4f5f7;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        .btn-copy {
+            padding: 2px 8px;
+            font-size: 11px;
+            font-weight: 600;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .btn-copy:hover { background: #ebecf0; }
+        .btn-copy-primary {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+        .btn-copy-primary:hover {
+            background: var(--primary-dark);
+            color: #ffffff;
+        }
+
+        .preview-panel pre {
+            height: 320px;
+            overflow: auto;
+            padding: 10px;
+            font-family: SFMono-Medium, Menlo, Consolas, monospace;
+            font-size: 11.5px;
+            line-height: 1.45;
+            background: #fafbfc;
+        }
+        .preview-iframe {
+            width: 100%;
+            height: 320px;
+            border: none;
+            background: #ffffff;
+        }
+
+        /* Toast Notifications */
+        .toast-notification {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #172b4d;
+            color: #ffffff;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: var(--shadow-lg);
+            z-index: 10000;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            max-width: 420px;
+            line-height: 1.4;
+        }
+        .toast-notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(9, 30, 66, 0.54);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        .modal-card {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            width: 90%;
+            max-width: 840px;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .modal-header h3 {
+            font-size: 16px;
+            color: var(--text-dark);
+            margin: 0;
+        }
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+        .modal-body {
+            padding: 20px;
+            overflow-y: auto;
+            flex: 1;
+        }
+        .modal-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+        .modal-tab-btn {
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid transparent;
+            background: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+        .modal-tab-btn.active {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-color: #b3d4ff;
+        }
+        .modal-preview-box {
+            width: 100%;
+            height: 280px;
+            font-family: SFMono-Medium, Menlo, Consolas, monospace;
+            font-size: 12px;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            background: #fafbfc;
+            overflow: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            padding: 14px 20px;
+            border-top: 1px solid var(--border-color);
+            background: #fafbfc;
+        }
+
+        .text-center { text-align: center; }
+        .font-mono { font-family: SFMono-Medium, Menlo, Consolas, monospace; }
+        .font-bold { font-weight: 700; }
+        .text-primary { color: var(--primary); }
+        .text-muted { color: var(--text-muted); }
+        .text-small { font-size: 11.5px; }
+        .text-tiny { font-size: 11px; }
+
+        /* When copying or printing, hide interactive buttons */
+        .no-confluence {
+            user-select: none;
+        }
+        @media print {
+            .no-confluence, .header-actions, .filter-bar, .confluence-tip-banner {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .code-preview-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="dashboard-header">
+        <div class="header-title-area">
+            <h1>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                JEditor Template SQL Extraction Report
+            </h1>
+            <p>Jira Active Objects (AO_BF4748_PROJECT_TEMPLATE) 기반 추출 리포트 &middot; 생성 시각: 2026-10-27 09:27:41</p>
+        </div>
+        <div class="header-actions">
+            <button type="button" class="btn-action btn-confluence" onclick="copyConfluenceTable('html')" title="현재 표시된 표(템플릿 내용 서식 포함)를 Confluence에 바로 붙여넣을 수 있는 네이티브 표로 복사합니다">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>📋 Confluence 표 복사</span>
+            </button>
+            <button type="button" class="btn-action btn-confluence-secondary" onclick="copyConfluenceTable('markdown')" title="마크다운(GFM) 표 형식으로 복사">
+                <span>📝 Markdown 복사</span>
+            </button>
+            <button type="button" class="btn-action" onclick="openConfluenceModal()" title="포맷 선택 및 커스텀 컬럼 설정">
+                <span>⚙️ 복사 옵션</span>
+            </button>
+            <button type="button" class="btn-action" id="toggleAllPreviews" onclick="toggleAllPreviews()">모든 Preview 펼치기</button>
+            <button type="button" class="btn-action" onclick="exportJSON()">Export JSON</button>
+            <button type="button" class="btn-action" onclick="window.print()">Print</button>
+        </div>
+    </header>
+
+    <div class="confluence-tip-banner">
+        <span>💡 <strong>Confluence 복사 안내:</strong> 상단의 <strong>[📋 Confluence 표 복사]</strong> 버튼을 클릭한 뒤, Confluence 편집창에서 <strong>Ctrl+V (Cmd+V)</strong>로 붙여넣으면 <strong>템플릿 내용 서식(굵은 글씨, 목록, 문단)</strong>이 적용된 완벽한 네이티브 표가 생성됩니다.</span>
+        <div class="tip-links">
+            <a onclick="openConfluenceModal()">세부 옵션 선택 ↗</a>
+        </div>
+    </div>
+
+    <section class="kpi-grid">
+        <div class="kpi-card kpi-total" onclick="setMigrationFilter('all')" style="cursor:pointer;" title="클릭 시 전체 템플릿 표시">
+            <div class="kpi-label">Total Templates</div>
+            <div class="kpi-value">5</div>
+            <div class="kpi-subtext">추출된 전체 JEditor 템플릿 (클릭 시 전체)</div>
+        </div>
+        <div class="kpi-card kpi-success" onclick="setMigrationFilter('target')" style="cursor:pointer;" title="클릭 시 마이그레이션 대상만 필터링">
+            <div class="kpi-label">🎯 Migration Targets</div>
+            <div class="kpi-value">3</div>
+            <div class="kpi-subtext">필드 및 이슈 타입 설정 완료 (클릭 필터)</div>
+        </div>
+        <div class="kpi-card kpi-warning" onclick="setMigrationFilter('excluded')" style="cursor:pointer;" title="클릭 시 제외/미설정 대상만 필터링">
+            <div class="kpi-label">⚠️ Excluded / Incomplete</div>
+            <div class="kpi-value">2</div>
+            <div class="kpi-subtext">필드 또는 이슈 타입 미지정 (클릭 필터)</div>
+        </div>
+        <div class="kpi-card" style="border-left-color: #6554c0;">
+            <div class="kpi-label">Target Projects</div>
+            <div class="kpi-value">2</div>
+            <div class="kpi-subtext">템플릿 보유 프로젝트 수</div>
+        </div>
+    </section>
+
+    <div class="filter-chips-row">
+        <span style="font-size:12px;font-weight:700;color:var(--text-muted);">빠른 필터:</span>
+        <button type="button" class="chip-btn active" data-filter="all" onclick="setMigrationFilter('all')">
+            📋 전체 (5)
+        </button>
+        <button type="button" class="chip-btn chip-target" data-filter="target" onclick="setMigrationFilter('target')">
+            🎯 마이그레이션 대상만 (3)
+        </button>
+        <button type="button" class="chip-btn chip-excluded" data-filter="excluded" onclick="setMigrationFilter('excluded')">
+            ⚠️ 미설정/제외 대상만 (2)
+        </button>
+    </div>
+
+    <section class="filter-bar">
+        <div class="search-box">
+            <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="searchInput" placeholder="프로젝트, 템플릿명, 필드명, 본문 키워드 검색..." oninput="applyFilters()" />
+        </div>
+        <select id="targetFilter" class="filter-select font-bold" onchange="applyFilters()" title="마이그레이션 대상 여부 필터">
+            <option value="all">📋 전체 템플릿 (5건)</option>
+            <option value="target">🎯 마이그레이션 대상만 (3건)</option>
+            <option value="excluded">⚠️ 미설정/제외 대상만 (2건)</option>
+            <option value="missing_field">🚫 필드 미지정 건만</option>
+            <option value="missing_itype">🚫 이슈 타입 미지정 건만</option>
+        </select>
+        <select id="projectFilter" class="filter-select" onchange="applyFilters()" title="프로젝트별 필터">
+            <option value="">모든 프로젝트 (전체)</option>
+            <option value="AAOSDEV">AAOSDEV</option>
+            <option value="CFMT">CFMT</option>
+        </select>
+        <div class="result-count">
+            표시: <strong id="visibleCount" class="text-primary">5</strong> / 5 건
+        </div>
+        <div class="filter-actions">
+            <button type="button" class="btn-action btn-confluence" id="btnCopyFilteredTable" onclick="copyConfluenceTable('html')" title="검색/필터된 결과 전체를 Confluence에 붙여넣을 수 있는 표로 복사합니다">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>📋 필터 결과 표 전체 복사 (<span id="btnCopyFilteredCount">5</span>건)</span>
+            </button>
+            <button type="button" class="btn-action btn-confluence-secondary" onclick="copyConfluenceTable('markdown')" title="마크다운(GFM) 표 형식으로 복사">
+                <span>📝 Markdown 전체 복사</span>
+            </button>
+        </div>
+    </section>
+
+    <main class="table-card">
+        <table id="templatesTable">
+            <thead>
+                <tr>
+                    <th style="width: 44px;" class="text-center">#</th>
+                    <th style="width: 140px;">프로젝트</th>
+                    <th style="width: 180px;">템플릿명</th>
+                    <th style="width: 150px;">설명</th>
+                    <th style="width: 130px;">적용 필드</th>
+                    <th style="width: 110px;">적용 이슈 유형</th>
+                    <th style="min-width: 260px;">템플릿 내용</th>
+                    <th style="width: 85px;" class="text-center">Jira 설정</th>
+                    <th style="width: 90px;" class="text-center no-confluence">미리보기</th>
+                    <th style="width: 50px;" class="text-center no-confluence" title="Confluence용 행 복사">복사</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <tr class="template-row" data-id="101" data-env="ops" data-project="CFMT" data-target="1" data-has-field="1" data-has-itype="1" data-status="TARGET">
+            <td class="text-center font-mono text-muted">1</td>
+            <td>
+                <strong class="font-bold text-primary">CFMT</strong>
+                <div class="text-tiny text-muted project-name">커넥티드카 멀티미디어</div>
+            </td>
+            <td>
+                <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+                    <strong class="template-name">결함 보고 템플릿</strong>
+                    <span class="badge-target-pill">🎯 대상</span>
+                </div>
+            </td>
+            <td>
+                <div class="template-desc text-muted">기본 결함 리포트 양식</div>
+            </td>
+            <td>
+                <span class="badge badge-field font-bold">Description</span>
+            </td>
+            <td>
+                <span class="spec-tag">1(Bug)</span> <span class="spec-tag">10100(결함)</span>
+            </td>
+            <td class="content-cell" style="vertical-align: top;">
+                <div class="content-cell-container">
+                    <div class="content-cell-header no-confluence">
+                        <span class="text-tiny text-muted font-mono">67 chars</span>
+                        <button type="button" class="btn-copy-tiny" onclick="copyContentText('101', this)" title="템플릿 본문 내용 복사">Copy 내용</button>
+                    </div>
+                    <div class="template-content-preview">
+                        <p><b>1. 결함 개요</b></p><p>- 재현 경로:</p><p>- 기대 결과:</p><p>- 실제 결과:</p>
+                    </div>
+                </div>
+            </td>
+            <td class="text-center">
+                <a href="https://dev-jira.osci.kr/plugins/servlet/jeditor-project-config/CFMT/templates" target="_blank" rel="noopener noreferrer" class="btn-open-jira" title="Jira 템플릿 설정 화면 열기">
+                    <span>열기 ↗</span>
+                </a>
+            </td>
+            <td class="text-center no-confluence">
+                <button type="button" class="btn-toggle-preview" onclick="togglePreview(this)" title="템플릿 원본 및 ADF 미리보기">
+                    <span>Preview</span>
+                    <svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+            </td>
+            <td class="text-center no-confluence">
+                <button type="button" class="btn-copy-row" onclick="copySingleRow('101')" title="이 템플릿 행을 Confluence용으로 복사">
+                    📋
+                </button>
+            </td>
+        </tr>
+        <tr class="preview-row no-confluence" data-preview-for="101" data-open="false" style="display:none;">
+            <td colspan="10">
+                <div class="preview-expandable-container">
+                    <div class="template-metadata-bar">
+                        <span class="meta-item">🎯 <strong>Target Field:</strong> <span class="badge badge-field">Description</span></span>
+                        <span class="meta-item">📋 <strong>Issue Types:</strong> 1(Bug), 10100(결함)</span>
+                        <span class="meta-item">⚡ <strong>Autofill:</strong> Issue Types [1(Bug), 10100(결함)], Fields [Description]</span>
+                    </div>
+                    <div class="code-preview-grid">
+                        <section class="preview-panel">
+                            <div class="panel-header">
+                                <span>Original JEditor HTML (67 chars)</span>
+                                <button type="button" class="btn-copy" onclick="copyPanelCode(this, '.raw-code')">Copy HTML</button>
+                            </div>
+                            <pre><code class="raw-code">&lt;p&gt;&lt;b&gt;1. 결함 개요&lt;/b&gt;&lt;/p&gt;&lt;p&gt;- 재현 경로:&lt;/p&gt;&lt;p&gt;- 기대 결과:&lt;/p&gt;&lt;p&gt;- 실제 결과:&lt;/p&gt;</code></pre>
+                        </section>
+                        <section class="preview-panel">
+                            <div class="panel-header">
+                                <span>Atlassian Document Format (ADF)</span>
+                                <button type="button" class="btn-copy" onclick="copyAdfJson(this)">Copy ADF JSON</button>
+                            </div>
+                            <pre><code class="adf-json">{
+  &quot;type&quot;: &quot;doc&quot;,
+  &quot;version&quot;: 1,
+  &quot;content&quot;: [
+    {
+      &quot;type&quot;: &quot;paragraph&quot;,
+      &quot;content&quot;: [
+        {
+          &quot;type&quot;: &quot;text&quot;,
+          &quot;text&quot;: &quot;1. 결함 개요&quot;,
+          &quot;marks&quot;: [
+            {
+              &quot;type&quot;: &quot;strong&quot;
+            }
+          ]
+        }
+      ]
+    },
+    {
+      &quot;type&quot;: &quot;paragraph&quot;,
+      &quot;content&quot;: [
+        {
+          &quot;type&quot;: &quot;text&quot;,
+          &quot;text&quot;: &quot;- 재현 경로:&quot;
+        }
+      ]
+    },
+    {
+      &quot;type&quot;: &quot;paragraph&quot;,
+      &quot;content&quot;: [
+        {
+          &quot;type&quot;: &quot;text&quot;,
+          &quot;text&quot;: &quot;- 기대 결과:&quot;
+        }
+      ]
+    },
+    {
+      &quot;type&quot;: &quot;paragraph&quot;,
+      &quot;content&quot;: [
+        {
+          &quot;type&quot;: &quot;text&quot;,
+          &quot;text&quot;: &quot;- 실제 결과:&quot;
+        }
+      ]
+    }
+  ]
+}</code></pre>
+                        </section>
+                        <section class="preview-panel">
+                            <div class="panel-header">
+                                <span>Rendered Preview</span>
+                                <button type="button" class="btn-copy btn-copy-primary" onclick="copyTemplateBodyForConfluence('101')">📋 본문 HTML 복사</button>
+                            </div>
+                            <iframe class="preview-iframe" sandbox="" referrerpolicy="no-referrer" loading="lazy"></iframe>
+                        </section>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        
+        <tr class="template-row" data-id="102" data-env="ops" data-project="CFMT" data-target="1" data-has-field="1" data-has-itype="1" data-status="TARGET">
+            <td class="text-center font-mono text-muted">2</td>
+            <td>
+                <strong class="font-bold text-primary">CFMT</strong>
+                <div class="text-tiny text-muted project-name">커넥티드카 멀티미디어</div>
+            </td>
+            <td>
+                <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+                    <strong class="template-name">SW 릴리즈 노트</strong>
+                    <span class="badge-target-pill">🎯 대상</span>
+                </div>
+            </td>
+            <td>
+                <div class="template-desc text-muted">릴리즈 시 작성 템플릿</div>
+            </td>
+            <td>
+                <span class="badge badge-field font-bold">customfield_10010(Release Notes)</span>
+            </td>
+            <td>
+                <span class="spec-tag">10001(Story)</span> <span class="spec-tag">10004(Task)</span>
+            </td>
+            <td class="content-cell" style="vertical-align: top;">
+                <div class="content-cell-container">
+                    <div class="content-cell-header no-confluence">
+                        <span class="text-tiny text-muted font-mono">36 chars</span>
+                        <button type="button" class="btn-copy-tiny" onclick="copyContentText('102', this)" title="템플릿 본문 내용 복사">Copy 내용</button>
+                    </div>
+                    <div class="template-content-preview">
+                        <p><b>[릴리즈 버전]</b></p><p>주요 변경점:</p>
+                    </div>
+                </div>
+            </td>
+            <td class="text-center">
+                <a href="https://dev-jira.osci.kr/plugins/servlet/jeditor-project-config/CFMT/templates" target="_blank" rel="noopener noreferrer" class="btn-open-jira" title="Jira 템플릿 설정 화면 열기">
+                    <span>열기 ↗</span>
+                </a>
+            </td>
+            <td class="text-center no-confluence">
+                <button type="button" class="btn-toggle-preview" onclick="togglePreview(this)" title="템플릿 원본 및 ADF 미리보기">
+                    <span>Preview</span>
+                    <svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+            </td>
+            <td class="text-center no-confluence">
+                <button type="button" class="btn-copy-row" onclick="copySingleRow('102')" title="이 템플릿 행을 Confluence용으로 복사">
+                    📋
+                </button>
+            </td>
+        </tr>
+        <tr class="preview-row no-confluence" data-preview-for="102" data-open="false" style="display:none;">
+            <td colspan="10">
+                <div class="preview-expandable-container">
+                    <div class="template-metadata-bar">
+                        <span class="meta-item">🎯 <strong>Target Field:</strong> <span class="badge badge-field">customfield_10010(Release Notes)</span></span>
+                        <span class="meta-item">📋 <strong>Issue Types:</strong> 10001(Story), 10004(Task)</span>
+                        <span class="meta-item">⚡ <strong>Autofill:</strong> Issue Types [10001(Story), 10004(Task)], Fields [customfield_10010(Release Notes)]</span>
+                    </div>
+                    <div class="code-preview-grid">
+                        <section class="preview-panel">
+                            <div class="panel-header">
+                                <span>Original JEditor HTML (36 chars)</span>
+                                <button type="button" class="btn-copy" onclick="copyPanelCode(this, '.raw-code')">Copy HTML</button>
+                            </div>
+                            <pre><code class="raw-code">&lt;p&gt;&lt;b&gt;[릴리즈 버전]&lt;/b&gt;&lt;/p&gt;&lt;p&gt;주요 변경점:&lt;/p&gt;</code></pre>
+                        </section>
+                        <section class="preview-panel">
+                            <div class="panel-header">
+                                <span>Atlassian Document Format (ADF)</span>
+                                <button type="button" class="btn-copy" onclick="copyAdfJson(this)">Copy ADF JSON</button>
+                            </div>
+                            <pre><code class="adf-json">{
+  &quot;type&quot;: &quot;doc&quot;,
+  &quot;version&quot;: 1,
+  &quot;content&quot;: [
+    {
+      &quot;type&quot;: &quot;paragraph&quot;,
+      &quot;content&quot;: [
+        {
+          &quot;type&quot;: &quot;text&quot;,
+          &quot;text&quot;: &quot;[릴리즈 버전]&quot;,
+          &quot;marks&quot;: [
+            {
+              &quot;type&quot;: &quot;strong&quot;
+            }
+          ]
+        }
+      ]
+    },
+    {
+      &quot;type&quot;: &quot;paragraph&quot;,
+      &quot;content&quot;: [
+        {
+          &quot;type&quot;: &quot;text&quot;,
+          &quot;text&quot;: &quot;주요 변경점:&quot;
+        }
+      ]
+    }
+  ]
+}</code></pre>
+                        </section>
+                        <section class="preview-panel">
+                            <div class="panel-header">
+                                <span>Rendered Preview</span>
+                                <button type="button" class="btn-copy btn-copy-primary" onclick="copyTemplateBodyForConfluence('102')">📋 본문 HTML 복사</button>
+                            </div>
+                            <iframe class="preview-iframe" sandbox="" referrerpolicy="no-referrer" loading="lazy"></iframe>
+                        </section>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        
+        <tr class="template-row" data-id="201" data-env="ops" data-project="AAOSDEV" data-target="1" data-has-field="1" data-has-itype="1" data-status="TARGET">
+            <td class="text-center font-mono text-muted">3</td>
+            <td>
+                <strong class="font-bold text-primary">AAOSDEV</strong>
+                <div class="text-tiny text-muted project-name">HMG AAOS Framework Development</div>
+            </td>
+            <td>
+                <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+                    <strong class="template-name">Feature Request Spec</strong>
+                    <span class="badge-target-pill">🎯 대상</span>
+                </div>
+            </td>
+            <td>
+                <div class="template-desc text-muted">신규 기능 사양 정의</div>
+            </td>
+            <td>
+                <span class="badge badge-field font-bold">Description</span>
+            </td>
+            <td>
+                <span class="spec-tag">2(New Feature)</span>
+            </td>
+            <td class="content-cell" style="vertical-align: top;">
+                <div class="content-cell-container">
+                    <div class="content-cell-header no-confluence">
+                        <span class="text-tiny text-muted font-mono">59 chars</span>
+                        <button type="button" class="btn-copy-tiny" onclick="copyContentText('201', this)" title="템플릿 본문 내용 복사">Copy 내용</button>
+                    </div>
+                    <div class="template-content-preview">
+                        <h3>Feature Specification</h3><p>Description of feature</p>
+                    </div>
+                </div>
+            </td>
+            <td class="text-center">
+                <a href="https://dev-jira.osci.kr/plugins/servlet/jeditor-project-config/AAOSDEV/templates" target="_blank" rel="noopener noreferrer" class="btn-open-jira" title="Jira 템플릿 설정 화면 열기">
+                    <span>열기 ↗</span>
+                </a>
+            </td>
+            <td class="text-center no-confluence">
+                <button type="button" class="btn-toggle-preview" onclick="togglePreview(this)" title="템플릿 원본 및 ADF 미리보기">
+                    <span>Preview</span>
+                    <svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+            </td>
+            <td class="text-center no-confluence">
+                <button type="button" class="btn-copy-row" onclick="copySingleRow('201')" title="이 템플릿 행을 Confluence용으로 복사">
+                    📋
+                </button>
+            </td>
+        </tr>
+        <tr class="preview-row no-confluence" data-preview-for="201" data-open="false" style="display:none;">
+            <td colspan="10">
+                <div class="preview-expandable-container">
+                    <div class="template-metadata-bar">
+                        <span class="meta-item">🎯 <strong>Target Field:</strong> <span class="badge badge-field">Description</span></span>
+                        <span class="meta-item">📋 <strong>Issue Types:</strong> 2(New Feature)</span>
+                        <span class="meta-item">⚡ <strong>Autofill:</strong> None</span>
+                    </div>
+                    <div class="code-preview-grid">
+                        <section class="preview-panel">
+                            <div class="panel-header">
+                                <span>Original JEditor HTML (59 chars)</span>
+                                <button type="button" class="btn-copy" onclick="copyPanelCode(this, '.raw-code')">Copy HTML</button>
+                            </div>
+                            <pre><code class="raw-code">&lt;h3&gt;Feature Specification&lt;/h3&gt;&lt;p&gt;Description of feature&lt;/p&gt;</code></pre>
+                        </section>
+                        <section class="preview-panel">
+                            <div class="panel-header">
+                                <span>Atlassian Document Format (ADF)</span>
+                                <button type="button" class="btn-copy" onclick="copyAdfJson(this)">Copy ADF JSON</button>
+                            </div>
+                            <pre><code class="adf-json">{
+  &quot;type&quot;: &quot;doc&quot;,
+  &quot;version&quot;: 1,
+  &quot;content&quot;: [
+    {
+      &quot;type&quot;: &quot;paragraph&quot;,
+      &quot;content&quot;: [
+        {
+          &quot;type&quot;: &quot;text&quot;,
+          &quot;text&quot;: &quot;Feature Specification&quot;
+        }
+      ]
+    },
+    {
+      &quot;type&quot;: &quot;paragraph&quot;,
+      &quot;content&quot;: [
+        {
+          &quot;type&quot;: &quot;text&quot;,
+          &quot;text&quot;: &quot;Description of feature&quot;
+        }
+      ]
+    }
+  ]
+}</code></pre>
+                        </section>
+                        <section class="preview-panel">
+                            <div class="panel-header">
+                                <span>Rendered Preview</span>
+                                <button type="button" class="btn-copy btn-copy-primary" onclick="copyTemplateBodyForConfluence('201')">📋 본문 HTML 복사</button>
+                            </div>
+                            <iframe class="preview-iframe" sandbox="" referrerpolicy="no-referrer" loading="lazy"></iframe>
+                        </section>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        
+        <tr class="template-row" data-id="103" data-env="ops" data-project="CFMT" data-target="0" data-has-field="0" data-has-itype="1" data-status="EXCLUDED_NO_FIELD">
+            <td class="text-center font-mono text-muted">4</td>
+            <td>
+                <strong class="font-bold text-primary">CFMT</strong>
+                <div class="text-tiny text-muted project-name">커넥티드카 멀티미디어</div>
+            </td>
+            <td>
+                <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+                    <strong class="template-name">임시 작성 양식 (필드 미지정)</strong>
+                    <span class="badge-excluded-pill" title="제외 (필드 미지정)">⚠️ 제외</span>
+                </div>
+            </td>
+            <td>
+                <div class="template-desc text-muted">설정 중 임시 템플릿</div>
+            </td>
+            <td>
+                <span class="badge badge-missing font-bold" title="적용 필드가 설정되어 있지 않습니다">⚠️ 미지정 (필드 없음)</span>
+            </td>
+            <td>
+                <span class="spec-tag">1(Bug)</span>
+            </td>
+            <td class="content-cell" style="vertical-align: top;">
+                <div class="content-cell-container">
+                    <div class="content-cell-header no-confluence">
+                        <span class="text-tiny text-muted font-mono">15 chars</span>
+                        <button type="button" class="btn-copy-tiny" onclick="copyContentText('103', this)" title="템플릿 본문 내용 복사">Copy 내용</button>
+                    </div>
+                    <div class="template-content-preview">
+                        <p>임시 양식입니다</p>
+                    </div>
+                </div>
+            </td>
+            <td class="text-center">
+                <a href="https://dev-jira.osci.kr/plugins/servlet/jeditor-project-config/CFMT/templates" target="_blank" rel="noopener noreferrer" class="btn-open-jira" title="Jira 템플릿 설정 화면 열기">
+                    <span>열기 ↗</span>
+                </a>
+            </td>
+            <td class="text-center no-confluence">
+                <button type="button" class="btn-toggle-preview" onclick="togglePreview(this)" title="템플릿 원본 및 ADF 미리보기">
+                    <span>Preview</span>
+                    <svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+            </td>
+            <td class="text-center no-confluence">
+                <button type="button" class="btn-copy-row" onclick="copySingleRow('103')" title="이 템플릿 행을 Confluence용으로 복사">
+                    📋
+                </button>
+            </td>
+        </tr>
+        <tr class="preview-row no-confluence" data-preview-for="103" data-open="false" style="display:none;">
+            <td colspan="10">
+                <div class="preview-expandable-container">
+                    <div class="template-metadata-bar">
+                        <span class="meta-item">🎯 <strong>Target Field:</strong> <span class="badge badge-field">미지정 (필드 없음)</span></span>
+                        <span class="meta-item">📋 <strong>Issue Types:</strong> 1(Bug)</span>
+                        <span class="meta-item">⚡ <strong>Autofill:</strong> None</span>
+                    </div>
+                    <div class="code-preview-grid">
+                        <section class="preview-panel">
+                            <div class="panel-header">
+                                <span>Original JEditor HTML (15 chars)</span>
+                                <button type="button" class="btn-copy" onclick="copyPanelCode(this, '.raw-code')">Copy HTML</button>
+                            </div>
+                            <pre><code class="raw-code">&lt;p&gt;임시 양식입니다&lt;/p&gt;</code></pre>
+                        </section>
+                        <section class="preview-panel">
+                            <div class="panel-header">
+                                <span>Atlassian Document Format (ADF)</span>
+                                <button type="button" class="btn-copy" onclick="copyAdfJson(this)">Copy ADF JSON</button>
+                            </div>
+                            <pre><code class="adf-json">{
+  &quot;type&quot;: &quot;doc&quot;,
+  &quot;version&quot;: 1,
+  &quot;content&quot;: [
+    {
+      &quot;type&quot;: &quot;paragraph&quot;,
+      &quot;content&quot;: [
+        {
+          &quot;type&quot;: &quot;text&quot;,
+          &quot;text&quot;: &quot;임시 양식입니다&quot;
+        }
+      ]
+    }
+  ]
+}</code></pre>
+                        </section>
+                        <section class="preview-panel">
+                            <div class="panel-header">
+                                <span>Rendered Preview</span>
+                                <button type="button" class="btn-copy btn-copy-primary" onclick="copyTemplateBodyForConfluence('103')">📋 본문 HTML 복사</button>
+                            </div>
+                            <iframe class="preview-iframe" sandbox="" referrerpolicy="no-referrer" loading="lazy"></iframe>
+                        </section>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        
+        <tr class="template-row" data-id="202" data-env="ops" data-project="AAOSDEV" data-target="0" data-has-field="1" data-has-itype="0" data-status="EXCLUDED_NO_ISSUETYPE">
+            <td class="text-center font-mono text-muted">5</td>
+            <td>
+                <strong class="font-bold text-primary">AAOSDEV</strong>
+                <div class="text-tiny text-muted project-name">HMG AAOS Framework Development</div>
+            </td>
+            <td>
+                <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+                    <strong class="template-name">초안 양식 (이슈타입 미지정)</strong>
+                    <span class="badge-excluded-pill" title="제외 (이슈타입 미지정)">⚠️ 제외</span>
+                </div>
+            </td>
+            <td>
+                <div class="template-desc text-muted">사양서 초안</div>
+            </td>
+            <td>
+                <span class="badge badge-field font-bold">Description</span>
+            </td>
+            <td>
+                <span class="badge badge-missing font-bold" title="적용 이슈 유형이 설정되어 있지 않습니다">⚠️ 미지정 (이슈 타입 없음)</span>
+            </td>
+            <td class="content-cell" style="vertical-align: top;">
+                <div class="content-cell-container">
+                    <div class="content-cell-header no-confluence">
+                        <span class="text-tiny text-muted font-mono">12 chars</span>
+                        <button type="button" class="btn-copy-tiny" onclick="copyContentText('202', this)" title="템플릿 본문 내용 복사">Copy 내용</button>
+                    </div>
+                    <div class="template-content-preview">
+                        <p>초안 내용</p>
+                    </div>
+                </div>
+            </td>
+            <td class="text-center">
+                <a href="https://dev-jira.osci.kr/plugins/servlet/jeditor-project-config/AAOSDEV/templates" target="_blank" rel="noopener noreferrer" class="btn-open-jira" title="Jira 템플릿 설정 화면 열기">
+                    <span>열기 ↗</span>
+                </a>
+            </td>
+            <td class="text-center no-confluence">
+                <button type="button" class="btn-toggle-preview" onclick="togglePreview(this)" title="템플릿 원본 및 ADF 미리보기">
+                    <span>Preview</span>
+                    <svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+            </td>
+            <td class="text-center no-confluence">
+                <button type="button" class="btn-copy-row" onclick="copySingleRow('202')" title="이 템플릿 행을 Confluence용으로 복사">
+                    📋
+                </button>
+            </td>
+        </tr>
+        <tr class="preview-row no-confluence" data-preview-for="202" data-open="false" style="display:none;">
+            <td colspan="10">
+                <div class="preview-expandable-container">
+                    <div class="template-metadata-bar">
+                        <span class="meta-item">🎯 <strong>Target Field:</strong> <span class="badge badge-field">Description</span></span>
+                        <span class="meta-item">📋 <strong>Issue Types:</strong> 미지정 (이슈 타입 없음)</span>
+                        <span class="meta-item">⚡ <strong>Autofill:</strong> None</span>
+                    </div>
+                    <div class="code-preview-grid">
+                        <section class="preview-panel">
+                            <div class="panel-header">
+                                <span>Original JEditor HTML (12 chars)</span>
+                                <button type="button" class="btn-copy" onclick="copyPanelCode(this, '.raw-code')">Copy HTML</button>
+                            </div>
+                            <pre><code class="raw-code">&lt;p&gt;초안 내용&lt;/p&gt;</code></pre>
+                        </section>
+                        <section class="preview-panel">
+                            <div class="panel-header">
+                                <span>Atlassian Document Format (ADF)</span>
+                                <button type="button" class="btn-copy" onclick="copyAdfJson(this)">Copy ADF JSON</button>
+                            </div>
+                            <pre><code class="adf-json">{
+  &quot;type&quot;: &quot;doc&quot;,
+  &quot;version&quot;: 1,
+  &quot;content&quot;: [
+    {
+      &quot;type&quot;: &quot;paragraph&quot;,
+      &quot;content&quot;: [
+        {
+          &quot;type&quot;: &quot;text&quot;,
+          &quot;text&quot;: &quot;초안 내용&quot;
+        }
+      ]
+    }
+  ]
+}</code></pre>
+                        </section>
+                        <section class="preview-panel">
+                            <div class="panel-header">
+                                <span>Rendered Preview</span>
+                                <button type="button" class="btn-copy btn-copy-primary" onclick="copyTemplateBodyForConfluence('202')">📋 본문 HTML 복사</button>
+                            </div>
+                            <iframe class="preview-iframe" sandbox="" referrerpolicy="no-referrer" loading="lazy"></iframe>
+                        </section>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </main>
+
+    <!-- Confluence Copy Options Modal -->
+    <div id="confluenceModal" class="modal-overlay" style="display:none;" onclick="handleModalBackdropClick(event)">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3>📋 Confluence 복사 마법사 (템플릿 내용 포함)</h3>
+                <button type="button" class="modal-close" onclick="closeConfluenceModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-tabs">
+                    <button type="button" class="modal-tab-btn active" onclick="switchModalTab('html', this)">HTML (Confluence 에디터)</button>
+                    <button type="button" class="modal-tab-btn" onclick="switchModalTab('markdown', this)">Markdown (마크다운 표)</button>
+                    <button type="button" class="modal-tab-btn" onclick="switchModalTab('storage', this)">Storage Format (XHTML)</button>
+                    <button type="button" class="modal-tab-btn" onclick="switchModalTab('tsv', this)">TSV (엑셀/스프레드시트)</button>
+                </div>
+                <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px;">
+                    현재 검색/필터가 적용된 <strong id="modalRowCount">0</strong>개의 템플릿을 선택한 서식으로 복사합니다.
+                </div>
+                <textarea id="modalPreviewBox" class="modal-preview-box" readonly></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-action" onclick="downloadModalContent()">💾 파일 다운로드</button>
+                <button type="button" class="btn-action btn-confluence" onclick="copyModalContent()">📋 클립보드에 복사</button>
+                <button type="button" class="btn-action" onclick="closeConfluenceModal()">닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toastNotification" class="toast-notification"></div>
+
+    <script>
+    const TEMPLATES_DATA = [{"environment": "ops", "project": "CFMT", "project_name": "커넥티드카 멀티미디어", "template_id": "101", "name": "결함 보고 템플릿", "description": "기본 결함 리포트 양식", "autofill": "Issue Types [1(Bug), 10100(결함)], Fields [Description]", "fields_str": "Description", "field_name": "Description", "fields": ["Description"], "has_field": true, "issue_types_str": "1(Bug), 10100(결함)", "issue_types_raw": "1, 10100", "issue_types": ["1(Bug)", "10100(결함)"], "has_issue_type": true, "has_content": true, "is_migration_target": true, "migration_status": "TARGET", "migration_status_label": "마이그레이션 대상", "visibility": "전체 (All)", "code": "<p><b>1. 결함 개요</b></p><p>- 재현 경로:</p><p>- 기대 결과:</p><p>- 실제 결과:</p>", "cleaned_content": "<p><b>1. 결함 개요</b></p><p>- 재현 경로:</p><p>- 기대 결과:</p><p>- 실제 결과:</p>", "has_autofill": true, "autofill_status": "AUTO_FILLED", "verification_msg": "template_sample.html 추출", "url": "https://dev-jira.osci.kr/plugins/servlet/jeditor-project-config/CFMT/templates", "adf_doc": {"type": "doc", "version": 1, "content": [{"type": "paragraph", "content": [{"type": "text", "text": "1. 결함 개요", "marks": [{"type": "strong"}]}]}, {"type": "paragraph", "content": [{"type": "text", "text": "- 재현 경로:"}]}, {"type": "paragraph", "content": [{"type": "text", "text": "- 기대 결과:"}]}, {"type": "paragraph", "content": [{"type": "text", "text": "- 실제 결과:"}]}]}, "adf_json": "{\n  \"type\": \"doc\",\n  \"version\": 1,\n  \"content\": [\n    {\n      \"type\": \"paragraph\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"1. 결함 개요\",\n          \"marks\": [\n            {\n              \"type\": \"strong\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"type\": \"paragraph\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"- 재현 경로:\"\n        }\n      ]\n    },\n    {\n      \"type\": \"paragraph\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"- 기대 결과:\"\n        }\n      ]\n    },\n    {\n      \"type\": \"paragraph\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"- 실제 결과:\"\n        }\n      ]\n    }\n  ]\n}"}, {"environment": "ops", "project": "CFMT", "project_name": "커넥티드카 멀티미디어", "template_id": "102", "name": "SW 릴리즈 노트", "description": "릴리즈 시 작성 템플릿", "autofill": "Issue Types [10001(Story), 10004(Task)], Fields [customfield_10010(Release Notes)]", "fields_str": "customfield_10010(Release Notes)", "field_name": "Release Notes", "fields": ["customfield_10010(Release Notes)"], "has_field": true, "issue_types_str": "10001(Story), 10004(Task)", "issue_types_raw": "10001, 10004", "issue_types": ["10001(Story)", "10004(Task)"], "has_issue_type": true, "has_content": true, "is_migration_target": true, "migration_status": "TARGET", "migration_status_label": "마이그레이션 대상", "visibility": "전체 (All)", "code": "<p><b>[릴리즈 버전]</b></p><p>주요 변경점:</p>", "cleaned_content": "<p><b>[릴리즈 버전]</b></p><p>주요 변경점:</p>", "has_autofill": true, "autofill_status": "AUTO_FILLED", "verification_msg": "template_sample.html 추출", "url": "https://dev-jira.osci.kr/plugins/servlet/jeditor-project-config/CFMT/templates", "adf_doc": {"type": "doc", "version": 1, "content": [{"type": "paragraph", "content": [{"type": "text", "text": "[릴리즈 버전]", "marks": [{"type": "strong"}]}]}, {"type": "paragraph", "content": [{"type": "text", "text": "주요 변경점:"}]}]}, "adf_json": "{\n  \"type\": \"doc\",\n  \"version\": 1,\n  \"content\": [\n    {\n      \"type\": \"paragraph\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"[릴리즈 버전]\",\n          \"marks\": [\n            {\n              \"type\": \"strong\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"type\": \"paragraph\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"주요 변경점:\"\n        }\n      ]\n    }\n  ]\n}"}, {"environment": "ops", "project": "AAOSDEV", "project_name": "HMG AAOS Framework Development", "template_id": "201", "name": "Feature Request Spec", "description": "신규 기능 사양 정의", "autofill": "None", "fields_str": "Description", "field_name": "Description", "fields": ["Description"], "has_field": true, "issue_types_str": "2(New Feature)", "issue_types_raw": "2", "issue_types": ["2(New Feature)"], "has_issue_type": true, "has_content": true, "is_migration_target": true, "migration_status": "TARGET", "migration_status_label": "마이그레이션 대상", "visibility": "전체 (All)", "code": "<h3>Feature Specification</h3><p>Description of feature</p>", "cleaned_content": "<h3>Feature Specification</h3><p>Description of feature</p>", "has_autofill": false, "autofill_status": "NOT_CHECKED", "verification_msg": "template_sample.html 추출", "url": "https://dev-jira.osci.kr/plugins/servlet/jeditor-project-config/AAOSDEV/templates", "adf_doc": {"type": "doc", "version": 1, "content": [{"type": "paragraph", "content": [{"type": "text", "text": "Feature Specification"}]}, {"type": "paragraph", "content": [{"type": "text", "text": "Description of feature"}]}]}, "adf_json": "{\n  \"type\": \"doc\",\n  \"version\": 1,\n  \"content\": [\n    {\n      \"type\": \"paragraph\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"Feature Specification\"\n        }\n      ]\n    },\n    {\n      \"type\": \"paragraph\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"Description of feature\"\n        }\n      ]\n    }\n  ]\n}"}, {"environment": "ops", "project": "CFMT", "project_name": "커넥티드카 멀티미디어", "template_id": "103", "name": "임시 작성 양식 (필드 미지정)", "description": "설정 중 임시 템플릿", "autofill": "None", "fields_str": "미지정 (필드 없음)", "field_name": "미지정 (필드 없음)", "fields": [], "has_field": false, "issue_types_str": "1(Bug)", "issue_types_raw": "1", "issue_types": ["1(Bug)"], "has_issue_type": true, "has_content": true, "is_migration_target": false, "migration_status": "EXCLUDED_NO_FIELD", "migration_status_label": "제외 (필드 미지정)", "visibility": "전체 (All)", "code": "<p>임시 양식입니다</p>", "cleaned_content": "<p>임시 양식입니다</p>", "has_autofill": false, "autofill_status": "NOT_CHECKED", "verification_msg": "template_sample.html 추출", "url": "https://dev-jira.osci.kr/plugins/servlet/jeditor-project-config/CFMT/templates", "adf_doc": {"type": "doc", "version": 1, "content": [{"type": "paragraph", "content": [{"type": "text", "text": "임시 양식입니다"}]}]}, "adf_json": "{\n  \"type\": \"doc\",\n  \"version\": 1,\n  \"content\": [\n    {\n      \"type\": \"paragraph\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"임시 양식입니다\"\n        }\n      ]\n    }\n  ]\n}"}, {"environment": "ops", "project": "AAOSDEV", "project_name": "HMG AAOS Framework Development", "template_id": "202", "name": "초안 양식 (이슈타입 미지정)", "description": "사양서 초안", "autofill": "None", "fields_str": "Description", "field_name": "Description", "fields": ["Description"], "has_field": true, "issue_types_str": "미지정 (이슈 타입 없음)", "issue_types_raw": "", "issue_types": [], "has_issue_type": false, "has_content": true, "is_migration_target": false, "migration_status": "EXCLUDED_NO_ISSUETYPE", "migration_status_label": "제외 (이슈타입 미지정)", "visibility": "전체 (All)", "code": "<p>초안 내용</p>", "cleaned_content": "<p>초안 내용</p>", "has_autofill": false, "autofill_status": "NOT_CHECKED", "verification_msg": "template_sample.html 추출", "url": "https://dev-jira.osci.kr/plugins/servlet/jeditor-project-config/AAOSDEV/templates", "adf_doc": {"type": "doc", "version": 1, "content": [{"type": "paragraph", "content": [{"type": "text", "text": "초안 내용"}]}]}, "adf_json": "{\n  \"type\": \"doc\",\n  \"version\": 1,\n  \"content\": [\n    {\n      \"type\": \"paragraph\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"초안 내용\"\n        }\n      ]\n    }\n  ]\n}"}];
+    let currentModalFormat = 'html';
+
+    function showToast(msg) {
+        const toast = document.getElementById('toastNotification');
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2800);
+    }
+
+    function getVisibleTemplates() {
+        const visibleRows = [...document.querySelectorAll('#templatesTable tbody tr.template-row')]
+            .filter(r => r.style.display !== 'none');
+        return visibleRows.map(r => {
+            const id = r.getAttribute('data-id');
+            return TEMPLATES_DATA.find(t => String(t.template_id) === String(id));
+        }).filter(Boolean);
+    }
+
+    function generateConfluenceHtml(records) {
+        let rows = records.map((r, idx) => {
+            const pkey = r.project || '';
+            const pname = r.project_name || '';
+            const pnameSub = (pname && pname !== pkey) ? `<br/><span style="color:#6b778c;font-size:11px;">${escapeHtml(pname)}</span>` : '';
+            const desc = r.description ? escapeHtml(r.description) : '-';
+            const linkHtml = (r.url && r.url !== '#')
+                ? `<a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer" style="color:#0052cc;text-decoration:none;font-weight:bold;">설정 열기 ↗</a>`
+                : '-';
+            const contentHtml = r.cleaned_content || '(내용 없음)';
+
+            const fieldHtml = r.has_field
+                ? `<span style="background-color:#deebff;color:#0747a6;padding:2px 6px;border-radius:3px;font-weight:bold;font-size:11px;">${escapeHtml(r.fields_str || 'Description')}</span>`
+                : `<span style="background-color:#ffebe6;color:#de350b;padding:2px 6px;border-radius:3px;font-weight:bold;font-size:11px;">${escapeHtml(r.fields_str || '미지정 (필드 없음)')}</span>`;
+
+            const itypesHtml = r.has_issue_type
+                ? `<span style="font-family:monospace;font-size:12px;color:#172b4d;">${escapeHtml(r.issue_types_str || 'all')}</span>`
+                : `<span style="background-color:#ffebe6;color:#de350b;padding:2px 6px;border-radius:3px;font-weight:bold;font-size:11px;">${escapeHtml(r.issue_types_str || '미지정 (이슈 타입 없음)')}</span>`;
+
+            return `    <tr style="border-bottom:1px solid #dfe1e6;">
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;text-align:center;font-family:monospace;color:#6b778c;">${idx + 1}</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;"><strong>${escapeHtml(pkey)}</strong>${pnameSub}</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;font-weight:bold;color:#172b4d;">${escapeHtml(r.name)}</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;color:#172b4d;">${desc}</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;">${fieldHtml}</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;">${itypesHtml}</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;vertical-align:top;color:#172b4d;">
+        <div style="line-height:1.45;font-size:12.5px;">
+          ${contentHtml}
+        </div>
+      </td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;text-align:center;">${linkHtml}</td>
+    </tr>`;
+        }).join('\n');
+
+        return `<table class="confluenceTable" border="1" style="border-collapse:collapse;width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:13px;color:#172b4d;border:1px solid #dfe1e6;">
+  <thead>
+    <tr style="background-color:#f4f5f7;border-bottom:2px solid #dfe1e6;text-align:left;">
+      <th style="border:1px solid #dfe1e6;padding:10px 8px;text-align:center;width:40px;background-color:#f4f5f7;font-weight:bold;">#</th>
+      <th style="border:1px solid #dfe1e6;padding:10px;text-align:left;width:140px;background-color:#f4f5f7;font-weight:bold;">프로젝트</th>
+      <th style="border:1px solid #dfe1e6;padding:10px;text-align:left;min-width:180px;background-color:#f4f5f7;font-weight:bold;">템플릿명</th>
+      <th style="border:1px solid #dfe1e6;padding:10px;text-align:left;min-width:150px;background-color:#f4f5f7;font-weight:bold;">설명</th>
+      <th style="border:1px solid #dfe1e6;padding:10px;text-align:left;width:130px;background-color:#f4f5f7;font-weight:bold;">적용 필드</th>
+      <th style="border:1px solid #dfe1e6;padding:10px;text-align:left;width:110px;background-color:#f4f5f7;font-weight:bold;">적용 이슈 유형</th>
+      <th style="border:1px solid #dfe1e6;padding:10px;text-align:left;min-width:260px;background-color:#f4f5f7;font-weight:bold;">템플릿 내용</th>
+      <th style="border:1px solid #dfe1e6;padding:10px;text-align:center;width:90px;background-color:#f4f5f7;font-weight:bold;">Jira 설정</th>
+    </tr>
+  </thead>
+  <tbody>
+${rows}
+  </tbody>
+</table>`;
+    }
+
+    function generateConfluenceMarkdown(records) {
+        const lines = [
+            '| # | 프로젝트 | 템플릿명 | 설명 | 적용 필드 | 적용 이슈 유형 | 템플릿 내용 | Jira 설정 |',
+            '|:---:|:---|:---|:---|:---|:---|:---|:---:|'
+        ];
+        records.forEach((r, idx) => {
+            const pkey = r.project || '';
+            const pname = r.project_name || '';
+            const projCell = (pname && pname !== pkey) ? `${pkey} (${pname})` : pkey;
+            const desc = (r.description || '-').replace(/\|/g, '\\|').replace(/\n/g, ' ');
+            const name = (r.name || '').replace(/\|/g, '\\|');
+            const field = (r.has_field ? (r.fields_str || 'Description') : `⚠️ ${r.fields_str || '미지정'}`).replace(/\|/g, '\\|');
+            const itypes = (r.has_issue_type ? (r.issue_types_str || 'all') : `⚠️ ${r.issue_types_str || '미지정'}`).replace(/\|/g, '\\|');
+            const link = (r.url && r.url !== '#') ? `[설정 열기](${r.url})` : '-';
+            const content = (r.cleaned_content || '(내용 없음)').replace(/\|/g, '\\|').replace(/\r?\n/g, '<br/>');
+            lines.push(`| ${idx + 1} | ${projCell} | ${name} | ${desc} | ${field} | ${itypes} | ${content} | ${link} |`);
+        });
+        return lines.join('\n');
+    }
+
+    function generateConfluenceStorageFormat(records) {
+        let xml = '<table class="wrapped"><colgroup>' + '<col/>'.repeat(8) + '</colgroup><tbody>\n';
+        xml += '<tr><th><p><strong>#</strong></p></th><th><p><strong>프로젝트</strong></p></th><th><p><strong>템플릿명</strong></p></th><th><p><strong>설명</strong></p></th><th><p><strong>적용 필드</strong></p></th><th><p><strong>이슈 유형</strong></p></th><th><p><strong>템플릿 내용</strong></p></th><th><p><strong>Jira 설정</strong></p></th></tr>\n';
+        records.forEach((r, idx) => {
+            const link = (r.url && r.url !== '#') ? `<a href="${escapeXml(r.url)}">설정 열기</a>` : '-';
+            const content = r.cleaned_content || '<p>(내용 없음)</p>';
+            xml += `<tr><td><p>${idx + 1}</p></td><td><p><strong>${escapeXml(r.project)}</strong>${r.project_name && r.project_name !== r.project ? '<br/>' + escapeXml(r.project_name) : ''}</p></td><td><p><strong>${escapeXml(r.name)}</strong></p></td><td><p>${escapeXml(r.description || '-')}</p></td><td><p>${escapeXml(r.fields_str || 'Description')}</p></td><td><p>${escapeXml(r.issue_types_str || 'all')}</p></td><td>${content}</td><td><p>${link}</p></td></tr>\n`;
+        });
+        xml += '</tbody></table>';
+        return xml;
+    }
+
+    function generateTsvFormat(records) {
+        const header = ['#', '프로젝트', '프로젝트명', '템플릿명', '설명', '적용 필드', '이슈 유형', '템플릿 내용', 'Jira URL'].join('\t');
+        const lines = [header];
+        records.forEach((r, idx) => {
+            const textContent = (r.code || '').replace(/<[^>]+>/g, ' ').replace(/\t|\r|\n/g, ' ').trim();
+            lines.push([
+                idx + 1,
+                r.project || '',
+                r.project_name || '',
+                (r.name || '').replace(/\t|\r|\n/g, ' '),
+                (r.description || '').replace(/\t|\r|\n/g, ' '),
+                r.fields_str || 'Description',
+                r.issue_types_str || 'all',
+                JSON.stringify(textContent),
+                r.url || ''
+            ].join('\t'));
+        });
+        return lines.join('\n');
+    }
+
+    async function writeClipboardData(htmlText, plainText) {
+        if (navigator.clipboard && window.ClipboardItem) {
+            try {
+                const blobHtml = new Blob([htmlText], { type: 'text/html' });
+                const blobText = new Blob([plainText], { type: 'text/plain' });
+                await navigator.clipboard.write([
+                    new ClipboardItem({ 'text/html': blobHtml, 'text/plain': blobText })
+                ]);
+                return true;
+            } catch (err) {
+                console.warn('ClipboardItem write failed, fallback to execCommand', err);
+            }
+        }
+
+        // Fallback for rich text
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = htmlText;
+        tempDiv.style.position = 'fixed';
+        tempDiv.style.left = '-9999px';
+        tempDiv.style.top = '-9999px';
+        document.body.appendChild(tempDiv);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        const range = document.createRange();
+        range.selectNodeContents(tempDiv);
+        sel.addRange(range);
+        let ok = false;
+        try {
+            ok = document.execCommand('copy');
+        } catch (_) {}
+        sel.removeAllRanges();
+        document.body.removeChild(tempDiv);
+
+        if (!ok && navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(plainText);
+            ok = true;
+        }
+        return ok;
+    }
+
+    async function copyConfluenceTable(format) {
+        const records = getVisibleTemplates();
+        if (!records.length) {
+            showToast('⚠️ 복사할 템플릿이 없습니다. (현재 필터 조건에 일치하는 결과 없음)');
+            return;
+        }
+
+        if (format === 'markdown') {
+            const md = generateConfluenceMarkdown(records);
+            await navigator.clipboard.writeText(md);
+            showToast(`✅ 필터 결과 ${records.length}개 템플릿의 전체 Markdown 표가 복사되었습니다!`);
+            return;
+        }
+
+        const htmlData = generateConfluenceHtml(records);
+        const mdData = generateConfluenceMarkdown(records);
+        const ok = await writeClipboardData(htmlData, mdData);
+        if (ok) {
+            showToast(`✅ 필터 결과 ${records.length}개 템플릿의 전체 표가 복사되었습니다! Confluence 편집창에서 Ctrl+V(Cmd+V)로 붙여넣으세요.`);
+        } else {
+            showToast('❌ 클립보드 복사 실패');
+        }
+    }
+
+    async function copySingleRow(templateId) {
+        const record = TEMPLATES_DATA.find(t => String(t.template_id) === String(templateId));
+        if (!record) return;
+        const htmlData = generateConfluenceHtml([record]);
+        const mdData = generateConfluenceMarkdown([record]);
+        await writeClipboardData(htmlData, mdData);
+        showToast(`✅ [${record.name}] 템플릿 정보가 Confluence용으로 복사되었습니다.`);
+    }
+
+    async function copyContentText(templateId, btn) {
+        const record = TEMPLATES_DATA.find(t => String(t.template_id) === String(templateId));
+        if (!record || !record.cleaned_content) {
+            showToast('⚠️ 템플릿 내용이 없습니다.');
+            return;
+        }
+        try {
+            const plain = record.code ? record.code.replace(/<[^>]+>/g, '') : '';
+            await writeClipboardData(record.cleaned_content, plain);
+            if (btn) {
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = 'Copy 내용', 1500);
+            }
+            showToast(`✅ [${record.name}] 템플릿 본문 내용이 클립보드에 복사되었습니다.`);
+        } catch (_) {
+            showToast('❌ 복사 실패');
+        }
+    }
+
+    async function copyTemplateBodyForConfluence(templateId) {
+        const record = TEMPLATES_DATA.find(t => String(t.template_id) === String(templateId));
+        if (!record || !record.code) {
+            showToast('⚠️ 템플릿 본문이 없습니다.');
+            return;
+        }
+        const normalized = normalizeJeditorHtml(record.code);
+        await writeClipboardData(normalized, record.code);
+        showToast(`✅ [${record.name}] 템플릿 본문이 Confluence용 HTML로 복사되었습니다.`);
+    }
+
+    function openConfluenceModal() {
+        const records = getVisibleTemplates();
+        document.getElementById('modalRowCount').textContent = records.length;
+        renderModalContent();
+        document.getElementById('confluenceModal').style.display = 'flex';
+    }
+
+    function closeConfluenceModal() {
+        document.getElementById('confluenceModal').style.display = 'none';
+    }
+
+    function handleModalBackdropClick(e) {
+        if (e.target.id === 'confluenceModal') closeConfluenceModal();
+    }
+
+    function switchModalTab(format, btn) {
+        currentModalFormat = format;
+        document.querySelectorAll('.modal-tab-btn').forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+        renderModalContent();
+    }
+
+    function renderModalContent() {
+        const records = getVisibleTemplates();
+        const box = document.getElementById('modalPreviewBox');
+        if (currentModalFormat === 'html') {
+            box.value = generateConfluenceHtml(records);
+        } else if (currentModalFormat === 'markdown') {
+            box.value = generateConfluenceMarkdown(records);
+        } else if (currentModalFormat === 'storage') {
+            box.value = generateConfluenceStorageFormat(records);
+        } else if (currentModalFormat === 'tsv') {
+            box.value = generateTsvFormat(records);
+        }
+    }
+
+    async function copyModalContent() {
+        const box = document.getElementById('modalPreviewBox');
+        const text = box.value;
+        if (currentModalFormat === 'html') {
+            const records = getVisibleTemplates();
+            await writeClipboardData(text, generateConfluenceMarkdown(records));
+            showToast('✅ Confluence 표 서식이 복사되었습니다! Confluence 편집창에 붙여넣으세요.');
+        } else {
+            await navigator.clipboard.writeText(text);
+            showToast(`✅ ${currentModalFormat.toUpperCase()} 서식이 클립보드에 복사되었습니다.`);
+        }
+    }
+
+    function downloadModalContent() {
+        const text = document.getElementById('modalPreviewBox').value;
+        const ext = currentModalFormat === 'html' ? 'html' : (currentModalFormat === 'markdown' ? 'md' : (currentModalFormat === 'tsv' ? 'tsv' : 'xml'));
+        const mime = currentModalFormat === 'html' ? 'text/html' : 'text/plain';
+        const blob = new Blob([text], { type: mime });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `jeditor_templates_confluence_${new Date().toISOString().slice(0,10)}.${ext}`;
+        a.click();
+    }
+
+    // Intercept native Ctrl+C / Cmd+C when selecting table contents
+    document.addEventListener('copy', function(e) {
+        const selection = window.getSelection();
+        if (!selection || !selection.rangeCount || selection.isCollapsed) return;
+        const anchorNode = selection.anchorNode;
+        const table = anchorNode ? (anchorNode.closest ? anchorNode.closest('#templatesTable') : anchorNode.parentElement?.closest('#templatesTable')) : null;
+        if (!table) return;
+
+        // User is selecting content inside templates table
+        const range = selection.getRangeAt(0);
+        const fragment = range.cloneContents();
+        fragment.querySelectorAll('.no-confluence').forEach(el => el.remove());
+
+        const div = document.createElement('div');
+        div.appendChild(fragment);
+        const cleanHtml = div.innerHTML;
+        if (cleanHtml && cleanHtml.includes('<tr')) {
+            e.preventDefault();
+            e.clipboardData.setData('text/html', cleanHtml);
+            e.clipboardData.setData('text/plain', div.textContent);
+            showToast('📋 선택된 표 내용이 Confluence용 서식으로 복사되었습니다.');
+        }
+    });
+
+    function escapeHtml(value) {
+        return String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+    }
+
+    function escapeXml(value) {
+        return escapeHtml(value);
+    }
+
+    function applyFilters() {
+        const search = (document.getElementById('searchInput')?.value || '').toLowerCase().trim();
+        const projectFilter = (document.getElementById('projectFilter')?.value || '').toLowerCase().trim();
+        const targetFilter = (document.getElementById('targetFilter')?.value || 'all');
+
+        const rows = document.querySelectorAll('#templatesTable tbody tr.template-row');
+        let visible = 0;
+
+        rows.forEach(r => {
+            const rText = r.textContent.toLowerCase();
+            const rProject = (r.getAttribute('data-project') || '').toLowerCase();
+            const isTarget = r.getAttribute('data-target') === '1';
+            const hasField = r.getAttribute('data-has-field') === '1';
+            const hasItype = r.getAttribute('data-has-itype') === '1';
+
+            const matchSearch = !search || rText.includes(search);
+            const matchProject = !projectFilter || rProject === projectFilter;
+
+            let matchTarget = true;
+            if (targetFilter === 'target') matchTarget = isTarget;
+            else if (targetFilter === 'excluded') matchTarget = !isTarget;
+            else if (targetFilter === 'missing_field') matchTarget = !hasField;
+            else if (targetFilter === 'missing_itype') matchTarget = !hasItype;
+
+            const shouldShow = matchSearch && matchProject && matchTarget;
+
+            r.style.display = shouldShow ? '' : 'none';
+
+            const nextRow = r.nextElementSibling;
+            if (nextRow && nextRow.classList.contains('preview-row')) {
+                if (!shouldShow) {
+                    nextRow.style.display = 'none';
+                    nextRow.dataset.open = 'false';
+                    const btn = r.querySelector('.btn-toggle-preview');
+                    if (btn) btn.classList.remove('active');
+                }
+            }
+
+            if (shouldShow) visible++;
+        });
+
+        document.getElementById('visibleCount').textContent = visible;
+        const countSpan = document.getElementById('btnCopyFilteredCount');
+        if (countSpan) countSpan.textContent = visible;
+        const copyBtn = document.getElementById('btnCopyFilteredTable');
+        if (copyBtn) {
+            copyBtn.disabled = (visible === 0);
+            copyBtn.style.opacity = (visible === 0) ? '0.5' : '1';
+        }
+        syncToggleAllPreviewsButton();
+
+        // Sync filter chips
+        document.querySelectorAll('.chip-btn').forEach(c => {
+            c.classList.toggle('active', c.getAttribute('data-filter') === targetFilter);
+        });
+    }
+
+    function setMigrationFilter(type) {
+        const sel = document.getElementById('targetFilter');
+        if (sel) {
+            sel.value = type;
+            applyFilters();
+        }
+    }
+
+    function normalizeJeditorHtml(rawHtml) {
+        if (!rawHtml) return '';
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(rawHtml, 'text/html');
+
+        doc.querySelectorAll('.jeditor-tabs').forEach(tabs => {
+            const expanded = doc.createElement('div');
+            tabs.querySelectorAll('.jeditor-tab-panel').forEach(panel => {
+                const title = panel.getAttribute('data-tab-title') || panel.getAttribute('data-title');
+                const heading = doc.createElement('h3');
+                heading.textContent = title || 'Tab';
+                expanded.append(heading);
+                const content = doc.createElement('div');
+                content.innerHTML = panel.innerHTML;
+                expanded.append(content);
+            });
+            if (expanded.children.length) tabs.replaceWith(expanded);
+        });
+
+        doc.querySelectorAll('script,style,iframe,object,embed,form,input,button,select,textarea,svg').forEach(el => el.remove());
+        return doc.body.innerHTML.trim();
+    }
+
+    function togglePreview(btn) {
+        const mainRow = btn.closest('tr.template-row');
+        const previewRow = mainRow ? mainRow.nextElementSibling : null;
+        if (!previewRow || !previewRow.classList.contains('preview-row')) return;
+        setPreviewOpen(btn, previewRow, previewRow.dataset.open !== 'true');
+        syncToggleAllPreviewsButton();
+    }
+
+    function setPreviewOpen(btn, previewRow, open) {
+        const container = previewRow.querySelector('.preview-expandable-container');
+        previewRow.dataset.open = open ? 'true' : 'false';
+        previewRow.style.display = open ? 'table-row' : 'none';
+        btn.classList.toggle('active', open);
+        if (open && !container.dataset.initialized) {
+            const adfCodeEl = container.querySelector('.adf-json');
+            const iframeEl = container.querySelector('.preview-iframe');
+            let doc = {type: 'doc', version: 1, content: []};
+            try { doc = JSON.parse(adfCodeEl ? adfCodeEl.textContent : '{}'); } catch (_) {}
+            if (iframeEl) iframeEl.srcdoc = renderAdfDocument(doc);
+            container.dataset.initialized = 'true';
+        }
+    }
+
+    function toggleAllPreviews() {
+        const visibleRows = [...document.querySelectorAll('#templatesTable tbody tr.template-row')]
+            .filter(row => row.style.display !== 'none');
+        const expand = !visibleRows.length || visibleRows.some(row => row.nextElementSibling?.dataset.open !== 'true');
+        visibleRows.forEach(row => {
+            const previewRow = row.nextElementSibling;
+            const button = row.querySelector('.btn-toggle-preview');
+            if (previewRow?.classList.contains('preview-row') && button) setPreviewOpen(button, previewRow, expand);
+        });
+        syncToggleAllPreviewsButton();
+    }
+
+    function syncToggleAllPreviewsButton() {
+        const button = document.getElementById('toggleAllPreviews');
+        if (!button) return;
+        const visibleRows = [...document.querySelectorAll('#templatesTable tbody tr.template-row')]
+            .filter(row => row.style.display !== 'none');
+        const allOpen = visibleRows.length > 0 && visibleRows.every(row => row.nextElementSibling?.dataset.open === 'true');
+        button.textContent = allOpen ? '모든 Preview 접기' : '모든 Preview 펼치기';
+    }
+
+    function escapePreviewText(value) {
+        return String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+    }
+
+    function renderAdfNode(node) {
+        if (!node) return '';
+        const children = (node.content || []).map(renderAdfNode).join('');
+        const tag = (name, body, attrs='') => `<${name}${attrs}>${body}</${name}>`;
+        if (node.type === 'text') {
+            let value = escapePreviewText(node.text || '');
+            for (const mark of node.marks || []) {
+                const markTags = {strong:'strong', em:'em', underline:'u', strike:'s', code:'code'};
+                if (mark.type === 'link') {
+                    const href = String(mark.attrs?.href || '');
+                    value = /^(https?:|mailto:|tel:)/i.test(href) ? tag('a', value, ` href="${escapePreviewText(href)}" rel="noopener noreferrer"`) : value;
+                } else if (markTags[mark.type]) value = tag(markTags[mark.type], value);
+            }
+            return value;
+        }
+        switch (node.type) {
+            case 'doc': return children;
+            case 'paragraph': return tag('p', children);
+            case 'heading': return tag(`h${Math.min(6, Math.max(1, Number(node.attrs?.level) || 1))}`, children);
+            case 'hardBreak': return '<br>';
+            case 'bulletList': return tag('ul', children);
+            case 'orderedList': return tag('ol', children, node.attrs?.order > 1 ? ` start="${Number(node.attrs.order)}"` : '');
+            case 'listItem': return tag('li', children);
+            case 'blockquote': return tag('blockquote', children);
+            case 'codeBlock': return tag('pre', tag('code', children));
+            case 'rule': return '<hr>';
+            case 'table': return tag('table', tag('tbody', children));
+            case 'tableRow': return tag('tr', children);
+            case 'tableCell': return tag('td', children);
+            case 'tableHeader': return tag('th', children);
+            case 'mediaSingle':
+                const media = (node.content || []).find(child => child.type === 'media');
+                return tag('div', `🖼 ${escapePreviewText(media?.attrs?.alt || 'Image attachment')} (binary not included in preview)`, ' class="attachment-placeholder"');
+            default: return children || (node.text ? escapePreviewText(node.text) : '');
+        }
+    }
+
+    function renderAdfDocument(doc) {
+        const body = renderAdfNode(doc);
+        return `<!doctype html><html><head><meta charset="utf-8"><style>body{font:14px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#172b4d;padding:16px;margin:0}p{margin:0 0 12px}table{border-collapse:collapse;width:100%;margin:12px 0}td,th{border:1px solid #c1c7d0;padding:7px;text-align:left;vertical-align:top}blockquote{border-left:3px solid #8590a2;padding-left:12px;margin:10px 0;color:#505f79}pre,code{font-family:monospace;background:#f4f5f7;padding:2px 4px}pre{padding:10px;overflow:auto}.attachment-placeholder{border:1px dashed #97a0af;background:#f4f5f7;padding:10px;margin:8px 0;color:#505f79}</style></head><body>${body}</body></html>`;
+    }
+
+    async function copyPanelCode(btn, selector) {
+        const pre = btn.closest('.preview-panel').querySelector(selector);
+        const text = pre ? pre.textContent : '';
+        try {
+            await navigator.clipboard.writeText(text);
+            btn.textContent = 'Copied!';
+            setTimeout(() => btn.textContent = 'Copy HTML', 1500);
+        } catch (_) {
+            btn.textContent = 'Failed';
+        }
+    }
+
+    async function copyAdfJson(button) {
+        const pre = button.closest('.preview-row').querySelector('.adf-json');
+        const text = pre ? pre.textContent : '';
+        try {
+            await navigator.clipboard.writeText(text);
+            button.textContent = 'Copied!';
+            setTimeout(() => button.textContent = 'Copy ADF JSON', 1500);
+        } catch (_) {
+            button.textContent = 'Copy Failed';
+        }
+    }
+
+    function exportJSON() {
+        const records = getVisibleTemplates();
+        const blob = new Blob([JSON.stringify(records, null, 2)], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `jeditor_templates_report_${new Date().toISOString().slice(0,10)}.json`;
+        a.click();
+    }
+    </script>
+</body>
+</html>

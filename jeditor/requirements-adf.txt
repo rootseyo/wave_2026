@@ -1,0 +1,4 @@
+# data.html (HTML + Jira wiki/Markdown) -> Jira Cloud ADF with attachments
+requests>=2.28.0
+markdown-it-py>=3.0.0,<5
+beautifulsoup4>=4.11.0

@@ -1,0 +1,5 @@
+.venv/
+.playwright/
+__pycache__/
+*.pyc
+test-results/

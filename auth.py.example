@@ -1,0 +1,6 @@
+# ================= 변수 설정 구역 =================
+EMAIL = "your-email@example.com"
+# 주의: API 토큰은 노출되지 않도록 안전하게 관리해 주세요.
+API_TOKEN = "YOUR_ATLASSIAN_API_TOKEN"
+DOMAIN = "your-domain.atlassian.net"
+# =================================================

@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="auto">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BigGantt DC ➡️ Cloud Migration Guide</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css" id="highlight-theme">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.1/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  
+  <style>
+    :root {
+      --font-sans: -apple-system, BlinkMacSystemFont, "Pretendard", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+      
+      /* Light Theme */
+      --bg-body: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-sidebar: #f1f5f9;
+      --bg-card: #ffffff;
+      --bg-code: #f1f5f9;
+      --border-color: #e2e8f0;
+      --border-focus: #2563eb;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-light: #eff6ff;
+      --accent: #0ea5e9;
+      --accent-badge: #e0f2fe;
+      --accent-badge-text: #0369a1;
+      --warning-bg: #fffbeb;
+      --warning-border: #fde68a;
+      --warning-text: #92400e;
+      --success-bg: #f0fdf4;
+      --success-border: #bbf7d0;
+      --success-text: #166534;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --header-height: 64px;
+      --sidebar-width: 290px;
+      --table-stripe: #f8fafc;
+      --table-header: #f1f5f9;
+      --blockquote-border: #3b82f6;
+      --blockquote-bg: #eff6ff;
+      --search-match: #fef08a;
+      --search-match-current: #facc15;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0b0f19;
+      --bg-surface: #111827;
+      --bg-sidebar: #0e1424;
+      --bg-card: #141e33;
+      --bg-code: #1b263b;
+      --border-color: #1f293d;
+      --border-focus: #60a5fa;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --primary: #3b82f6;
+      --primary-hover: #60a5fa;
+      --primary-light: rgba(59, 130, 246, 0.15);
+      --accent: #38bdf8;
+      --accent-badge: rgba(56, 189, 248, 0.15);
+      --accent-badge-text: #38bdf8;
+      --warning-bg: rgba(245, 158, 11, 0.1);
+      --warning-border: rgba(245, 158, 11, 0.3);
+      --warning-text: #fbbf24;
+      --success-bg: rgba(34, 197, 94, 0.1);
+      --success-border: rgba(34, 197, 94, 0.3);
+      --success-text: #4ade80;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4);
+      --shadow-lg: 0 10px 20px -3px rgb(0 0 0 / 0.6);
+      --table-stripe: #131d31;
+      --table-header: #1b263b;
+      --blockquote-border: #60a5fa;
+      --blockquote-bg: #141e33;
+      --search-match: rgba(234, 179, 8, 0.45);
+      --search-match-current: #eab308;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      [data-theme="auto"] {
+        --bg-body: #0b0f19;
+        --bg-surface: #111827;
+        --bg-sidebar: #0e1424;
+        --bg-card: #141e33;
+        --bg-code: #1b263b;
+        --border-color: #1f293d;
+        --border-focus: #60a5fa;
+        --text-primary: #f8fafc;
+        --text-secondary: #94a3b8;
+        --text-muted: #64748b;
+        --primary: #3b82f6;
+        --primary-hover: #60a5fa;
+        --primary-light: rgba(59, 130, 246, 0.15);
+        --accent: #38bdf8;
+        --accent-badge: rgba(56, 189, 248, 0.15);
+        --accent-badge-text: #38bdf8;
+        --warning-bg: rgba(245, 158, 11, 0.1);
+        --warning-border: rgba(245, 158, 11, 0.3);
+        --warning-text: #fbbf24;
+        --success-bg: rgba(34, 197, 94, 0.1);
+        --success-border: rgba(34, 197, 94, 0.3);
+        --success-text: #4ade80;
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4);
+        --shadow-lg: 0 10px 20px -3px rgb(0 0 0 / 0.6);
+        --table-stripe: #131d31;
+        --table-header: #1b263b;
+        --blockquote-border: #60a5fa;
+        --blockquote-bg: #141e33;
+        --search-match: rgba(234, 179, 8, 0.45);
+        --search-match-current: #eab308;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-body);
+      color: var(--text-primary);
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    /* Reading Progress Bar */
+    #progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: transparent;
+      z-index: 100;
+    }
+
+    #progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #3b82f6, #06b6d4, #10b981);
+      transition: width 0.1s ease-out;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      height: var(--header-height);
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #2563eb, #0ea5e9);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .badge-tag {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.65rem;
+      background: var(--accent-badge);
+      color: var(--accent-badge-text);
+      border-radius: 9999px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* Search Box */
+    .search-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-box input {
+      padding: 0.45rem 2rem 0.45rem 2.2rem;
+      font-size: 0.875rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-body);
+      color: var(--text-primary);
+      width: 200px;
+      transition: width 0.2s ease, border-color 0.2s ease;
+      font-family: inherit;
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--border-focus);
+      width: 260px;
+    }
+
+    .search-icon-left {
+      position: absolute;
+      left: 0.7rem;
+      width: 15px;
+      height: 15px;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .search-badge {
+      position: absolute;
+      right: 0.6rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 0 4px;
+      pointer-events: none;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-surface);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+
+    .btn:hover {
+      background-color: var(--bg-body);
+      color: var(--text-primary);
+      border-color: var(--text-muted);
+    }
+
+    .btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #ffffff !important;
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+      border-color: var(--primary-hover);
+    }
+
+    .btn-icon {
+      padding: 0.45rem;
+      border-radius: 8px;
+    }
+
+    /* Container Layout */
+    .app-container {
+      display: flex;
+      flex: 1;
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+    }
+
+    /* Sidebar */
+    aside.sidebar {
+      width: var(--sidebar-width);
+      position: sticky;
+      top: var(--header-height);
+      height: calc(100vh - var(--header-height));
+      overflow-y: auto;
+      padding: 1.5rem 1rem;
+      border-right: 1px solid var(--border-color);
+      background-color: var(--bg-sidebar);
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+    }
+
+    aside.sidebar::-webkit-scrollbar {
+      width: 5px;
+    }
+    aside.sidebar::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 4px;
+    }
+
+    .sidebar-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.85rem;
+      padding-left: 0.5rem;
+    }
+
+    .toc-list {
+      list-style: none;
+    }
+
+    .toc-item {
+      margin-bottom: 0.25rem;
+    }
+
+    .toc-link {
+      display: block;
+      padding: 0.35rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      line-height: 1.35;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .toc-link:hover {
+      color: var(--primary);
+      background-color: var(--primary-light);
+    }
+
+    .toc-link.active {
+      color: var(--primary);
+      font-weight: 600;
+      background-color: var(--primary-light);
+      border-left: 3px solid var(--primary);
+      padding-left: calc(0.6rem - 3px);
+    }
+
+    .toc-item.level-1 > .toc-link { font-weight: 600; }
+    .toc-item.level-2 > .toc-link { padding-left: 0.6rem; font-weight: 600; }
+    .toc-item.level-3 > .toc-link { padding-left: 1.25rem; font-size: 0.8rem; color: var(--text-muted); }
+    .toc-item.level-4 > .toc-link { padding-left: 1.75rem; font-size: 0.76rem; color: var(--text-muted); }
+
+    /* Main Content */
+    main.content-area {
+      flex: 1;
+      padding: 2.5rem 3.5rem 6rem;
+      max-width: 980px;
+      min-width: 0;
+    }
+
+    /* Workflow Banner */
+    .workflow-card {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(14, 165, 233, 0.08));
+      border: 1px solid rgba(37, 99, 235, 0.25);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .workflow-header {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .workflow-steps {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .step-box {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .step-box .step-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--primary);
+      letter-spacing: 0.05em;
+    }
+
+    .step-box .step-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      margin-top: 0.2rem;
+    }
+
+    .step-box .step-cmd {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: var(--bg-code);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      margin-top: 0.35rem;
+      display: inline-block;
+    }
+
+    .workflow-arrow {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    /* Meta Info Card */
+    .doc-meta-card {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 0.75rem 1.25rem;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      font-size: 0.825rem;
+      color: var(--text-secondary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .doc-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .doc-meta-item svg {
+      width: 15px;
+      height: 15px;
+      color: var(--text-muted);
+    }
+
+    /* Markdown Body */
+    .markdown-body {
+      color: var(--text-primary);
+      font-size: 1rem;
+      line-height: 1.8;
+      word-wrap: break-word;
+    }
+
+    .markdown-body h1,
+    .markdown-body h2,
+    .markdown-body h3,
+    .markdown-body h4 {
+      color: var(--text-primary);
+      font-weight: 700;
+      line-height: 1.35;
+      margin-top: 2.25rem;
+      margin-bottom: 1rem;
+      scroll-margin-top: calc(var(--header-height) + 1.5rem);
+    }
+
+    .markdown-body h1 {
+      font-size: 2.1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border-color);
+      margin-top: 0.5rem;
+    }
+
+    .markdown-body h2 {
+      font-size: 1.5rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .markdown-body h3 { font-size: 1.2rem; margin-top: 1.75rem; }
+    .markdown-body h4 { font-size: 1.02rem; margin-top: 1.25rem; }
+
+    .markdown-body p {
+      margin-bottom: 1.25rem;
+    }
+
+    .markdown-body a {
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s;
+    }
+
+    .markdown-body a:hover {
+      color: var(--primary-hover);
+    }
+
+    .markdown-body strong {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .markdown-body code:not(pre code) {
+      font-family: var(--font-mono);
+      font-size: 0.875em;
+      padding: 0.2em 0.45em;
+      background-color: var(--bg-code);
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      color: var(--accent);
+    }
+
+    .code-block-wrapper {
+      position: relative;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .code-block-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.4rem 0.9rem;
+      background-color: var(--bg-card);
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+    }
+
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      border-radius: 5px;
+      padding: 0.25rem 0.55rem;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .copy-btn:hover {
+      background-color: var(--bg-body);
+      color: var(--text-primary);
+    }
+
+    .copy-btn svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    .markdown-body pre {
+      margin: 0 !important;
+      padding: 1.15rem !important;
+      background-color: var(--bg-surface) !important;
+      overflow-x: auto;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .markdown-body blockquote {
+      margin: 1.5rem 0;
+      padding: 0.85rem 1.25rem;
+      border-left: 4px solid var(--blockquote-border);
+      background-color: var(--blockquote-bg);
+      border-radius: 0 8px 8px 0;
+      color: var(--text-secondary);
+    }
+
+    .markdown-body blockquote p:last-child {
+      margin-bottom: 0;
+    }
+
+    .markdown-body ul,
+    .markdown-body ol {
+      margin-bottom: 1.25rem;
+      padding-left: 1.75rem;
+    }
+
+    .markdown-body li {
+      margin-bottom: 0.45rem;
+    }
+
+    .markdown-body hr {
+      border: none;
+      height: 1px;
+      background-color: var(--border-color);
+      margin: 2.5rem 0;
+    }
+
+    .markdown-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .markdown-body th {
+      background-color: var(--table-header);
+      padding: 0.75rem 1rem;
+      font-weight: 600;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .markdown-body td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .markdown-body tr:nth-child(even) {
+      background-color: var(--table-stripe);
+    }
+
+    /* Highlight Search */
+    mark.search-highlight {
+      background-color: var(--search-match);
+      color: inherit;
+      padding: 0.1em 0.2em;
+      border-radius: 3px;
+    }
+
+    mark.search-highlight.current {
+      background-color: var(--search-match-current);
+      font-weight: bold;
+    }
+
+    /* Floating Tools */
+    .floating-actions {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      z-index: 40;
+    }
+
+    .fab {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .fab:hover {
+      background-color: var(--primary);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .fab svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    #file-input {
+      display: none;
+    }
+
+    #drop-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: 600;
+      border: 3px dashed var(--primary);
+      pointer-events: none;
+    }
+
+    #raw-view {
+      display: none;
+      width: 100%;
+      min-height: 600px;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      padding: 1.5rem;
+      background-color: var(--bg-surface);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      resize: vertical;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      aside.sidebar {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: var(--header-height);
+        bottom: 0;
+        z-index: 45;
+        box-shadow: var(--shadow-lg);
+      }
+
+      aside.sidebar.mobile-open {
+        display: block;
+      }
+
+      main.content-area {
+        padding: 1.5rem 1.25rem 5rem;
+      }
+
+      .workflow-steps {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+
+      .workflow-arrow {
+        text-align: center;
+        transform: rotate(90deg);
+      }
+
+      .search-box input {
+        width: 130px;
+      }
+      .search-box input:focus {
+        width: 160px;
+      }
+      .btn-text {
+        display: none;
+      }
+    }
+
+    @media print {
+      header, aside.sidebar, .floating-actions, #progress-container, .btn, .workflow-card {
+        display: none !important;
+      }
+      main.content-area {
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+      body {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+      }
+      .code-block-wrapper {
+        border: 1px solid #ccc !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+
+  <!-- Drop Overlay -->
+  <div id="drop-overlay">
+    <span>📂 Drop Markdown (.md) File to View</span>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <button class="btn btn-icon" id="sidebar-toggle" title="Toggle Table of Contents" aria-label="Toggle Sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+
+      <a href="#" class="brand-logo" title="BigGantt Migration Guide">
+        <div class="brand-icon">BG</div>
+        <span>BigGantt Migration</span>
+      </a>
+
+      <span class="badge-tag" id="current-filename">README.md</span>
+    </div>
+
+    <div class="header-right">
+      <!-- Search Input -->
+      <div class="search-box">
+        <svg class="search-icon-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="search-input" placeholder="Search guide..." autocomplete="off">
+        <span class="search-badge" id="search-count"></span>
+      </div>
+
+      <!-- File Open Button -->
+      <label for="file-input" class="btn" title="Open local Markdown file">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+        <span class="btn-text">Open</span>
+      </label>
+      <input type="file" id="file-input" accept=".md,.markdown,.txt">
+
+      <!-- View Raw/Rendered Toggle -->
+      <button class="btn" id="toggle-raw-btn" title="Toggle Raw Markdown / Rendered HTML">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+        <span class="btn-text" id="toggle-raw-text">Raw</span>
+      </button>
+
+      <!-- Theme Switcher -->
+      <button class="btn btn-icon" id="theme-toggle-btn" title="Switch Theme (Light / Dark / Auto)">
+        <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      </button>
+
+      <!-- Print / PDF -->
+      <button class="btn btn-icon" onclick="window.print()" title="Print / Save as PDF">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- App Layout -->
+  <div class="app-container">
+    
+    <!-- Table of Contents Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-title">Table of Contents</div>
+      <ul class="toc-list" id="toc-list">
+        <!-- Generated dynamically -->
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content-area">
+
+      <!-- Visual Migration Flow Banner -->
+      <div class="workflow-card">
+        <div class="workflow-header">
+          <span>⚡ 핵심 실행 워크플로우 (Step 1 ➡️ Step 2 순서 준수)</span>
+        </div>
+        <div class="workflow-steps">
+          <div class="step-box">
+            <div class="step-tag">Step 1 • DC Export</div>
+            <div class="step-title">Data Center 박스 데이터 추출</div>
+            <div class="step-cmd">python step1_export_dc_boxes.py</div>
+          </div>
+          <div class="workflow-arrow">➡️</div>
+          <div class="step-box">
+            <div class="step-tag">Step 2 • Cloud Import</div>
+            <div class="step-title">Jira Cloud 박스 생성 및 이관</div>
+            <div class="step-cmd">python step2_import_cloud_boxes.py</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Doc Info Card -->
+      <div class="doc-meta-card" id="doc-meta-card">
+        <div class="doc-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span id="reading-time">3 min read</span>
+        </div>
+        <div class="doc-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span id="word-count">0 words</span>
+        </div>
+        <div class="doc-meta-item" style="margin-left: auto;">
+          <button class="copy-btn" id="copy-all-btn" title="Copy full Markdown text">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span>Copy Markdown</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Rendered Markdown Output -->
+      <div class="markdown-body" id="content"></div>
+
+      <!-- Raw Markdown Editor / Viewer -->
+      <textarea id="raw-view" spellcheck="false"></textarea>
+    </main>
+  </div>
+
+  <!-- Floating Action Buttons -->
+  <div class="floating-actions">
+    <button class="fab" id="scroll-top-btn" title="Back to Top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+    </button>
+  </div>
+
+  <!-- Embedded Default Markdown Content -->
+  <script id="default-markdown" type="text/plain"># Jira Data Center ➡️ Cloud BigGantt / BigPicture 박스 마이그레이션 가이드
+
+본 프로젝트는 Atlassian **Jira Data Center (DC)** 환경의 **BigGantt / BigPicture** 플러그인에 구성된 박스(Box) 데이터, 계층 구조(Hierarchy), 스코프(Jira Project Scope), 작업 설정(Task Configuration)을 안전하게 추출하여 **Jira Cloud (Sandbox / Production)** 환경으로 이관하고 검증하는 마이그레이션 자동화 도구입니다.
+
+---
+
+## 📌 목차
+1. [프로젝트 개요 및 역할](#1-프로젝트-개요-및-역할)
+2. [사전 준비 사항 및 환경 변수 설정](#2-사전-준비-사항-및-환경-변수-설정)
+3. [마이그레이션 실행 절차 (Step 1 ➡️ Step 2)](#3-마이그레이션-실행-절차-step-1-️-step-2)
+4. [산출물 및 리포트 파일 안내](#4-산출물-및-리포트-파일-안내)
+5. [추가 유틸리티 및 롤백 도구](#5-추가-유틸리티-및-롤백-도구)
+6. [오류 발생 시 대처 가이드 (FAQ & Troubleshooting)](#6-오류-발생-시-대처-가이드-faq--troubleshooting)
+
+---
+
+## 1. 프로젝트 개요 및 역할
+
+Jira Data Center에서 Jira Cloud로 전환 시, Atlassian JCMA(Jira Cloud Migration Assistant)는 BigGantt / BigPicture 전용 박스(Box) 설정 및 계층 구조 데이터를 직접 이관하지 못합니다.
+
+본 도구는 다음과 같은 핵심 역할을 수행합니다:
+- **DC 박스 메타데이터 추출**: DC BigPicture/BigGantt REST API를 통해 전체 박스 계층, 연계 Jira 프로젝트, 뷰 설정, 시작/종료일, 상태 등을 수집.
+- **프로젝트 기반 정밀 필터링**: `projects.txt`에 명시된 마이그레이션 대상 Jira 프로젝트에 속한 박스만 선별.
+- **Cloud 환경으로의 자동 임포트**: BigPicture Cloud REST API(`https://api.bigpicture.one/public/biggantt/rest`)를 사용하여 부모-자식 계층 관계를 유지하며 Cloud에 박스 자동 생성.
+- **소유권 및 보안 권한 매핑**: Cloud 사용자 Account ID(`SCOPE_OWNER_KEY`)를 적용하여 박스 관리 권한 부여.
+- **시각적 검증 대시보드 제공**: Step 1 추출 리포트, Step 2 임포트 리포트, Step 6 1:1 비교 검증 페이지를 HTML로 자동 생성.
+
+---
+
+## 2. 사전 준비 사항 및 환경 변수 설정
+
+### 2.1 Python 환경 구성
+- Python 3.8 이상 권장
+- 필수 라이브러리 설치:
+```bash
+# 가상 환경 활성화 (권장)
+source ../venv/bin/activate  # macOS / Linux
+# Windows: ..\venv\Scripts\activate
+
+# 필요한 패키지 설치
+pip install requests python-dotenv urllib3
+```
+
+### 2.2 환경 변수 파일 (`../env`)
+마이그레이션 스크립트는 보안 및 운영 격리를 위해 프로젝트 상위 디렉터리의 `../env` 파일을 참조합니다.
+
+```env
+# ==========================================
+# 1. Jira Data Center (Source) 설정
+# ==========================================
+# Staging (STG) 환경
+JIRA_DC_STG_URL=https://stg-jira.your-company.com
+JIRA_DC_STG_API_TOKEN=your_jira_dc_stg_pat_token
+JIRA_DC_STG_BIGGANTT_API_TOKEN=your_biggantt_dc_stg_jwt_token
+
+# Production / Operations (OPS) 환경
+JIRA_DC_OPS_URL=https://jira.your-company.com
+JIRA_DC_OPS_API_TOKEN=your_jira_dc_ops_pat_token
+JIRA_DC_OPS_BIGGANTT_API_TOKEN=your_biggantt_dc_ops_jwt_token
+
+# ==========================================
+# 2. Jira Cloud (Target) 설정
+# ==========================================
+# Sandbox 환경
+JIRA_CLOUD_SANDBOX_URL=https://your-company-sandbox.atlassian.net
+JIRA_CLOUD_SANDBOX_ADMIN_EMAIL=admin@your-company.com
+JIRA_CLOUD_SANDBOX_API_TOKEN=your_atlassian_api_token
+JIRA_BIGGANTT_SANDBOX_API_TOKEN=your_cloud_bigpicture_api_token
+
+# Production / Operations (OPS) 환경
+JIRA_CLOUD_OPS_URL=https://your-company.atlassian.net
+JIRA_CLOUD_OPS_ADMIN_EMAIL=admin@your-company.com
+JIRA_CLOUD_OPS_API_TOKEN=your_atlassian_api_token
+JIRA_BIGGANTT_OPS_API_TOKEN=your_cloud_bigpicture_api_token
+
+# ==========================================
+# 3. 공통 매핑 및 SSL 설정
+# ==========================================
+# Cloud 상에서 박스 소유자로 지정할 Atlassian Account ID
+SCOPE_OWNER_KEY=557058:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
+# 사내 사설 인증서(Self-signed) 사용 시 False 권장 (기본값: False)
+JIRA_SSL_VERIFY=False
+```
+
+### 2.3 대상 프로젝트 목록 (`../projects.txt`)
+추출 및 마이그레이션 대상이 되는 Jira Project Key를 한 줄에 하나씩 기입합니다.
+```text
+PROJ_KEY_A
+PROJ_KEY_B
+TEAM_PROJECT_C
+```
+
+---
+
+## 3. 마이그레이션 실행 절차 (Step 1 ➡️ Step 2)
+
+> ⚠️ **주의 (반드시 순서대로 실행)**  
+> **Step 1(추출)**을 먼저 실행하여 `migration_box.json`이 정상 생성된 것을 확인한 후, **Step 2(임포트)**를 실행해야 합니다.
+
+```
+[ Step 1: DC Export ]              [ Step 2: Cloud Import ]
+   step1_export_dc_boxes.py   ➡️      step2_import_cloud_boxes.py
+         ⬇                                     ⬇
+   migration_box.json                  Cloud Box 생성 완료
+   step1_box_report.html               step2_import_cloud_boxes_report.html
+```
+
+---
+
+### Step 1: Data Center 박스 데이터 추출 및 검증
+Data Center의 BigPicture/BigGantt에서 대상 박스들을 추출하고 캐시 및 분석 리포트를 생성합니다.
+
+```bash
+python step1_export_dc_boxes.py
+```
+
+#### 대화형 프롬프트 안내:
+1. **Source Environment 선택**: `1` (STG) 또는 `2` (OPS) 입력
+2. **Dry-run 모드 선택**: `y` (실제 파일 쓰기 전 테스트) 또는 `n` (정상 추출)
+
+#### 주요 동작:
+- Jira DC PAT 및 BigGantt 토큰 유효성 Preflight 검사
+- `../projects.txt`와 매칭되는 박스 선별 및 부모-자식 트리 구조화
+- `migration_box.json`, `boxes.json`, `hierarchy.json`, `all_boxes_cache.json` 저장
+- `step1_box_report.html` 시각화 보고서 자동 빌드
+
+---
+
+### Step 2: Jira Cloud로 박스 데이터 임포트
+Step 1에서 생성된 `migration_box.json`을 읽어 Jira Cloud BigGantt에 박스를 순서대로 생성합니다.
+
+```bash
+python step2_import_cloud_boxes.py
+```
+
+#### 대화형 프롬프트 안내:
+1. **Target Cloud Environment 선택**: `1` (SANDBOX) 또는 `2` (OPS Production) 입력
+
+#### 주요 동작:
+- `migration_box.json` 유효성 검사
+- 상위 박스(Parent Box) 우선 생성 후 하위 박스(Child Box) 계층 연결
+- Cloud 박스 소유자(`SCOPE_OWNER_KEY`) 및 프로젝트 스코프 등록
+- 결과 리포트 `step2_import_cloud_boxes_report.html` 생성
+
+---
+
+## 4. 산출물 및 리포트 파일 안내
+
+| 산출물 파일 | 역할 및 설명 |
+| :--- | :--- |
+| `migration_box.json` | Step 1에서 추출한 핵심 데이터로, Step 2의 입력 데이터로 사용됨 |
+| `all_boxes_cache.json` | DC 전체 박스 원본 캐시. `projects.txt` 수정 시 DC 재호출 없이 고속 재필터링 지원 |
+| `hierarchy.json` | Data Center 원본 박스들의 계층적 트리 구조 JSON |
+| `boxes.json` | Data Center 원본 박스 상세 목록 JSON |
+| `step1_box_report.html` | Step 1 추출 결과 대시보드 (박스 수, 프로젝트 분포, 중복 분석 등) |
+| `step2_import_cloud_boxes_report.html` | Step 2 임포트 결과 대시보드 (DC 박스 ID ↔ Cloud 박스 ID 1:1 매핑 결과) |
+| `box_verification.html` | Step 6에서 생성하는 양측 환경 바로가기 검증 페이지 |
+
+---
+
+## 5. 추가 유틸리티 및 롤백 도구
+
+### 5.1 최종 검증 페이지 생성 (`step6_generate_verification_page.py`)
+Data Center와 Cloud의 박스 화면을 새 탭에서 즉시 1:1로 비교 검증할 수 있는 인터랙티브 HTML을 생성합니다.
+```bash
+python step6_generate_verification_page.py
+# -> box_verification.html 생성
+```
+
+### 5.2 Cloud 박스 롤백 / 일괄 삭제 (`delete_cloud_boxes.py`)
+테스트 마이그레이션 후 초기화가 필요하거나 재작업 시 Cloud에 생성된 박스를 일괄 삭제합니다.
+```bash
+python delete_cloud_boxes.py
+```
+
+### 5.3 Task Configuration 백업 및 복원
+- `biggantt_get_task_config.py`: 특정 박스의 작업/필드 연동 설정 조회
+- `biggantt_save_task_config.py`: 특정 박스에 작업 설정 적용
+
+---
+
+## 6. 오류 발생 시 대처 가이드 (FAQ & Troubleshooting)
+
+### Q1. `Error: env file not found` 또는 `Missing environment variables` 에러
+- **원인**: 프로젝트 상위 디렉터리(`../env`)에 환경 변수 파일이 없거나, 선택한 환경(STG/OPS)의 필수 토큰이 비어있습니다.
+- **해결**:
+  1. `biggantt` 폴더의 상위 디렉터리(`..`)에 `env` 파일이 존재하는지 확인합니다.
+  2. `JIRA_DC_xxx_URL`, `JIRA_DC_xxx_API_TOKEN`, `JIRA_DC_xxx_BIGGANTT_API_TOKEN` 값이 정상 입력되었는지 확인합니다.
+
+---
+
+### Q2. `401 Unauthorized` 또는 `403 Forbidden` 에러 발생
+- **원인**: Jira PAT 토큰 또는 BigPicture/BigGantt API 토큰이 만료되었거나 권한이 부족합니다.
+- **해결**:
+  - **Data Center**: Jira 프로필 > Personal Access Tokens에서 PAT 재발급
+  - **Jira Cloud**: [Atlassian API Token 발급 페이지](https://id.atlassian.com/manage-profile/security/api-tokens)에서 토큰 재발급
+  - **BigGantt Cloud**: Jira Cloud > Apps > BigPicture/BigGantt Configuration > Public API 에서 API Token 확인
+
+---
+
+### Q3. `404 Not Found` (DC BigPicture REST API 호출 시)
+- **원인**: Data Center BigPicture/BigGantt 버전(v7, v8 등)에 따라 REST 엔드포인트 URL 구조가 다를 수 있습니다.
+- **해결**:
+  - 스크립트 v1.5.0에는 자동 감지 로직이 포함되어 있습니다.
+  - Jira DC 인스턴스에서 BigPicture/BigGantt 플러그인이 비활성화되어 있는지 관리자 콘솔에서 확인합니다.
+
+---
+
+### Q4. Step 2 실행 중 `400 Bad Request` 또는 `scopeOwnerKey` 관련 오류
+- **원인**: `SCOPE_OWNER_KEY`에 지정된 사용자가 Jira Cloud에 존재하지 않거나, accountId 형식이 올바르지 않습니다.
+- **해결**:
+  1. Jira Cloud 관리 콘솔 > 사용자 관리(User Management)로 이동합니다.
+  2. 마이그레이션 관리자 계정 프로필 URL의 맨 뒷부분(예: `712020:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`)을 복사합니다.
+  3. `../env` 파일의 `SCOPE_OWNER_KEY` 값을 해당 Account ID로 수정 후 재실행합니다.
+
+---
+
+### Q5. `SSL: CERTIFICATE_VERIFY_FAILED` 오류 발생
+- **원인**: 사내 Jira Data Center 서버가 사설 SSL 인증서를 사용하여 Python `requests`가 인증서를 신뢰하지 못함.
+- **해결**:
+  - `../env` 파일에 `JIRA_SSL_VERIFY=False`를 지정하여 SSL 검증을 비활성화하거나, 사내 루트 인증서 경로를 `JIRA_CA_BUNDLE=/path/to/ca-bundle.crt`로 지정합니다.
+
+---
+
+### Q6. 박스가 0개 추출되거나 대상 박스가 누락됨
+- **원인**: `../projects.txt`의 프로젝트 키와 Data Center 박스 스코프의 Jira 프로젝트 키가 일치하지 않음.
+- **해결**:
+  1. `../projects.txt`의 프로젝트 키 대소문자 및 오탈자를 점검합니다.
+  2. 이미 1회 실행 후라면 `all_boxes_cache.json`에 전체 박스가 캐시되어 있으므로, `projects.txt` 수정 후 `python generate_step1_report.py`를 실행하여 즉시 재필터링 결과를 확인합니다.
+</script>
+
+  <script>
+    // State management
+    let rawMarkdown = document.getElementById('default-markdown').textContent.trim();
+    let currentTheme = localStorage.getItem('readmd_theme') || 'auto';
+    let isRawMode = false;
+
+    // Elements
+    const contentEl = document.getElementById('content');
+    const rawViewEl = document.getElementById('raw-view');
+    const tocListEl = document.getElementById('toc-list');
+    const readingTimeEl = document.getElementById('reading-time');
+    const wordCountEl = document.getElementById('word-count');
+    const progressBar = document.getElementById('progress-bar');
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const themeIcon = document.getElementById('theme-icon');
+    const sidebarToggleBtn = document.getElementById('sidebar-toggle');
+    const sidebarEl = document.getElementById('sidebar');
+    const toggleRawBtn = document.getElementById('toggle-raw-btn');
+    const toggleRawText = document.getElementById('toggle-raw-text');
+    const fileInput = document.getElementById('file-input');
+    const currentFilenameBadge = document.getElementById('current-filename');
+    const copyAllBtn = document.getElementById('copy-all-btn');
+    const searchInput = document.getElementById('search-input');
+    const searchCountEl = document.getElementById('search-count');
+    const scrollTopBtn = document.getElementById('scroll-top-btn');
+    const dropOverlay = document.getElementById('drop-overlay');
+
+    // Theme initialization
+    function applyTheme(theme) {
+      currentTheme = theme;
+      localStorage.setItem('readmd_theme', theme);
+      document.documentElement.setAttribute('data-theme', theme);
+
+      const isDark = theme === 'dark' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      
+      if (theme === 'dark') {
+        themeIcon.innerHTML = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`;
+      } else if (theme === 'light') {
+        themeIcon.innerHTML = `<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`;
+      } else {
+        themeIcon.innerHTML = `<circle cx="12" cy="12" r="10"></circle><path d="M12 2a10 10 0 0 0 0 20z" fill="currentColor"></path>`;
+      }
+
+      // Update highlight.js theme stylesheet
+      const highlightThemeLink = document.getElementById('highlight-theme');
+      if (highlightThemeLink) {
+        highlightThemeLink.href = isDark 
+          ? 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css'
+          : 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css';
+      }
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      if (currentTheme === 'auto') applyTheme('dark');
+      else if (currentTheme === 'dark') applyTheme('light');
+      else applyTheme('auto');
+    });
+
+    applyTheme(currentTheme);
+
+    // Markdown Parser Configuration
+    if (typeof marked !== 'undefined') {
+      marked.setOptions({
+        gfm: true,
+        breaks: true,
+        headerIds: true,
+        mangle: false
+      });
+    }
+
+    // Slug generator for headings
+    function slugify(text) {
+      return text
+        .toLowerCase()
+        .replace(/<[^>]*>/g, '')
+        .replace(/[^\w\s가-힣-]/g, '')
+        .trim()
+        .replace(/\s+/g, '-');
+    }
+
+    // Lightweight fallback parser if marked fails or is offline
+    function simpleMarkdownParser(md) {
+      let html = md
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+
+      html = html.replace(/```([a-zA-Z0-9_-]*)\n([\s\S]*?)```/g, (match, lang, code) => {
+        return `<pre><code class="language-${lang}">${code}</code></pre>`;
+      });
+
+      html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+      html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+      html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+
+      html = html.replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>');
+      html = html.replace(/\*(.*?)\*/gim, '<em>$1</em>');
+      html = html.replace(/`([^`]+)`/gim, '<code>$1</code>');
+
+      html = html.replace(/^\* (.*$)/gim, '<ul><li>$1</li></ul>');
+      html = html.replace(/<\/ul>\s?<ul>/gim, '');
+
+      html = html.replace(/\n\n+/g, '</p><p>');
+      return `<p>${html}</p>`;
+    }
+
+    // Render markdown and build TOC
+    function renderMarkdown(md) {
+      let parsedHtml = '';
+      if (typeof marked !== 'undefined' && marked.parse) {
+        parsedHtml = marked.parse(md);
+      } else {
+        parsedHtml = simpleMarkdownParser(md);
+      }
+
+      contentEl.innerHTML = parsedHtml;
+      rawViewEl.value = md;
+
+      // Stats calculation
+      const textOnly = contentEl.textContent || '';
+      const words = textOnly.trim().split(/\s+/).filter(Boolean).length;
+      const readingMinutes = Math.max(1, Math.ceil(words / 180));
+      readingTimeEl.textContent = `${readingMinutes} min read`;
+      wordCountEl.textContent = `${words.toLocaleString()} words`;
+
+      // Enhance Headings with IDs & generate TOC
+      const headings = contentEl.querySelectorAll('h1, h2, h3, h4');
+      tocListEl.innerHTML = '';
+      const slugCounts = {};
+
+      headings.forEach((h, index) => {
+        let text = h.textContent.trim();
+        let slug = slugify(text) || `section-${index}`;
+        
+        if (slugCounts[slug]) {
+          slugCounts[slug]++;
+          slug = `${slug}-${slugCounts[slug]}`;
+        } else {
+          slugCounts[slug] = 1;
+        }
+
+        h.id = slug;
+
+        const level = parseInt(h.tagName.substring(1), 10);
+        const li = document.createElement('li');
+        li.className = `toc-item level-${level}`;
+
+        const a = document.createElement('a');
+        a.className = 'toc-link';
+        a.href = `#${slug}`;
+        a.textContent = text;
+        a.title = text;
+        a.addEventListener('click', () => {
+          if (window.innerWidth <= 900) {
+            sidebarEl.classList.remove('mobile-open');
+          }
+        });
+
+        li.appendChild(a);
+        tocListEl.appendChild(li);
+      });
+
+      // Enhance Code Blocks with header & copy button
+      contentEl.querySelectorAll('pre').forEach((pre) => {
+        const code = pre.querySelector('code');
+        if (!code) return;
+
+        if (typeof hljs !== 'undefined') {
+          hljs.highlightElement(code);
+        }
+
+        let lang = 'text';
+        code.classList.forEach((cls) => {
+          if (cls.startsWith('language-')) {
+            lang = cls.replace('language-', '');
+          }
+        });
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-block-wrapper';
+
+        const header = document.createElement('div');
+        header.className = 'code-block-header';
+        header.innerHTML = `
+          <span>${lang}</span>
+          <button class="copy-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span>Copy</span>
+          </button>
+        `;
+
+        const copyBtn = header.querySelector('.copy-btn');
+        copyBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(code.innerText).then(() => {
+            const span = copyBtn.querySelector('span');
+            span.textContent = 'Copied!';
+            copyBtn.style.borderColor = 'var(--primary)';
+            setTimeout(() => {
+              span.textContent = 'Copy';
+              copyBtn.style.borderColor = '';
+            }, 2000);
+          });
+        });
+
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(header);
+        wrapper.appendChild(pre);
+      });
+    }
+
+    // Scroll spy for TOC & Progress Bar
+    function updateScrollSpy() {
+      const headings = Array.from(contentEl.querySelectorAll('h1, h2, h3, h4'));
+      const scrollPos = window.scrollY + 100;
+      
+      const totalDocHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = totalDocHeight > 0 ? (window.scrollY / totalDocHeight) * 100 : 0;
+      progressBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+
+      let currentHeadingId = null;
+      for (let i = headings.length - 1; i >= 0; i--) {
+        if (headings[i].offsetTop <= scrollPos) {
+          currentHeadingId = headings[i].id;
+          break;
+        }
+      }
+
+      document.querySelectorAll('.toc-link').forEach((link) => {
+        if (currentHeadingId && link.getAttribute('href') === `#${currentHeadingId}`) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateScrollSpy, { passive: true });
+
+    // Sidebar Mobile Toggle
+    sidebarToggleBtn.addEventListener('click', () => {
+      sidebarEl.classList.toggle('mobile-open');
+    });
+
+    // Toggle Raw Mode
+    toggleRawBtn.addEventListener('click', () => {
+      isRawMode = !isRawMode;
+      if (isRawMode) {
+        rawViewEl.value = rawMarkdown;
+        rawViewEl.style.display = 'block';
+        contentEl.style.display = 'none';
+        toggleRawText.textContent = 'Preview';
+        toggleRawBtn.classList.add('btn-primary');
+      } else {
+        rawMarkdown = rawViewEl.value;
+        renderMarkdown(rawMarkdown);
+        rawViewEl.style.display = 'none';
+        contentEl.style.display = 'block';
+        toggleRawText.textContent = 'Raw';
+        toggleRawBtn.classList.remove('btn-primary');
+      }
+    });
+
+    // Copy All Markdown Button
+    copyAllBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(rawMarkdown).then(() => {
+        const span = copyAllBtn.querySelector('span');
+        span.textContent = 'Copied!';
+        setTimeout(() => span.textContent = 'Copy Markdown', 2000);
+      });
+    });
+
+    // Scroll to Top
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Live Search
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.trim().toLowerCase();
+      if (!query) {
+        searchCountEl.textContent = '';
+        renderMarkdown(rawMarkdown);
+        return;
+      }
+
+      renderMarkdown(rawMarkdown);
+
+      const walker = document.createTreeWalker(contentEl, NodeFilter.SHOW_TEXT, null, false);
+      const textNodes = [];
+      while (walker.nextNode()) {
+        if (!['SCRIPT', 'STYLE', 'CODE', 'PRE'].includes(walker.currentNode.parentNode.nodeName)) {
+          textNodes.push(walker.currentNode);
+        }
+      }
+
+      let matchCount = 0;
+      textNodes.forEach((node) => {
+        const text = node.nodeValue;
+        const lower = text.toLowerCase();
+        let index = lower.indexOf(query);
+
+        if (index !== -1) {
+          const fragment = document.createDocumentFragment();
+          let lastIdx = 0;
+
+          while (index !== -1) {
+            matchCount++;
+            fragment.appendChild(document.createTextNode(text.substring(lastIdx, index)));
+            const mark = document.createElement('mark');
+            mark.className = 'search-highlight';
+            mark.textContent = text.substring(index, index + query.length);
+            fragment.appendChild(mark);
+            lastIdx = index + query.length;
+            index = lower.indexOf(query, lastIdx);
+          }
+          fragment.appendChild(document.createTextNode(text.substring(lastIdx)));
+          node.parentNode.replaceChild(fragment, node);
+        }
+      });
+
+      searchCountEl.textContent = matchCount > 0 ? `${matchCount}` : '0';
+    });
+
+    // Shortcuts
+    window.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        searchInput.focus();
+      }
+      if (e.key === 'Escape' && document.activeElement === searchInput) {
+        searchInput.value = '';
+        searchInput.blur();
+        searchCountEl.textContent = '';
+        renderMarkdown(rawMarkdown);
+      }
+    });
+
+    // File Input Loader
+    fileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      currentFilenameBadge.textContent = file.name;
+      const reader = new FileReader();
+      reader.onload = (evt) => {
+        rawMarkdown = evt.target.result;
+        renderMarkdown(rawMarkdown);
+      };
+      reader.readAsText(file);
+    });
+
+    // Drag and Drop
+    window.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropOverlay.style.display = 'flex';
+    });
+
+    window.addEventListener('dragleave', (e) => {
+      if (e.relatedTarget === null) {
+        dropOverlay.style.display = 'none';
+      }
+    });
+
+    window.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropOverlay.style.display = 'none';
+      const file = e.dataTransfer.files[0];
+      if (file && (file.name.endsWith('.md') || file.name.endsWith('.markdown') || file.name.endsWith('.txt'))) {
+        currentFilenameBadge.textContent = file.name;
+        const reader = new FileReader();
+        reader.onload = (evt) => {
+          rawMarkdown = evt.target.result;
+          renderMarkdown(rawMarkdown);
+        };
+        reader.readAsText(file);
+      }
+    });
+
+    // Auto load or render
+    if (window.location.protocol.startsWith('http')) {
+      fetch('README.md')
+        .then((res) => {
+          if (res.ok) return res.text();
+          throw new Error('Network response not ok');
+        })
+        .then((md) => {
+          rawMarkdown = md;
+          renderMarkdown(rawMarkdown);
+        })
+        .catch(() => {
+          renderMarkdown(rawMarkdown);
+        });
+    } else {
+      renderMarkdown(rawMarkdown);
+    }
+  </script>
+</body>
+</html>

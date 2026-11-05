@@ -1,0 +1,188 @@
+[
+  {
+    "name": "[HMG-ADE] REQ_IVI SYNC",
+    "jql": "project in (CCIC27TRAC, CCIC27TRAC, CCICTRACK, CCNCBTRACK, CCNCTRACK,  CCRCTRACK , CSTRACK, CONNLIGHT, D2VTRACK, DCUCTRACK, DCTRACK, POIPTRACK, PBVTRACK, P5TRACK, P6TRACK, S4TRACK, S5LTRACK, S5MTRACK, S5WLTRACK, S5WMTRACK) and issuetype = Task and SIRS연동여부 = YES",
+    "keys": [
+      "CCIC27TRAC",
+      "CCICTRACK",
+      "CCNCBTRACK",
+      "CCNCTRACK",
+      "CCRCTRACK",
+      "CSTRACK",
+      "CONNLIGHT",
+      "D2VTRACK",
+      "DCUCTRACK",
+      "DCTRACK",
+      "POIPTRACK",
+      "PBVTRACK",
+      "P5TRACK",
+      "P6TRACK",
+      "S4TRACK",
+      "S5LTRACK",
+      "S5MTRACK",
+      "S5WLTRACK",
+      "S5WMTRACK"
+    ],
+    "cloud": [
+      "CCIC27TRAC",
+      "CCICTRACK",
+      "CCNCBTRACK",
+      "CCNCTRACK",
+      "CSTRACK",
+      "CONNLIGHT",
+      "D2VTRACK",
+      "DCUCTRACK",
+      "DCTRACK",
+      "PBVTRACK",
+      "P5TRACK",
+      "P6TRACK",
+      "S4TRACK",
+      "S5LTRACK",
+      "S5MTRACK",
+      "S5WLTRACK",
+      "S5WMTRACK"
+    ],
+    "remain": [
+      "CCRCTRACK",
+      "POIPTRACK"
+    ]
+  },
+  {
+    "name": "[HMG-ADE] CPMS SYNC",
+    "jql": "project in (PLBM, PARKINGLBM, MLBMEXT, ROA, BICIM, ROAS, DK, PDCCOWORK, UIP, PSMSCM, BPCMWTC07, ECDPS, ECDPART, ECDPARTL, ELECCCU, ELECPMS, IBUMOBASE, WAC, ATCU, PTGPSD, ELECBODY, ELECPOWER, ELECCONV, ELECSW, BDC, DITPMSRX, CCU2S, SPW, RCMJIRA, ISCMMOBIS, ISCMAUMOVI, ISCMVEONEE, WPC) and issuetype = 문제점   project in (ISCMMOBIS, ISCMAUMOVI, ISCMVEONEE) and issuetype = 설계변경   project = ADEPRK AND issuetype = \"문제점_CPMS\" AND \"ADE-Jira 연동\" = O",
+    "keys": [
+      "PLBM",
+      "PARKINGLBM",
+      "MLBMEXT",
+      "ROA",
+      "BICIM",
+      "ROAS",
+      "DK",
+      "PDCCOWORK",
+      "UIP",
+      "PSMSCM",
+      "BPCMWTC07",
+      "ECDPS",
+      "ECDPART",
+      "ECDPARTL",
+      "ELECCCU",
+      "ELECPMS",
+      "IBUMOBASE",
+      "WAC",
+      "ATCU",
+      "PTGPSD",
+      "ELECBODY",
+      "ELECPOWER",
+      "ELECCONV",
+      "ELECSW",
+      "BDC",
+      "DITPMSRX",
+      "CCU2S",
+      "SPW",
+      "RCMJIRA",
+      "ISCMMOBIS",
+      "ISCMAUMOVI",
+      "ISCMVEONEE",
+      "WPC",
+      "ADEPRK"
+    ],
+    "cloud": [
+      "MLBMEXT",
+      "ROA",
+      "BICIM",
+      "ROAS",
+      "PDCCOWORK",
+      "UIP",
+      "PSMSCM",
+      "BPCMWTC07",
+      "ECDPART",
+      "ECDPARTL",
+      "WAC",
+      "ATCU",
+      "PTGPSD",
+      "ELECBODY",
+      "ELECCONV",
+      "ELECSW",
+      "BDC",
+      "CCU2S",
+      "SPW",
+      "RCMJIRA",
+      "ISCMMOBIS",
+      "ISCMAUMOVI",
+      "ISCMVEONEE",
+      "WPC"
+    ],
+    "remain": [
+      "PLBM",
+      "PARKINGLBM",
+      "DK",
+      "ECDPS",
+      "ELECCCU",
+      "ELECPMS",
+      "IBUMOBASE",
+      "ELECPOWER",
+      "DITPMSRX",
+      "ADEPRK"
+    ]
+  },
+  {
+    "name": "[HMG-ADE] CPMS_IVI SYNC",
+    "jql": "project in (GENESISP, HMCP, KMCP) and issuetype = Bug and created > \"2025-06-23\" and cf[38210] != O",
+    "keys": [
+      "GENESISP",
+      "HMCP",
+      "KMCP"
+    ],
+    "cloud": [
+      "GENESISP",
+      "HMCP",
+      "KMCP"
+    ],
+    "remain": []
+  },
+  {
+    "name": "[HMG-ADE] FREQ SYNC",
+    "jql": "project = FREQ and issuetype in (Epic, Feature, Change)",
+    "keys": [
+      "FREQ"
+    ],
+    "cloud": [
+      "FREQ"
+    ],
+    "remain": []
+  },
+  {
+    "name": "[HMG-ADE] NE1a SYNC",
+    "jql": "project = NE1AWJIMS AND issuetype in(Epic, 문제점)",
+    "keys": [
+      "NE1AWJIMS"
+    ],
+    "cloud": [
+      "NE1AWJIMS"
+    ],
+    "remain": []
+  },
+  {
+    "name": "[HMG-ADE] REQ_ELEC SYNC",
+    "jql": "project = ATCU AND issuetype = 사양 [HMG-ADE] REQ_ELEC SYNC   project = TMF AND issuetype = Issue AND \"스프린트 등록 이슈\" = O [HMG-ADE] REQ_ELEC SYNC   project = SPLIT AND issuetype in (\"사양배포\") [HMG-ADE] REQ_ELEC SYNC   project = MOBCR AND issuetype = PDCex1_Issue AND \"스프린트 등록 이슈\" = O [HMG-ADE] REQ_ELEC SYNC   project = PDCX AND issuetype in (PDC2_Issue, PDCex2_Issue) AND \"스프린트 등록 이슈\" = O [HMG-ADE] REQ_ELEC SYNC  project = PTGPSD AND issuetype in (버그, \"사양 개발\") [HMG-ADE] REQ_ELEC SYNC   project = PDC AND issuetype in (PDC1_Issue, PDC2_Issue) AND \"스프린트 등록 이슈\" = O",
+    "keys": [
+      "ATCU",
+      "TMF",
+      "SPLIT",
+      "MOBCR",
+      "PDCX",
+      "PTGPSD",
+      "PDC"
+    ],
+    "cloud": [
+      "ATCU",
+      "TMF",
+      "SPLIT",
+      "MOBCR",
+      "PDCX",
+      "PTGPSD",
+      "PDC"
+    ],
+    "remain": []
+  }
+]

@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JEditor 템플릿 현황 리포트 (Confluence 복사용)</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #f4f5f7;
+      color: #172b4d;
+      margin: 0;
+      padding: 32px 40px;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid #dfe1e6;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(9, 30, 66, 0.08);
+      padding: 28px 36px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #ebecf0;
+      padding-bottom: 18px;
+      margin-bottom: 20px;
+    }
+    .header h1 {
+      font-size: 22px;
+      margin: 0 0 6px 0;
+      color: #172b4d;
+    }
+    .header p {
+      margin: 0;
+      font-size: 13px;
+      color: #6b778c;
+    }
+    .actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 4px;
+      border: 1px solid #dfe1e6;
+      background: #ffffff;
+      color: #172b4d;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn:hover { background: #ebecf0; }
+    .btn-primary {
+      background: #0052cc;
+      color: #ffffff;
+      border-color: #0052cc;
+    }
+    .btn-primary:hover { background: #0747a6; }
+    .guide-banner {
+      background: #deebff;
+      border-left: 4px solid #0052cc;
+      padding: 12px 16px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .guide-banner strong { color: #0747a6; }
+    .filter-card {
+      background: #f4f5f7;
+      border: 1px solid #dfe1e6;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    .search-box {
+      flex: 1 1 220px;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 8px 12px;
+      font-size: 13px;
+      border: 1px solid #dfe1e6;
+      border-radius: 4px;
+      box-sizing: border-box;
+      outline: none;
+      background: #ffffff;
+    }
+    .search-box input:focus {
+      border-color: #0052cc;
+    }
+    .filter-select {
+      padding: 7px 12px;
+      font-size: 13px;
+      border: 1px solid #dfe1e6;
+      border-radius: 4px;
+      background: #ffffff;
+      cursor: pointer;
+      color: #172b4d;
+      outline: none;
+    }
+    .filter-select:focus {
+      border-color: #0052cc;
+    }
+    .stats-info {
+      font-size: 13px;
+      color: #42526e;
+    }
+    .stats-info strong {
+      color: #0052cc;
+    }
+    .filter-btns {
+      display: flex;
+      gap: 8px;
+      margin-left: auto;
+    }
+    .filter-chips-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      align-items: center;
+    }
+    .chip-btn {
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 14px;
+      border: 1px solid #dfe1e6;
+      background: #ffffff;
+      color: #42526e;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .chip-btn:hover { background: #ebecf0; }
+    .chip-btn.active {
+      background: #0052cc;
+      color: #ffffff;
+      border-color: #0052cc;
+    }
+    .chip-btn.chip-target.active {
+      background: #00875a;
+      color: #ffffff;
+      border-color: #00875a;
+    }
+    .chip-btn.chip-excluded.active {
+      background: #de350b;
+      color: #ffffff;
+      border-color: #de350b;
+    }
+    .table-wrapper {
+      overflow-x: auto;
+      margin-top: 10px;
+      border: 1px solid #dfe1e6;
+      border-radius: 4px;
+    }
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #172b4d;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(9, 30, 66, 0.25);
+      z-index: 1000;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.25s ease;
+      pointer-events: none;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1>📋 JEditor 템플릿 현황 리포트 (Confluence 복사용)</h1>
+        <p>생성 시각: 2026-10-27 09:27:41 &middot; Jira Active Objects (AO_BF4748_PROJECT_TEMPLATE) 기반</p>
+      </div>
+      <div class="actions">
+        <a href="template_report.html" class="btn" style="text-decoration:none;">
+          📊 인터랙티브 대시보드 ↗
+        </a>
+      </div>
+    </div>
+
+    <div class="guide-banner">
+      💡 <strong>Confluence 표 전체 복사 및 붙여넣기 팁:</strong><br>
+      하단의 <strong>[🎯 마이그레이션 대상만 (3건)]</strong>을 선택한 후 <strong>[📋 필터 결과 표 전체 복사]</strong> 버튼을 누르고 Confluence 편집 창에서 <strong>붙여넣기(Ctrl+V / Cmd+V)</strong>하면 <strong>이슈 타입 및 필드가 정상 설정된 마이그레이션 대상 표만</strong> 즉시 들어갑니다.
+    </div>
+
+    <div class="filter-chips-row">
+      <span style="font-size:12px;font-weight:bold;color:#6b778c;">빠른 필터:</span>
+      <button type="button" class="chip-btn active" data-filter="all" onclick="setTargetFilter('all', this)">
+        📋 전체 (5)
+      </button>
+      <button type="button" class="chip-btn chip-target" data-filter="target" onclick="setTargetFilter('target', this)">
+        🎯 마이그레이션 대상만 (3)
+      </button>
+      <button type="button" class="chip-btn chip-excluded" data-filter="excluded" onclick="setTargetFilter('excluded', this)">
+        ⚠️ 미설정/제외 대상만 (2)
+      </button>
+    </div>
+
+    <div class="filter-card">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="프로젝트, 템플릿명, 필드명, 키워드 검색..." oninput="applyFilters()" />
+      </div>
+      <select id="targetFilter" class="filter-select font-bold" onchange="applyFilters()">
+        <option value="all">📋 전체 템플릿 (5건)</option>
+        <option value="target">🎯 마이그레이션 대상만 (3건)</option>
+        <option value="excluded">⚠️ 미설정/제외 대상만 (2건)</option>
+        <option value="missing_field">🚫 필드 미지정 건만</option>
+        <option value="missing_itype">🚫 이슈 타입 미지정 건만</option>
+      </select>
+      <select id="projectFilter" class="filter-select" onchange="applyFilters()">
+        <option value="">모든 프로젝트 (전체)</option>
+        <option value="AAOSDEV">AAOSDEV</option>
+        <option value="CFMT">CFMT</option>
+      </select>
+      <div class="stats-info">
+        표시: <strong id="visibleCount">5</strong> / 5 건
+      </div>
+      <div class="filter-btns">
+        <button type="button" class="btn btn-primary" id="btnCopyFiltered" onclick="copyConfluenceTable()">
+          📋 필터 결과 표 전체 복사 (<span id="btnCopyCount">5</span>건)
+        </button>
+        <button type="button" class="btn" onclick="copyMarkdownTable()">
+          📝 Markdown 표 복사
+        </button>
+      </div>
+    </div>
+
+    <div class="table-wrapper" id="tableContainer">
+      <table class="confluenceTable" border="1" style="border-collapse:collapse;width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:13px;color:#172b4d;border:1px solid #dfe1e6;">
+  <thead>
+    <tr style="background-color:#f4f5f7;border-bottom:2px solid #dfe1e6;text-align:left;">
+      <th style="border:1px solid #dfe1e6;padding:10px 8px;text-align:center;width:40px;background-color:#f4f5f7;font-weight:bold;">#</th>
+      <th style="border:1px solid #dfe1e6;padding:10px;text-align:left;width:140px;background-color:#f4f5f7;font-weight:bold;">프로젝트</th>
+      <th style="border:1px solid #dfe1e6;padding:10px;text-align:left;min-width:180px;background-color:#f4f5f7;font-weight:bold;">템플릿명</th>
+      <th style="border:1px solid #dfe1e6;padding:10px;text-align:left;min-width:150px;background-color:#f4f5f7;font-weight:bold;">설명</th>
+      <th style="border:1px solid #dfe1e6;padding:10px;text-align:left;width:130px;background-color:#f4f5f7;font-weight:bold;">적용 필드</th>
+      <th style="border:1px solid #dfe1e6;padding:10px;text-align:left;width:110px;background-color:#f4f5f7;font-weight:bold;">적용 이슈 유형</th>
+      <th style="border:1px solid #dfe1e6;padding:10px;text-align:left;min-width:260px;background-color:#f4f5f7;font-weight:bold;">템플릿 내용</th>
+      <th style="border:1px solid #dfe1e6;padding:10px;text-align:center;width:90px;background-color:#f4f5f7;font-weight:bold;">Jira 설정</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #dfe1e6;">
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;text-align:center;font-family:monospace;color:#6b778c;">1</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;"><strong>CFMT</strong><br/><span style="color:#6b778c;font-size:11px;">커넥티드카 멀티미디어</span></td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;font-weight:bold;color:#172b4d;">결함 보고 템플릿</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;color:#172b4d;">기본 결함 리포트 양식</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;"><span style="background-color:#deebff;color:#0747a6;padding:2px 6px;border-radius:3px;font-weight:bold;font-size:11px;">Description</span></td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;"><span style="font-family:monospace;font-size:12px;color:#172b4d;">1(Bug), 10100(결함)</span></td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;vertical-align:top;color:#172b4d;">
+        <div style="line-height:1.45;font-size:12.5px;">
+          <p><b>1. 결함 개요</b></p><p>- 재현 경로:</p><p>- 기대 결과:</p><p>- 실제 결과:</p>
+        </div>
+      </td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;text-align:center;"><a href="https://dev-jira.osci.kr/plugins/servlet/jeditor-project-config/CFMT/templates" target="_blank" rel="noopener noreferrer" style="color:#0052cc;text-decoration:none;font-weight:bold;">설정 열기 ↗</a></td>
+    </tr>
+    <tr style="border-bottom:1px solid #dfe1e6;">
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;text-align:center;font-family:monospace;color:#6b778c;">2</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;"><strong>CFMT</strong><br/><span style="color:#6b778c;font-size:11px;">커넥티드카 멀티미디어</span></td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;font-weight:bold;color:#172b4d;">SW 릴리즈 노트</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;color:#172b4d;">릴리즈 시 작성 템플릿</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;"><span style="background-color:#deebff;color:#0747a6;padding:2px 6px;border-radius:3px;font-weight:bold;font-size:11px;">customfield_10010(Release Notes)</span></td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;"><span style="font-family:monospace;font-size:12px;color:#172b4d;">10001(Story), 10004(Task)</span></td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;vertical-align:top;color:#172b4d;">
+        <div style="line-height:1.45;font-size:12.5px;">
+          <p><b>[릴리즈 버전]</b></p><p>주요 변경점:</p>
+        </div>
+      </td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;text-align:center;"><a href="https://dev-jira.osci.kr/plugins/servlet/jeditor-project-config/CFMT/templates" target="_blank" rel="noopener noreferrer" style="color:#0052cc;text-decoration:none;font-weight:bold;">설정 열기 ↗</a></td>
+    </tr>
+    <tr style="border-bottom:1px solid #dfe1e6;">
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;text-align:center;font-family:monospace;color:#6b778c;">3</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;"><strong>AAOSDEV</strong><br/><span style="color:#6b778c;font-size:11px;">HMG AAOS Framework Development</span></td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;font-weight:bold;color:#172b4d;">Feature Request Spec</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;color:#172b4d;">신규 기능 사양 정의</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;"><span style="background-color:#deebff;color:#0747a6;padding:2px 6px;border-radius:3px;font-weight:bold;font-size:11px;">Description</span></td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;"><span style="font-family:monospace;font-size:12px;color:#172b4d;">2(New Feature)</span></td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;vertical-align:top;color:#172b4d;">
+        <div style="line-height:1.45;font-size:12.5px;">
+          <h3>Feature Specification</h3><p>Description of feature</p>
+        </div>
+      </td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;text-align:center;"><a href="https://dev-jira.osci.kr/plugins/servlet/jeditor-project-config/AAOSDEV/templates" target="_blank" rel="noopener noreferrer" style="color:#0052cc;text-decoration:none;font-weight:bold;">설정 열기 ↗</a></td>
+    </tr>
+    <tr style="border-bottom:1px solid #dfe1e6;">
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;text-align:center;font-family:monospace;color:#6b778c;">4</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;"><strong>CFMT</strong><br/><span style="color:#6b778c;font-size:11px;">커넥티드카 멀티미디어</span></td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;font-weight:bold;color:#172b4d;">임시 작성 양식 (필드 미지정)</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;color:#172b4d;">설정 중 임시 템플릿</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;"><span style="background-color:#ffebe6;color:#de350b;padding:2px 6px;border-radius:3px;font-weight:bold;font-size:11px;">미지정 (필드 없음)</span></td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;"><span style="font-family:monospace;font-size:12px;color:#172b4d;">1(Bug)</span></td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;vertical-align:top;color:#172b4d;">
+        <div style="line-height:1.45;font-size:12.5px;">
+          <p>임시 양식입니다</p>
+        </div>
+      </td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;text-align:center;"><a href="https://dev-jira.osci.kr/plugins/servlet/jeditor-project-config/CFMT/templates" target="_blank" rel="noopener noreferrer" style="color:#0052cc;text-decoration:none;font-weight:bold;">설정 열기 ↗</a></td>
+    </tr>
+    <tr style="border-bottom:1px solid #dfe1e6;">
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;text-align:center;font-family:monospace;color:#6b778c;">5</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;"><strong>AAOSDEV</strong><br/><span style="color:#6b778c;font-size:11px;">HMG AAOS Framework Development</span></td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;font-weight:bold;color:#172b4d;">초안 양식 (이슈타입 미지정)</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;color:#172b4d;">사양서 초안</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;"><span style="background-color:#deebff;color:#0747a6;padding:2px 6px;border-radius:3px;font-weight:bold;font-size:11px;">Description</span></td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;"><span style="background-color:#ffebe6;color:#de350b;padding:2px 6px;border-radius:3px;font-weight:bold;font-size:11px;">미지정 (이슈 타입 없음)</span></td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;vertical-align:top;color:#172b4d;">
+        <div style="line-height:1.45;font-size:12.5px;">
+          <p>초안 내용</p>
+        </div>
+      </td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;text-align:center;"><a href="https://dev-jira.osci.kr/plugins/servlet/jeditor-project-config/AAOSDEV/templates" target="_blank" rel="noopener noreferrer" style="color:#0052cc;text-decoration:none;font-weight:bold;">설정 열기 ↗</a></td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script>
+    const TEMPLATES_DATA = [{"environment": "ops", "project": "CFMT", "project_name": "커넥티드카 멀티미디어", "template_id": "101", "name": "결함 보고 템플릿", "description": "기본 결함 리포트 양식", "autofill": "Issue Types [1(Bug), 10100(결함)], Fields [Description]", "fields_str": "Description", "field_name": "Description", "fields": ["Description"], "has_field": true, "issue_types_str": "1(Bug), 10100(결함)", "issue_types_raw": "1, 10100", "issue_types": ["1(Bug)", "10100(결함)"], "has_issue_type": true, "has_content": true, "is_migration_target": true, "migration_status": "TARGET", "migration_status_label": "마이그레이션 대상", "visibility": "전체 (All)", "code": "<p><b>1. 결함 개요</b></p><p>- 재현 경로:</p><p>- 기대 결과:</p><p>- 실제 결과:</p>", "cleaned_content": "<p><b>1. 결함 개요</b></p><p>- 재현 경로:</p><p>- 기대 결과:</p><p>- 실제 결과:</p>", "has_autofill": true, "autofill_status": "AUTO_FILLED", "verification_msg": "template_sample.html 추출", "url": "https://dev-jira.osci.kr/plugins/servlet/jeditor-project-config/CFMT/templates", "adf_doc": {"type": "doc", "version": 1, "content": [{"type": "paragraph", "content": [{"type": "text", "text": "1. 결함 개요", "marks": [{"type": "strong"}]}]}, {"type": "paragraph", "content": [{"type": "text", "text": "- 재현 경로:"}]}, {"type": "paragraph", "content": [{"type": "text", "text": "- 기대 결과:"}]}, {"type": "paragraph", "content": [{"type": "text", "text": "- 실제 결과:"}]}]}, "adf_json": "{\n  \"type\": \"doc\",\n  \"version\": 1,\n  \"content\": [\n    {\n      \"type\": \"paragraph\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"1. 결함 개요\",\n          \"marks\": [\n            {\n              \"type\": \"strong\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"type\": \"paragraph\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"- 재현 경로:\"\n        }\n      ]\n    },\n    {\n      \"type\": \"paragraph\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"- 기대 결과:\"\n        }\n      ]\n    },\n    {\n      \"type\": \"paragraph\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"- 실제 결과:\"\n        }\n      ]\n    }\n  ]\n}"}, {"environment": "ops", "project": "CFMT", "project_name": "커넥티드카 멀티미디어", "template_id": "102", "name": "SW 릴리즈 노트", "description": "릴리즈 시 작성 템플릿", "autofill": "Issue Types [10001(Story), 10004(Task)], Fields [customfield_10010(Release Notes)]", "fields_str": "customfield_10010(Release Notes)", "field_name": "Release Notes", "fields": ["customfield_10010(Release Notes)"], "has_field": true, "issue_types_str": "10001(Story), 10004(Task)", "issue_types_raw": "10001, 10004", "issue_types": ["10001(Story)", "10004(Task)"], "has_issue_type": true, "has_content": true, "is_migration_target": true, "migration_status": "TARGET", "migration_status_label": "마이그레이션 대상", "visibility": "전체 (All)", "code": "<p><b>[릴리즈 버전]</b></p><p>주요 변경점:</p>", "cleaned_content": "<p><b>[릴리즈 버전]</b></p><p>주요 변경점:</p>", "has_autofill": true, "autofill_status": "AUTO_FILLED", "verification_msg": "template_sample.html 추출", "url": "https://dev-jira.osci.kr/plugins/servlet/jeditor-project-config/CFMT/templates", "adf_doc": {"type": "doc", "version": 1, "content": [{"type": "paragraph", "content": [{"type": "text", "text": "[릴리즈 버전]", "marks": [{"type": "strong"}]}]}, {"type": "paragraph", "content": [{"type": "text", "text": "주요 변경점:"}]}]}, "adf_json": "{\n  \"type\": \"doc\",\n  \"version\": 1,\n  \"content\": [\n    {\n      \"type\": \"paragraph\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"[릴리즈 버전]\",\n          \"marks\": [\n            {\n              \"type\": \"strong\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"type\": \"paragraph\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"주요 변경점:\"\n        }\n      ]\n    }\n  ]\n}"}, {"environment": "ops", "project": "AAOSDEV", "project_name": "HMG AAOS Framework Development", "template_id": "201", "name": "Feature Request Spec", "description": "신규 기능 사양 정의", "autofill": "None", "fields_str": "Description", "field_name": "Description", "fields": ["Description"], "has_field": true, "issue_types_str": "2(New Feature)", "issue_types_raw": "2", "issue_types": ["2(New Feature)"], "has_issue_type": true, "has_content": true, "is_migration_target": true, "migration_status": "TARGET", "migration_status_label": "마이그레이션 대상", "visibility": "전체 (All)", "code": "<h3>Feature Specification</h3><p>Description of feature</p>", "cleaned_content": "<h3>Feature Specification</h3><p>Description of feature</p>", "has_autofill": false, "autofill_status": "NOT_CHECKED", "verification_msg": "template_sample.html 추출", "url": "https://dev-jira.osci.kr/plugins/servlet/jeditor-project-config/AAOSDEV/templates", "adf_doc": {"type": "doc", "version": 1, "content": [{"type": "paragraph", "content": [{"type": "text", "text": "Feature Specification"}]}, {"type": "paragraph", "content": [{"type": "text", "text": "Description of feature"}]}]}, "adf_json": "{\n  \"type\": \"doc\",\n  \"version\": 1,\n  \"content\": [\n    {\n      \"type\": \"paragraph\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"Feature Specification\"\n        }\n      ]\n    },\n    {\n      \"type\": \"paragraph\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"Description of feature\"\n        }\n      ]\n    }\n  ]\n}"}, {"environment": "ops", "project": "CFMT", "project_name": "커넥티드카 멀티미디어", "template_id": "103", "name": "임시 작성 양식 (필드 미지정)", "description": "설정 중 임시 템플릿", "autofill": "None", "fields_str": "미지정 (필드 없음)", "field_name": "미지정 (필드 없음)", "fields": [], "has_field": false, "issue_types_str": "1(Bug)", "issue_types_raw": "1", "issue_types": ["1(Bug)"], "has_issue_type": true, "has_content": true, "is_migration_target": false, "migration_status": "EXCLUDED_NO_FIELD", "migration_status_label": "제외 (필드 미지정)", "visibility": "전체 (All)", "code": "<p>임시 양식입니다</p>", "cleaned_content": "<p>임시 양식입니다</p>", "has_autofill": false, "autofill_status": "NOT_CHECKED", "verification_msg": "template_sample.html 추출", "url": "https://dev-jira.osci.kr/plugins/servlet/jeditor-project-config/CFMT/templates", "adf_doc": {"type": "doc", "version": 1, "content": [{"type": "paragraph", "content": [{"type": "text", "text": "임시 양식입니다"}]}]}, "adf_json": "{\n  \"type\": \"doc\",\n  \"version\": 1,\n  \"content\": [\n    {\n      \"type\": \"paragraph\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"임시 양식입니다\"\n        }\n      ]\n    }\n  ]\n}"}, {"environment": "ops", "project": "AAOSDEV", "project_name": "HMG AAOS Framework Development", "template_id": "202", "name": "초안 양식 (이슈타입 미지정)", "description": "사양서 초안", "autofill": "None", "fields_str": "Description", "field_name": "Description", "fields": ["Description"], "has_field": true, "issue_types_str": "미지정 (이슈 타입 없음)", "issue_types_raw": "", "issue_types": [], "has_issue_type": false, "has_content": true, "is_migration_target": false, "migration_status": "EXCLUDED_NO_ISSUETYPE", "migration_status_label": "제외 (이슈타입 미지정)", "visibility": "전체 (All)", "code": "<p>초안 내용</p>", "cleaned_content": "<p>초안 내용</p>", "has_autofill": false, "autofill_status": "NOT_CHECKED", "verification_msg": "template_sample.html 추출", "url": "https://dev-jira.osci.kr/plugins/servlet/jeditor-project-config/AAOSDEV/templates", "adf_doc": {"type": "doc", "version": 1, "content": [{"type": "paragraph", "content": [{"type": "text", "text": "초안 내용"}]}]}, "adf_json": "{\n  \"type\": \"doc\",\n  \"version\": 1,\n  \"content\": [\n    {\n      \"type\": \"paragraph\",\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"초안 내용\"\n        }\n      ]\n    }\n  ]\n}"}];
+
+    function showToast(message) {
+      const t = document.getElementById('toast');
+      t.textContent = message;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2800);
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+    }
+
+    function getVisibleTemplates() {
+      const search = (document.getElementById('searchInput')?.value || '').toLowerCase().trim();
+      const proj = (document.getElementById('projectFilter')?.value || '').toLowerCase().trim();
+      const target = (document.getElementById('targetFilter')?.value || 'all');
+
+      return TEMPLATES_DATA.filter(t => {
+        const text = `${t.project} ${t.project_name || ''} ${t.name} ${t.description || ''} ${t.fields_str || ''} ${t.issue_types_str || ''} ${t.code || ''}`.toLowerCase();
+        const matchSearch = !search || text.includes(search);
+        const matchProj = !proj || (t.project || '').toLowerCase() === proj;
+
+        let matchTarget = true;
+        if (target === 'target') matchTarget = t.is_migration_target;
+        else if (target === 'excluded') matchTarget = !t.is_migration_target;
+        else if (target === 'missing_field') matchTarget = !t.has_field;
+        else if (target === 'missing_itype') matchTarget = !t.has_issue_type;
+
+        return matchSearch && matchProj && matchTarget;
+      });
+    }
+
+    function generateConfluenceHtml(records) {
+      let rows = records.map((r, idx) => {
+        const pkey = r.project || '';
+        const pname = r.project_name || '';
+        const pnameSub = (pname && pname !== pkey) ? `<br/><span style="color:#6b778c;font-size:11px;">${escapeHtml(pname)}</span>` : '';
+        const desc = r.description ? escapeHtml(r.description) : '-';
+        const linkHtml = (r.url && r.url !== '#')
+          ? `<a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer" style="color:#0052cc;text-decoration:none;font-weight:bold;">설정 열기 ↗</a>`
+          : '-';
+        const contentHtml = r.cleaned_content || '(내용 없음)';
+
+        const fieldHtml = r.has_field
+          ? `<span style="background-color:#deebff;color:#0747a6;padding:2px 6px;border-radius:3px;font-weight:bold;font-size:11px;">${escapeHtml(r.fields_str || 'Description')}</span>`
+          : `<span style="background-color:#ffebe6;color:#de350b;padding:2px 6px;border-radius:3px;font-weight:bold;font-size:11px;">${escapeHtml(r.fields_str || '미지정 (필드 없음)')}</span>`;
+
+        const itypesHtml = r.has_issue_type
+          ? `<span style="font-family:monospace;font-size:12px;color:#172b4d;">${escapeHtml(r.issue_types_str || 'all')}</span>`
+          : `<span style="background-color:#ffebe6;color:#de350b;padding:2px 6px;border-radius:3px;font-weight:bold;font-size:11px;">${escapeHtml(r.issue_types_str || '미지정 (이슈 타입 없음)')}</span>`;
+
+        return `    <tr style="border-bottom:1px solid #dfe1e6;">
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;text-align:center;font-family:monospace;color:#6b778c;">${idx + 1}</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;"><strong>${escapeHtml(pkey)}</strong>${pnameSub}</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;font-weight:bold;color:#172b4d;">${escapeHtml(r.name)}</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;color:#172b4d;">${desc}</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;">${fieldHtml}</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;">${itypesHtml}</td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;vertical-align:top;color:#172b4d;">
+        <div style="line-height:1.45;font-size:12.5px;">
+          ${contentHtml}
+        </div>
+      </td>
+      <td style="border:1px solid #dfe1e6;padding:8px 10px;text-align:center;">${linkHtml}</td>
+    </tr>`;
+      }).join('\n');
+
+      return `<table class="confluenceTable" border="1" style="border-collapse:collapse;width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:13px;color:#172b4d;border:1px solid #dfe1e6;">
+  <thead>
+    <tr style="background-color:#f4f5f7;border-bottom:2px solid #dfe1e6;text-align:left;">
+      <th style="border:1px solid #dfe1e6;padding:10px 8px;text-align:center;width:40px;background-color:#f4f5f7;font-weight:bold;">#</th>
+      <th style="border:1px solid #dfe1e6;padding:10px;text-align:left;width:140px;background-color:#f4f5f7;font-weight:bold;">프로젝트</th>
+      <th style="border:1px solid #dfe1e6;padding:10px;text-align:left;min-width:180px;background-color:#f4f5f7;font-weight:bold;">템플릿명</th>
+      <th style="border:1px solid #dfe1e6;padding:10px;text-align:left;min-width:150px;background-color:#f4f5f7;font-weight:bold;">설명</th>
+      <th style="border:1px solid #dfe1e6;padding:10px;text-align:left;width:130px;background-color:#f4f5f7;font-weight:bold;">적용 필드</th>
+      <th style="border:1px solid #dfe1e6;padding:10px;text-align:left;width:110px;background-color:#f4f5f7;font-weight:bold;">적용 이슈 유형</th>
+      <th style="border:1px solid #dfe1e6;padding:10px;text-align:left;min-width:260px;background-color:#f4f5f7;font-weight:bold;">템플릿 내용</th>
+      <th style="border:1px solid #dfe1e6;padding:10px;text-align:center;width:90px;background-color:#f4f5f7;font-weight:bold;">Jira 설정</th>
+    </tr>
+  </thead>
+  <tbody>
+${rows || '<tr><td colspan="8" style="text-align:center;padding:24px;color:#6b778c;">필터 조건에 맞는 JEditor 템플릿이 없습니다.</td></tr>'}
+  </tbody>
+</table>`;
+    }
+
+    function generateConfluenceMarkdown(records) {
+      const lines = [
+        '| # | 프로젝트 | 템플릿명 | 설명 | 적용 필드 | 적용 이슈 유형 | 템플릿 내용 | Jira 설정 |',
+        '|:---:|:---|:---|:---|:---|:---|:---|:---:|'
+      ];
+      records.forEach((r, idx) => {
+        const pkey = r.project || '';
+        const pname = r.project_name || '';
+        const projCell = (pname && pname !== pkey) ? `${pkey} (${pname})` : pkey;
+        const desc = (r.description || '-').replace(/\|/g, '\\|').replace(/\n/g, ' ');
+        const name = (r.name || '').replace(/\|/g, '\\|');
+        const field = (r.has_field ? (r.fields_str || 'Description') : `⚠️ ${r.fields_str || '미지정'}`).replace(/\|/g, '\\|');
+        const itypes = (r.has_issue_type ? (r.issue_types_str || 'all') : `⚠️ ${r.issue_types_str || '미지정'}`).replace(/\|/g, '\\|');
+        const link = (r.url && r.url !== '#') ? `[설정 열기](${r.url})` : '-';
+        const content = (r.cleaned_content || '(내용 없음)').replace(/\|/g, '\\|').replace(/\r?\n/g, '<br/>');
+        lines.push(`| ${idx + 1} | ${projCell} | ${name} | ${desc} | ${field} | ${itypes} | ${content} | ${link} |`);
+      });
+      return lines.join('\n');
+    }
+
+    function applyFilters() {
+      const records = getVisibleTemplates();
+      document.getElementById('visibleCount').textContent = records.length;
+      document.getElementById('btnCopyCount').textContent = records.length;
+      const btn = document.getElementById('btnCopyFiltered');
+      if (btn) {
+        btn.disabled = (records.length === 0);
+        btn.style.opacity = (records.length === 0) ? '0.5' : '1';
+      }
+      document.getElementById('tableContainer').innerHTML = generateConfluenceHtml(records);
+
+      const targetVal = document.getElementById('targetFilter')?.value || 'all';
+      document.querySelectorAll('.chip-btn').forEach(c => {
+        c.classList.toggle('active', c.getAttribute('data-filter') === targetVal);
+      });
+    }
+
+    function setTargetFilter(type, btn) {
+      const sel = document.getElementById('targetFilter');
+      if (sel) sel.value = type;
+      applyFilters();
+    }
+
+    async function copyConfluenceTable() {
+      const records = getVisibleTemplates();
+      if (!records.length) {
+        showToast('⚠️ 복사할 템플릿이 없습니다. (필터 조건에 맞는 행 없음)');
+        return;
+      }
+      const tableHtml = generateConfluenceHtml(records);
+      const tableMd = generateConfluenceMarkdown(records);
+      try {
+        if (navigator.clipboard && window.ClipboardItem) {
+          const blobHtml = new Blob([tableHtml], { type: 'text/html' });
+          const blobText = new Blob([tableMd], { type: 'text/plain' });
+          await navigator.clipboard.write([
+            new ClipboardItem({ 'text/html': blobHtml, 'text/plain': blobText })
+          ]);
+          showToast(`✅ 필터 결과 ${records.length}개 템플릿의 전체 표가 복사되었습니다! Confluence 편집창에서 붙여넣기(Ctrl+V)하세요.`);
+          return;
+        }
+      } catch (_) {}
+
+      // Fallback
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = tableHtml;
+      tempDiv.style.position = 'fixed';
+      tempDiv.style.left = '-9999px';
+      document.body.appendChild(tempDiv);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      const range = document.createRange();
+      range.selectNodeContents(tempDiv);
+      sel.addRange(range);
+      try {
+        document.execCommand('copy');
+        showToast(`✅ 필터 결과 ${records.length}개 템플릿의 전체 표가 복사되었습니다!`);
+      } catch (_) {
+        showToast('❌ 복사 실패');
+      }
+      sel.removeAllRanges();
+      document.body.removeChild(tempDiv);
+    }
+
+    async function copyMarkdownTable() {
+      const records = getVisibleTemplates();
+      if (!records.length) {
+        showToast('⚠️ 복사할 템플릿이 없습니다.');
+        return;
+      }
+      const tableMd = generateConfluenceMarkdown(records);
+      try {
+        await navigator.clipboard.writeText(tableMd);
+        showToast(`✅ 필터 결과 ${records.length}개 템플릿의 Markdown 표가 복사되었습니다.`);
+      } catch (_) {
+        showToast('❌ 복사 실패');
+      }
+    }
+  </script>
+</body>
+</html>
